@@ -1,0 +1,53 @@
+# Introduction
+
+## Background
+The background section defines the problem addressed by the research
+and its impact on the U.S. Army. It cites related previous studies and explains
+why the current research is necessary. It also may present other
+background information that provides essential context for the reader. Examples
+include the following:
+
+* controlling regulations or legal requirements
+* prospective users of the report or the technology. 
+
+
+hi-res terrain opportunity, but not enough tools
+historic field survey versus geomorphometric automated methods
+The purpose of regional curves and why they are important for rapid  watershed assessment
+
+
+
+
+
+vison for what the analysis can be used to accomplish
+
+## Objective
+The objective is a concise statement of what the research is intended to accomplish.
+
+
+Goals
+*	Provide a USACE Planning method for rapid watershed assessments
+*	Develop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles
+*	Develop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits
+
+Objectives
+*	Develop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. 
+*	Use existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics. 
+*	Develop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits. 
+
+
+
+## Approach
+The approach section explains the research methodology. If the methodology
+is complex or otherwise warrants a chapter of its own, the approach
+section may simply cross-reference the reader to the appropriate chapter.
+
+
+## Other Sections
+[ANSI/NISO Z39.18-2005](https://groups.niso.org/apps/group_public/download.php/12038/Z39_18_2005_R2010.pdf) does not prohibit additional sections in the introductory chapter. For example, a scope section may be helpful to explain
+any limitations, caveats, etc., of which the reader should be aware. In some
+cases, supplementary technology transfer1 or contact information also
+may be appropriate for the intended audience. 
+
+1 This information might include online sources for required computer software or related technical information. Recommendations on mode of technology transfer, however, will usually be presented in the concluding chapter rather than the introductory chapter. 
+

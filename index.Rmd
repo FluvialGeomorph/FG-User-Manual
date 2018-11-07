@@ -1,0 +1,78 @@
+--- 
+title: "Rapid Watershed Assessment Using FluvialGeomorph"
+author: "Michael Dougherty, Chris Haring, Davi Michl"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: chicago
+link-citations: true
+description: "This document describes the process for performing a rapid watershed assessment using the FluvialGeomorph Python package."
+---
+
+```{r include=FALSE}
+library(knitr)
+library(png)
+```
+
+# {-}
+See the [Guide for Preparing Technical Information Reports of the Engineer Research and Development Center](http://www.dtic.mil/dtic/tr/fulltext/u2/a445281.pdf) for details on ERDC Technical Report development. 
+
+
+## Abstract
+The abstract appears on the reverse side of the title page. It summarizes
+the research problem, project objective, and outcome of the investigation.
+It should run no more than 200 words. 
+
+
+## Disclaimer
+Also on the reverse side of the title
+page is the standard disclaimer of any implied government endorsement
+of products discussed in text. 
+
+
+## Distribution Statement
+The distribution statement is a critical component of both the cover and
+the title page. Every ERDC technical publication must be imprinted with
+one of the seven primary distribution statements required by Department
+of Defense Directive (DoDD) 5230.24. A distribution statement constitutes
+ERDC’s decision on who is authorized to read the report. Most reports
+published by ERDC are intended for unrestricted public access and carry
+Statement A: “Approved for public release; distribution is unlimited.”
+However, access to many reports may need to be restricted for reasons
+ranging from proprietary information content to national security interests
+related to militarily critical technology. Appendix B presents the text
+of every nonclassified distribution statement and the approved justifica-
+ERDC/ITL SR-04-1 8
+tions for applying each one. Only reports labeled with Statement A shall be
+posted to the World Wide Web for unrestricted public access. 
+
+
+## Preface
+A preface is included in all ERDC reports to present essential nontechnical
+documentation of the research project, such as funding authorization,
+sponsorship, technical contributors to project execution, chain of
+supervision, and the authors’ acknowledgments. Figure A3 presents a
+sample showing all the required elements. 
+
+
+## Unit Conversion Factors
+A unit conversion factors table is included in all reports that do not use
+metric units or dual units. The table should include only those U.S. customary
+units used in the report. It should be compiled from the master list
+of conversion factors maintained by PTTB. For more information, see
+“Expressing and converting units of measure” (page 14). 
+
+
+## Notation List
+A notation list also may be included to define characters, symbols, and abbreviations used to express technical facts or quantities. It appears after
+the unit conversion factors. Figure A4 presents a formatted sample. @R-base
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

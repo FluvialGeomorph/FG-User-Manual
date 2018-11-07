@@ -1,0 +1,150 @@
+# Geoprocessing
+This section describes the geoprocessing steps required to extract channel geomtery dimensions from a LiDAR derived digital elevation model (DEM). 
+
+## Create Terrain
+
+### Develop Elevation Model
+The purpose of this step is to develop a DEM for the study area. 
+
+* Obtain an off-the-shelf DEM for the study area. 
+* Determine if sufficient resolution exists in the channel. 
+* If not, assemble LAS data for the channel. 
+* Create LAS dataset of study area. 
+* Set the LAS Dataset projection to the coordinate system UTM (select appropriate Zone based on location of the study area), Datum: NAD83. 
+* Select LAS classes that contain non-vegetation points within the channel. 
+* Use the `LAS Dataset to Raster` tool to export to raster. 
+    * Z-Factor: 3.28084
+    * Cell assignment Type: IDW
+    * Void Fill Method: Natural Neighbor
+    * Cell size: 1 foot (0.3048 meters)
+* Create a `study_area` polygon feature class that delineates the extent of the study area. Use this feature class to clip the DEM to the desired study area. Edit this polygon to remove any elevation anomolies around the edges of the DEM. These anomolies are sometimes created by the `LAS Dataset to Raster` tool. 
+
+### Elevation Model Hydro Modification
+The purpose of this step is to create a hydro-modified DEM to ensure proper water flow across the study area. 
+
+* Examine the stream channel through the study area and determine if there are any blockages to flow in the DEM. These blockages are typically built infrastructure such as road embankments where streams are conveyed through culverts or underground stormwater structures. 
+* If there are flow blockages in the study area, create a new line feature class named `cutlines` to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified. 
+* In an edit session, identify human structures that block flow along the stream reach being studied. Draw a line beginning at the upstream side of the blockage to a point just downstream of the blockage. 
+* Use the `02 - Burn Cutlines` tool to "burn" the `cutlines` features into the DEM. This tool creates the `dem_hydro` raster. 
+
+
+## Define Watershed Reaches
+
+### Define Stream Reaches
+The purpose of this step is to create a synthetic flow network of streams for the study area. 
+
+* Use the `03 - Contributing Area` tool to calculate the contributing area for the study area. If created, use the `dem_hydro` raster as input, otherwise use the original study area DEM. The `processes` parameter can be safely set to approximately 2 less than the number of cores on the computer running the tool. 
+* Use the `04 - Stream Network` tool to create a synthetic stream network from the hydro-modified DEM. The `processes` parameter can be safely set to approximately 2 less than the number of cores on the computer running the tool. The `threshold` parameter should be set to a value of 200,000 to 500,000 depending on the study area. If the resulting `stream_network` is too dense (requiring a large amount of editing to remove extraneous tributaries), try rerunning the tool and increasing the `threshold` value. Conversely, if the resulting `stream_network` is too sparse (not enough of the stream network was delineated), try rerunning the tool and decreasing the `threshold` value. 
+* Edit the resulting `stream_network` feature class to remove all tributary streams that do not constitute the network that will be analyzed in this study. 
+* Edit the `stream_network` feature class to ensure that stream segments are represented by a single line and that there are no gaps in the steam network. 
+* Use the `Field Calculator` tool to set the `Name` field to the name of the site being analyzed. Failure to complete this step will cause the next tool run to fail.
+* Use the `05 - Create Flowline` tool to process the `stream_network` feature class that was just edited to produce a new `flowline` feature class. Use a smoothing tolerance from 5-20. The goal is produce a smooth flowline, but not remove too much resolution from the line (ensure the line remains in the channel and not cut into the floodplain). 
+* Edit the `flowline` feature class to ensure that the flowline is digitized beginning with the downstream and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. Use the flip command to ensure flowline is digitized in the correct direction.  
+
+
+### Extract Stream Reach Profile Points
+The purpose of this step is convert the flowline into a series of points along the stream. This tool takes the flowline feature class, converts it to a route, calculates the distance to the mouth of the river for all vertices, and creates a stream profile points feature class. The flowline feature class was created during the hydro modification process. 
+
+* Use the `06 Stream Profile Points` tool to convert the `flowline` feature class into stream profile points. For this study, set the `km_to_mouth` parameter to 0 and the `station_distance` field to 1 meter.  
+
+
+## Detrend DEM
+
+
+### Detrend Elevation Model
+The purpose of this step is to produce a detrended DEM. A detrended DEM normalizes stream bank elevations for a given reach. 
+
+* Use the `07 - Detrend` tool to create a detrended DEM for the study reach. For this study, set the `buffer_distance` field to 100 meters. 
+
+
+## Define Channel Extent
+
+### Delineate the Initial Channel Extent
+The purpose of this step is to use the detrended DEM to extract an initial channel extent polygon. 
+
+* The `detrend` DEM created in the last step can be used to explore innundation extents at various water surface elevations. Add the `detrend` feature class to ArcMap. On the Symbology tab, use the Classified renderer to classify the raster into 2 classes. Set the first class boundary to the detrended elevation that you would like to explore. Set the color of the first class (min value - detrended elevation) to blue and the color of the second class (detrended elevation - max value) to No Color. 
+* To delineate the channel extent, select a detrended elevation that innundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the channel without going too far into the floodplain. Try several detrended elevation values to help make the decision. 
+* When you have chosen a detrended elevation, use the `08 - Bankfull Polygon` tool to extract a channel area polygon. This tool creas a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
+* This feature class must be edited to select the channel area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire channel area is selected. 
+* Export these selected features to a new feature class named `banks_xxx`, where xxx is the detrended elevation selected. 
+
+
+### Create Channel Slope Raster
+The purpose of this step is to create a channel slope raster that can be used in the visual identification of riffe locations in following step. 
+
+* Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. This tool creates a new feature class named `channel_slope`. 
+
+
+## Map Riffles
+
+### Map Riffle Cross Sections
+The purpose of this step is to identify and map riffe locations. Riffles will be used in later steps to determine the bankfull elevation from gage stage discharge relationships. Riffle locations are identified using the `channel_slope` raster calculated in the last step (and confirmed with high resolution aerial imagery). In the `channel_slope` raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.
+
+* Create a new line feature class named `riffle` to store riffle cross sections. This feature class must be in the same coordinate system as the DEM. 
+
+* Riffle locations should have the following characteristics: 
+    * A straight reach between two meander bends, areas in the cross-overs between river bends
+    * Clear indicators of of the active floodplain or bankfull discharge
+    * Presence of one or more terraces
+    * Channel section and form typical of the stream
+    * A reasonably clear view of of geomorphic features
+    * Areas of high water surface slope 
+    * Areas of minimum depth and width
+    * Channel width parallel and consistent 
+    * Avoid tributary influences
+
+* Digitize cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure cross sections are digitized in the correct direction. A red vertex denotes the end of a line segment. 
+* Ensure that cross sections are digitized to a detrended elevation of at least 108 to 112 feet. Use the raster classification technique described above (Bankfull Polygon section) to explore innundation extents to identify this maximum detrended elevation that riffle cross sections should delineated to. 
+* Since riffle cross sections should be delineated in locations where there are clear indicators of of the active floodplain or bankfull discharge, ensure that riffle cross sections include at least a portion of the adjacent floodplain. Including at least a portion of the adjacent floodplain allows a fluvial geomorphologist the ability to examine the elevation of the floodplain. Including a 20- to 50-feet section should be sufficient. 
+
+
+## Calculate Riffle Geometry
+
+### Assign Cross Section IDs
+The purpose of this step is to ensure that cross section identifiers are properly assigned to allow later tools to run correctly. 
+
+* Add a long integer field named `Seq` to the `riffle` feature class to hold the unique number of the cross section. This will be used to iterate through cross sections. 
+* Assign integer values to the `Seq` field starting with one. Begin numbering at the downstream extent of the study area and moving upstream. 
+
+### Calculate Cross Section Watershed Area
+The purpose of this step is calculate the watershed area of each cross section. The watershed area draining to each cross section will be used in later steps to define several hydraulic geometry relationships. 
+
+* Add the NHDPlus flow accumulation `NHDPlus_FAC` that has been clipped to the study region to an ArcMap document. Measure the distance from the flowline to each cross section to determine the snap distance required. 
+* Use the `12 - XS Watershed Area` tool to calculate the watershed area for each cross section. 
+
+
+### Assign Cross Section River Position
+The purpose of this step is to assign a river position to each cross section. The river position of each cross section will be used in later steps to calculate several channel parameters (i.e., gradient, sinuosity). 
+
+* Use the `13 - XS Assign River Position` tool to calculate the distance to the mouth of the river for each cross section. 
+
+
+### Calculate Cross Section Station Points
+The purpose of this step is convert the cross section line feature class into a point feature class representing cross section station points. This feature class will be used in later steps to calculate hydraulic geometry dimensions. 
+
+* Use the `14 - XS Create Station Points` tool to calculate cross section station points for each cross section. For this study, set the `station_distance` parameter to 0.3048 meter (1 foot). This tool creates a new feature class named `cross_section_points`. 
+* Export the `cross_section_points` feature class attribute table to a text file named `<study_area>_cross_section_points.csv`, where `<study_area>` is the name of the study area. 
+
+
+### Check Cross Sections
+The purpose of this step is to plot each cross section to ensure it was digitized correctly. 
+
+* Use the `15 - XS Plot` tool to plot each riffle cross section. Make an educated guess at the value of `bankfull_elevation` for the purpose of this QA check. 
+* After creating a plot of the first cross section, in the `R Graphics` window, turn on recording (`History|Recording`) to keep a record of the subsequent cross section plots created during this session. Use the keyboard's `Page Up` and `Page Down` keys to scroll through the plots. If you make a mistake, use the `History|Clear History` menu item to clear the previously recorded graphs. 
+* Use the plots to check that the digitized cross sections have the following characteristics:
+    * Banks should be digitized to a high enough elevation sufficient to contain the anticipated bankfull elevation. This is typically between a detrended elevation of 108 to 112 feet. However, do not exceed this elevation as it will reduce the resolution of the geomorphic features within the the channel displayed on the graph. 
+    * Left and right banks are digitized to a similar elevation. One bank should not be extremely higher that the other. 
+    * A geomorphologist will provide you with feedback on the bankfull elevation and maximum elevation to use for each stream reach. As a result, the cross section digitizing process will necessarily be iterative based on feedback from a fluvial geomorphologist. 
+    * Ensure that cross sections are digitized into a portion of the adjacent floodplain. Cross sections should extend 20 to 50 feet into the floodplain. 
+
+
+## Estimate Bankfull
+
+## Layout Cross Sections
+
+## Calculate Cross Section Geometry
+
+## Calculate Planform Geometry
+
+
+

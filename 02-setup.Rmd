@@ -1,0 +1,27 @@
+# Setup
+
+This chapter will describe the process for installing and configuring the `FluvialGeomorph` software components. 
+
+## Software Requirements
+
+* Internet browser (Mozilla Firefox, Google Chrome recommended)
+* R Statistical Computing Language (3.2.0+ recommended)
+* RStudio Desktop (1.0.153+ recommended), optional
+* TauDEM (5.3.7+ recommended)
+* ArcGIS Pro (2.0+ recommended) or ArcGIS Desktop (10.5.1+ recommended)
+
+
+
+## Install R and RStudio
+
+## Install ArcGIS Desktop or ArcGIS Pro
+
+## Install TauDEM
+
+## Install FluvialGeomorph
+
+## Install Tutorial Data
+
+### Install NHDPlus Flow Accummulation
+
+## Test FluvialGeomorph

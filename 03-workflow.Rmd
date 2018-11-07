@@ -1,0 +1,42 @@
+# Workflow
+This chapter provides an overview of the workflow that will be used to perform a rapid watershed assessment using `FluvialGeomorph`. 
+
+* Provide roadmap or overview of the stages users need to take. 
+* Help orient users with overview to give them the big picture before throwing them into the details. 
+* Describe the forest (workflow) before describing the trees (geoprocessing).  
+* Why each Stage is important
+* Describe Stages, Steps, Tasks and Tools
+
+## Workflow Overview
+Provide a narrative overview of the workflow. 
+```{r echo=FALSE, out.width="100%", fig.cap="Workflow Diagram"}
+include_graphics("images/Workflow_workflow.png")
+```
+
+## Workflow Stages
+* Describe how the workflow is divided into stages and each stage contains steps. 
+
+* 
+
+### Create Terrain
+* What will be accomplished for each stage?
+* Describe how previous stage (outputs) flows into the current stage (inputs). 
+
+### Define Watershed Reaches
+
+### Detrend DEM
+
+### Define Channel Extent
+
+### Map Riffles
+
+### Calculate Riffle Geometry
+
+### Estimate Bankfull
+
+### Layout Cross Sections
+
+### Calculate Cross Section Geometry
+
+### Calculate Planform Geometry
+
