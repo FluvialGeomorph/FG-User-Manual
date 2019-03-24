@@ -75,10 +75,51 @@ The purpose of this step is to create a channel slope raster that can be used in
 * Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. This tool creates a new feature class named `channel_slope`. 
 
 
+
+## Define Meander Loops
+The purpose of this step is to delineate the meander loops and bends for the stream reach. 
+
+### Create the `banklines` feature class
+The purpose of this step is to convert the `banks_xxx` polygon created in one of the previous steps into a feature class that has two records, one representing the left descending bankline and another the right descending bankline for the stream reach. 
+
+* Use the `Polygon To Line` tool to convert the `banks_xxx` polygon feature class created in one of the previous steps into a line feature class named `banklines`. 
+* Add a new text field to the `banklines` feature class named `bank`. The purpose of this field is to designate which bank is the right descending bank and which is the left descending bank. 
+* Start a new edit session on the `banklines` feature class.
+* Use the `Explode Multipart Feature` on the advanced editing toolbar to explode the multipart line feature. 
+* Add the `flowline` feature class to the map document. 
+* Use the `Split Tool` to split the line features at the end of the flowline. The banklines should not extend past the end of the flowline. 
+* The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features. 
+* In the `bank` field, enter the string `right descending` or `left descending` to designate which bank each line represents. 
+
+### Create the `loop_points` feature class
+The purpose of this step is to create a point feature class to delineate the start, end, and apex of each meander loop and bend. 
+
+* Create a new point feature class named `loop_points`. Enable z and m values. The feature class should contain the following fields:
+    * `loop` - long integer
+    * `bend` - long integer
+    * `position` - text (10)
+    * `ReachName` -  text (50)
+* Instructions for placing points goes here. 
+
+
+## Define Valley Line
+The purpose of this step is to define a line that represents the trend of the valley for the stream reach. 
+
+* The `flowline` feature class will be generalized to create the `valleyline` feature class. This will be an iterative process of generating a new smoothed line and comparing it with the `loop_points` feature class. The goal is to find the smooth line that passses through the defined meander loops. 
+* Use the `Smooth Line` tool to smooth the `flowline` feature class. Use the `PAEK` smoothing algorithm. Start with a smoothing tolarance value of 100 meters. Name the output feature class `valleyline_100`
+* Check how well the new smoothed `valleyline_100` feature class passes through the meander loops defined in `loop_points`. If the fit is unacceptable, try increasing the smoothing tolerance value. 
+* Try a range of smoothing tolerances to generate a set of valleylines. 
+* The ideal smoothed valleyline should: 
+    * Divide loop apex values in an alternating pattern (required)
+    * Cross the flowline at the inflection points between meander loops (ideal)
+* Select the smoothed line with the best fit. Delete the unselected smoothed lines. Rename the selected smoothed line `valleyline`. 
+
+
 ## Map Riffles
+The purpose of this step is to identify and map riffe locations. Riffles will be used in later steps to determine the bankfull elevation from gage stage discharge relationships. 
 
 ### Map Riffle Cross Sections
-The purpose of this step is to identify and map riffe locations. Riffles will be used in later steps to determine the bankfull elevation from gage stage discharge relationships. Riffle locations are identified using the `channel_slope` raster calculated in the last step (and confirmed with high resolution aerial imagery). In the `channel_slope` raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.
+Riffle locations are identified using the `channel_slope` raster calculated in the last step (and confirmed with high resolution aerial imagery). In the `channel_slope` raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.
 
 * Create a new line feature class named `riffle` to store riffle cross sections. This feature class must be in the same coordinate system as the DEM. 
 

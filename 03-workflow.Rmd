@@ -10,7 +10,7 @@ This chapter provides an overview of the workflow that will be used to perform a
 ## Workflow Overview
 Provide a narrative overview of the workflow. 
 ```{r echo=FALSE, out.width="100%", fig.cap="Workflow Diagram"}
-include_graphics("images/Workflow_workflow.png")
+include_graphics("images/Workflow_watershed.png")
 ```
 
 ## Workflow Stages
