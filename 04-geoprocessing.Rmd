@@ -39,7 +39,7 @@ The purpose of this step is to create a synthetic flow network of streams for th
 * Edit the `stream_network` feature class to ensure that stream segments are represented by a single line and that there are no gaps in the steam network. 
 * Use the `Field Calculator` tool to set the `Name` field to the name of the site being analyzed. Failure to complete this step will cause the next tool run to fail.
 * Use the `05 - Create Flowline` tool to process the `stream_network` feature class that was just edited to produce a new `flowline` feature class. Use a smoothing tolerance from 5-20. The goal is produce a smooth flowline, but not remove too much resolution from the line (ensure the line remains in the channel and not cut into the floodplain). 
-* Edit the `flowline` feature class to ensure that the flowline is digitized beginning with the downstream and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. Use the flip command to ensure flowline is digitized in the correct direction.  
+* Edit the `flowline` feature class to ensure that the flowline is digitized beginning with the downstream end and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. Use the flip command to ensure flowline is digitized in the correct direction.  
 
 
 ### Extract Stream Reach Profile Points
@@ -83,13 +83,18 @@ The purpose of this step is to delineate the meander loops and bends for the str
 The purpose of this step is to convert the `banks_xxx` polygon created in one of the previous steps into a feature class that has two records, one representing the left descending bankline and another the right descending bankline for the stream reach. 
 
 * Use the `Polygon To Line` tool to convert the `banks_xxx` polygon feature class created in one of the previous steps into a line feature class named `banklines`. 
+* Add a new string field to the `banklines` feature class named `ReachName`.  
+* Add a new long integer field to the `banklines` feature class named `bank_id`. 
 * Add a new text field to the `banklines` feature class named `bank`. The purpose of this field is to designate which bank is the right descending bank and which is the left descending bank. 
 * Start a new edit session on the `banklines` feature class.
 * Use the `Explode Multipart Feature` on the advanced editing toolbar to explode the multipart line feature. 
 * Add the `flowline` feature class to the map document. 
 * Use the `Split Tool` to split the line features at the end of the flowline. The banklines should not extend past the end of the flowline. 
 * The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features. 
+* Ensure that the banklines are digitized in the upstream direction. Edit the `banklines` feature class to ensure that each bankline is digitized beginning with the downstream end and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of each bankline. Use the flip command to ensure each bankline is digitized in the correct direction. 
+* In the `ReachName` field enter the reach name. 
 * In the `bank` field, enter the string `right descending` or `left descending` to designate which bank each line represents. 
+* In the `bank_id` field enter a `1` for the `right descending` bank and `2` for the `left descending` bank. 
 
 ### Create the `loop_points` feature class
 The purpose of this step is to create a point feature class to delineate the start, end, and apex of each meander loop and bend. 
@@ -99,6 +104,8 @@ The purpose of this step is to create a point feature class to delineate the sta
     * `bend` - long integer
     * `position` - text (10)
     * `ReachName` -  text (50)
+
+* Begin numbering loops and bends starting at the downstream end of the reach and increase numbering upstream. 
 * Instructions for placing points goes here. 
 
 
