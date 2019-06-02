@@ -1,6 +1,7 @@
 # Geoprocessing
 This section describes the geoprocessing steps required to extract channel geomtery dimensions from a LiDAR derived digital elevation model (DEM). 
 
+
 ## Create Terrain
 
 ### Develop Elevation Model
@@ -28,6 +29,7 @@ The purpose of this step is to create a hydro-modified DEM to ensure proper wate
 * Use the `02 - Burn Cutlines` tool to "burn" the `cutlines` features into the DEM. This tool creates the `dem_hydro` raster. 
 
 
+
 ## Define Watershed Reaches
 
 ### Define Stream Reaches
@@ -45,7 +47,8 @@ The purpose of this step is to create a synthetic flow network of streams for th
 ### Extract Stream Reach Profile Points
 The purpose of this step is convert the flowline into a series of points along the stream. This tool takes the flowline feature class, converts it to a route, calculates the distance to the mouth of the river for all vertices, and creates a stream profile points feature class. The flowline feature class was created during the hydro modification process. 
 
-* Use the `06 Stream Profile Points` tool to convert the `flowline` feature class into stream profile points. For this study, set the `km_to_mouth` parameter to 0 and the `station_distance` field to 1 meter.  
+* Use the `06 Stream Profile Points` tool to convert the `flowline` feature class into stream profile points. For this study, set the `km_to_mouth` parameter to 0 and the `station_distance` field to 1 meter. This tool will create a new feature class named `flowline_points`. 
+
 
 
 ## Detrend DEM
@@ -57,6 +60,7 @@ The purpose of this step is to produce a detrended DEM. A detrended DEM normaliz
 * Use the `07 - Detrend` tool to create a detrended DEM for the study reach. For this study, set the `buffer_distance` field to 100 meters. 
 
 
+
 ## Define Channel Extent
 
 ### Delineate the Initial Channel Extent
@@ -64,9 +68,10 @@ The purpose of this step is to use the detrended DEM to extract an initial chann
 
 * The `detrend` DEM created in the last step can be used to explore innundation extents at various water surface elevations. Add the `detrend` feature class to ArcMap. On the Symbology tab, use the Classified renderer to classify the raster into 2 classes. Set the first class boundary to the detrended elevation that you would like to explore. Set the color of the first class (min value - detrended elevation) to blue and the color of the second class (detrended elevation - max value) to No Color. 
 * To delineate the channel extent, select a detrended elevation that innundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the channel without going too far into the floodplain. Try several detrended elevation values to help make the decision. 
-* When you have chosen a detrended elevation, use the `08 - Bankfull Polygon` tool to extract a channel area polygon. This tool creas a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
+* When you have chosen a detrended elevation, use the `08 - Water Surface Extent` tool to extract an initial channel extent area polygon. This tool creas a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
 * This feature class must be edited to select the channel area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire channel area is selected. 
-* Export these selected features to a new feature class named `banks_xxx`, where xxx is the detrended elevation selected. 
+* Export these selected features to a new feature class named `initial_channel_extent`. 
+* Delete the `banks_raw_xxx` feature class created in this section.
 
 
 ### Create Channel Slope Raster
@@ -74,52 +79,6 @@ The purpose of this step is to create a channel slope raster that can be used in
 
 * Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. This tool creates a new feature class named `channel_slope`. 
 
-
-
-## Define Meander Loops
-The purpose of this step is to delineate the meander loops and bends for the stream reach. 
-
-### Create the `banklines` feature class
-The purpose of this step is to convert the `banks_xxx` polygon created in one of the previous steps into a feature class that has two records, one representing the left descending bankline and another the right descending bankline for the stream reach. 
-
-* Use the `Polygon To Line` tool to convert the `banks_xxx` polygon feature class created in one of the previous steps into a line feature class named `banklines`. 
-* Add a new string field to the `banklines` feature class named `ReachName`.  
-* Add a new long integer field to the `banklines` feature class named `bank_id`. 
-* Add a new text field to the `banklines` feature class named `bank`. The purpose of this field is to designate which bank is the right descending bank and which is the left descending bank. 
-* Start a new edit session on the `banklines` feature class.
-* Use the `Explode Multipart Feature` on the advanced editing toolbar to explode the multipart line feature. 
-* Add the `flowline` feature class to the map document. 
-* Use the `Split Tool` to split the line features at the end of the flowline. The banklines should not extend past the end of the flowline. 
-* The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features. 
-* Ensure that the banklines are digitized in the upstream direction. Edit the `banklines` feature class to ensure that each bankline is digitized beginning with the downstream end and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of each bankline. Use the flip command to ensure each bankline is digitized in the correct direction. 
-* In the `ReachName` field enter the reach name. 
-* In the `bank` field, enter the string `right descending` or `left descending` to designate which bank each line represents. 
-* In the `bank_id` field enter a `1` for the `right descending` bank and `2` for the `left descending` bank. 
-
-### Create the `loop_points` feature class
-The purpose of this step is to create a point feature class to delineate the start, end, and apex of each meander loop and bend. 
-
-* Create a new point feature class named `loop_points`. Enable z and m values. The feature class should contain the following fields:
-    * `loop` - long integer
-    * `bend` - long integer
-    * `position` - text (10)
-    * `ReachName` -  text (50)
-
-* Begin numbering loops and bends starting at the downstream end of the reach and increase numbering upstream. 
-* Instructions for placing points goes here. 
-
-
-## Define Valley Line
-The purpose of this step is to define a line that represents the trend of the valley for the stream reach. 
-
-* The `flowline` feature class will be generalized to create the `valleyline` feature class. This will be an iterative process of generating a new smoothed line and comparing it with the `loop_points` feature class. The goal is to find the smooth line that passses through the defined meander loops. 
-* Use the `Smooth Line` tool to smooth the `flowline` feature class. Use the `PAEK` smoothing algorithm. Start with a smoothing tolarance value of 100 meters. Name the output feature class `valleyline_100`
-* Check how well the new smoothed `valleyline_100` feature class passes through the meander loops defined in `loop_points`. If the fit is unacceptable, try increasing the smoothing tolerance value. 
-* Try a range of smoothing tolerances to generate a set of valleylines. 
-* The ideal smoothed valleyline should: 
-    * Divide loop apex values in an alternating pattern (required)
-    * Cross the flowline at the inflection points between meander loops (ideal)
-* Select the smoothed line with the best fit. Delete the unselected smoothed lines. Rename the selected smoothed line `valleyline`. 
 
 
 ## Map Riffles
@@ -146,6 +105,7 @@ Riffle locations are identified using the `channel_slope` raster calculated in t
 * Since riffle cross sections should be delineated in locations where there are clear indicators of of the active floodplain or bankfull discharge, ensure that riffle cross sections include at least a portion of the adjacent floodplain. Including at least a portion of the adjacent floodplain allows a fluvial geomorphologist the ability to examine the elevation of the floodplain. Including a 20- to 50-feet section should be sufficient. 
 
 
+
 ## Calculate Riffle Geometry
 
 ### Assign Cross Section IDs
@@ -170,8 +130,8 @@ The purpose of this step is to assign a river position to each cross section. Th
 ### Calculate Cross Section Station Points
 The purpose of this step is convert the cross section line feature class into a point feature class representing cross section station points. This feature class will be used in later steps to calculate hydraulic geometry dimensions. 
 
-* Use the `14 - XS Create Station Points` tool to calculate cross section station points for each cross section. For this study, set the `station_distance` parameter to 0.3048 meter (1 foot). This tool creates a new feature class named `cross_section_points`. 
-* Export the `cross_section_points` feature class attribute table to a text file named `<study_area>_cross_section_points.csv`, where `<study_area>` is the name of the study area. 
+* Use the `14 - XS Create Station Points` tool to calculate cross section station points for each cross section. For this study, set the `station_distance` parameter to 0.3048 meter (1 foot). This tool creates a new feature class named `riffle_points`. 
+* Export the `riffle_points` feature class attribute table to a text file named `<reach>_riffle_points.csv`, where `<reach>` is the name of the current reach. 
 
 
 ### Check Cross Sections
@@ -187,6 +147,102 @@ The purpose of this step is to plot each cross section to ensure it was digitize
 
 
 ## Estimate Bankfull
+The purpose of this step is to produce the `Estimate Bankfull Report`. This report will be used to estimate the bankfull water surface elevation for the current reach. This report conducts a sensitivity analysis using the regional curve estimates of channel dimensions accross a range of elevation values to identify the bankfull elevation value that best fits the regional curve estimate. 
+
+* Use the `19 Estimate Bankfull` tool to produce the `Estimate Bankfull Report`. 
+    * `xs_points_fc`: Riffle cross section points: `riffle_points`
+    * `regions`: Select the regional curve that will be used to estimate the bankfull water surface elevation. 
+    * `from_elevation`: The lowest detrended elevation value that defines the lower end of the range to be used for the sensitivity analysis.
+    * `to_elevation`: The highest detrended elevation value that defines the upper end of the range to be used for the sensitivity analysis.
+    * `by_elevation`: The value to increment the sequence by between `from_elevation` and `to_elevation`. These three values define the sequence used to create the sensitivity analysis. 
+    * `bankfull_estimate`: The detrended elevation value that defines the bankfull water surface elevation. 
+    * `output_dir`: The folder where tha `Estimate Bankfull Report` will be saved. 
+    * `output_format`: The file format of the report. 
+* The `19 Estimate Bankfull` tool is intended to be run iteratively, testing the fit of a range of detrended bankfull elevations. Use the Bankfull Elevation Goodness of Fit graph in the report to determine the detrended bankfull elevation that minimizes error. Choose the detrended bankfull elevation that minimizes error on subsequent runs of the report. 
+* From the initial `Estimate Bankfull Report`, select the detrended bankfull elevation that minimizes error on the Bankfull Elevation Goodness of Fit graph and rerun the report using that value. 
+* In the example figure below, the detrended bankfull elevation of 104 ft. minimizes error (y-axis Mean Average Error) for both area and depth. Although 102 ft. appears to be the detrended elevation that minimizes error for width, 104 ft. does a better job for area and depth. Therefore, using the logic of "best two out three", a detrended bankfull elevation of 104 ft. should be chosen for this reach and will be used for later steps in this analysis.
+
+```{r echo=FALSE, out.width="100%", fig.cap="Bankfull Elevation Goodness of Fit"}
+include_graphics("images/reach_gof_graph.png")
+```
+
+
+
+## Define Valley Line
+The purpose of this step is to define a line that represents the trend of the valley for the stream reach. 
+
+### Define Flood Prone Extent
+The purpose of this step is to define a flood prone extent for the reach.
+
+* From the `Estimate Bankfull Estimate` report created in the last step, identify the detrended bankfull elevation. In the example above, this value was 104 ft. 
+* Determine the bankfull depth. The detrending process expresses stream elevations using a base index value of 100. Therefore an estimate of detrended bankfull elevation of 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach. This value is similar to the bankfull depth (with caveats). 
+* Determine flood prone height. Flood prone has been determined through emperical studies to be approximately two times the bankfull depth. Using the bankfull depth calculated in the last step, calculate the flood prone depth (8 ft.). Therefore, the flood prone detrended elevation would be 108 ft. 
+* With the detrended flood prone elevation for your reach determined in the last step, use the `08 - Water Surface Extent` tool to extract a flood prone area polygon. This tool creas a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
+* This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire flood prone area is selected. 
+* Export these selected features to a new feature class named `flood_prone`. 
+* Delete the `banks_raw_xxx` feature class created in this section. 
+
+### Create Candidate Valley Lines
+The purpose of this step is to create a set of candidate valley lines created by smoothing the flowline. Several smoothed valley lines will be created in this section. This set of valley lines will be selected from in the next section. 
+
+* Use the ESRI `Smooth Line` tool to smooth the `flowline` feature class. Use the `PAEK` smoothing algorithm. Use a `Smoothing Tolarance` value of 200 meters. Name the output feature class `valleyline_100`
+* Repeat the previous step using the `Smoothing Tolerance` values of 250, 300, 350, 400, 450, and 500. 
+
+### Select the Valley Line
+The purpose of this step is to select from the set of valley line feature classes created above the valley line that is most smoothed but still fits (mostly) within the `flood_prone` polygon extent.
+
+* Add the `flood_prone` polygon and all of the valley line feature classes to a map document.
+* Identify the valley line feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the `flood_prone` polygon. 
+* Rename the selected valley line to `valleyline`. 
+
+
+
+## Define Meander Loops
+The purpose of this step is to delineate the meander loops and bends for the stream reach. 
+
+### Create a Bankfull Polygon
+The purpose of this step is to create is the extract a bankfull extent polygon. 
+
+* From the `Estimate Bankfull Estimate` report created previously, identify the detrended bankfull elevation. In the example above, this value was 104 ft. 
+* With the detrended elevation for your reach determined, use the `08 - Water Surface Extent` tool to extract a bankfull area polygon. This tool creas a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
+* This feature class must be edited to select the bankfull area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire bankfull area is selected. 
+* Export these selected features to a new feature class named `bankfull_area`. 
+* Delete the `banks_raw_xxx` feature class created in this section. 
+
+
+### Create the `banklines` feature class
+The purpose of this step is to create a banklines feature class that represents the banklines at the bankfull elevation. The `banklines` feature class will have two records, one representing the left descending bankline and another the right descending bankline for the stream reach. 
+
+* Use the `Polygon To Line` tool to convert the `bankfull_area` polygon feature class created in a previous step into a line feature class named `banklines`. 
+* Add a new text field to the `banklines` feature class named `ReachName`.  
+* Add a new long integer field to the `banklines` feature class named `bank_id`. 
+* Add a new text field to the `banklines` feature class named `bank`. The purpose of this field is to designate which bank is the right descending bank and which is the left descending bank. 
+* Start a new edit session on the `banklines` feature class.
+* Use the `Explode Multipart Feature` on the advanced editing toolbar to explode the multipart line feature for the `bankline` feature class. 
+* Add the `flowline` feature class to the map document. 
+* Use the `Split Tool` to split the line features at the end of the flowline. The banklines should not extend past the end of the flowline.
+* Use the 'Split Tool' to trim any tributaries from the 'banklines' feature class.
+* The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features. 
+* Ensure that the banklines are digitized in the upstream direction. Edit the `banklines` feature class to ensure that each bankline is digitized beginning with the downstream end and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of each bankline. Use the flip command to ensure each bankline is digitized in the correct direction. 
+* In the `ReachName` field enter the reach name. 
+* In the `bank` field, enter the string `right descending` or `left descending` to designate which bank each line represents. 
+* In the `bank_id` field enter a `1` for the `right descending` bank and `2` for the `left descending` bank. 
+
+### Create the `loop_points` feature class
+The purpose of this step is to create a point feature class to delineate the start, end, and apex of each meander loop and bend. 
+
+* Create a new point feature class named `loop_points`. Enable z and m values. The feature class should contain the following fields:
+    * `loop` - long integer
+    * `bend` - long integer
+    * `position` - text (10)
+    * `ReachName` -  text (50)
+
+* Begin numbering loops and bends starting at the downstream end of the reach and increase numbering upstream. 
+* Instructions for placing points goes here. 
+
+
+
+
 
 ## Layout Cross Sections
 
