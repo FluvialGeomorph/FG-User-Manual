@@ -61,37 +61,55 @@ The purpose of this step is to produce a detrended DEM. A detrended DEM normaliz
 
 
 
-## Define Channel Extent
+## Define Initial Channel and Floodplain Extents
 
 ### Delineate the Initial Channel Extent
-The purpose of this step is to use the detrended DEM to extract an initial channel extent polygon. 
+The purpose of this step is to use the detrended DEM to visually extract an initial channel extent polygon. The `detrend` DEM created in the last step can be used to iteratively explore different innundation extents derived from various water surface elevations. 
 
-* The `detrend` DEM created in the last step can be used to explore innundation extents at various water surface elevations. Add the `detrend` feature class to ArcMap. On the Symbology tab, use the Classified renderer to classify the raster into 2 classes. Set the first class boundary to the detrended elevation that you would like to explore. Set the color of the first class (min value - detrended elevation) to blue and the color of the second class (detrended elevation - max value) to No Color. 
-* To delineate the channel extent, select a detrended elevation that innundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the channel without going too far into the floodplain. Try several detrended elevation values to help make the decision. 
+* Add the `detrend` feature class to the map Table of Contents. Name this layer `Channel Extent`. 
+* On the Symbology tab of the `Channel Extent` layer, use the Classified renderer to classify the raster into 2 classes. Set the first class boundary to the detrended elevation that you would like to explore. Set the color of the first class (min value - detrended elevation) to blue and the color of the second class (detrended elevation - max value) to No Color. 
+* Set the transparency of the `Channel Extent` layer to 50%. 
+* Begin to delineate the channel extent by selecting a detrended elevation that innundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the extent of the channel without "spilling" too much water into the floodplain. Once you discover which detrended elevation begins to allow water to access the floodplain, reduce the detrended elevation value slightly to keep the water in the channel. Try several detrended elevation values to help make the decision. 
 * When you have chosen a detrended elevation, use the `08 - Water Surface Extent` tool to extract an initial channel extent area polygon. This tool creas a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
 * This feature class must be edited to select the channel area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire channel area is selected. 
 * Export these selected features to a new feature class named `initial_channel_extent`. 
 * Delete the `banks_raw_xxx` feature class created in this section.
 
 
+### Create the Initial Channel Mask layer
+The purpose of this step is to create a layer that defines an area just beyond the initial channel extent. 
+
+* Add the `detrend` feature class to the map Table of Contents. Name this layer `Channel Mask`. 
+* In the symbology of this layer, change the renderer from `stretched` to `classified`. Set the number of classes to 2. In the `classification` dialog, set the break value between the two classes to about one to two feet higher than the initial bankfull extent estimate. A couple of feet above the initial bankfull extent estimate should define the extent of the just the channel. For example, if the initial bankfull extent was estimated at 102 detrended feet, the initial bankfull height estimate would be 2 feet. One foot higher than the 2 foot initial bankfull height estimate would therefore be 103 detrended feet. 
+* Set the transparency of the `Channel Mask` layer to 50%. 
+
+
+### Create the Initial Floodplain Mask layer
+The purpose of this step is to create a layer that defines the an initial estimate of the floodplain inundation extent. 
+
+* Add the `detrend` feature class to the map Table of Contents. Name this layer `Floodplain Mask`. 
+* In the symbology of this layer, change the renderer from `stretched` to `classified`. Set the number of classes to 2. In the `classification` dialog, set the break value between the two classes to four times the initial bankfull extent estimate. Four times the initial bankfull extent estimate should define the extent of the active floodplain. For example, if the initial bankfull extent was estimated at 102 detrended feet, the initial bankfull height estimate would be 2 feet. Four times the 2 foot initial bankfull height estimate would therefore be 108 detrended feet. 
+* Set the transparency of the `Floodplain Mask` layer to 50%. 
+
+
 ### Create Channel Slope Raster
 The purpose of this step is to create a channel slope raster that can be used in the visual identification of riffe locations in following step. 
 
-* Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. This tool creates a new feature class named `channel_slope`. 
-
+* Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. Use the `intitial_channel_extent` polygon created earlier to define the channel area within which the slope raster will be calculated. This tool creates a new feature class named `channel_slope`. 
 
 
 ## Map Riffles
 The purpose of this step is to identify and map riffe locations. Riffles will be used in later steps to determine the bankfull elevation from gage stage discharge relationships. 
 
+
 ### Map Riffle Cross Sections
 Riffle locations are identified using the `channel_slope` raster calculated in the last step (and confirmed with high resolution aerial imagery). In the `channel_slope` raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.
 
-* Create a new line feature class named `riffle` to store riffle cross sections. This feature class must be in the same coordinate system as the DEM. 
+* Create a new line feature class named `riffle_floodplain` to store riffle cross sections. This feature class must be in the same coordinate system as the DEM. 
 
 * Riffle locations should have the following characteristics: 
     * A straight reach between two meander bends, areas in the cross-overs between river bends
-    * Clear indicators of of the active floodplain or bankfull discharge
+    * Clear indicators of the active floodplain or bankfull discharge
     * Presence of one or more terraces
     * Channel section and form typical of the stream
     * A reasonably clear view of of geomorphic features
@@ -100,19 +118,29 @@ Riffle locations are identified using the `channel_slope` raster calculated in t
     * Channel width parallel and consistent 
     * Avoid tributary influences
 
-* Digitize cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure cross sections are digitized in the correct direction. A red vertex denotes the end of a line segment. 
-* Ensure that cross sections are digitized to a detrended elevation of at least 108 to 112 feet. Use the raster classification technique described above (Bankfull Polygon section) to explore innundation extents to identify this maximum detrended elevation that riffle cross sections should delineated to. 
-* Since riffle cross sections should be delineated in locations where there are clear indicators of of the active floodplain or bankfull discharge, ensure that riffle cross sections include at least a portion of the adjacent floodplain. Including at least a portion of the adjacent floodplain allows a fluvial geomorphologist the ability to examine the elevation of the floodplain. Including a 20- to 50-feet section should be sufficient. 
+* Digitize riffle cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure riffles are digitized in the correct direction. A red vertex denotes the end of a line segment. 
+* Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each `riffle_floodplain` feature to ensure that it extends at least to the edge of the `Floodplain Mask` layer, but no further. 
+* This ensures that each `riffle_floodplain` feature covers the entire floodplain, but does not extend too far into the upland.  
+
+### Assign Cross Section IDs
+The purpose of this step is to ensure that riffle cross section identifiers are properly assigned. Assignment of cross section identifiers is critical for later tools to uniquely identify each cross section. 
+
+* Add a long integer field named `Seq` to the `riffle_floodplain` feature class to hold the unique number of the cross section. This will be used to iterate through cross sections. 
+* Assign integer values to the `Seq` field starting with one. Begin numbering at the downstream extent of the study area and moving upstream. 
+
+
+### Create the `riffle_channel` feature class
+The purpose of this step is to trim the riffle cross sections in the `riffle_floodplain` feature class to match the extent of the `Channel Mask` layer. This allows a more detailed examination of the channel area. 
+
+* In ArcCatalog, make a copy of the `riffle_floodplain` feature class and name it `riffle_channel`.
+* Edit each `riffle_channel` feature to ensure that it extends at least to the edge of the `Channel Mask` layer, but no further. Use snapping to ensure that vertices of the `riffle_channel` features are coincident with the `riffle_floodplain` features. 
+* This ensures that each `riffle_channel` feature covers the entire channel, but does not extend too far into the floodplain.
 
 
 
 ## Calculate Riffle Geometry
+The purpose of the next three steps is to calculate the geometry of the cross sections defined in the previous steps. 
 
-### Assign Cross Section IDs
-The purpose of this step is to ensure that cross section identifiers are properly assigned to allow later tools to run correctly. 
-
-* Add a long integer field named `Seq` to the `riffle` feature class to hold the unique number of the cross section. This will be used to iterate through cross sections. 
-* Assign integer values to the `Seq` field starting with one. Begin numbering at the downstream extent of the study area and moving upstream. 
 
 ### Calculate Cross Section Watershed Area
 The purpose of this step is calculate the watershed area of each cross section. The watershed area draining to each cross section will be used in later steps to define several hydraulic geometry relationships. 
@@ -137,13 +165,12 @@ The purpose of this step is convert the cross section line feature class into a 
 ### Check Cross Sections
 The purpose of this step is to plot each cross section to ensure it was digitized correctly. 
 
-* Use the `15 - XS Plot` tool to plot each riffle cross section. Make an educated guess at the value of `bankfull_elevation` for the purpose of this QA check. 
+* Use the `15 - XS Plot` tool to plot each riffle cross section. Use the detrended bankfull elevation value that you selected for the initial channel extent for the value of the `bankfull_elevation` for the purpose of this QA check. 
 * After creating a plot of the first cross section, in the `R Graphics` window, turn on recording (`History|Recording`) to keep a record of the subsequent cross section plots created during this session. Use the keyboard's `Page Up` and `Page Down` keys to scroll through the plots. If you make a mistake, use the `History|Clear History` menu item to clear the previously recorded graphs. 
-* Use the plots to check that the digitized cross sections have the following characteristics:
-    * Banks should be digitized to a high enough elevation sufficient to contain the anticipated bankfull elevation. This is typically between a detrended elevation of 108 to 112 feet. However, do not exceed this elevation as it will reduce the resolution of the geomorphic features within the the channel displayed on the graph. 
+* Use the cross section profile plots to check that the digitized cross sections have the following characteristics:
+    * Banks should be digitized to a high enough elevation sufficient to extend across the active floodplain. However, do not exceed this elevation as it will reduce the resolution of the geomorphic features within the the channel displayed on the graph. 
     * Left and right banks are digitized to a similar elevation. One bank should not be extremely higher that the other. 
-    * A geomorphologist will provide you with feedback on the bankfull elevation and maximum elevation to use for each stream reach. As a result, the cross section digitizing process will necessarily be iterative based on feedback from a fluvial geomorphologist. 
-    * Ensure that cross sections are digitized into a portion of the adjacent floodplain. Cross sections should extend 20 to 50 feet into the floodplain. 
+
 
 
 ## Estimate Bankfull
