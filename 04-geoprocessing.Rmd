@@ -227,7 +227,7 @@ The purpose of this step is to define a flood prone extent for the reach.
 ### Create Candidate Valley Lines
 The purpose of this step is to create a set of candidate valley lines created by smoothing the flowline. Several smoothed valley lines will be created in this section. This set of valley lines will be selected from in the next section. 
 
-* Use the ESRI `Smooth Line` tool to smooth the `flowline` feature class. Use the `PAEK` smoothing algorithm. Use a `Smoothing Tolarance` value of 200 meters. Name the output feature class `valleyline_100`
+* Use the ESRI `Smooth Line` tool to smooth the `flowline` feature class. Use the `PAEK` smoothing algorithm. Use a `Smoothing Tolarance` value of 200 meters. Name the output feature class `valleyline_200`
 * Repeat the previous step using the `Smoothing Tolerance` values of 250, 300, 350, 400, 450, and 500. 
 
 ### Select the Valley Line
