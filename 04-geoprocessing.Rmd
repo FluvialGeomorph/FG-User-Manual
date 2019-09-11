@@ -194,6 +194,21 @@ include_graphics("images/reach_gof_graph.png")
 ```
 
 
+## Identify Infrastructure
+The purpose of this step is to identify infrastructure that impacts streaam structure and function throughout the reach. These infrastructure features will be used to indicate the position of infrastructure in several maps and graphs. 
+
+* Create a new point feature class named `features`. The feature class should contain the following fields:
+    * `Name` - Text (50), Used to record the name of the intrastructure. 
+    * `km_to_mouth` - double, Used to record the longitudinal position along the reach. 
+* Working upstream from the downstream end of the reach, examine the DEM and aerial imagery for infrastructure that could potentially impact stream structure and function. 
+* Add the `flowline_points` feature class to the map document. 
+* Start an edit session on the `features` feature class. 
+* When impacting infrastructure is found, create a point feature centered on the `flowline` feature class. 
+* Assign it a descriptive label in the `Name` field, and record its longitudinal position along the reach (see next bullet) in the `km_to_mouth` field. 
+* To determine an infrastructure feature's longitudinal position along the reach, use the identify tool to find the closest point in the `flowline_points` feature class and use its `km_to_moth` value. 
+* Repeat these steps to record all of the infrasructure points along a reach. 
+
+
 
 ## Define Valley Line
 The purpose of this step is to define a line that represents the trend of the valley for the stream reach. 
@@ -267,6 +282,8 @@ The purpose of this step is to create a point feature class to delineate the sta
 * Begin numbering loops and bends starting at the downstream end of the reach and increase numbering upstream. 
 * Instructions for placing points goes here. 
 
+### Assign Loops and Bends to Cross Sections
+The purpose of this step is to assign the loops and bends defined in the last step to riffle cross sections feature classes
 
 
 
