@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Dougherty, Chris Haring, Davi Michl" />
 
 
-<meta name="date" content="2019-09-11" />
+<meta name="date" content="2019-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,11 +146,10 @@
 <li class="chapter" data-level="4.10.1" data-path="geoprocessing.html"><a href="geoprocessing.html#create-a-bankfull-polygon"><i class="fa fa-check"></i><b>4.10.1</b> Create a Bankfull Polygon</a></li>
 <li class="chapter" data-level="4.10.2" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-banklines-feature-class"><i class="fa fa-check"></i><b>4.10.2</b> Create the <code>banklines</code> feature class</a></li>
 <li class="chapter" data-level="4.10.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-loop_points-feature-class"><i class="fa fa-check"></i><b>4.10.3</b> Create the <code>loop_points</code> feature class</a></li>
-<li class="chapter" data-level="4.10.4" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-loops-and-bends-to-cross-sections"><i class="fa fa-check"></i><b>4.10.4</b> Assign Loops and Bends to Cross Sections</a></li>
+<li class="chapter" data-level="4.10.4" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-bankline_points-feature-class"><i class="fa fa-check"></i><b>4.10.4</b> Create the <code>bankline_points</code> feature class</a></li>
+<li class="chapter" data-level="4.10.5" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-loops-and-bends-to-cross-sections"><i class="fa fa-check"></i><b>4.10.5</b> Assign Loops and Bends to Cross Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="4.11" data-path="geoprocessing.html"><a href="geoprocessing.html#layout-cross-sections-1"><i class="fa fa-check"></i><b>4.11</b> Layout Cross Sections</a></li>
-<li class="chapter" data-level="4.12" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-geometry-1"><i class="fa fa-check"></i><b>4.12</b> Calculate Cross Section Geometry</a></li>
-<li class="chapter" data-level="4.13" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-planform-geometry-1"><i class="fa fa-check"></i><b>4.13</b> Calculate Planform Geometry</a></li>
+<li class="chapter" data-level="4.11" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-geometry-1"><i class="fa fa-check"></i><b>4.11</b> Calculate Cross Section Geometry</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>5</b> Examples</a><ul>
 <li class="chapter" data-level="5.1" data-path="examples.html"><a href="examples.html#select-region"><i class="fa fa-check"></i><b>5.1</b> Select Region</a></li>
@@ -311,7 +310,8 @@
 <li>Channel width parallel and consistent</li>
 <li>Avoid tributary influences</li>
 </ul></li>
-<li>Digitize riffle cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure riffles are digitized in the correct direction. A red vertex denotes the end of a line segment.</li>
+<li>Digitize riffle cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure riffles are digitized in the correct direction. A red vertex denotes the end of a line segment. Therefore, the red end vertex should be on the right descending bank.</li>
+<li>Check that each cross section is digitized in the correct direction (start at the left descending bank and end on the right descending bank) before going on to the next step.</li>
 <li>Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each <code>riffle_floodplain</code> feature to ensure that it extends at least to the edge of the <code>Floodplain Mask</code> layer, but no further.</li>
 <li><p>This ensures that each <code>riffle_floodplain</code> feature covers the entire floodplain, but does not extend too far into the upland.</p></li>
 </ul>
@@ -343,6 +343,7 @@
 <ul>
 <li>Add the NHDPlus flow accumulation <code>NHDPlus_FAC</code> that has been clipped to the study region to an ArcMap document. Measure the distance from the flowline to each cross section to determine the snap distance required.</li>
 <li>Use the <code>12 - XS Watershed Area</code> tool to calculate the watershed area for each cross section.</li>
+<li>Complete this step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
 </ul>
 </div>
 <div id="assign-cross-section-river-position" class="section level3">
@@ -350,6 +351,7 @@
 <p>The purpose of this step is to assign a river position to each cross section. The river position of each cross section will be used in later steps to calculate several channel parameters (i.e., gradient, sinuosity).</p>
 <ul>
 <li>Use the <code>13 - XS Assign River Position</code> tool to calculate the distance to the mouth of the river for each cross section.</li>
+<li>Complete tis step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
 </ul>
 </div>
 <div id="calculate-cross-section-station-points" class="section level3">
@@ -357,7 +359,7 @@
 <p>The purpose of this step is convert the cross section line feature class into a point feature class representing cross section station points. This feature class will be used in later steps to calculate hydraulic geometry dimensions.</p>
 <ul>
 <li>Use the <code>14 - XS Create Station Points</code> tool to calculate cross section station points for each cross section. For this study, set the <code>station_distance</code> parameter to 0.3048 meter (1 foot). This tool creates a new feature class named <code>riffle_points</code>.</li>
-<li>Export the <code>riffle_points</code> feature class attribute table to a text file named <code>&lt;reach&gt;_riffle_points.csv</code>, where <code>&lt;reach&gt;</code> is the name of the current reach.</li>
+<li>Complete tis step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
 </ul>
 </div>
 <div id="check-cross-sections" class="section level3">
@@ -414,7 +416,7 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <li>Start an edit session on the <code>features</code> feature class.</li>
 <li>When impacting infrastructure is found, create a point feature centered on the <code>flowline</code> feature class.</li>
 <li>Assign it a descriptive label in the <code>Name</code> field, and record its longitudinal position along the reach (see next bullet) in the <code>km_to_mouth</code> field.</li>
-<li>To determine an infrastructure feature’s longitudinal position along the reach, use the identify tool to find the closest point in the <code>flowline_points</code> feature class and use its <code>km_to_moth</code> value.</li>
+<li>To determine an infrastructure feature’s longitudinal position along the reach, use the identify tool to find the closest point in the <code>flowline_points</code> feature class and use its <code>POINT_M</code> value.</li>
 <li>Repeat these steps to record all of the infrasructure points along a reach.</li>
 </ul>
 </div>
@@ -425,7 +427,7 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <h3><span class="header-section-number">4.9.1</span> Define Flood Prone Extent</h3>
 <p>The purpose of this step is to define a flood prone extent for the reach.</p>
 <ul>
-<li>From the <code>Estimate Bankfull Estimate</code> report created in the last step, identify the detrended bankfull elevation. In the example above, this value was 104 ft.</li>
+<li>From the <code>Bankfull Estimate</code> report created in the last step, identify the detrended bankfull elevation. In the example above, this value was 104 ft.</li>
 <li>Determine the bankfull depth. The detrending process expresses stream elevations using a base index value of 100. Therefore an estimate of detrended bankfull elevation of 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach. This value is similar to the bankfull depth (with caveats).</li>
 <li>Determine flood prone height. Flood prone has been determined through emperical studies to be approximately two times the bankfull depth. Using the bankfull depth calculated in the last step, calculate the flood prone depth (8 ft.). Therefore, the flood prone detrended elevation would be 108 ft.</li>
 <li>With the detrended flood prone elevation for your reach determined in the last step, use the <code>08 - Water Surface Extent</code> tool to extract a flood prone area polygon. This tool creas a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
@@ -482,6 +484,7 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <li>Use the ‘Split Tool’ to trim any tributaries from the ‘banklines’ feature class.</li>
 <li>The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features.</li>
 <li>Ensure that the banklines are digitized in the upstream direction. Edit the <code>banklines</code> feature class to ensure that each bankline is digitized beginning with the downstream end and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of each bankline. Use the flip command to ensure each bankline is digitized in the correct direction.</li>
+<li>Check that each bankline is digitized in the upstream direction (red endpoint at the upstream end) before going on to the next step.</li>
 <li>In the <code>ReachName</code> field enter the reach name.</li>
 <li>In the <code>bank</code> field, enter the string <code>right descending</code> or <code>left descending</code> to designate which bank each line represents.</li>
 <li>In the <code>bank_id</code> field enter a <code>1</code> for the <code>right descending</code> bank and <code>2</code> for the <code>left descending</code> bank.</li>
@@ -498,23 +501,43 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <li><code>position</code> - text (10)</li>
 <li><code>ReachName</code> - text (50)</li>
 </ul></li>
+</ul>
+<p><insert loop and bend diagram here></p>
+<ul>
 <li>Begin numbering loops and bends starting at the downstream end of the reach and increase numbering upstream.</li>
-<li>Instructions for placing points goes here.</li>
+<li>The beginning and end of loops are delineated when the <code>valleyline</code> <em>definitively</em> crosses the <code>flowline</code>.</li>
+<li>If the <code>flowline</code> crosses the <code>valleyline</code> and then crosses back over in a short distance, this is not considered a definitive crossing. A definitive crossing is one where the <code>flowline</code> approaches the <code>valleyline</code>, crosses it, and then continues to move away from it for a long distance.</li>
+</ul>
+<p><insert diagrams of definitive crossings and un-definitive crossings></p>
+<p><insert diagram of a loop with multiple bends></p>
+</div>
+<div id="create-the-bankline_points-feature-class" class="section level3">
+<h3><span class="header-section-number">4.10.4</span> Create the <code>bankline_points</code> feature class</h3>
+<p>The purpose of this step is to convert the <code>banklines</code> feature class into a set of bankline points that hold loop and bend information from the <code>loop_points</code> feature class.</p>
+<ul>
+<li>Use the <code>14b - Bankline Points</code> tool to assign loops, bends, elevations and valley line positions to bankline points.</li>
+<li>When the tool completes, check that this tools runs correctly by ensuring that the <code>loop</code>, <code>bend</code>, <code>position</code>, <code>valley_POINT_X</code>, <code>valley_POINT_Y</code>, and <code>valley_POINT_M</code> fields are populated. Only bankline point features whithin loops and bends will have values in the <code>loop</code>, <code>bend</code>, and <code>position</code> fields. However, all records should have values in the <code>valley_POINT_X</code>, <code>valley_POINT_Y</code>, and <code>valley_POINT_M</code> fields.</li>
+<li>Apply the following definition query to the <code>bankline_points</code> feature class: “loop IS NOT NULL”.</li>
+<li>Only <code>bankline_points</code> features between <code>loop_points</code> features should be visible.</li>
 </ul>
 </div>
 <div id="assign-loops-and-bends-to-cross-sections" class="section level3">
-<h3><span class="header-section-number">4.10.4</span> Assign Loops and Bends to Cross Sections</h3>
-<p>The purpose of this step is to assign the loops and bends defined in the last step to riffle cross sections feature classes</p>
+<h3><span class="header-section-number">4.10.5</span> Assign Loops and Bends to Cross Sections</h3>
+<p>The purpose of this step is to assign the loops and bends defined in the last step to the riffle cross section feature classes.</p>
+<ul>
+<li>Use the <code>14c - Assign Loops</code> tool to assign loops and bends to cross sections.</li>
+<li>Check that the <code>loop</code> and <code>bend</code> fileds are assigned the appropriate loop and bend.</li>
+<li>Complete this step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
+</ul>
 </div>
-</div>
-<div id="layout-cross-sections-1" class="section level2">
-<h2><span class="header-section-number">4.11</span> Layout Cross Sections</h2>
 </div>
 <div id="calculate-cross-section-geometry-1" class="section level2">
-<h2><span class="header-section-number">4.12</span> Calculate Cross Section Geometry</h2>
-</div>
-<div id="calculate-planform-geometry-1" class="section level2">
-<h2><span class="header-section-number">4.13</span> Calculate Planform Geometry</h2>
+<h2><span class="header-section-number">4.11</span> Calculate Cross Section Geometry</h2>
+<p>The purpose of this step is to calculate cross section dimensions. All of the previous steps were required to prepare input datasets necessary to calculate cross section dimensions.</p>
+<ul>
+<li>Use the <code>15 - XS Dimensions</code> tool to calculate channel geometry variables.</li>
+<li>Use the <code>15b - XS Planform</code> tool to calculate reach planform variables.</li>
+</ul>
 
 </div>
 </div>
