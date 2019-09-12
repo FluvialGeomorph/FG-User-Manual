@@ -118,7 +118,8 @@ Riffle locations are identified using the `channel_slope` raster calculated in t
     * Channel width parallel and consistent 
     * Avoid tributary influences
 
-* Digitize riffle cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure riffles are digitized in the correct direction. A red vertex denotes the end of a line segment. 
+* Digitize riffle cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure riffles are digitized in the correct direction. A red vertex denotes the end of a line segment. Therefore, the red end vertex should be on the right descending bank. 
+* Check that each cross section is digitized in the correct direction (start at the left descending bank and end on the right descending bank) before going on to the next step. 
 * Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each `riffle_floodplain` feature to ensure that it extends at least to the edge of the `Floodplain Mask` layer, but no further. 
 * This ensures that each `riffle_floodplain` feature covers the entire floodplain, but does not extend too far into the upland.  
 
@@ -205,7 +206,7 @@ The purpose of this step is to identify infrastructure that impacts streaam stru
 * Start an edit session on the `features` feature class. 
 * When impacting infrastructure is found, create a point feature centered on the `flowline` feature class. 
 * Assign it a descriptive label in the `Name` field, and record its longitudinal position along the reach (see next bullet) in the `km_to_mouth` field. 
-* To determine an infrastructure feature's longitudinal position along the reach, use the identify tool to find the closest point in the `flowline_points` feature class and use its `km_to_moth` value. 
+* To determine an infrastructure feature's longitudinal position along the reach, use the identify tool to find the closest point in the `flowline_points` feature class and use its `POINT_M` value. 
 * Repeat these steps to record all of the infrasructure points along a reach. 
 
 
@@ -266,6 +267,7 @@ The purpose of this step is to create a banklines feature class that represents 
 * Use the 'Split Tool' to trim any tributaries from the 'banklines' feature class.
 * The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features. 
 * Ensure that the banklines are digitized in the upstream direction. Edit the `banklines` feature class to ensure that each bankline is digitized beginning with the downstream end and digitized upstream. In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of each bankline. Use the flip command to ensure each bankline is digitized in the correct direction. 
+* Check that each bankline is digitized in the upstream direction (red endpoint at the upstream end) before going on to the next step. 
 * In the `ReachName` field enter the reach name. 
 * In the `bank` field, enter the string `right descending` or `left descending` to designate which bank each line represents. 
 * In the `bank_id` field enter a `1` for the `right descending` bank and `2` for the `left descending` bank. 
