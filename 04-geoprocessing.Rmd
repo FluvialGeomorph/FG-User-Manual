@@ -320,6 +320,6 @@ The purpose of this step is to calculate cross section dimensions. All of the pr
 * Use the `15b - XS Planform` tool to calculate reach planform variables. 
 
 
-# New Section 1
+# New Section 12
 
 
