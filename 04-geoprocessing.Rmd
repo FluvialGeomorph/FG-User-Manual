@@ -125,20 +125,12 @@ Riffle locations are identified using the `channel_slope` raster calculated in t
 * Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each `riffle_floodplain` feature to ensure that it extends at least to the edge of the `Floodplain Mask` layer, but no further. 
 * This ensures that each `riffle_floodplain` feature covers the entire floodplain, but does not extend too far into the upland.  
 
+
 ### Assign Cross Section IDs
 The purpose of this step is to ensure that riffle cross section identifiers are properly assigned. Assignment of cross section identifiers is critical for later tools to uniquely identify each cross section. 
 
 * Add a long integer field named `Seq` to the `riffle_floodplain` feature class to hold the unique number of the cross section. This will be used to iterate through cross sections. 
 * Assign integer values to the `Seq` field starting with one. Begin numbering at the downstream extent of the study area and moving upstream. 
-
-
-### Create the `riffle_channel` feature class
-The purpose of this step is to trim the riffle cross sections in the `riffle_floodplain` feature class to match the extent of the `Channel Mask` layer. This allows a more detailed examination of the channel area. 
-
-* In ArcCatalog, make a copy of the `riffle_floodplain` feature class and name it `riffle_channel`.
-* Edit each `riffle_channel` feature to ensure that it extends at least to the edge of the `Channel Mask` layer, but no further. Use snapping to ensure that vertices of the `riffle_channel` features are coincident with the `riffle_floodplain` features. 
-* This ensures that each `riffle_channel` feature covers the entire channel, but does not extend too far into the floodplain.
-
 
 
 ## Calculate Riffle Geometry
@@ -158,6 +150,14 @@ The purpose of this step is to assign a river position to each cross section. Th
 
 * Use the `13 - XS Assign River Position` tool to calculate the distance to the mouth of the river for each cross section. 
 * Complete this step for both the `riffle_channel` and `riffle_floodplain` feature classes. 
+
+
+### Create the `riffle_channel` feature class
+The purpose of this step is to trim the riffle cross sections in the `riffle_floodplain` feature class to match the extent of the `Channel Mask` layer. This allows a more detailed examination of the channel area. 
+
+* In ArcCatalog, make a copy of the `riffle_floodplain` feature class and name it `riffle_channel`.
+* Edit each `riffle_channel` feature to ensure that it extends at least to the edge of the `Channel Mask` layer, but no further. Use snapping to ensure that vertices of the `riffle_channel` features are coincident with the `riffle_floodplain` features. 
+* This ensures that each `riffle_channel` feature covers the entire channel, but does not extend too far into the floodplain.
 
 
 ### Calculate Cross Section Station Points

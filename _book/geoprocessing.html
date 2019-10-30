@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Dougherty, Chris Haring, Davi Michl" />
 
 
-<meta name="date" content="2019-09-12" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -127,13 +127,13 @@
 <li class="chapter" data-level="4.5" data-path="geoprocessing.html"><a href="geoprocessing.html#map-riffles-1"><i class="fa fa-check"></i><b>4.5</b> Map Riffles</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="geoprocessing.html"><a href="geoprocessing.html#map-riffle-cross-sections"><i class="fa fa-check"></i><b>4.5.1</b> Map Riffle Cross Sections</a></li>
 <li class="chapter" data-level="4.5.2" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-cross-section-ids"><i class="fa fa-check"></i><b>4.5.2</b> Assign Cross Section IDs</a></li>
-<li class="chapter" data-level="4.5.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-riffle_channel-feature-class"><i class="fa fa-check"></i><b>4.5.3</b> Create the <code>riffle_channel</code> feature class</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-riffle-geometry-1"><i class="fa fa-check"></i><b>4.6</b> Calculate Riffle Geometry</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-watershed-area"><i class="fa fa-check"></i><b>4.6.1</b> Calculate Cross Section Watershed Area</a></li>
 <li class="chapter" data-level="4.6.2" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-cross-section-river-position"><i class="fa fa-check"></i><b>4.6.2</b> Assign Cross Section River Position</a></li>
-<li class="chapter" data-level="4.6.3" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-station-points"><i class="fa fa-check"></i><b>4.6.3</b> Calculate Cross Section Station Points</a></li>
-<li class="chapter" data-level="4.6.4" data-path="geoprocessing.html"><a href="geoprocessing.html#check-cross-sections"><i class="fa fa-check"></i><b>4.6.4</b> Check Cross Sections</a></li>
+<li class="chapter" data-level="4.6.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-riffle_channel-feature-class"><i class="fa fa-check"></i><b>4.6.3</b> Create the <code>riffle_channel</code> feature class</a></li>
+<li class="chapter" data-level="4.6.4" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-station-points"><i class="fa fa-check"></i><b>4.6.4</b> Calculate Cross Section Station Points</a></li>
+<li class="chapter" data-level="4.6.5" data-path="geoprocessing.html"><a href="geoprocessing.html#check-cross-sections"><i class="fa fa-check"></i><b>4.6.5</b> Check Cross Sections</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="geoprocessing.html"><a href="geoprocessing.html#estimate-bankfull-1"><i class="fa fa-check"></i><b>4.7</b> Estimate Bankfull</a></li>
 <li class="chapter" data-level="4.8" data-path="geoprocessing.html"><a href="geoprocessing.html#identify-infrastructure"><i class="fa fa-check"></i><b>4.8</b> Identify Infrastructure</a></li>
@@ -181,7 +181,7 @@
             <section class="normal" id="section-">
 <div id="geoprocessing" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Geoprocessing</h1>
-<p>This section describes the geoprocessing steps required to extract channel geomtery dimensions from a LiDAR derived digital elevation model (DEM).</p>
+<p>This section describes the geoprocessing steps required to extract channel geometry dimensions from a LiDAR derived digital elevation model (DEM).</p>
 <div id="create-terrain-1" class="section level2">
 <h2><span class="header-section-number">4.1</span> Create Terrain</h2>
 <div id="develop-elevation-model" class="section level3">
@@ -201,14 +201,14 @@
 <li>Void Fill Method: Natural Neighbor</li>
 <li>Cell size: 1 foot (0.3048 meters)</li>
 </ul></li>
-<li>Create a <code>study_area</code> polygon feature class that delineates the extent of the study area. Use this feature class to clip the DEM to the desired study area. Edit this polygon to remove any elevation anomolies around the edges of the DEM. These anomolies are sometimes created by the <code>LAS Dataset to Raster</code> tool.</li>
+<li>Create a <code>study_area</code> polygon feature class that delineates the extent of the study area. Use this feature class to clip the DEM to the desired study area. Edit this polygon to remove any elevation anomalies around the edges of the DEM. These anomalies are sometimes created by the <code>LAS Dataset to Raster</code> tool.</li>
 </ul>
 </div>
 <div id="elevation-model-hydro-modification" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Elevation Model Hydro Modification</h3>
 <p>The purpose of this step is to create a hydro-modified DEM to ensure proper water flow across the study area.</p>
 <ul>
-<li>Examine the stream channel through the study area and determine if there are any blockages to flow in the DEM. These blockages are typically built infrastructure such as road embankments where streams are conveyed through culverts or underground stormwater structures.</li>
+<li>Examine the stream channel through the study area and determine if there are any blockages to flow in the DEM. These blockages are typically built infrastructure such as road embankments where streams are conveyed through culverts or underground storm water structures.</li>
 <li>If there are flow blockages in the study area, create a new line feature class named <code>cutlines</code> to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified.</li>
 <li>In an edit session, identify human structures that block flow along the stream reach being studied. Draw a line beginning at the upstream side of the blockage to a point just downstream of the blockage.</li>
 <li>Use the <code>02 - Burn Cutlines</code> tool to “burn” the <code>cutlines</code> features into the DEM. This tool creates the <code>dem_hydro</code> raster.</li>
@@ -252,14 +252,14 @@
 <h2><span class="header-section-number">4.4</span> Define Initial Channel and Floodplain Extents</h2>
 <div id="delineate-the-initial-channel-extent" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> Delineate the Initial Channel Extent</h3>
-<p>The purpose of this step is to use the detrended DEM to visually extract an initial channel extent polygon. The <code>detrend</code> DEM created in the last step can be used to iteratively explore different innundation extents derived from various water surface elevations.</p>
+<p>The purpose of this step is to use the detrended DEM to visually extract an initial channel extent polygon. The <code>detrend</code> DEM created in the last step can be used to iteratively explore different inundation extents derived from various water surface elevations.</p>
 <ul>
 <li>Add the <code>detrend</code> feature class to the map Table of Contents. Name this layer <code>Channel Extent</code>.</li>
 <li>On the Symbology tab of the <code>Channel Extent</code> layer, use the Classified renderer to classify the raster into 2 classes. Set the first class boundary to the detrended elevation that you would like to explore. Set the color of the first class (min value - detrended elevation) to blue and the color of the second class (detrended elevation - max value) to No Color.</li>
 <li>Set the transparency of the <code>Channel Extent</code> layer to 50%.</li>
-<li>Begin to delineate the channel extent by selecting a detrended elevation that innundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the extent of the channel without “spilling” too much water into the floodplain. Once you discover which detrended elevation begins to allow water to access the floodplain, reduce the detrended elevation value slightly to keep the water in the channel. Try several detrended elevation values to help make the decision.</li>
-<li>When you have chosen a detrended elevation, use the <code>08 - Water Surface Extent</code> tool to extract an initial channel extent area polygon. This tool creas a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
-<li>This feature class must be edited to select the channel area polygon(s). Open the attribute table for the <code>banks_raw_xxx</code> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>. Polygons with <code>gridcode</code> = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting <code>gridcode</code> = 1 polygons with the largest area until the entire channel area is selected.</li>
+<li>Begin to delineate the channel extent by selecting a detrended elevation that inundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the extent of the channel without “spilling” too much water into the floodplain. Once you discover which detrended elevation begins to allow water to access the floodplain, reduce the detrended elevation value slightly to keep the water in the channel. Try several detrended elevation values to help make the decision.</li>
+<li>When you have chosen a detrended elevation, use the <code>08 - Water Surface Extent</code> tool to extract an initial channel extent area polygon. This tool creates a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
+<li>This feature class must be edited to select the channel area polygon(s). Open the attribute table for the <code>banks_raw_xxx</code> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>. Polygons with <code>gridcode</code> = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting <code>gridcode</code> = 1 polygons with the largest area until the entire channel area is selected.</li>
 <li>Export these selected features to a new feature class named <code>initial_channel_extent</code>.</li>
 <li>Delete the <code>banks_raw_xxx</code> feature class created in this section.</li>
 </ul>
@@ -284,7 +284,7 @@
 </div>
 <div id="create-channel-slope-raster" class="section level3">
 <h3><span class="header-section-number">4.4.4</span> Create Channel Slope Raster</h3>
-<p>The purpose of this step is to create a channel slope raster that can be used in the visual identification of riffe locations in following step.</p>
+<p>The purpose of this step is to create a channel slope raster that can be used in the visual identification of riffle locations in following step.</p>
 <ul>
 <li>Use the <code>09 - Channel Slope</code> tool to calculate a raster of the channel slope. Use the <code>intitial_channel_extent</code> polygon created earlier to define the channel area within which the slope raster will be calculated. This tool creates a new feature class named <code>channel_slope</code>.</li>
 </ul>
@@ -292,9 +292,10 @@
 </div>
 <div id="map-riffles-1" class="section level2">
 <h2><span class="header-section-number">4.5</span> Map Riffles</h2>
-<p>The purpose of this step is to identify and map riffe locations. Riffles will be used in later steps to determine the bankfull elevation from gage stage discharge relationships.</p>
+<p>The purpose of this step is to identify and map riffle locations. Riffles will be used in later steps to determine the bankfull elevation from gage stage discharge relationships.</p>
 <div id="map-riffle-cross-sections" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> Map Riffle Cross Sections</h3>
+<p>The purpose of this step is to identify the location of riffles in a stream reach.</p>
 <p>Riffle locations are identified using the <code>channel_slope</code> raster calculated in the last step (and confirmed with high resolution aerial imagery). In the <code>channel_slope</code> raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.</p>
 <ul>
 <li><p>Create a new line feature class named <code>riffle_floodplain</code> to store riffle cross sections. This feature class must be in the same coordinate system as the DEM.</p></li>
@@ -324,15 +325,6 @@
 <li>Assign integer values to the <code>Seq</code> field starting with one. Begin numbering at the downstream extent of the study area and moving upstream.</li>
 </ul>
 </div>
-<div id="create-the-riffle_channel-feature-class" class="section level3">
-<h3><span class="header-section-number">4.5.3</span> Create the <code>riffle_channel</code> feature class</h3>
-<p>The purpose of this step is to trim the riffle cross sections in the <code>riffle_floodplain</code> feature class to match the extent of the <code>Channel Mask</code> layer. This allows a more detailed examination of the channel area.</p>
-<ul>
-<li>In ArcCatalog, make a copy of the <code>riffle_floodplain</code> feature class and name it <code>riffle_channel</code>.</li>
-<li>Edit each <code>riffle_channel</code> feature to ensure that it extends at least to the edge of the <code>Channel Mask</code> layer, but no further. Use snapping to ensure that vertices of the <code>riffle_channel</code> features are coincident with the <code>riffle_floodplain</code> features.</li>
-<li>This ensures that each <code>riffle_channel</code> feature covers the entire channel, but does not extend too far into the floodplain.</li>
-</ul>
-</div>
 </div>
 <div id="calculate-riffle-geometry-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Calculate Riffle Geometry</h2>
@@ -351,19 +343,28 @@
 <p>The purpose of this step is to assign a river position to each cross section. The river position of each cross section will be used in later steps to calculate several channel parameters (i.e., gradient, sinuosity).</p>
 <ul>
 <li>Use the <code>13 - XS Assign River Position</code> tool to calculate the distance to the mouth of the river for each cross section.</li>
-<li>Complete tis step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
+<li>Complete this step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
+</ul>
+</div>
+<div id="create-the-riffle_channel-feature-class" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> Create the <code>riffle_channel</code> feature class</h3>
+<p>The purpose of this step is to trim the riffle cross sections in the <code>riffle_floodplain</code> feature class to match the extent of the <code>Channel Mask</code> layer. This allows a more detailed examination of the channel area.</p>
+<ul>
+<li>In ArcCatalog, make a copy of the <code>riffle_floodplain</code> feature class and name it <code>riffle_channel</code>.</li>
+<li>Edit each <code>riffle_channel</code> feature to ensure that it extends at least to the edge of the <code>Channel Mask</code> layer, but no further. Use snapping to ensure that vertices of the <code>riffle_channel</code> features are coincident with the <code>riffle_floodplain</code> features.</li>
+<li>This ensures that each <code>riffle_channel</code> feature covers the entire channel, but does not extend too far into the floodplain.</li>
 </ul>
 </div>
 <div id="calculate-cross-section-station-points" class="section level3">
-<h3><span class="header-section-number">4.6.3</span> Calculate Cross Section Station Points</h3>
+<h3><span class="header-section-number">4.6.4</span> Calculate Cross Section Station Points</h3>
 <p>The purpose of this step is convert the cross section line feature class into a point feature class representing cross section station points. This feature class will be used in later steps to calculate hydraulic geometry dimensions.</p>
 <ul>
 <li>Use the <code>14 - XS Create Station Points</code> tool to calculate cross section station points for each cross section. For this study, set the <code>station_distance</code> parameter to 0.3048 meter (1 foot). This tool creates a new feature class named <code>riffle_points</code>.</li>
-<li>Complete tis step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
+<li>Complete this step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
 </ul>
 </div>
 <div id="check-cross-sections" class="section level3">
-<h3><span class="header-section-number">4.6.4</span> Check Cross Sections</h3>
+<h3><span class="header-section-number">4.6.5</span> Check Cross Sections</h3>
 <p>The purpose of this step is to plot each cross section to ensure it was digitized correctly.</p>
 <ul>
 <li>Use the <code>15 - XS Plot</code> tool to plot each riffle cross section. Use the detrended bankfull elevation value that you selected for the initial channel extent for the value of the <code>bankfull_elevation</code> for the purpose of this QA check.</li>
@@ -378,7 +379,7 @@
 </div>
 <div id="estimate-bankfull-1" class="section level2">
 <h2><span class="header-section-number">4.7</span> Estimate Bankfull</h2>
-<p>The purpose of this step is to produce the <code>Estimate Bankfull Report</code>. This report will be used to estimate the bankfull water surface elevation for the current reach. This report conducts a sensitivity analysis using the regional curve estimates of channel dimensions accross a range of elevation values to identify the bankfull elevation value that best fits the regional curve estimate.</p>
+<p>The purpose of this step is to produce the <code>Estimate Bankfull Report</code>. This report will be used to estimate the bankfull water surface elevation for the current reach. This report conducts a sensitivity analysis using the regional curve estimates of channel dimensions across a range of elevation values to identify the bankfull elevation value that best fits the regional curve estimate.</p>
 <ul>
 <li>Use the <code>19 Estimate Bankfull</code> tool to produce the <code>Estimate Bankfull Report</code>.
 <ul>
@@ -388,7 +389,7 @@
 <li><code>to_elevation</code>: The highest detrended elevation value that defines the upper end of the range to be used for the sensitivity analysis.</li>
 <li><code>by_elevation</code>: The value to increment the sequence by between <code>from_elevation</code> and <code>to_elevation</code>. These three values define the sequence used to create the sensitivity analysis.</li>
 <li><code>bankfull_estimate</code>: The detrended elevation value that defines the bankfull water surface elevation.</li>
-<li><code>output_dir</code>: The folder where tha <code>Estimate Bankfull Report</code> will be saved.</li>
+<li><code>output_dir</code>: The folder where the <code>Estimate Bankfull Report</code> will be saved.</li>
 <li><code>output_format</code>: The file format of the report.</li>
 </ul></li>
 <li>The <code>19 Estimate Bankfull</code> tool is intended to be run iteratively, testing the fit of a range of detrended bankfull elevations. Use the Bankfull Elevation Goodness of Fit graph in the report to determine the detrended bankfull elevation that minimizes error. Choose the detrended bankfull elevation that minimizes error on subsequent runs of the report.</li>
@@ -404,11 +405,11 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 </div>
 <div id="identify-infrastructure" class="section level2">
 <h2><span class="header-section-number">4.8</span> Identify Infrastructure</h2>
-<p>The purpose of this step is to identify infrastructure that impacts streaam structure and function throughout the reach. These infrastructure features will be used to indicate the position of infrastructure in several maps and graphs.</p>
+<p>The purpose of this step is to identify infrastructure that impacts stream structure and function throughout the reach. These infrastructure features will be used to indicate the position of infrastructure in several maps and graphs.</p>
 <ul>
 <li>Create a new point feature class named <code>features</code>. The feature class should contain the following fields:
 <ul>
-<li><code>Name</code> - Text (50), Used to record the name of the intrastructure.</li>
+<li><code>Name</code> - Text (50), Used to record the name of the infrastructure.</li>
 <li><code>km_to_mouth</code> - double, Used to record the longitudinal position along the reach.</li>
 </ul></li>
 <li>Working upstream from the downstream end of the reach, examine the DEM and aerial imagery for infrastructure that could potentially impact stream structure and function.</li>
@@ -417,7 +418,7 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <li>When impacting infrastructure is found, create a point feature centered on the <code>flowline</code> feature class.</li>
 <li>Assign it a descriptive label in the <code>Name</code> field, and record its longitudinal position along the reach (see next bullet) in the <code>km_to_mouth</code> field.</li>
 <li>To determine an infrastructure feature’s longitudinal position along the reach, use the identify tool to find the closest point in the <code>flowline_points</code> feature class and use its <code>POINT_M</code> value.</li>
-<li>Repeat these steps to record all of the infrasructure points along a reach.</li>
+<li>Repeat these steps to record all of the infrastructure points along a reach.</li>
 </ul>
 </div>
 <div id="define-valley-line" class="section level2">
@@ -429,9 +430,9 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <ul>
 <li>From the <code>Bankfull Estimate</code> report created in the last step, identify the detrended bankfull elevation. In the example above, this value was 104 ft.</li>
 <li>Determine the bankfull depth. The detrending process expresses stream elevations using a base index value of 100. Therefore an estimate of detrended bankfull elevation of 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach. This value is similar to the bankfull depth (with caveats).</li>
-<li>Determine flood prone height. Flood prone has been determined through emperical studies to be approximately two times the bankfull depth. Using the bankfull depth calculated in the last step, calculate the flood prone depth (8 ft.). Therefore, the flood prone detrended elevation would be 108 ft.</li>
-<li>With the detrended flood prone elevation for your reach determined in the last step, use the <code>08 - Water Surface Extent</code> tool to extract a flood prone area polygon. This tool creas a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
-<li>This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the <code>banks_raw_xxx</code> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>. Polygons with <code>gridcode</code> = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting <code>gridcode</code> = 1 polygons with the largest area until the entire flood prone area is selected.</li>
+<li>Determine flood prone height. Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. Using the bankfull depth calculated in the last step, calculate the flood prone depth (8 ft.). Therefore, the flood prone detrended elevation would be 108 ft.</li>
+<li>With the detrended flood prone elevation for your reach determined in the last step, use the <code>08 - Water Surface Extent</code> tool to extract a flood prone area polygon. This tool creates a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
+<li>This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the <code>banks_raw_xxx</code> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>. Polygons with <code>gridcode</code> = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting <code>gridcode</code> = 1 polygons with the largest area until the entire flood prone area is selected.</li>
 <li>Export these selected features to a new feature class named <code>flood_prone</code>.</li>
 <li>Delete the <code>banks_raw_xxx</code> feature class created in this section.</li>
 </ul>
@@ -462,8 +463,8 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <p>The purpose of this step is to create is the extract a bankfull extent polygon.</p>
 <ul>
 <li>From the <code>Estimate Bankfull Estimate</code> report created previously, identify the detrended bankfull elevation. In the example above, this value was 104 ft.</li>
-<li>With the detrended elevation for your reach determined, use the <code>08 - Water Surface Extent</code> tool to extract a bankfull area polygon. This tool creas a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
-<li>This feature class must be edited to select the bankfull area polygon(s). Open the attribute table for the <code>banks_raw_xxx</code> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>. Polygons with <code>gridcode</code> = 1 are polygons innundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting <code>gridcode</code> = 1 polygons with the largest area until the entire bankfull area is selected.</li>
+<li>With the detrended elevation for your reach determined, use the <code>08 - Water Surface Extent</code> tool to extract a bankfull area polygon. This tool creates a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
+<li>This feature class must be edited to select the bankfull area polygon(s). Open the attribute table for the <code>banks_raw_xxx</code> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>. Polygons with <code>gridcode</code> = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting <code>gridcode</code> = 1 polygons with the largest area until the entire bankfull area is selected.</li>
 <li>Export these selected features to a new feature class named <code>bankfull_area</code>.</li>
 <li>Delete the <code>banks_raw_xxx</code> feature class created in this section.</li>
 </ul>
@@ -516,7 +517,7 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <p>The purpose of this step is to convert the <code>banklines</code> feature class into a set of bankline points that hold loop and bend information from the <code>loop_points</code> feature class.</p>
 <ul>
 <li>Use the <code>14b - Bankline Points</code> tool to assign loops, bends, elevations and valley line positions to bankline points.</li>
-<li>When the tool completes, check that this tools runs correctly by ensuring that the <code>loop</code>, <code>bend</code>, <code>position</code>, <code>valley_POINT_X</code>, <code>valley_POINT_Y</code>, and <code>valley_POINT_M</code> fields are populated. Only bankline point features whithin loops and bends will have values in the <code>loop</code>, <code>bend</code>, and <code>position</code> fields. However, all records should have values in the <code>valley_POINT_X</code>, <code>valley_POINT_Y</code>, and <code>valley_POINT_M</code> fields.</li>
+<li>When the tool completes, check that this tools runs correctly by ensuring that the <code>loop</code>, <code>bend</code>, <code>position</code>, <code>valley_POINT_X</code>, <code>valley_POINT_Y</code>, and <code>valley_POINT_M</code> fields are populated. Only bankline point features within loops and bends will have values in the <code>loop</code>, <code>bend</code>, and <code>position</code> fields. However, all records should have values in the <code>valley_POINT_X</code>, <code>valley_POINT_Y</code>, and <code>valley_POINT_M</code> fields.</li>
 <li>Apply the following definition query to the <code>bankline_points</code> feature class: “loop IS NOT NULL”.</li>
 <li>Only <code>bankline_points</code> features between <code>loop_points</code> features should be visible.</li>
 </ul>
@@ -526,7 +527,7 @@ Figure 4.1: Bankfull Elevation Goodness of Fit
 <p>The purpose of this step is to assign the loops and bends defined in the last step to the riffle cross section feature classes.</p>
 <ul>
 <li>Use the <code>14c - Assign Loops</code> tool to assign loops and bends to cross sections.</li>
-<li>Check that the <code>loop</code> and <code>bend</code> fileds are assigned the appropriate loop and bend.</li>
+<li>Check that the <code>loop</code> and <code>bend</code> fields are assigned the appropriate loop and bend.</li>
 <li>Complete this step for both the <code>riffle_channel</code> and <code>riffle_floodplain</code> feature classes.</li>
 </ul>
 </div>
