@@ -1,14 +1,17 @@
 --- 
-title: "Rapid Watershed Assessment Using FluvialGeomorph"
-author: "Michael Dougherty, Chris Haring, Davi Michl"
+title: "FluvialGeomorph User Manual"
 date: "`r Sys.Date()`"
+author: 
+  - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
+  - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
+  - Davi Michl, Biologist, US Army Corps of Engineers, Rock Island District
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: chicago
 link-citations: true
-description: "This document describes the process for performing a rapid watershed assessment using the FluvialGeomorph Python package."
+description: "This user manual describes how to use FluvialGeomorph for stream analysis."
 ---
 
 ```{r include=FALSE}

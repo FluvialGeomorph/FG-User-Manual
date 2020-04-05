@@ -7,9 +7,11 @@ This section describes the geoprocessing steps required to extract channel geome
 ### Develop Elevation Model
 The purpose of this step is to develop a DEM for the study area. 
 
-* Obtain an off-the-shelf DEM for the study area. 
-* Determine if sufficient resolution exists in the channel. 
-* If not, assemble LAS data for the channel. 
+* Create a `study_area` polygon feature class that delineates the extent of the study area. 
+* Identify a source of high resolution elevation data for this study area. For this study area we used [Illinois Height Modernization, ILHMP](https://clearinghouse.isgs.illinois.edu/data/elevation/illinois-height-modernization-ilhmp-lidar-data). 
+* Download a pre-made DEM for the study area. 
+* Determine if the DEM contains sufficient spatial resolution to observe detailed features (point bars, islands, riffles, gravel beds, etc.) within the channel. If detailed channel features can be discerned in the DEM, you may use this DEM for this analysis. 
+* If detailed channel features cannot be discerned in the pre-made DEM, the pre-made DEMs may have been hydro-flattened. Therefore, you will need to download the original point cloud datasets and build a DEM.  
 * Create LAS dataset of study area. 
 * Set the LAS Dataset projection to the coordinate system UTM (select appropriate Zone based on location of the study area), Datum: NAD83. 
 * Select LAS classes that contain non-vegetation points within the channel. 
@@ -18,7 +20,7 @@ The purpose of this step is to develop a DEM for the study area.
     * Cell assignment Type: IDW
     * Void Fill Method: Natural Neighbor
     * Cell size: 1 foot (0.3048 meters)
-* Create a `study_area` polygon feature class that delineates the extent of the study area. Use this feature class to clip the DEM to the desired study area. Edit this polygon to remove any elevation anomalies around the edges of the DEM. These anomalies are sometimes created by the `LAS Dataset to Raster` tool. 
+* Use the `study_area` feature class to clip the DEM to the desired study area. Edit this polygon to remove any elevation anomalies around the edges of the DEM. These anomalies are sometimes created by the `LAS Dataset to Raster` tool. 
 
 ### Elevation Model Hydro Modification
 The purpose of this step is to create a hydro-modified DEM to ensure proper water flow across the study area. 
