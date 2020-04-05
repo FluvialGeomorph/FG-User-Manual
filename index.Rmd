@@ -19,8 +19,14 @@ library(knitr)
 library(png)
 ```
 
-# {-}
-See the [Guide for Preparing Technical Information Reports of the Engineer Research and Development Center](http://www.dtic.mil/dtic/tr/fulltext/u2/a445281.pdf) for details on ERDC Technical Report development. 
+# Preface {-}
+Funding for development and maintenance of FluvialGeomorph has been provided by the US Army Corps of Engineers (USACE) [Ecosystem Management and Restoration Research Program (EMRRP)](https://emrrp.el.erdc.dren.mil).
+
+
+```{r echo=FALSE}
+knitr::include_graphics("docs/images/HDQLO-03_h120.jpg")
+knitr::include_graphics("docs/images/EMRRP_logo_300.png")
+```
 
 
 ## Abstract
@@ -52,14 +58,6 @@ tions for applying each one. Only reports labeled with Statement A shall be
 posted to the World Wide Web for unrestricted public access. 
 
 
-## Preface
-A preface is included in all ERDC reports to present essential nontechnical
-documentation of the research project, such as funding authorization,
-sponsorship, technical contributors to project execution, chain of
-supervision, and the authors’ acknowledgments. Figure A3 presents a
-sample showing all the required elements. 
-
-
 ## Unit Conversion Factors
 A unit conversion factors table is included in all reports that do not use
 metric units or dual units. The table should include only those U.S. customary
@@ -72,10 +70,4 @@ of conversion factors maintained by PTTB. For more information, see
 A notation list also may be included to define characters, symbols, and abbreviations used to express technical facts or quantities. It appears after
 the unit conversion factors. Figure A4 presents a formatted sample. @R-base
 
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+This document was preparted using the `bookdown` R package [@R-bookdown]. 

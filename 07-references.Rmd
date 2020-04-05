@@ -1,16 +1,2 @@
 `r if (knitr:::is_html_output()) '
 # References {-}
-'`
-A reference list is presented immediately after the final numbered chapter
-of the report, but before any appendixes. Formats and styles prescribed in
-the Chicago Manual of Style should be used. Most ERDC reports will use
-the author-date system and corresponding reference list form described in
-the Chicago Manual. An alternative style prescribed in the Chicago Manual,
-the note-bibliography system, may be used by authors working in disciplines
-in which that style is customary. 
-
-The reference list should include every information source cited in text
-plus any uncited sources that were drawn upon. The reference list for this
-Guide, presented on page 28, may be used as a model for common types of
-source documentation including books, serial publications, government
-documents, and unpublished material. 

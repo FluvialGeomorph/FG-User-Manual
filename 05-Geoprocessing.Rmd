@@ -1,5 +1,5 @@
 # Geoprocessing
-This section describes the geoprocessing steps required to extract channel geometry dimensions from a LiDAR derived digital elevation model (DEM). 
+This chapter describes the geoprocessing steps required to extract channel geometry dimensions from a LiDAR derived digital elevation model (DEM). 
 
 
 ## Create Terrain
@@ -322,6 +322,6 @@ The purpose of this step is to calculate cross section dimensions. All of the pr
 * Use the `15b - XS Planform` tool to calculate reach planform variables. 
 
 
-# New Section 12
+
 
 

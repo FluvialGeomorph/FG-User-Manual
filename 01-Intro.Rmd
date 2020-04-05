@@ -16,9 +16,6 @@ historic field survey versus geomorphometric automated methods
 The purpose of regional curves and why they are important for rapid  watershed assessment
 
 
-
-
-
 vison for what the analysis can be used to accomplish
 
 ## Objective
@@ -42,12 +39,4 @@ The approach section explains the research methodology. If the methodology
 is complex or otherwise warrants a chapter of its own, the approach
 section may simply cross-reference the reader to the appropriate chapter.
 
-
-## Other Sections
-[ANSI/NISO Z39.18-2005](https://groups.niso.org/apps/group_public/download.php/12038/Z39_18_2005_R2010.pdf) does not prohibit additional sections in the introductory chapter. For example, a scope section may be helpful to explain
-any limitations, caveats, etc., of which the reader should be aware. In some
-cases, supplementary technology transfer1 or contact information also
-may be appropriate for the intended audience. 
-
-1 This information might include online sources for required computer software or related technical information. Recommendations on mode of technology transfer, however, will usually be presented in the concluding chapter rather than the introductory chapter. 
 

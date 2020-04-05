@@ -1,4 +1,4 @@
-# Setup
+# Install
 
 This chapter will describe the process for installing and configuring the `FluvialGeomorph` software components. 
 

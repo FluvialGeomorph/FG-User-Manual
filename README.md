@@ -18,4 +18,4 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
 * [Christopher Haring](mailto:Christopher.P.Haring@usace.army.mil), Fluvial Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
 
 ## Read the Report
-Read the report here: [https://mpdougherty.github.io/FG-USER-Manual/index.html](https://mpdougherty.github.io/FG-User-Manual/index.html)
+Read the report here: [https://mpdougherty.github.io/FG-User-Manual/index.html](https://mpdougherty.github.io/FG-User-Manual/index.html)
