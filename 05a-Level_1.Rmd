@@ -1,0 +1,71 @@
+# Level 1 Analysis Workflow
+This chapter describes the workflow steps necessary to complete a Level 1 FluvialGeomorph analysis. 
+
+## Define Study Area
+The purpose of this step is to define the location and extent of the study reach  positioned within the established watershed hierarchy. 
+
+### Define Study Area Extent
+#### Determine the type of study area
+
+### Determine Study Area Watershed
+#### Identify the study area in the Watershed Boundary Dataset
+
+
+## Create Terrain
+The purpose of this step is to derive the terrain models needed for this analysis. 
+
+### Acquire Low Resolution Elevation Model
+#### Identify a source of elevation data for your study area
+#### Determine if the pre-made DEM has sufficient resolution
+#### Verify that the DEM elevations are in feet
+#### Create a hillshade to improve visualization
+
+### Develop High Resolution Elevation Model
+#### Download LiDAR point cloud data
+#### Build a DEM from LiDAR point cloud data
+#### Verify that the DEM elevations are in feet
+#### Create a hillshade to improve visualization
+
+### Hydro Modify DEM
+#### Develop `cutlines` to ensure water flows across the terrain
+#### Burn cutlines into the terrains
+
+
+## Define Stream Reaches
+The purpse of this step is to synthetically derive from the terrain the study area reaches and their watersheds. 
+
+### Delineate Reaches
+
+### Calculate Stream Profile Points
+
+### Delineate Reach Watersheds
+
+
+## Assess Longitudinal Profile
+The purpose of this step is to evaluate the longitudinal profile of each study area reach. 
+
+### Plot Longitudinal Profile
+
+### Evaluate Longitudinal Profile
+
+
+## Create Cross Sections
+The purpose of this step is to create stream cross sections and extract terrain elevations along each cross section. 
+
+### Layout Cross Sections
+
+### Calculate Watershed Area
+
+### Assign River Position
+
+### Calculate Cross Section Station Points
+
+
+## Assess Cross Section Geometry
+The purpose of this step is to evaluate the cross sectional shape of the stream. 
+
+### Run the Level 1 Report
+
+
+## Determine Next Steps
+The purpose of this step is to determine what further steps need to be taken. 
