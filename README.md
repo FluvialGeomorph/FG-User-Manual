@@ -4,7 +4,7 @@ The user manual for the FluvialGeomorph project. <img src="docs/images/HDQLO-03_
 ## Project Status
 [![Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle)
 [![Project Status: Active The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2020--03--31-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2020--05--18-yellowgreen.svg)](/commits/master)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 
 ## Description
@@ -19,4 +19,4 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
 * [Davi Michl](mailto:Davi.E.Michl@usace.army.mil), Biologist, US Army Corps of Engineers, Rock Island District
 
 ## Read the Report
-Read the report here: [https://mpdougherty.github.io/FG-User-Manual/index.html](https://mpdougherty.github.io/FG-User-Manual/index.html)
+Read the report here: [https://FluvialGeomorph.github.io/FG-User-Manual/index.html](https://FluvialGeomorph.github.io/FG-User-Manual/index.html)
