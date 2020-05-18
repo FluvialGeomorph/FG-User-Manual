@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Level 1 Analysis Workflow | FluvialGeomorph User Manual</title>
+  <meta name="description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Level 1 Analysis Workflow | FluvialGeomorph User Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Level 1 Analysis Workflow | FluvialGeomorph User Manual" />
+  
+  <meta name="twitter:description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
+  
+
+<meta name="author" content="Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District" />
+<meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
+<meta name="author" content="Davi Michl, Biologist, US Army Corps of Engineers, Rock Island District" />
+
+
+<meta name="date" content="2020-05-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="geoprocessing.html"/>
+<link rel="next" href="summary.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FluvialGeomorph User Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#abstract"><i class="fa fa-check"></i><b>0.1</b> Abstract</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i><b>0.2</b> Disclaimer</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#distribution-statement"><i class="fa fa-check"></i><b>0.3</b> Distribution Statement</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#unit-conversion-factors"><i class="fa fa-check"></i><b>0.4</b> Unit Conversion Factors</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#notation-list"><i class="fa fa-check"></i><b>0.5</b> Notation List</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#background"><i class="fa fa-check"></i><b>1.1</b> Background</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#objective"><i class="fa fa-check"></i><b>1.2</b> Objective</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#approach"><i class="fa fa-check"></i><b>1.3</b> Approach</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> Install</a><ul>
+<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#software-requirements"><i class="fa fa-check"></i><b>2.1</b> Software Requirements</a></li>
+<li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install R and RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="install.html"><a href="install.html#install-arcgis-desktop-or-arcgis-pro"><i class="fa fa-check"></i><b>2.3</b> Install ArcGIS Desktop or ArcGIS Pro</a></li>
+<li class="chapter" data-level="2.4" data-path="install.html"><a href="install.html#install-taudem"><i class="fa fa-check"></i><b>2.4</b> Install TauDEM</a></li>
+<li class="chapter" data-level="2.5" data-path="install.html"><a href="install.html#install-fluvialgeomorph"><i class="fa fa-check"></i><b>2.5</b> Install FluvialGeomorph</a></li>
+<li class="chapter" data-level="2.6" data-path="install.html"><a href="install.html#install-tutorial-data"><i class="fa fa-check"></i><b>2.6</b> Install Tutorial Data</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="install.html"><a href="install.html#install-nhdplus-flow-accummulation"><i class="fa fa-check"></i><b>2.6.1</b> Install NHDPlus Flow Accummulation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="install.html"><a href="install.html#test-fluvialgeomorph"><i class="fa fa-check"></i><b>2.7</b> Test FluvialGeomorph</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="workflows.html"><a href="workflows.html"><i class="fa fa-check"></i><b>3</b> Workflows</a><ul>
+<li class="chapter" data-level="3.1" data-path="workflows.html"><a href="workflows.html#workflow-overview"><i class="fa fa-check"></i><b>3.1</b> Workflow Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="workflows.html"><a href="workflows.html#workflow-stages"><i class="fa fa-check"></i><b>3.2</b> Workflow Stages</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="workflows.html"><a href="workflows.html#create-terrain"><i class="fa fa-check"></i><b>3.2.1</b> Create Terrain</a></li>
+<li class="chapter" data-level="3.2.2" data-path="workflows.html"><a href="workflows.html#define-watershed-reaches"><i class="fa fa-check"></i><b>3.2.2</b> Define Watershed Reaches</a></li>
+<li class="chapter" data-level="3.2.3" data-path="workflows.html"><a href="workflows.html#detrend-dem"><i class="fa fa-check"></i><b>3.2.3</b> Detrend DEM</a></li>
+<li class="chapter" data-level="3.2.4" data-path="workflows.html"><a href="workflows.html#define-channel-extent"><i class="fa fa-check"></i><b>3.2.4</b> Define Channel Extent</a></li>
+<li class="chapter" data-level="3.2.5" data-path="workflows.html"><a href="workflows.html#map-riffles"><i class="fa fa-check"></i><b>3.2.5</b> Map Riffles</a></li>
+<li class="chapter" data-level="3.2.6" data-path="workflows.html"><a href="workflows.html#calculate-riffle-geometry"><i class="fa fa-check"></i><b>3.2.6</b> Calculate Riffle Geometry</a></li>
+<li class="chapter" data-level="3.2.7" data-path="workflows.html"><a href="workflows.html#estimate-bankfull"><i class="fa fa-check"></i><b>3.2.7</b> Estimate Bankfull</a></li>
+<li class="chapter" data-level="3.2.8" data-path="workflows.html"><a href="workflows.html#layout-cross-sections"><i class="fa fa-check"></i><b>3.2.8</b> Layout Cross Sections</a></li>
+<li class="chapter" data-level="3.2.9" data-path="workflows.html"><a href="workflows.html#calculate-cross-section-geometry"><i class="fa fa-check"></i><b>3.2.9</b> Calculate Cross Section Geometry</a></li>
+<li class="chapter" data-level="3.2.10" data-path="workflows.html"><a href="workflows.html#calculate-planform-geometry"><i class="fa fa-check"></i><b>3.2.10</b> Calculate Planform Geometry</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tutorial-data.html"><a href="tutorial-data.html"><i class="fa fa-check"></i><b>4</b> Tutorial Data</a></li>
+<li class="chapter" data-level="5" data-path="geoprocessing.html"><a href="geoprocessing.html"><i class="fa fa-check"></i><b>5</b> Geoprocessing</a><ul>
+<li class="chapter" data-level="5.1" data-path="geoprocessing.html"><a href="geoprocessing.html#create-terrain-1"><i class="fa fa-check"></i><b>5.1</b> Create Terrain</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="geoprocessing.html"><a href="geoprocessing.html#develop-elevation-model"><i class="fa fa-check"></i><b>5.1.1</b> Develop Elevation Model</a></li>
+<li class="chapter" data-level="5.1.2" data-path="geoprocessing.html"><a href="geoprocessing.html#elevation-model-hydro-modification"><i class="fa fa-check"></i><b>5.1.2</b> Elevation Model Hydro Modification</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="geoprocessing.html"><a href="geoprocessing.html#define-watershed-reaches-1"><i class="fa fa-check"></i><b>5.2</b> Define Watershed Reaches</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="geoprocessing.html"><a href="geoprocessing.html#define-stream-reaches"><i class="fa fa-check"></i><b>5.2.1</b> Define Stream Reaches</a></li>
+<li class="chapter" data-level="5.2.2" data-path="geoprocessing.html"><a href="geoprocessing.html#extract-stream-reach-profile-points"><i class="fa fa-check"></i><b>5.2.2</b> Extract Stream Reach Profile Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="geoprocessing.html"><a href="geoprocessing.html#detrend-dem-1"><i class="fa fa-check"></i><b>5.3</b> Detrend DEM</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="geoprocessing.html"><a href="geoprocessing.html#detrend-elevation-model"><i class="fa fa-check"></i><b>5.3.1</b> Detrend Elevation Model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="geoprocessing.html"><a href="geoprocessing.html#define-initial-channel-and-floodplain-extents"><i class="fa fa-check"></i><b>5.4</b> Define Initial Channel and Floodplain Extents</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="geoprocessing.html"><a href="geoprocessing.html#delineate-the-initial-channel-extent"><i class="fa fa-check"></i><b>5.4.1</b> Delineate the Initial Channel Extent</a></li>
+<li class="chapter" data-level="5.4.2" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-initial-channel-mask-layer"><i class="fa fa-check"></i><b>5.4.2</b> Create the Initial Channel Mask layer</a></li>
+<li class="chapter" data-level="5.4.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-initial-floodplain-mask-layer"><i class="fa fa-check"></i><b>5.4.3</b> Create the Initial Floodplain Mask layer</a></li>
+<li class="chapter" data-level="5.4.4" data-path="geoprocessing.html"><a href="geoprocessing.html#create-channel-slope-raster"><i class="fa fa-check"></i><b>5.4.4</b> Create Channel Slope Raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="geoprocessing.html"><a href="geoprocessing.html#map-riffles-1"><i class="fa fa-check"></i><b>5.5</b> Map Riffles</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="geoprocessing.html"><a href="geoprocessing.html#map-riffle-cross-sections"><i class="fa fa-check"></i><b>5.5.1</b> Map Riffle Cross Sections</a></li>
+<li class="chapter" data-level="5.5.2" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-cross-section-ids"><i class="fa fa-check"></i><b>5.5.2</b> Assign Cross Section IDs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-riffle-geometry-1"><i class="fa fa-check"></i><b>5.6</b> Calculate Riffle Geometry</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-watershed-area"><i class="fa fa-check"></i><b>5.6.1</b> Calculate Cross Section Watershed Area</a></li>
+<li class="chapter" data-level="5.6.2" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-cross-section-river-position"><i class="fa fa-check"></i><b>5.6.2</b> Assign Cross Section River Position</a></li>
+<li class="chapter" data-level="5.6.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-riffle_channel-feature-class"><i class="fa fa-check"></i><b>5.6.3</b> Create the <code>riffle_channel</code> feature class</a></li>
+<li class="chapter" data-level="5.6.4" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-station-points"><i class="fa fa-check"></i><b>5.6.4</b> Calculate Cross Section Station Points</a></li>
+<li class="chapter" data-level="5.6.5" data-path="geoprocessing.html"><a href="geoprocessing.html#check-cross-sections"><i class="fa fa-check"></i><b>5.6.5</b> Check Cross Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="geoprocessing.html"><a href="geoprocessing.html#estimate-bankfull-1"><i class="fa fa-check"></i><b>5.7</b> Estimate Bankfull</a></li>
+<li class="chapter" data-level="5.8" data-path="geoprocessing.html"><a href="geoprocessing.html#identify-infrastructure"><i class="fa fa-check"></i><b>5.8</b> Identify Infrastructure</a></li>
+<li class="chapter" data-level="5.9" data-path="geoprocessing.html"><a href="geoprocessing.html#define-valley-line"><i class="fa fa-check"></i><b>5.9</b> Define Valley Line</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="geoprocessing.html"><a href="geoprocessing.html#define-flood-prone-extent"><i class="fa fa-check"></i><b>5.9.1</b> Define Flood Prone Extent</a></li>
+<li class="chapter" data-level="5.9.2" data-path="geoprocessing.html"><a href="geoprocessing.html#create-candidate-valley-lines"><i class="fa fa-check"></i><b>5.9.2</b> Create Candidate Valley Lines</a></li>
+<li class="chapter" data-level="5.9.3" data-path="geoprocessing.html"><a href="geoprocessing.html#select-the-valley-line"><i class="fa fa-check"></i><b>5.9.3</b> Select the Valley Line</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="geoprocessing.html"><a href="geoprocessing.html#define-meander-loops"><i class="fa fa-check"></i><b>5.10</b> Define Meander Loops</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="geoprocessing.html"><a href="geoprocessing.html#create-a-bankfull-polygon"><i class="fa fa-check"></i><b>5.10.1</b> Create a Bankfull Polygon</a></li>
+<li class="chapter" data-level="5.10.2" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-banklines-feature-class"><i class="fa fa-check"></i><b>5.10.2</b> Create the <code>banklines</code> feature class</a></li>
+<li class="chapter" data-level="5.10.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-loop_points-feature-class"><i class="fa fa-check"></i><b>5.10.3</b> Create the <code>loop_points</code> feature class</a></li>
+<li class="chapter" data-level="5.10.4" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-bankline_points-feature-class"><i class="fa fa-check"></i><b>5.10.4</b> Create the <code>bankline_points</code> feature class</a></li>
+<li class="chapter" data-level="5.10.5" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-loops-and-bends-to-cross-sections"><i class="fa fa-check"></i><b>5.10.5</b> Assign Loops and Bends to Cross Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-geometry-1"><i class="fa fa-check"></i><b>5.11</b> Calculate Cross Section Geometry</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html"><i class="fa fa-check"></i><b>6</b> Level 1 Analysis Workflow</a><ul>
+<li class="chapter" data-level="6.1" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#define-study-area"><i class="fa fa-check"></i><b>6.1</b> Define Study Area</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#define-study-area-extent"><i class="fa fa-check"></i><b>6.1.1</b> Define Study Area Extent</a></li>
+<li class="chapter" data-level="6.1.2" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#determine-study-area-watershed"><i class="fa fa-check"></i><b>6.1.2</b> Determine Study Area Watershed</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#create-terrain-2"><i class="fa fa-check"></i><b>6.2</b> Create Terrain</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#acquire-low-resolution-elevation-model"><i class="fa fa-check"></i><b>6.2.1</b> Acquire Low Resolution Elevation Model</a></li>
+<li class="chapter" data-level="6.2.2" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#develop-high-resolution-elevation-model"><i class="fa fa-check"></i><b>6.2.2</b> Develop High Resolution Elevation Model</a></li>
+<li class="chapter" data-level="6.2.3" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#hydro-modify-dem"><i class="fa fa-check"></i><b>6.2.3</b> Hydro Modify DEM</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#define-stream-reaches-1"><i class="fa fa-check"></i><b>6.3</b> Define Stream Reaches</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#delineate-reaches"><i class="fa fa-check"></i><b>6.3.1</b> Delineate Reaches</a></li>
+<li class="chapter" data-level="6.3.2" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#calculate-stream-profile-points"><i class="fa fa-check"></i><b>6.3.2</b> Calculate Stream Profile Points</a></li>
+<li class="chapter" data-level="6.3.3" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#delineate-reach-watersheds"><i class="fa fa-check"></i><b>6.3.3</b> Delineate Reach Watersheds</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#assess-longitudinal-profile"><i class="fa fa-check"></i><b>6.4</b> Assess Longitudinal Profile</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#plot-longitudinal-profile"><i class="fa fa-check"></i><b>6.4.1</b> Plot Longitudinal Profile</a></li>
+<li class="chapter" data-level="6.4.2" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#evaluate-longitudinal-profile"><i class="fa fa-check"></i><b>6.4.2</b> Evaluate Longitudinal Profile</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#create-cross-sections"><i class="fa fa-check"></i><b>6.5</b> Create Cross Sections</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#layout-cross-sections-1"><i class="fa fa-check"></i><b>6.5.1</b> Layout Cross Sections</a></li>
+<li class="chapter" data-level="6.5.2" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#calculate-watershed-area"><i class="fa fa-check"></i><b>6.5.2</b> Calculate Watershed Area</a></li>
+<li class="chapter" data-level="6.5.3" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#assign-river-position"><i class="fa fa-check"></i><b>6.5.3</b> Assign River Position</a></li>
+<li class="chapter" data-level="6.5.4" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#calculate-cross-section-station-points-1"><i class="fa fa-check"></i><b>6.5.4</b> Calculate Cross Section Station Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#assess-cross-section-geometry"><i class="fa fa-check"></i><b>6.6</b> Assess Cross Section Geometry</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#run-the-level-1-report"><i class="fa fa-check"></i><b>6.6.1</b> Run the Level 1 Report</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="level-1-analysis-workflow.html"><a href="level-1-analysis-workflow.html#determine-next-steps"><i class="fa fa-check"></i><b>6.7</b> Determine Next Steps</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>7</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FluvialGeomorph User Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="level-1-analysis-workflow" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Level 1 Analysis Workflow</h1>
+<p>This chapter describes the workflow steps necessary to complete a Level 1 FluvialGeomorph analysis.</p>
+<div id="define-study-area" class="section level2">
+<h2><span class="header-section-number">6.1</span> Define Study Area</h2>
+<p>The purpose of this step is to define the location and extent of the study reach positioned within the established watershed hierarchy.</p>
+<div id="define-study-area-extent" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Define Study Area Extent</h3>
+<div id="determine-the-type-of-study-area" class="section level4">
+<h4><span class="header-section-number">6.1.1.1</span> Determine the type of study area</h4>
+</div>
+</div>
+<div id="determine-study-area-watershed" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Determine Study Area Watershed</h3>
+<div id="identify-the-study-area-in-the-watershed-boundary-dataset" class="section level4">
+<h4><span class="header-section-number">6.1.2.1</span> Identify the study area in the Watershed Boundary Dataset</h4>
+</div>
+</div>
+</div>
+<div id="create-terrain-2" class="section level2">
+<h2><span class="header-section-number">6.2</span> Create Terrain</h2>
+<p>The purpose of this step is to derive the terrain models needed for this analysis.</p>
+<div id="acquire-low-resolution-elevation-model" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Acquire Low Resolution Elevation Model</h3>
+<div id="identify-a-source-of-elevation-data-for-your-study-area" class="section level4">
+<h4><span class="header-section-number">6.2.1.1</span> Identify a source of elevation data for your study area</h4>
+</div>
+<div id="determine-if-the-pre-made-dem-has-sufficient-resolution" class="section level4">
+<h4><span class="header-section-number">6.2.1.2</span> Determine if the pre-made DEM has sufficient resolution</h4>
+</div>
+<div id="verify-that-the-dem-elevations-are-in-feet" class="section level4">
+<h4><span class="header-section-number">6.2.1.3</span> Verify that the DEM elevations are in feet</h4>
+</div>
+<div id="create-a-hillshade-to-improve-visualization" class="section level4">
+<h4><span class="header-section-number">6.2.1.4</span> Create a hillshade to improve visualization</h4>
+</div>
+</div>
+<div id="develop-high-resolution-elevation-model" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Develop High Resolution Elevation Model</h3>
+<div id="download-lidar-point-cloud-data" class="section level4">
+<h4><span class="header-section-number">6.2.2.1</span> Download LiDAR point cloud data</h4>
+</div>
+<div id="build-a-dem-from-lidar-point-cloud-data" class="section level4">
+<h4><span class="header-section-number">6.2.2.2</span> Build a DEM from LiDAR point cloud data</h4>
+</div>
+<div id="verify-that-the-dem-elevations-are-in-feet-1" class="section level4">
+<h4><span class="header-section-number">6.2.2.3</span> Verify that the DEM elevations are in feet</h4>
+</div>
+<div id="create-a-hillshade-to-improve-visualization-1" class="section level4">
+<h4><span class="header-section-number">6.2.2.4</span> Create a hillshade to improve visualization</h4>
+</div>
+</div>
+<div id="hydro-modify-dem" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Hydro Modify DEM</h3>
+<div id="develop-cutlines-to-ensure-water-flows-across-the-terrain" class="section level4">
+<h4><span class="header-section-number">6.2.3.1</span> Develop <code>cutlines</code> to ensure water flows across the terrain</h4>
+</div>
+<div id="burn-cutlines-into-the-terrains" class="section level4">
+<h4><span class="header-section-number">6.2.3.2</span> Burn cutlines into the terrains</h4>
+</div>
+</div>
+</div>
+<div id="define-stream-reaches-1" class="section level2">
+<h2><span class="header-section-number">6.3</span> Define Stream Reaches</h2>
+<p>The purpse of this step is to synthetically derive from the terrain the study area reaches and their watersheds.</p>
+<div id="delineate-reaches" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Delineate Reaches</h3>
+</div>
+<div id="calculate-stream-profile-points" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Calculate Stream Profile Points</h3>
+</div>
+<div id="delineate-reach-watersheds" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Delineate Reach Watersheds</h3>
+</div>
+</div>
+<div id="assess-longitudinal-profile" class="section level2">
+<h2><span class="header-section-number">6.4</span> Assess Longitudinal Profile</h2>
+<p>The purpose of this step is to evaluate the longitudinal profile of each study area reach.</p>
+<div id="plot-longitudinal-profile" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Plot Longitudinal Profile</h3>
+</div>
+<div id="evaluate-longitudinal-profile" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Evaluate Longitudinal Profile</h3>
+</div>
+</div>
+<div id="create-cross-sections" class="section level2">
+<h2><span class="header-section-number">6.5</span> Create Cross Sections</h2>
+<p>The purpose of this step is to create stream cross sections and extract terrain elevations along each cross section.</p>
+<div id="layout-cross-sections-1" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Layout Cross Sections</h3>
+</div>
+<div id="calculate-watershed-area" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Calculate Watershed Area</h3>
+</div>
+<div id="assign-river-position" class="section level3">
+<h3><span class="header-section-number">6.5.3</span> Assign River Position</h3>
+</div>
+<div id="calculate-cross-section-station-points-1" class="section level3">
+<h3><span class="header-section-number">6.5.4</span> Calculate Cross Section Station Points</h3>
+</div>
+</div>
+<div id="assess-cross-section-geometry" class="section level2">
+<h2><span class="header-section-number">6.6</span> Assess Cross Section Geometry</h2>
+<p>The purpose of this step is to evaluate the cross sectional shape of the stream.</p>
+<div id="run-the-level-1-report" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> Run the Level 1 Report</h3>
+</div>
+</div>
+<div id="determine-next-steps" class="section level2">
+<h2><span class="header-section-number">6.7</span> Determine Next Steps</h2>
+<p>The purpose of this step is to determine what further steps need to be taken.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="geoprocessing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05a-Level_1.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["FG-User-Manual.pdf", "FG-User-Manual.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

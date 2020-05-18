@@ -1,5 +1,7 @@
-book_filename: "DevelopRegionalCurve"
+book_filename: "FG-User-Manual"
+output_dir: "docs"
+delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
-delete_merged_file: true
+
