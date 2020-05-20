@@ -7,6 +7,9 @@ The purpose of this step is to define the location and extent of the study reach
 ### Define Study Area Extent
 #### Determine the type of study area
 
+### Define Study Area Reaches
+### Use the NHDPlus Flow accumulation to identify major changes in drainage area
+
 ### Determine Study Area Watershed
 #### Identify the study area in the Watershed Boundary Dataset
 
@@ -22,7 +25,7 @@ The purpose of this step is to derive the terrain models needed for this analysi
 
 ### Develop High Resolution Elevation Model
 #### Download LiDAR point cloud data
-#### Build a DEM from LiDAR point cloud data
+#### Build a DEM from LiDAR point cloud data for each reach
 #### Verify that the DEM elevations are in feet
 #### Create a hillshade to improve visualization
 
