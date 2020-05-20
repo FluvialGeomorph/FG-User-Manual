@@ -8,7 +8,7 @@ The purpose of this step is to define the location and extent of the study reach
 #### Determine the type of study area
 
 ### Define Study Area Reaches
-### Use the NHDPlus Flow accumulation to identify major changes in drainage area
+#### Identify major increases in drainage area
 
 ### Determine Study Area Watershed
 #### Identify the study area in the Watershed Boundary Dataset
