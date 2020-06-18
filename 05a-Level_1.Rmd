@@ -52,6 +52,12 @@ The purpose of this step is to evaluate the longitudinal profile of each study a
 ### Evaluate Longitudinal Profile
 
 
+## Identify Infrastructure
+The purpose of this step is to identify built infrastructure in the floodplain that may be affecting channel hydraulics. 
+
+### Digitize Built Infrastructure
+
+
 ## Create Cross Sections
 The purpose of this step is to create stream cross sections and extract terrain elevations along each cross section. 
 
