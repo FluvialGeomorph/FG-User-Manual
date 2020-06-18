@@ -14,11 +14,22 @@ This chapter will describe the process for installing and configuring the `Fluvi
 
 ## Install R and RStudio
 
-## Install ArcGIS Desktop or ArcGIS Pro
+## Install using ArcGIS Pro
+
+### Install the R-Bridge under R 4.0.0
+```{r}
+install.packages("arcgisbinding", repos="http://r-arcgis.github.io/r-bridge", type="win.binary")
+```
 
 ## Install TauDEM
 
 ## Install FluvialGeomorph
+
+```{r}
+# Install R package `facetscales`
+devtools::install_github("zeehio/facetscales")
+```
+
 
 ## Install Tutorial Data
 
