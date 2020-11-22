@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Install | FluvialGeomorph User Manual</title>
+  <title>Report QA Checklist | FluvialGeomorph User Manual</title>
   <meta name="description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Install | FluvialGeomorph User Manual" />
+  <meta property="og:title" content="Report QA Checklist | FluvialGeomorph User Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Install | FluvialGeomorph User Manual" />
+  <meta name="twitter:title" content="Report QA Checklist | FluvialGeomorph User Manual" />
   
   <meta name="twitter:description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
   
@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction.html"/>
-<link rel="next" href="workflows.html"/>
+<link rel="prev" href="references.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -231,78 +231,129 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="install" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Install</h1>
-<p>This chapter will describe the process for installing and configuring the <code>FluvialGeomorph</code> software components.</p>
-<div id="software-requirements" class="section level2">
-<h2><span class="header-section-number">2.1</span> Software Requirements</h2>
-<p>The following summary of the software that must be installed to use the FluvialGeomorph toolbox. The rest of this chapter will describe how to complete these installations.</p>
+<div id="report-qa-checklist" class="section level1 unnumbered">
+<h1>Report QA Checklist</h1>
+<p>This chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports. This checklist will help you identify where things might not be exactly right with previous tool runs and what you’ll need to do fix them.</p>
+<div id="level-1-report" class="section level2">
+<h2><span class="header-section-number">7.1</span> Level 1 Report</h2>
+<div id="section-study-area-overview" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Section: Study Area Overview</h3>
+<p>This report section contains a set of reach overview maps drawn using the flowline and the cross section dimensions, _dims_L1, feature classes (fc). Both the aerial photo and elevation are provided by <a href="https://docs.mapbox.com/api/maps/#raster-tiles">Mapbox Raster Tiles</a>.</p>
+<div id="check-the-stream-name" class="section level4">
+<h4><span class="header-section-number">7.1.1.1</span> Check the stream name</h4>
+<p>All of the tools depend on consistent reach naming! Ensuring consistent naming begins with deriving the flowline fc. The ReachName field must contain the same value for all of the fc’s within a reach geodatabase. This is the single biggest gotcha we find running these tools. If tools aren’t working correctly and you’re sure you’ve done everything else right, consistent stream names is the first thing to check!</p>
+</div>
+<div id="cross-section-labels-at-the-correct-interval" class="section level4">
+<h4><span class="header-section-number">7.1.1.2</span> Cross section labels at the correct interval</h4>
+</div>
+<div id="cross-sections-cover-the-full-extent-of-the-flowine" class="section level4">
+<h4><span class="header-section-number">7.1.1.3</span> Cross sections cover the full extent of the flowine</h4>
+</div>
+<div id="map-background-displaying-correctly" class="section level4">
+<h4><span class="header-section-number">7.1.1.4</span> Map background displaying correctly</h4>
+</div>
+</div>
+<div id="section-longitudinal-profile" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Section: Longitudinal Profile</h3>
+<p>This report section contains two longitudinal profile graphs, one drawn using the <strong>flowline_points</strong> fc, and the second is drawn using the cross section dimensions, **_dims_L1** fc.</p>
+<div id="elevation-values-are-reasonable" class="section level4">
+<h4><span class="header-section-number">7.1.2.1</span> Elevation values are reasonable</h4>
+</div>
+<div id="elevation-ranges-are-similar-between-surveys" class="section level4">
+<h4><span class="header-section-number">7.1.2.2</span> Elevation ranges are similar between surveys</h4>
+</div>
+<div id="multiple-surveys-are-labeled-correctly" class="section level4">
+<h4><span class="header-section-number">7.1.2.3</span> Multiple surveys are labeled correctly</h4>
 <ul>
-<li>R Statistical Computing Language (3.6.3+ recommended)</li>
-<li>RStudio Desktop (1.3+ recommended), optional</li>
-<li>TauDEM (5.3.7+ recommended)</li>
-<li>ArcGIS Pro (2.6+ recommended) or ArcGIS Desktop (10.8+ recommended)</li>
-<li>FluvialGeomorph toolbox latest version</li>
-</ul>
-<div id="install-r" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> Install <code>R</code></h3>
-<p><code>R</code> is a statistical computing environment required to perform calculations and report generation.
-* Ensure that <code>R</code> is installed.
-* <code>R</code> version 3.6.3 or greater is recommended.</p>
-</div>
-<div id="install-rstudio" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> Install <code>RStudio</code></h3>
-<p><code>Rstudio</code> is an Integrated Development Environment (IDE) for <code>R</code> that streamlines development and troubleshooting.
-* Ensure that <code>Rstudio</code> is installed.
-* <code>RStudio</code> version 1.3 or greater is recommended.</p>
-</div>
-</div>
-<div id="install-taudem" class="section level2">
-<h2><span class="header-section-number">2.2</span> Install TauDEM</h2>
-<p>Install the latest version of <a href="https://hydrology.usu.edu/taudem/taudem5/">TauDEM</a>, v5.3.7.</p>
-<div id="install-arcgis-pro" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Install <code>ArcGIS Pro</code></h3>
-<p><code>ArcGIS Pro</code> is the GIS environment where the FMG data will be developed and the toolbox will be run from.
-* Ensure that <code>ArcGIS Pro</code> is installed.
-* <code>ArcGIS Pro</code> version 2.6 or greater is recommended.</p>
-</div>
-<div id="download-the-arcgisbinding-package" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Download the <code>arcgisbinding</code> package</h3>
-<p>The <code>arcgisbinding</code> <code>R</code> package allows <code>ArcGIS Pro</code> and <code>ArcMap</code> to read and write to R. Installing it through <code>ArcGIS Pro</code> also enables it for use in <code>ArcMap</code> as well. <em>Note: The ArcGIS R-bridge does not yet support R 4.0 for use in ArcGIS Pro or ArcMap geoprocessing tools.</em> See the <a href="NEWS.md">NEWS</a> for more details on version compatibility. Please manually download the specified version using these instructions.</p>
-<ul>
-<li>Navigate to the following URL: <a href="https://github.com/R-ArcGIS/r-bridge">https://github.com/R-ArcGIS/r-bridge</a></li>
-<li>In the “Releases” section on the middle-right side of the page, click the “+ xx releases” link.</li>
-<li>Download the <code>v1.0.1.239</code> version. This file is named: <code>arcgisbinding_1.0.1.239.zip</code></li>
-<li>Note the location of the file you just downloaded. We will use it in a following step.</li>
+<li>Most recent survey listed at the top, with earlier surveys listed below.</li>
+<li>Survey date indicate the date flown (e.g., not the contract date).</li>
 </ul>
 </div>
-<div id="install-the-arcgisbinding-package" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Install the <code>arcgisbinding</code> package</h3>
-<p>The <code>arcgisbinding</code> <code>R</code> package is developed and maintained by ESRI to support the import and export of GIS data into <code>R</code>.</p>
+<div id="multiple-surveys-are-calibrated-to-the-base-year" class="section level4">
+<h4><span class="header-section-number">7.1.2.4</span> Multiple surveys are calibrated to the base year</h4>
+</div>
+<div id="stationing-in-the-correct-units" class="section level4">
+<h4><span class="header-section-number">7.1.2.5</span> Stationing in the correct units</h4>
+</div>
+<div id="stream-feature-labels-display-correctly" class="section level4">
+<h4><span class="header-section-number">7.1.2.6</span> Stream feature labels display correctly</h4>
+</div>
+</div>
+<div id="section-cross-section-metrics" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Section: Cross Section Metrics</h3>
+<p>This report section contains a Level 1 cross section metrics plot drawn using the cross section dimensions fc, **_dims_L1**.</p>
+<div id="cross-section-watershed-area-calculated-correctly" class="section level4">
+<h4><span class="header-section-number">7.1.3.1</span> Cross section watershed area calculated correctly</h4>
 <ul>
-<li>In <code>ArcGIS Pro</code>, on the top menu, click “Project”, and click “Options” on the left menu.</li>
-<li>In the “Options” dialog box, click “Geoprocessing” on the left menu.</li>
-<li>On the “Geoprocessing” page, scroll down to the “R-ArcGIS Support” section.</li>
-<li>In the “R-ArcGIS Support” section, verify the installed <code>R</code> version for ArcGIS to use.</li>
-<li>Select an <code>R</code> version in the 3.6.x series.<br />
-</li>
-<li>Below the “Detected R home directories” drop-down menu, you will see the <code>arcgisbinding</code> package section. From the drop-down, choose the “Update from file” option. Navigate to the <code>arcgisbinding_1.0.1.239.zip</code> file you downloaded in an earlier step and click the OK button.</li>
+<li>Watershed values are reasonable.</li>
+<li>Watershed area must decrease moving upstream.</li>
 </ul>
 </div>
+<div id="elevation-smoothing-is-acceptable" class="section level4">
+<h4><span class="header-section-number">7.1.3.2</span> Elevation smoothing is acceptable</h4>
 </div>
-<div id="install-fluvialgeomorph" class="section level2">
-<h2><span class="header-section-number">2.3</span> Install FluvialGeomorph</h2>
-<p>The code in the <a href="https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox/">FluvialGeomorph-toolbox/</a> repository contains all of the files needed to use this ArcGIS toolbox.</p>
-<ul>
-<li>In the “Releases” section above on the right side of the page, click the green “latest” link.</li>
-<li>On the latest release page, use the “Source code (zip)” link to download a ZIP archive of the toolbox.</li>
-<li>Unzip the archive to your project folder.</li>
-<li>In <code>ArcMap</code> or <code>ArcGIS Pro</code>, navigate to the folder where you just unzipped the archive and you are ready to use this ArcGIS toolbox.</li>
-</ul>
+<div id="slope-values-are-smooth-and-reasonable" class="section level4">
+<h4><span class="header-section-number">7.1.3.3</span> Slope values are smooth and reasonable</h4>
 </div>
-<div id="install-tutorial-data" class="section level2">
-<h2><span class="header-section-number">2.4</span> Install Tutorial Data</h2>
+<div id="sinuosity-values-are-smooth-and-reasonable" class="section level4">
+<h4><span class="header-section-number">7.1.3.4</span> Sinuosity values are smooth and reasonable</h4>
+</div>
+</div>
+<div id="section-cross-section-profiles" class="section level3">
+<h3><span class="header-section-number">7.1.4</span> Section: Cross Section Profiles</h3>
+<p>This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn</p>
+<div id="cross-section-must-be-digitized-from-left-to-right" class="section level4">
+<h4><span class="header-section-number">7.1.4.1</span> Cross section must be digitized from left to right</h4>
+</div>
+<div id="cross-section-perpenduicular-to-the-channel" class="section level4">
+<h4><span class="header-section-number">7.1.4.2</span> Cross section perpenduicular to the channel</h4>
+</div>
+<div id="cross-section-covers-the-channel-extent" class="section level4">
+<h4><span class="header-section-number">7.1.4.3</span> Cross section covers the channel extent</h4>
+</div>
+<div id="cross-section-extends-onto-floodplain" class="section level4">
+<h4><span class="header-section-number">7.1.4.4</span> Cross section extends onto floodplain</h4>
+</div>
+<div id="cross-section-not-located-on-built-infrastructure" class="section level4">
+<h4><span class="header-section-number">7.1.4.5</span> Cross section not located on built infrastructure</h4>
+</div>
+<div id="cross-section-drawn-within-the-dem-extent" class="section level4">
+<h4><span class="header-section-number">7.1.4.6</span> Cross section drawn within the DEM extent</h4>
+</div>
+<div id="cross-section-y-axis-range-is-not-too-large" class="section level4">
+<h4><span class="header-section-number">7.1.4.7</span> Cross section y-axis range is not too large</h4>
+</div>
+<div id="cross-section-x-axis-range-is-not-too-large" class="section level4">
+<h4><span class="header-section-number">7.1.4.8</span> Cross section x-axis range is not too large</h4>
+</div>
+</div>
+</div>
+<div id="estimate-bankfull-report" class="section level2">
+<h2><span class="header-section-number">7.2</span> Estimate Bankfull Report</h2>
+<div id="correct-regions-included" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Correct regions included</h3>
+</div>
+<div id="adequate-range-of-bankfull-elevations" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Adequate range of bankfull elevations</h3>
+</div>
+<div id="detrended-bankfull-elevation-set-to-a-reasonable-value" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Detrended bankfull elevation set to a reasonable value</h3>
+</div>
+</div>
+<div id="level-2-report" class="section level2">
+<h2><span class="header-section-number">7.3</span> Level 2 Report</h2>
+</div>
+<div id="level-3-report" class="section level2">
+<h2><span class="header-section-number">7.4</span> Level 3 Report</h2>
 
+<div id="refs" class="references">
+<div>
+<p>R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
+<div>
+<p>Xie, Yihui. 2019. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -310,8 +361,8 @@
           </div>
         </div>
       </div>
-<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="workflows.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -342,7 +393,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Install.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-QAChecklist.Rmd",
 "text": "Edit"
 },
 "history": {

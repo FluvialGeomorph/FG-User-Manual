@@ -35,7 +35,7 @@ The purpose of this step is to derive the terrain models needed for this analysi
 
 
 ## Define Stream Reaches
-The purpse of this step is to synthetically derive from the terrain the study area reaches and their watersheds. 
+The purpose of this step is to synthetically derive from the terrain the study area reaches and their watersheds. 
 
 ### Delineate Reaches
 

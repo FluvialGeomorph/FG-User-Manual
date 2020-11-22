@@ -117,16 +117,16 @@ Riffle locations are identified using the `channel_slope` raster calculated in t
     * Presence of one or more terraces
     * Channel section and form typical of the stream
     * A reasonably clear view of of geomorphic features
-    * Areas of high water surface slope 
+    * Areas of high water surface slope (in the case of high gradient streams)
     * Areas of minimum depth and width
     * Channel width parallel and consistent 
     * Avoid tributary influences
+    * Cross sections should be drawn wide enough to capture the top of bank
 
 * Digitize riffle cross sections beginning with the left descending bank. In an edit session, use the flip command to ensure riffles are digitized in the correct direction. A red vertex denotes the end of a line segment. Therefore, the red end vertex should be on the right descending bank. 
 * Check that each cross section is digitized in the correct direction (start at the left descending bank and end on the right descending bank) before going on to the next step. 
 * Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each `riffle_floodplain` feature to ensure that it extends at least to the edge of the `Floodplain Mask` layer, but no further. 
 * This ensures that each `riffle_floodplain` feature covers the entire floodplain, but does not extend too far into the upland.  
-
 
 ### Assign Cross Section IDs
 The purpose of this step is to ensure that riffle cross section identifiers are properly assigned. Assignment of cross section identifiers is critical for later tools to uniquely identify each cross section. 
