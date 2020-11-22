@@ -3,36 +3,66 @@
 This chapter will describe the process for installing and configuring the `FluvialGeomorph` software components. 
 
 ## Software Requirements
+The following summary of the software that must be installed to use the FluvialGeomorph toolbox. The rest of this chapter will describe how to complete these installations. 
 
-* Internet browser (Mozilla Firefox, Google Chrome recommended)
-* R Statistical Computing Language (3.2.0+ recommended)
-* RStudio Desktop (1.0.153+ recommended), optional
+* R Statistical Computing Language (3.6.3+ recommended)
+* RStudio Desktop (1.3+ recommended), optional
 * TauDEM (5.3.7+ recommended)
-* ArcGIS Pro (2.0+ recommended) or ArcGIS Desktop (10.5.1+ recommended)
+* ArcGIS Pro (2.6+ recommended) or ArcGIS Desktop (10.8+ recommended)
+* FluvialGeomorph toolbox latest version
 
 
+### Install `R`
+`R` is a statistical computing environment required to perform calculations and report generation. 
+* Ensure that `R` is installed. 
+* `R` version 3.6.3 or greater is recommended. 
 
-## Install R and RStudio
 
-## Install using ArcGIS Pro
-
-### Install the R-Bridge under R 4.0.0
-```{r}
-install.packages("arcgisbinding", repos="http://r-arcgis.github.io/r-bridge", type="win.binary")
-```
+### Install `RStudio`
+`Rstudio` is an Integrated Development Environment (IDE) for `R` that streamlines development and troubleshooting. 
+* Ensure that `Rstudio` is installed.
+* `RStudio` version 1.3 or greater is recommended. 
 
 ## Install TauDEM
+Install the latest version of [TauDEM](https://hydrology.usu.edu/taudem/taudem5/), v5.3.7.
+
+### Install `ArcGIS Pro`
+`ArcGIS Pro` is the GIS environment where the FMG data will be developed and the toolbox will be run from. 
+* Ensure that `ArcGIS Pro` is installed. 
+* `ArcGIS Pro` version 2.6 or greater is recommended. 
+
+### Download the `arcgisbinding` package
+The `arcgisbinding` `R` package allows `ArcGIS Pro` and `ArcMap` to read and write to R. Installing it through `ArcGIS Pro` also enables it for use in `ArcMap` as well. *Note: The ArcGIS R-bridge does not yet support R 4.0 for use in ArcGIS Pro or ArcMap geoprocessing tools.* See the [NEWS](NEWS.md) for more details on version compatibility. Please manually download the specified version using these instructions. 
+
+* Navigate to the following URL: [https://github.com/R-ArcGIS/r-bridge](https://github.com/R-ArcGIS/r-bridge)
+* In the "Releases" section on the middle-right side of the page, click the "+ xx releases" link. 
+* Download the `v1.0.1.239` version. This file is named:  `arcgisbinding_1.0.1.239.zip`
+* Note the location of the file you just downloaded. We will use it in a following step.
+
+### Install the `arcgisbinding` package
+The `arcgisbinding` `R` package is developed and maintained by ESRI to support the import and export of GIS data into `R`. 
+
+* In `ArcGIS Pro`, on the top menu, click "Project", and click "Options" on the left menu.
+* In the "Options" dialog box, click "Geoprocessing" on the left menu. 
+* On the "Geoprocessing" page, scroll down to the "R-ArcGIS Support" section.
+* In the "R-ArcGIS Support" section, verify the installed `R` version for ArcGIS to use.
+* Select an `R` version in the 3.6.x series.  
+* Below the "Detected R home directories" drop-down menu, you will see the `arcgisbinding` package section. From the drop-down, choose the "Update from file" option. Navigate to the `arcgisbinding_1.0.1.239.zip` file you downloaded in an earlier step and click the OK button. 
+
 
 ## Install FluvialGeomorph
+The code in the [FluvialGeomorph-toolbox/](https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox/) repository contains all of the files needed to use this ArcGIS toolbox. 
 
-```{r}
-# Install R package `facetscales`
-devtools::install_github("zeehio/facetscales")
-```
+* In the "Releases" section above on the right side of the page, click the green "latest" link. 
+* On the latest release page, use the "Source code (zip)" link to download a ZIP archive of the toolbox. 
+* Unzip the archive to your project folder. 
+* In `ArcMap` or `ArcGIS Pro`, navigate to the folder where you just unzipped the archive and you are ready to use this ArcGIS toolbox. 
+
+
 
 
 ## Install Tutorial Data
 
-### Install NHDPlus Flow Accummulation
 
-## Test FluvialGeomorph
+
+
