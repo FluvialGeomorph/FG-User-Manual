@@ -14,12 +14,14 @@ The following summary of the software that must be installed to use the FluvialG
 
 ### Install `R`
 `R` is a statistical computing environment required to perform calculations and report generation. 
+
 * Ensure that `R` is installed. 
 * `R` version 3.6.3 or greater is recommended. 
 
 
 ### Install `RStudio`
 `Rstudio` is an Integrated Development Environment (IDE) for `R` that streamlines development and troubleshooting. 
+
 * Ensure that `Rstudio` is installed.
 * `RStudio` version 1.3 or greater is recommended. 
 
@@ -27,7 +29,8 @@ The following summary of the software that must be installed to use the FluvialG
 Install the latest version of [TauDEM](https://hydrology.usu.edu/taudem/taudem5/), v5.3.7.
 
 ### Install `ArcGIS Pro`
-`ArcGIS Pro` is the GIS environment where the FMG data will be developed and the toolbox will be run from. 
+`ArcGIS Pro` is the GIS environment where the FMG data will be developed and the toolbox will be run from.   
+
 * Ensure that `ArcGIS Pro` is installed. 
 * `ArcGIS Pro` version 2.6 or greater is recommended. 
 

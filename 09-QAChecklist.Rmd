@@ -64,13 +64,15 @@ Many reach metrics are calculated using a longitudinal moving window analysis. T
 Slope values should be greater than zero. If negative slopes are being recorded, it usually means that the moving window size needs to be increased. 
 
 #### Sinuosity values are reasonable
-Sinuosity vlues should be greater than one. 
+Sinuosity values should be greater than one. 
 
 
 ### Cross Section Profiles {#L1_xs_profiles}
 This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions "_dims_L1" fc and the "dem_hydro" raster. The cross section profile graph is drawn using the cross section points fc's for each survey.  
 
 #### Cross section must be digitized from left to right
+The graph is being viewed from the perspective of standing in the stream, looking downstream. To ensure this orientation, cross sections must be digitized from the left descending bank to the right descending bank. 
+
 
 #### Cross section perpenduicular to the channel
 
