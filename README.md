@@ -11,7 +11,14 @@ The user manual for the FluvialGeomorph project. <img src="docs/images/HDQLO-03_
 This user manual describes how to use FluvialGeomorph for stream analysis. 
 
 ## Funding
-Funding for development and maintenance of FluvialGeomorph has been provided by the US Army Corps of Engineers (USACE) [Ecosystem Management and Restoration Research Program (EMRRP)](https://emrrp.el.erdc.dren.mil). <img src="docs/images/EMRRP_logo_300.png" align="right" />
+Funding for development and maintenance of FluvialGeomorph has been provided by the following US Army Corps of Engineers (USACE) programs:
+
+* [Ecosystem Management and Restoration Research Program (EMRRP)](https://emrrp.el.erdc.dren.mil).
+* [Regional Sediment Management Program (RSM)](https://rsm.usace.army.mil/)
+* [Mississippi River Geomorphology and Potamology Program (MRG&P)](https://www.mvd.usace.army.mil/Missions/Mississippi-River-Science-Technology/MS-River-Geomorphology-Potamology/)
+* [Flood Risk Management Program (FRM)](https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/)
+
+<img src="docs/images/FRMP_300.png" height=75 align="right" /><img src="docs/images/MRG&P_300.png" height=75 align="right" /><img src="docs/images/RSMlogo.png" height=75 align="right" /><img src="docs/images/EMRRP_logo_300.png" height=75 align="right" />
 
 ## Authors
 * [Michael Dougherty](mailto:Michael.P.Dougherty@usace.army.mil), Geographer, Rock Island District, U.S. Army Corps of Engineers
