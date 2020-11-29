@@ -49,10 +49,10 @@ Longitudinal graphs are labeled using the rows in the "features" fc. Ensure thes
 This report section contains a Level 1 cross section metrics plot drawn using the cross section dimensions fc, "_dims_L1". 
 
 #### Cross section watershed area calculated correctly
-The watershed area metric is calculated by the "XS Watershed Area" tool. Given the complexities of automatically calculating watershed area for high resolution stream features, some watershed areas may not have been calculated correctly. Rerunning the tool or manual adjustment may be required. Be sure to edit the "Watershed_Area_Sq
+The watershed area metric is calculated by the "XS Watershed Area" tool. Given the complexities of automatically calculating watershed area for high resolution stream features, some watershed areas may not have been calculated correctly. Rerunning the Watershed Area tool or manual adjustment of the "Watershed_Area_SqMile" field may be required.  
 
 * Watershed values are reasonable. 
-* Watershed area must decrease moving upstream. 
+* Watershed area must increase moving downstream. 
 
 #### Elevation smoothing is acceptable
 High resolution LiDAR derived stream elevations can be noisy. Smoothing the elevations longitudinally is a way reduce noise. However, too much smoothing can be applied, eliminating any of the relationships we want to observe. By visually comparing the raw elevation and the smoothed elevation graphs, verify that the amount of smoothing sufficiently reduces noise, but does not not go too far and removes substantive variation. Smoothing is controlled in the "XS Dimension" tools using the "loess_span" parameter. 
@@ -103,6 +103,8 @@ This report section contains the Bankfull Elevation Goodness of Fit graph and th
 #### Adequate range of bankfull elevations
 
 #### Detrended bankfull elevation set to a reasonable value
+
+#### Drainage Area values are reasonable
 
 
 ### Longitudinal Profile {#estimate_bankfull_long_profile}
