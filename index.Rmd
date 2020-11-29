@@ -27,11 +27,12 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
 * [Mississippi River Geomorphology and Potamology Program (MRG&P)](https://www.mvd.usace.army.mil/Missions/Mississippi-River-Science-Technology/MS-River-Geomorphology-Potamology/)
 * [Flood Risk Management Program (FRM)](https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/)
 
-<img src="docs/images/FRMP_300.png" height=75 align="right" /><img src="docs/images/MRG&P_300.png" height=75 align="right" /><img src="docs/images/RSMlogo.png" height=75 align="right" /><img src="docs/images/EMRRP_logo_300.png" height=75 align="right" />
-
 ```{r echo=FALSE}
 knitr::include_graphics("docs/images/HDQLO-03_h120.jpg")
 knitr::include_graphics("docs/images/EMRRP_logo_300.png")
+knitr::include_graphics("docs/images/RSMlogo.png")
+knitr::include_graphics("docs/images/MRG&P_300.png")
+knitr::include_graphics("docs/images/FRMP_300.png")
 ```
 
 
