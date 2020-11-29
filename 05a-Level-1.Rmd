@@ -1,56 +1,258 @@
-# Level 1 Analysis Workflow
+# Level 1 Workflow
 This chapter describes the workflow steps necessary to complete a Level 1 FluvialGeomorph analysis. 
 
-## Define Study Area
-The purpose of this step is to define the location and extent of the study reach  positioned within the established watershed hierarchy. 
-
-### Define Study Area Extent
-#### Determine the type of study area
-
-### Define Study Area Reaches
-#### Identify major increases in drainage area
-
-### Determine Study Area Watershed
-#### Identify the study area in the Watershed Boundary Dataset
-
-
 ## Create Terrain
-The purpose of this step is to derive the terrain models needed for this analysis. 
+The purpose of this step is to derive the terrain models needed for this analysis.  
 
-### Acquire Low Resolution Elevation Model
+### Define Study Area
+The purpose of this step is to define the location and extent of the study area.  
+
+#### Create a Study Area Geodatabase
+* Create a new folder on a local workstation drive. Name it for the study area. 
+* Within this project folder, create a new study area file geodatabase. Name it for the study area.  
+
+#### Define the Longitudinal Extent of the Study Area
+* Use the [USGS National Hydrography Dataset(NHD)](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/national-hydrography-dataset) High Resolution to define the longitudinal extent of the reaches of the study area. 
+* Import the NHD Flowline feature class to represent the study area reaches. 
+* These will be used only as an initial coarse-scale representation of the study reaches to facilitate early study area definition. This study will derive high resolution definitions of study reaches. 
+* Edit the extent of the NHD Flowline feature class into a set of initial study area reaches.   
+
+#### Define the Areal Extent of the Study Area. 
+* Create a new polygon feature class named `study_area`. 
+* This polygon should outline the extent of the study reaches. 
+* If the study reaches are already known, sub divide the `study_area` polygon into these study reaches. 
+* This polygon should define the "must-have" extent for both communicating the study area, as well as helping to define the area to acquire elevation data.  
+
+#### Determine the Contributing Watershed to the Study Area
+* Use the [NRCS Watershed Boundary Dataset (WBD)](https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water/watersheds/dataset/) to define the upstream contributing watershed of the study reach. 
+* Depending on the scale of the study reach, identify the relevant hierarchical levels to characterize the study area. 
+* Import these Hydrologic Unit Code (HUC) polygons into the study area geodatabase. 
+
+
+### Acquire Study Area Watershed Elevation Model
+The purpose of this step is to acquire an existing, pre-made DEM of the entire study area watershed. This DEM will help determine the following parameters:
+
+* Determine if an existing, pre-made DEM will serve for this analysis. 
+* Derive study area watershed extents.
+* Calculate reach scale drainage area. The coverage of this DEM should cover the entire upstream contributing watershed of the study area. 
+
 #### Identify a source of elevation data for your study area
 #### Determine if the pre-made DEM has sufficient resolution
 #### Verify that the DEM elevations are in feet
 #### Create a hillshade to improve visualization
 
 ### Develop High Resolution Elevation Model
+The purpose of this DEM is to derive a detailed stream terrain model that meets the resolution requirements of the study. 
+
 #### Download LiDAR point cloud data
-#### Build a DEM from LiDAR point cloud data for each reach
+#### Build a DEM from LiDAR point cloud data
 #### Verify that the DEM elevations are in feet
 #### Create a hillshade to improve visualization
 
-### Hydro Modify DEM
-#### Develop `cutlines` to ensure water flows across the terrain
-#### Burn cutlines into the terrains
 
+
+### Hydro Modify DEM
+The purpose of this step is to create a hydro-modified DEM to ensure proper water flow across the study area. 
+
+#### Identify Flow Blockages
+The purpose of this step is to develop a `cutlines` feature class representing flow blockages in the study area. 
+
+* Examine the stream channel through the study area and determine if there are any blockages to flow in the DEM. 
+* Focus only on flow blockages within the main channel of the study reaches. Flow blockages outside of the the channels of the study reaches do not need to be identified for FluvialGeomorph analysis. 
+* These blockages are typically built infrastructure such as road embankments where streams are conveyed through culverts or underground storm water structures. 
+* If there are flow blockages in the study area reach channels, create a new line feature class named `cutlines` to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified. 
+* In an edit session, identify human structures that block flow along the channel of the stream reach being studied. 
+* Draw a cutline beginning at the upstream side of the blockage to a point just downstream of the blockage. 
+* The start point and end point of the cutline must cover the area to be modified. 
+* The downstream end of this cutline must be located in "good data", because the lowest DEM value found along this line will be used to re-assign DEM values to all DEM pixels covered by the cutline. 
+
+#### Burn cutlines into the terrains
+The purpose of this step is to remove flow blockages from the terrain. 
+
+* Use the `02 - Burn Cutlines` tool to "burn" the `cutlines` features into the study area watershed DEM. This tool creates the `dem_hydro` raster. Rename this DEM `watershed_dem_hydro`. 
+* Use the `02 - Burn Cutlines` tool to "burn" the `cutlines` features into the high resolution DEM. This tool creates the `dem_hydro` raster. 
+
+
+### Multiple LiDAR Surveys
+If multiple LiDAR surveys exist for the study area, repeat the above steps for each LiDAR survey. 
+
+* Each LiDAR survey will receive its own study area geodatabase. Multiple LiDAR resurvey study area geodatabases can be distinguished by appending their collection year to the end of the study area name (e.g. Cole_Creek_2016).  
+* Since the contributing watershed is unlikely to change between LiDAR resurveys, it is unnecessary to acquire the watershed elevation model for the new LiDAR resurvey date. 
+* Contributing area and stream network derivation (next steps) will need to be repeated for each LiDAR survey date. 
+
+
+***
 
 ## Define Stream Reaches
 The purpose of this step is to synthetically derive from the terrain the study area reaches and their watersheds. 
 
-### Delineate Reaches
+### Calculate Contributing Area
+The purpose of this step is to calculate the contributing drainage area for each pixel in the DEM. 
 
-### Calculate Stream Profile Points
+* Use the `03a - Contributing Area D8` tool to calculate the contributing area for the study area watershed. This tool creates the `contributing_area` raster. Rename this DEM `watershed_contributing_area`. 
+* Use the `03 - Contributing Area` tool to calculate the contributing area for the high resolution DEM. If created, use the `dem_hydro` raster as input.  
+* The `processes` parameter of the `03 - Contributing Area` tool can be safely set to approximately 2 less than the number of cores on the computer running the tool. 
+
+### Derive Stream Network 
+The purpose of this step is to derive a synthetic vector stream network from the DEM for the study area. 
+
+* Use the high resolution DEM to derive the stream network. 
+* Use the `04 - Stream Network` tool to create a synthetic stream network from the hydro-modified DEM. The `processes` parameter can be safely set to approximately 2 less than the number of cores on the computer running the tool. The `threshold` parameter should be set to a value of 200,000 to 500,000 depending on the study area.  
+* If the resulting `stream_network` is too dense (requiring a large amount of editing to remove extraneous tributaries), try rerunning the tool and increasing the `threshold` value. Conversely, if the resulting `stream_network` is too sparse (not enough of the stream network was delineated), try rerunning the tool and decreasing the `threshold` value.   
+* Edit the resulting `stream_network` feature class to remove all tributary streams that do not constitute the network that will be analyzed in this study.   
+* Edit the `stream_network` feature class to ensure that stream segments are represented by a single line and that there are no gaps in the steam network.  
+
+### Calculate Slope and Sinuosity
+The purpose of this step is to examine the stream network slope and sinuosity to help make decisions about how best to define study reaches. 
+
+* Use the `04a - Stream Network Points` tool to convert the `stream_network` feature class into the `stream_networks_points` feature class. 
+* Use the `04b - Slope and Sinuosity` tool to calculate the slope and sinuosity of the `stream_network_points` feature class. Set the `gradient_distance` field to the number of upstream `stream_network_points` features that the tool should look to calculate the slope and sinuosity. 
+* Examine the distribution of the slope and sinuosity values along the stream network to help determine the natural breaks in the stream network. 
+
+### Define Reaches
+The purpose of this step is to segment the stream network into a set of reaches that can be analyzed in more detail through the remainder of the study. The `stream_network` must be sub-divided into a set of reach that meet the following requirements:
+
+**Criteria for creating reaches:**
+
+* "Major" tributaries should be used to divide reaches. How big of an increase in drainage area/discharge constitutes a major tributary depends on the size of the watershed and physiographic region. 
+* A reach should contain a range of similar drainage area values. 
+* Slope and sinuosity can be considered in the decision to subdivide a reach. 
+* Built infrastructure may be used to divide reaches (e.g., dams, major roads). 
+* Study objectives may drive the definition of reaches (e.g., economic benefits analysis, existing project reach definition). 
+
+Using the criteria chosen from the list above, use the standard ESRI edit tools to sub divide the `stream_network` feature class into a set of features representing the reaches of your study.  
+
+* Manually edit the `stream_network` feature class to modify the geometry to create a set of features representing the study area reaches.
+* Set the `ReachName` field to the value to be used to uniquely define the reach throughout the remainder of the study. 
+* Be deliberate with the naming of reaches as these names are used for all operations by each tool.  
 
 ### Delineate Reach Watersheds
+The purpose of this step is to delineate the watersheds for each reach in the study area. 
+
+* Create a new feature class named `watershed_points`. 
+* Add a new text field named `ReachName`. 
+* Add the `watershed_contributing_area` raster to a map and symbolize with a "hot-cold" stretch renderer. 
+* Create a feature in the `watershed_points` feature class to represent the downstream location of each study reach. 
+* Place each point within a pixel of high flow accumulation in the `watershed_contributing_area` raster. 
+* Use the `04c - Watershed` tool to create a watershed polygon for each feature in the `watershed_points` feature class. 
 
 
-## Assess Longitudinal Profile
-The purpose of this step is to evaluate the longitudinal profile of each study area reach. 
+***
 
-### Plot Longitudinal Profile
+## Derive Flowline
+The purpose of this step is to create a new reach geodatabase for a specific study reach and derive the reach flowline. This step will need to be repeated for each reach in the study area. 
 
-### Evaluate Longitudinal Profile
+### Create the reach geodatabase
+The purpose of this step is to create a new reach geodatabase and populate it with initial data. 
 
+* In the study area folder, create a new reach geodatabase named for the reach. Use the `ReachName` value for the name of this new reach file geodatabase. 
+* Back in the study area geodatabase, select the feature in the `stream_network` feature class representing the current study reach. Use the "Data | Export Features" function to export the selected reach feature to the new reach geodatabase. Name the exported feature class `stream_network`. 
+* Ensure this new reach geodatabase version of of `stream_network` contains only one feature representing the current reach. 
+* Examine the `dem_hydro` raster and determine the maximum width of the active floodplain along the entire reach. Be conservative with this estimate. Given its later use, it is important to generously overestimate this value. 
+* Use this maximum floodplain width estimate to buffer the reach `stream_network` feature class and name it `stream_network_buffer`. 
+* Use the ESRI `Clip Raster` tool to clip the study area geodatabase `dem_hydro` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `dem_hydro_<buffer distance>` (e.g., `dem_hydro_1000` for a buffer distance of 1000 meters). 
+* Use the ESRI `Clip Raster` tool to clip the study area geodatabase `contributing_area` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `contributing_area_<buffer distance>` (e.g., `contributing_area_1000` for a buffer distance of 1000 meters).  
+
+### Create the Flowline
+The purpose of this step is to derive the reach flowline. It converts a `stream_network` feature into a `flowline` feature class. It smooths the geometry and converts it into a route. 
+
+* Use the `05 - Flowline` tool to process the `stream_network` feature class that was just edited to produce a new `flowline` feature class. 
+* Set the `output_workspace` parameter to the reach geodatabase. 
+* Use a smoothing tolerance from 5-20. The goal is produce a smooth flowline, but not to remove too much resolution from the line. 
+* Ensure that the flowline remains in the channel and is not simplified into the floodplain. If this occurs, rerun reducing the degree of smoothing. 
+* Edit the `flowline` feature class to ensure that the flowline is digitized beginning with the downstream end and digitized upstream. 
+* In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. 
+* If not, use the "Reverse Direction" (aka flip) command to ensure the flowline is digitized in the upstream direction.  
+* It is critical that the flowline is digitized in the upstream direction. If this step is not performed, all subsequent tools will malfunction. 
+
+### Create Flowline Points
+The purpose of this step is convert the `flowline` into a series of points along the reach. This tool takes the `flowline` feature class, converts it to a route, calculates the distance to the mouth of the river for all vertices, and creates a `flowline_points` feature class. 
+
+* Use the `06 - Flowline Points` tool to convert the `flowline` feature class into `flowline_points`. For this study, set the `km_to_mouth` parameter to 0 and the `station_distance` field to 1 meter. This tool will create a new feature class named `flowline_points`. 
+
+* steps for multiple reaches
+* steps for multiple surveys
+
+***
+
+## Identify Initial Floodplain/Channel Extent
+
+### Detrend DEM
+The purpose of this step is to produce a detrended DEM. A detrended DEM normalizes stream bank elevations for a specific reach. 
+
+* Inspect the reach to determine the width of the active floodplain. Use the measure tool to measure from the `flowline` outward to the widest extent of the active floodplain. This value will be used as the `buffer_distance` value in the following step.  
+* Use the `07 - Detrend` tool to create a detrended DEM for the study reach. Set the `buffer_distance` field to a distance wide enough to capture the reach's entire active floodplain.  
+
+### Identify Initial Channel Extent 
+The purpose of this step is to use the detrended DEM to visually extract an initial channel extent polygon. The `detrend` DEM created in the last step can be used to iteratively explore different inundation extents derived from various water surface elevations.  
+
+* Add the `detrend` feature class to the map Table of Contents. Name this layer `Channel Extent`. 
+* On the Symbology tab of the `Channel Extent` layer, use the Classified renderer to classify the raster into 2 classes. Set the first class boundary to the detrended elevation that you would like to explore. Set the color of the first class (min value - detrended elevation) to blue and the color of the second class (detrended elevation - max value) to No Color. 
+* Set the transparency of the `Channel Extent` layer to 50%. 
+* Begin to delineate the channel extent by selecting a detrended elevation that inundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the extent of the channel without "spilling" too much water into the floodplain. Once you discover which detrended elevation begins to allow water to access the floodplain, reduce the detrended elevation value slightly to keep the water in the channel. Try several detrended elevation values to help make the decision. 
+* When you have chosen a detrended elevation, use the `08 - Water Surface Extent` tool to extract an initial channel extent area polygon. This tool creates a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
+* This feature class must be edited to select the channel area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire channel area is selected. 
+* Export these selected features to a new feature class named `initial_channel_extent`. 
+* Delete the `banks_raw_xxx` feature class created in this section.
+
+### Create the Initial Channel Mask layer
+The purpose of this step is to create a layer that defines an area just beyond the initial channel extent.  
+
+* Add the `detrend` feature class to the map Table of Contents. Name this layer `Channel Mask`. 
+* In the symbology of this layer, change the renderer from `stretched` to `classified`. Set the number of classes to 2. In the `classification` dialog, set the break value between the two classes to about one to two feet higher than the initial bankfull extent estimate. A couple of feet above the initial bankfull extent estimate should define the extent of the just the channel. For example, if the initial bankfull extent was estimated at 102 detrended feet, the initial bankfull height estimate would be 2 feet. One foot higher than the 2 foot initial bankfull height estimate would therefore be 103 detrended feet. 
+* Set the transparency of the `Channel Mask` layer to 50%. 
+
+### Identify Initial Floodplain Extent
+The purpose of this step is to create a layer that defines the an initial estimate of the floodplain inundation extent. 
+
+* Add the `detrend` feature class to the map Table of Contents. Name this layer `Floodplain Mask`. 
+* In the symbology of this layer, change the renderer from `stretched` to `classified`. Set the number of classes to 2. In the `classification` dialog, set the break value between the two classes to four times the initial bankfull extent estimate. Four times the initial bankfull extent estimate should define the extent of the active floodplain. For example, if the initial bankfull extent was estimated at 102 detrended feet, the initial bankfull height estimate would be 2 feet. Four times the 2 foot initial bankfull height estimate would therefore be 108 detrended feet. 
+* Set the transparency of the `Floodplain Mask` layer to 50%.  
+
+### Calculate Channel Slope Raster
+The purpose of this step is to create a channel slope raster that can be used in the visual identification of riffle locations in following step. 
+
+* Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. Use the `intitial_channel_extent` polygon created earlier to define the channel area within which the slope raster will be calculated. This tool creates a new feature class named `channel_slope`. 
+
+
+
+***
+
+## Layout Regular Cross Sections
+The purpose of this step is to create regularly spaced stream cross sections and extract terrain-derived hydraulic parameters for each cross section. 
+
+### Layout Cross Sections
+The purpose of this step is to create regularly spaced cross sections for the current reach. 
+
+* The goal of this step is to create a set of regularly spaced cross sections that well represent the channel conditions found in this reach. 
+* Determine the typical maximum distance from the reach `flowline` to the edge of the active floodplain. The goal is not to identify the maximum distance to the edge of the floodplain, but to identify the typical distance to the edge of the floodplain. 
+* Determine the spacing between cross sections necessary to represent conditions along this stream. Cross section spacing for small stream of 50-100 feet works well. Larger rivers do not require such tight spacing. 
+* Use the `11 - XS Layout` tool to create a set of regularly spaced cross sections (referred to as transects in this tool). Use the values determined in the previous steps to set this tool's parameters. 
+
+
+### Calculate Watershed Area
+The purpose of this step is to calculate the contributing drainage area for each cross section. 
+
+* From the study area geodatabase, use the `watershed_contributing_area` raster that covers the entire contributing watershed of the study area.    
+* Use the ERSI `Clip Raster` tool to clip the `watershed_contributing_area` raster to `stream_network_buffer` to speed tool run time. 
+* Add the `contributing_area_buffer` raster to a map and symbolize with a “hot-cold” stretch renderer.
+* Add the `flowline` and regular cross section features classes to the map. Place them on top of the `contributing_area_buffer` raster. 
+* Determine the maximum distance from the intersection of each cross section and the `flowline` to the nearest pixel of high flow in the `contributing_area_buffer` raster. This value will be used for the `snap_distance` in the next step. 
+* Use the `12 - XS Watershed Area` tool to calculate the watershed area for each cross section. 
+* 
+
+
+### Assign River Position
+
+### Calculate Cross Section Station Points
+
+### Calculate Cross Section Dimensions
+
+* Check degree of elevation smoothing by creating a chart. 
+
+
+
+***
 
 ## Identify Infrastructure
 The purpose of this step is to identify built infrastructure in the floodplain that may be affecting channel hydraulics. 
@@ -58,23 +260,19 @@ The purpose of this step is to identify built infrastructure in the floodplain t
 ### Digitize Built Infrastructure
 
 
-## Create Cross Sections
-The purpose of this step is to create stream cross sections and extract terrain elevations along each cross section. 
-
-### Layout Cross Sections
-
-### Calculate Watershed Area
-
-### Assign River Position
-
-### Calculate Cross Section Station Points
 
 
-## Assess Cross Section Geometry
-The purpose of this step is to evaluate the cross sectional shape of the stream. 
+***
 
-### Run the Level 1 Report
+## Level 1 Report
 
+### Run the Report
+
+### QA Checklist
+
+
+
+***
 
 ## Determine Next Steps
 The purpose of this step is to determine what further steps need to be taken. 
