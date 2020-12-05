@@ -26,7 +26,7 @@
 <meta name="author" content="Davi Michl, Biologist, US Army Corps of Engineers, Rock Island District" />
 
 
-<meta name="date" content="2020-11-29" />
+<meta name="date" content="2020-12-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -390,7 +390,8 @@
 <p>The purpose of this step is to derive a synthetic vector stream network from the DEM for the study area.</p>
 <ul>
 <li>Use the high resolution DEM to derive the stream network.</li>
-<li>Use the <code>04 - Stream Network</code> tool to create a synthetic stream network from the hydro-modified DEM. The <code>processes</code> parameter can be safely set to approximately 2 less than the number of cores on the computer running the tool. The <code>threshold</code> parameter should be set to a value of 200,000 to 500,000 depending on the study area.<br />
+<li>Use the <code>04 - Stream Network</code> tool to create a synthetic stream network from the hydro-modified DEM. The <code>processes</code> parameter can be safely set to approximately 2 less than the number of cores on the computer running the tool.</li>
+<li>The <code>threshold</code> parameter should be set to a value of 200,000 to 500,000 depending on the study area.<br />
 </li>
 <li>If the resulting <code>stream_network</code> is too dense (requiring a large amount of editing to remove extraneous tributaries), try rerunning the tool and increasing the <code>threshold</code> value. Conversely, if the resulting <code>stream_network</code> is too sparse (not enough of the stream network was delineated), try rerunning the tool and decreasing the <code>threshold</code> value.<br />
 </li>

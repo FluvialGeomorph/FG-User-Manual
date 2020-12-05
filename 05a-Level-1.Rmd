@@ -97,7 +97,8 @@ The purpose of this step is to calculate the contributing drainage area for each
 The purpose of this step is to derive a synthetic vector stream network from the DEM for the study area. 
 
 * Use the high resolution DEM to derive the stream network. 
-* Use the `04 - Stream Network` tool to create a synthetic stream network from the hydro-modified DEM. The `processes` parameter can be safely set to approximately 2 less than the number of cores on the computer running the tool. The `threshold` parameter should be set to a value of 200,000 to 500,000 depending on the study area.  
+* Use the `04 - Stream Network` tool to create a synthetic stream network from the hydro-modified DEM. The `processes` parameter can be safely set to approximately 2 less than the number of cores on the computer running the tool. 
+* The `threshold` parameter should be set to a value of 200,000 to 500,000 depending on the study area.  
 * If the resulting `stream_network` is too dense (requiring a large amount of editing to remove extraneous tributaries), try rerunning the tool and increasing the `threshold` value. Conversely, if the resulting `stream_network` is too sparse (not enough of the stream network was delineated), try rerunning the tool and decreasing the `threshold` value.   
 * Edit the resulting `stream_network` feature class to remove all tributary streams that do not constitute the network that will be analyzed in this study.   
 * Edit the `stream_network` feature class to ensure that stream segments are represented by a single line and that there are no gaps in the steam network.  
