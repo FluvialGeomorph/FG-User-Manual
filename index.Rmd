@@ -7,6 +7,8 @@ author:
   - Davi Michl, Biologist, US Army Corps of Engineers, Rock Island District
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+url: 'https:\://fluvialgeomorph.org/FG-User_Manual'
+github-repo: "FluvialGeomorph/FG-User-Manual"
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: chicago
