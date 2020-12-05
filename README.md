@@ -26,4 +26,4 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
 * [Davi Michl](mailto:Davi.E.Michl@usace.army.mil), Biologist, US Army Corps of Engineers, Rock Island District
 
 ## Read the Report
-Read the report here: [https://FluvialGeomorph.github.io/FG-User-Manual/index.html](https://FluvialGeomorph.github.io/FG-User-Manual/index.html)
+Read the report here: [FG-User-Manual](https://master.d3ovjsy7p31fyx.amplifyapp.com/index.html)
