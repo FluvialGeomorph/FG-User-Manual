@@ -4,7 +4,6 @@ date: "`r Sys.Date()`"
 author: 
   - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
   - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
-  - Davi Michl, Biologist, US Army Corps of Engineers, Rock Island District
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 url: 'https:\://fluvialgeomorph.org/FG-User_Manual'
@@ -44,39 +43,20 @@ the research problem, project objective, and outcome of the investigation.
 It should run no more than 200 words. 
 
 
-## Disclaimer
-Also on the reverse side of the title
-page is the standard disclaimer of any implied government endorsement
-of products discussed in text. 
-
-
 ## Distribution Statement
-The distribution statement is a critical component of both the cover and
-the title page. Every ERDC technical publication must be imprinted with
-one of the seven primary distribution statements required by Department
-of Defense Directive (DoDD) 5230.24. A distribution statement constitutes
-ERDC’s decision on who is authorized to read the report. Most reports
-published by ERDC are intended for unrestricted public access and carry
-Statement A: “Approved for public release; distribution is unlimited.”
-However, access to many reports may need to be restricted for reasons
-ranging from proprietary information content to national security interests
-related to militarily critical technology. Appendix B presents the text
-of every nonclassified distribution statement and the approved justifica-
-ERDC/ITL SR-04-1 8
-tions for applying each one. Only reports labeled with Statement A shall be
-posted to the World Wide Web for unrestricted public access. 
+Approved for public release; distribution is unlimited
 
 
 ## Unit Conversion Factors
-A unit conversion factors table is included in all reports that do not use
-metric units or dual units. The table should include only those U.S. customary
-units used in the report. It should be compiled from the master list
-of conversion factors maintained by PTTB. For more information, see
-“Expressing and converting units of measure” (page 14). 
+
+Multiply               | By                | To Obtain
+--------               | --                | ---------
+feet                   | 0.3048            | meters
+miles                  | 1.60934           | kilometers
+square miles           | 2.58999           | square kilometers
+
+
+Table: Unit Conversion Factors
 
 
 ## Notation List
-A notation list also may be included to define characters, symbols, and abbreviations used to express technical facts or quantities. It appears after
-the unit conversion factors. Figure A4 presents a formatted sample. @R-base
-
-This document was preparted using the `bookdown` R package [@R-bookdown]. 
