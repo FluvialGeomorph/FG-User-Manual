@@ -23,10 +23,9 @@
 
 <meta name="author" content="Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District" />
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
-<meta name="author" content="Davi Michl, Biologist, US Army Corps of Engineers, Rock Island District" />
 
 
-<meta name="date" content="2020-12-05" />
+<meta name="date" content="2020-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +33,7 @@
   
   
 <link rel="prev" href="level-3-workflow.html"/>
-<link rel="next" href="report-qa-checklist.html"/>
+<link rel="next" href="qa-checklist.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -76,10 +75,9 @@
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#abstract"><i class="fa fa-check"></i><b>0.1</b> Abstract</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i><b>0.2</b> Disclaimer</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#distribution-statement"><i class="fa fa-check"></i><b>0.3</b> Distribution Statement</a></li>
-<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#unit-conversion-factors"><i class="fa fa-check"></i><b>0.4</b> Unit Conversion Factors</a></li>
-<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#notation-list"><i class="fa fa-check"></i><b>0.5</b> Notation List</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#distribution-statement"><i class="fa fa-check"></i><b>0.2</b> Distribution Statement</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#unit-conversion-factors"><i class="fa fa-check"></i><b>0.3</b> Unit Conversion Factors</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#notation-list"><i class="fa fa-check"></i><b>0.4</b> Notation List</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#background"><i class="fa fa-check"></i><b>1.1</b> Background</a></li>
@@ -99,32 +97,30 @@
 <li class="chapter" data-level="2.3" data-path="install.html"><a href="install.html#install-fluvialgeomorph"><i class="fa fa-check"></i><b>2.3</b> Install FluvialGeomorph</a></li>
 <li class="chapter" data-level="2.4" data-path="install.html"><a href="install.html#install-tutorial-data"><i class="fa fa-check"></i><b>2.4</b> Install Tutorial Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="workflows.html"><a href="workflows.html"><i class="fa fa-check"></i><b>3</b> Workflows</a><ul>
-<li class="chapter" data-level="3.1" data-path="workflows.html"><a href="workflows.html#workflow-overview"><i class="fa fa-check"></i><b>3.1</b> Workflow Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="workflows.html"><a href="workflows.html#workflow-stages"><i class="fa fa-check"></i><b>3.2</b> Workflow Stages</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="workflows.html"><a href="workflows.html#create-terrain"><i class="fa fa-check"></i><b>3.2.1</b> Create Terrain</a></li>
-<li class="chapter" data-level="3.2.2" data-path="workflows.html"><a href="workflows.html#define-watershed-reaches"><i class="fa fa-check"></i><b>3.2.2</b> Define Watershed Reaches</a></li>
-<li class="chapter" data-level="3.2.3" data-path="workflows.html"><a href="workflows.html#detrend-dem"><i class="fa fa-check"></i><b>3.2.3</b> Detrend DEM</a></li>
-<li class="chapter" data-level="3.2.4" data-path="workflows.html"><a href="workflows.html#define-channel-extent"><i class="fa fa-check"></i><b>3.2.4</b> Define Channel Extent</a></li>
-<li class="chapter" data-level="3.2.5" data-path="workflows.html"><a href="workflows.html#map-riffles"><i class="fa fa-check"></i><b>3.2.5</b> Map Riffles</a></li>
-<li class="chapter" data-level="3.2.6" data-path="workflows.html"><a href="workflows.html#calculate-riffle-geometry"><i class="fa fa-check"></i><b>3.2.6</b> Calculate Riffle Geometry</a></li>
-<li class="chapter" data-level="3.2.7" data-path="workflows.html"><a href="workflows.html#estimate-bankfull"><i class="fa fa-check"></i><b>3.2.7</b> Estimate Bankfull</a></li>
-<li class="chapter" data-level="3.2.8" data-path="workflows.html"><a href="workflows.html#layout-cross-sections"><i class="fa fa-check"></i><b>3.2.8</b> Layout Cross Sections</a></li>
-<li class="chapter" data-level="3.2.9" data-path="workflows.html"><a href="workflows.html#calculate-cross-section-geometry"><i class="fa fa-check"></i><b>3.2.9</b> Calculate Cross Section Geometry</a></li>
-<li class="chapter" data-level="3.2.10" data-path="workflows.html"><a href="workflows.html#calculate-planform-geometry"><i class="fa fa-check"></i><b>3.2.10</b> Calculate Planform Geometry</a></li>
+<li class="chapter" data-level="3" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>3</b> Workflow</a><ul>
+<li class="chapter" data-level="3.1" data-path="workflow.html"><a href="workflow.html#units-of-analysis"><i class="fa fa-check"></i><b>3.1</b> Units of Analysis</a></li>
+<li class="chapter" data-level="3.2" data-path="workflow.html"><a href="workflow.html#analysis-levels"><i class="fa fa-check"></i><b>3.2</b> Analysis Levels</a></li>
+<li class="chapter" data-level="3.3" data-path="workflow.html"><a href="workflow.html#geodatabases"><i class="fa fa-check"></i><b>3.3</b> Geodatabases</a></li>
+<li class="chapter" data-level="3.4" data-path="workflow.html"><a href="workflow.html#derived-features"><i class="fa fa-check"></i><b>3.4</b> Derived Features</a></li>
+<li class="chapter" data-level="3.5" data-path="workflow.html"><a href="workflow.html#project-file-structure"><i class="fa fa-check"></i><b>3.5</b> Project File Structure</a></li>
+<li class="chapter" data-level="3.6" data-path="workflow.html"><a href="workflow.html#workflows"><i class="fa fa-check"></i><b>3.6</b> Workflows</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="workflow.html"><a href="workflow.html#L1_summary"><i class="fa fa-check"></i><b>3.6.1</b> Level 1 (L1)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="workflow.html"><a href="workflow.html#L2_summary"><i class="fa fa-check"></i><b>3.6.2</b> Level 2 (L2)</a></li>
+<li class="chapter" data-level="3.6.3" data-path="workflow.html"><a href="workflow.html#L3_summary"><i class="fa fa-check"></i><b>3.6.3</b> Level 3 (L3)</a></li>
 </ul></li>
+<li class="chapter" data-level="3.7" data-path="workflow.html"><a href="workflow.html#qa_tools"><i class="fa fa-check"></i><b>3.7</b> Quality Assurance</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tutorial-data.html"><a href="tutorial-data.html"><i class="fa fa-check"></i><b>4</b> Tutorial Data</a></li>
 <li class="chapter" data-level="5" data-path="geoprocessing.html"><a href="geoprocessing.html"><i class="fa fa-check"></i><b>5</b> Geoprocessing</a><ul>
-<li class="chapter" data-level="5.1" data-path="geoprocessing.html"><a href="geoprocessing.html#create-terrain-1"><i class="fa fa-check"></i><b>5.1</b> Create Terrain</a><ul>
+<li class="chapter" data-level="5.1" data-path="geoprocessing.html"><a href="geoprocessing.html#create-terrain"><i class="fa fa-check"></i><b>5.1</b> Create Terrain</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="geoprocessing.html"><a href="geoprocessing.html#develop-elevation-model"><i class="fa fa-check"></i><b>5.1.1</b> Develop Elevation Model</a></li>
 <li class="chapter" data-level="5.1.2" data-path="geoprocessing.html"><a href="geoprocessing.html#elevation-model-hydro-modification"><i class="fa fa-check"></i><b>5.1.2</b> Elevation Model Hydro Modification</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="geoprocessing.html"><a href="geoprocessing.html#define-watershed-reaches-1"><i class="fa fa-check"></i><b>5.2</b> Define Watershed Reaches</a><ul>
+<li class="chapter" data-level="5.2" data-path="geoprocessing.html"><a href="geoprocessing.html#define-watershed-reaches"><i class="fa fa-check"></i><b>5.2</b> Define Watershed Reaches</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="geoprocessing.html"><a href="geoprocessing.html#define-stream-reaches"><i class="fa fa-check"></i><b>5.2.1</b> Define Stream Reaches</a></li>
 <li class="chapter" data-level="5.2.2" data-path="geoprocessing.html"><a href="geoprocessing.html#extract-stream-reach-profile-points"><i class="fa fa-check"></i><b>5.2.2</b> Extract Stream Reach Profile Points</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="geoprocessing.html"><a href="geoprocessing.html#detrend-dem-1"><i class="fa fa-check"></i><b>5.3</b> Detrend DEM</a><ul>
+<li class="chapter" data-level="5.3" data-path="geoprocessing.html"><a href="geoprocessing.html#detrend-dem"><i class="fa fa-check"></i><b>5.3</b> Detrend DEM</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="geoprocessing.html"><a href="geoprocessing.html#detrend-elevation-model"><i class="fa fa-check"></i><b>5.3.1</b> Detrend Elevation Model</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="geoprocessing.html"><a href="geoprocessing.html#define-initial-channel-and-floodplain-extents"><i class="fa fa-check"></i><b>5.4</b> Define Initial Channel and Floodplain Extents</a><ul>
@@ -133,18 +129,18 @@
 <li class="chapter" data-level="5.4.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-initial-floodplain-mask-layer"><i class="fa fa-check"></i><b>5.4.3</b> Create the Initial Floodplain Mask layer</a></li>
 <li class="chapter" data-level="5.4.4" data-path="geoprocessing.html"><a href="geoprocessing.html#create-channel-slope-raster"><i class="fa fa-check"></i><b>5.4.4</b> Create Channel Slope Raster</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="geoprocessing.html"><a href="geoprocessing.html#map-riffles-1"><i class="fa fa-check"></i><b>5.5</b> Map Riffles</a><ul>
+<li class="chapter" data-level="5.5" data-path="geoprocessing.html"><a href="geoprocessing.html#map-riffles"><i class="fa fa-check"></i><b>5.5</b> Map Riffles</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="geoprocessing.html"><a href="geoprocessing.html#map-riffle-cross-sections"><i class="fa fa-check"></i><b>5.5.1</b> Map Riffle Cross Sections</a></li>
 <li class="chapter" data-level="5.5.2" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-cross-section-ids"><i class="fa fa-check"></i><b>5.5.2</b> Assign Cross Section IDs</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-riffle-geometry-1"><i class="fa fa-check"></i><b>5.6</b> Calculate Riffle Geometry</a><ul>
+<li class="chapter" data-level="5.6" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-riffle-geometry"><i class="fa fa-check"></i><b>5.6</b> Calculate Riffle Geometry</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-watershed-area"><i class="fa fa-check"></i><b>5.6.1</b> Calculate Cross Section Watershed Area</a></li>
 <li class="chapter" data-level="5.6.2" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-cross-section-river-position"><i class="fa fa-check"></i><b>5.6.2</b> Assign Cross Section River Position</a></li>
 <li class="chapter" data-level="5.6.3" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-riffle_channel-feature-class"><i class="fa fa-check"></i><b>5.6.3</b> Create the <code>riffle_channel</code> feature class</a></li>
 <li class="chapter" data-level="5.6.4" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-station-points"><i class="fa fa-check"></i><b>5.6.4</b> Calculate Cross Section Station Points</a></li>
 <li class="chapter" data-level="5.6.5" data-path="geoprocessing.html"><a href="geoprocessing.html#check-cross-sections"><i class="fa fa-check"></i><b>5.6.5</b> Check Cross Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="geoprocessing.html"><a href="geoprocessing.html#estimate-bankfull-1"><i class="fa fa-check"></i><b>5.7</b> Estimate Bankfull</a></li>
+<li class="chapter" data-level="5.7" data-path="geoprocessing.html"><a href="geoprocessing.html#estimate-bankfull"><i class="fa fa-check"></i><b>5.7</b> Estimate Bankfull</a></li>
 <li class="chapter" data-level="5.8" data-path="geoprocessing.html"><a href="geoprocessing.html#identify-infrastructure"><i class="fa fa-check"></i><b>5.8</b> Identify Infrastructure</a></li>
 <li class="chapter" data-level="5.9" data-path="geoprocessing.html"><a href="geoprocessing.html#define-valley-line"><i class="fa fa-check"></i><b>5.9</b> Define Valley Line</a><ul>
 <li class="chapter" data-level="5.9.1" data-path="geoprocessing.html"><a href="geoprocessing.html#define-flood-prone-extent"><i class="fa fa-check"></i><b>5.9.1</b> Define Flood Prone Extent</a></li>
@@ -158,10 +154,10 @@
 <li class="chapter" data-level="5.10.4" data-path="geoprocessing.html"><a href="geoprocessing.html#create-the-bankline_points-feature-class"><i class="fa fa-check"></i><b>5.10.4</b> Create the <code>bankline_points</code> feature class</a></li>
 <li class="chapter" data-level="5.10.5" data-path="geoprocessing.html"><a href="geoprocessing.html#assign-loops-and-bends-to-cross-sections"><i class="fa fa-check"></i><b>5.10.5</b> Assign Loops and Bends to Cross Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-geometry-1"><i class="fa fa-check"></i><b>5.11</b> Calculate Cross Section Geometry</a></li>
+<li class="chapter" data-level="5.11" data-path="geoprocessing.html"><a href="geoprocessing.html#calculate-cross-section-geometry"><i class="fa fa-check"></i><b>5.11</b> Calculate Cross Section Geometry</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="level-1-workflow.html"><a href="level-1-workflow.html"><i class="fa fa-check"></i><b>6</b> Level 1 Workflow</a><ul>
-<li class="chapter" data-level="6.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-terrain-2"><i class="fa fa-check"></i><b>6.1</b> Create Terrain</a><ul>
+<li class="chapter" data-level="6.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-terrain-1"><i class="fa fa-check"></i><b>6.1</b> Create Terrain</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#define-study-area"><i class="fa fa-check"></i><b>6.1.1</b> Define Study Area</a></li>
 <li class="chapter" data-level="6.1.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#acquire-study-area-watershed-elevation-model"><i class="fa fa-check"></i><b>6.1.2</b> Acquire Study Area Watershed Elevation Model</a></li>
 <li class="chapter" data-level="6.1.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#develop-high-resolution-elevation-model"><i class="fa fa-check"></i><b>6.1.3</b> Develop High Resolution Elevation Model</a></li>
@@ -181,14 +177,14 @@
 <li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-flowline-points"><i class="fa fa-check"></i><b>6.3.3</b> Create Flowline Points</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#identify-initial-floodplainchannel-extent"><i class="fa fa-check"></i><b>6.4</b> Identify Initial Floodplain/Channel Extent</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#detrend-dem-2"><i class="fa fa-check"></i><b>6.4.1</b> Detrend DEM</a></li>
+<li class="chapter" data-level="6.4.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#detrend-dem-1"><i class="fa fa-check"></i><b>6.4.1</b> Detrend DEM</a></li>
 <li class="chapter" data-level="6.4.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#identify-initial-channel-extent"><i class="fa fa-check"></i><b>6.4.2</b> Identify Initial Channel Extent</a></li>
 <li class="chapter" data-level="6.4.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-initial-channel-mask-layer-1"><i class="fa fa-check"></i><b>6.4.3</b> Create the Initial Channel Mask layer</a></li>
 <li class="chapter" data-level="6.4.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#identify-initial-floodplain-extent"><i class="fa fa-check"></i><b>6.4.4</b> Identify Initial Floodplain Extent</a></li>
 <li class="chapter" data-level="6.4.5" data-path="level-1-workflow.html"><a href="level-1-workflow.html#calculate-channel-slope-raster"><i class="fa fa-check"></i><b>6.4.5</b> Calculate Channel Slope Raster</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="level-1-workflow.html"><a href="level-1-workflow.html#layout-regular-cross-sections"><i class="fa fa-check"></i><b>6.5</b> Layout Regular Cross Sections</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#layout-cross-sections-1"><i class="fa fa-check"></i><b>6.5.1</b> Layout Cross Sections</a></li>
+<li class="chapter" data-level="6.5.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#layout-cross-sections"><i class="fa fa-check"></i><b>6.5.1</b> Layout Cross Sections</a></li>
 <li class="chapter" data-level="6.5.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#calculate-watershed-area"><i class="fa fa-check"></i><b>6.5.2</b> Calculate Watershed Area</a></li>
 <li class="chapter" data-level="6.5.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#assign-river-position"><i class="fa fa-check"></i><b>6.5.3</b> Assign River Position</a></li>
 <li class="chapter" data-level="6.5.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#calculate-cross-section-station-points-1"><i class="fa fa-check"></i><b>6.5.4</b> Calculate Cross Section Station Points</a></li>
@@ -206,31 +202,31 @@
 <li class="chapter" data-level="7" data-path="level-2-workflow.html"><a href="level-2-workflow.html"><i class="fa fa-check"></i><b>7</b> Level 2 Workflow</a></li>
 <li class="chapter" data-level="8" data-path="level-3-workflow.html"><a href="level-3-workflow.html"><i class="fa fa-check"></i><b>8</b> Level 3 Workflow</a></li>
 <li class="chapter" data-level="9" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>9</b> Summary</a></li>
-<li class="chapter" data-level="" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html"><i class="fa fa-check"></i>Report QA Checklist</a><ul>
-<li class="chapter" data-level="9.1" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#L1_report_qa"><i class="fa fa-check"></i><b>9.1</b> Level 1 Report</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#L1_study_area_overview"><i class="fa fa-check"></i><b>9.1.1</b> Study Area Overview</a></li>
-<li class="chapter" data-level="9.1.2" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#L1_long_profiles"><i class="fa fa-check"></i><b>9.1.2</b> Longitudinal Profiles</a></li>
-<li class="chapter" data-level="9.1.3" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#L1_xs_metrics"><i class="fa fa-check"></i><b>9.1.3</b> Cross Section Metrics</a></li>
-<li class="chapter" data-level="9.1.4" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#L1_xs_profiles"><i class="fa fa-check"></i><b>9.1.4</b> Cross Section Profiles</a></li>
+<li class="chapter" data-level="" data-path="qa-checklist.html"><a href="qa-checklist.html"><i class="fa fa-check"></i>QA Checklist</a><ul>
+<li class="chapter" data-level="9.1" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_report_qa"><i class="fa fa-check"></i><b>9.1</b> Level 1 Report</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_study_area_overview"><i class="fa fa-check"></i><b>9.1.1</b> Study Area Overview</a></li>
+<li class="chapter" data-level="9.1.2" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_long_profiles"><i class="fa fa-check"></i><b>9.1.2</b> Longitudinal Profiles</a></li>
+<li class="chapter" data-level="9.1.3" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_xs_metrics"><i class="fa fa-check"></i><b>9.1.3</b> Cross Section Metrics</a></li>
+<li class="chapter" data-level="9.1.4" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_xs_profiles"><i class="fa fa-check"></i><b>9.1.4</b> Cross Section Profiles</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#estimate_bankfull_report_qa"><i class="fa fa-check"></i><b>9.2</b> Estimate Bankfull Report</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#study-area-overview"><i class="fa fa-check"></i><b>9.2.1</b> Study Area Overview</a></li>
-<li class="chapter" data-level="9.2.2" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#bankfull-elevation-sensitivity-analysis"><i class="fa fa-check"></i><b>9.2.2</b> Bankfull Elevation Sensitivity Analysis</a></li>
-<li class="chapter" data-level="9.2.3" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#estimate_bankfull_long_profile"><i class="fa fa-check"></i><b>9.2.3</b> Longitudinal Profile</a></li>
-<li class="chapter" data-level="9.2.4" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#estimate_bankfull_xs_metrics"><i class="fa fa-check"></i><b>9.2.4</b> Cross Section Metrics</a></li>
-<li class="chapter" data-level="9.2.5" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#cross-section-profiles"><i class="fa fa-check"></i><b>9.2.5</b> Cross Section Profiles</a></li>
+<li class="chapter" data-level="9.2" data-path="qa-checklist.html"><a href="qa-checklist.html#estimate_bankfull_report_qa"><i class="fa fa-check"></i><b>9.2</b> Estimate Bankfull Report</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="qa-checklist.html"><a href="qa-checklist.html#study-area-overview"><i class="fa fa-check"></i><b>9.2.1</b> Study Area Overview</a></li>
+<li class="chapter" data-level="9.2.2" data-path="qa-checklist.html"><a href="qa-checklist.html#bankfull-elevation-sensitivity-analysis"><i class="fa fa-check"></i><b>9.2.2</b> Bankfull Elevation Sensitivity Analysis</a></li>
+<li class="chapter" data-level="9.2.3" data-path="qa-checklist.html"><a href="qa-checklist.html#estimate_bankfull_long_profile"><i class="fa fa-check"></i><b>9.2.3</b> Longitudinal Profile</a></li>
+<li class="chapter" data-level="9.2.4" data-path="qa-checklist.html"><a href="qa-checklist.html#estimate_bankfull_xs_metrics"><i class="fa fa-check"></i><b>9.2.4</b> Cross Section Metrics</a></li>
+<li class="chapter" data-level="9.2.5" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-profiles"><i class="fa fa-check"></i><b>9.2.5</b> Cross Section Profiles</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#L2_report_qa"><i class="fa fa-check"></i><b>9.3</b> Level 2 Report</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#study-area-overview-1"><i class="fa fa-check"></i><b>9.3.1</b> Study Area Overview</a></li>
-<li class="chapter" data-level="9.3.2" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#longitudinal-profile"><i class="fa fa-check"></i><b>9.3.2</b> Longitudinal Profile</a></li>
-<li class="chapter" data-level="9.3.3" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#cross-section-metrics"><i class="fa fa-check"></i><b>9.3.3</b> Cross Section Metrics</a></li>
-<li class="chapter" data-level="9.3.4" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#cross-section-profiles-1"><i class="fa fa-check"></i><b>9.3.4</b> Cross Section Profiles</a></li>
+<li class="chapter" data-level="9.3" data-path="qa-checklist.html"><a href="qa-checklist.html#L2_report_qa"><i class="fa fa-check"></i><b>9.3</b> Level 2 Report</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="qa-checklist.html"><a href="qa-checklist.html#study-area-overview-1"><i class="fa fa-check"></i><b>9.3.1</b> Study Area Overview</a></li>
+<li class="chapter" data-level="9.3.2" data-path="qa-checklist.html"><a href="qa-checklist.html#longitudinal-profile"><i class="fa fa-check"></i><b>9.3.2</b> Longitudinal Profile</a></li>
+<li class="chapter" data-level="9.3.3" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-metrics"><i class="fa fa-check"></i><b>9.3.3</b> Cross Section Metrics</a></li>
+<li class="chapter" data-level="9.3.4" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-profiles-1"><i class="fa fa-check"></i><b>9.3.4</b> Cross Section Profiles</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#L3_report_qa"><i class="fa fa-check"></i><b>9.4</b> Level 3 Report</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#study-area-overview-2"><i class="fa fa-check"></i><b>9.4.1</b> Study Area Overview</a></li>
-<li class="chapter" data-level="9.4.2" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#longitudinal-profile-1"><i class="fa fa-check"></i><b>9.4.2</b> Longitudinal Profile</a></li>
-<li class="chapter" data-level="9.4.3" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#cross-section-metrics-1"><i class="fa fa-check"></i><b>9.4.3</b> Cross Section Metrics</a></li>
-<li class="chapter" data-level="9.4.4" data-path="report-qa-checklist.html"><a href="report-qa-checklist.html#cross-section-profiles-2"><i class="fa fa-check"></i><b>9.4.4</b> Cross Section Profiles</a></li>
+<li class="chapter" data-level="9.4" data-path="qa-checklist.html"><a href="qa-checklist.html#L3_report_qa"><i class="fa fa-check"></i><b>9.4</b> Level 3 Report</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="qa-checklist.html"><a href="qa-checklist.html#study-area-overview-2"><i class="fa fa-check"></i><b>9.4.1</b> Study Area Overview</a></li>
+<li class="chapter" data-level="9.4.2" data-path="qa-checklist.html"><a href="qa-checklist.html#longitudinal-profile-1"><i class="fa fa-check"></i><b>9.4.2</b> Longitudinal Profile</a></li>
+<li class="chapter" data-level="9.4.3" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-metrics-1"><i class="fa fa-check"></i><b>9.4.3</b> Cross Section Metrics</a></li>
+<li class="chapter" data-level="9.4.4" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-profiles-2"><i class="fa fa-check"></i><b>9.4.4</b> Cross Section Profiles</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -280,7 +276,7 @@ development, field demonstration, or commercialization.</p>
         </div>
       </div>
 <a href="level-3-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="report-qa-checklist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="qa-checklist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
