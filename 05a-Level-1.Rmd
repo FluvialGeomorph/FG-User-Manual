@@ -2,7 +2,7 @@
 This chapter describes the workflow steps necessary to complete a Level 1 FluvialGeomorph analysis. 
 
 ## Create Terrain
-The purpose of this step is to derive the terrain models needed for this analysis.  
+The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys. 
 
 ### Define Study Area
 The purpose of this step is to define the location and extent of the study area.  
@@ -84,7 +84,7 @@ If multiple LiDAR surveys exist for the study area, repeat the above steps for e
 ***
 
 ## Define Stream Reaches
-The purpose of this step is to synthetically derive from the terrain the study area reaches and their watersheds. 
+The purpose of this stage is to synthetically derive from the terrain the study area reaches and their watersheds. 
 
 ### Calculate Contributing Area
 The purpose of this step is to calculate the contributing drainage area for each pixel in the DEM. 
@@ -127,7 +127,7 @@ Using the criteria chosen from the list above, use the standard ESRI edit tools 
 * Set the `ReachName` field to the value to be used to uniquely define the reach throughout the remainder of the study. 
 * Be deliberate with the naming of reaches as these names are used for all operations by each tool.  
 
-### Delineate Reach Watersheds
+### Delineate Watersheds
 The purpose of this step is to delineate the watersheds for each reach in the study area. 
 
 * Create a new feature class named `watershed_points`. 
@@ -141,7 +141,7 @@ The purpose of this step is to delineate the watersheds for each reach in the st
 ***
 
 ## Derive Flowline
-The purpose of this step is to create a new reach geodatabase for a specific study reach and derive the reach flowline. This step will need to be repeated for each reach in the study area. 
+The purpose of this stage is to create a new reach geodatabase for a specific study reach and derive the reach flowline. This step will need to be repeated for each reach in the study area. 
 
 ### Create the reach geodatabase
 The purpose of this step is to create a new reach geodatabase and populate it with initial data. 
@@ -174,9 +174,10 @@ The purpose of this step is convert the `flowline` into a series of points along
 * steps for multiple reaches
 * steps for multiple surveys
 
+
 ***
 
-## Identify Initial Floodplain/Channel Extent
+## Define Initial Floodplain and Channel Extent
 
 ### Detrend DEM
 The purpose of this step is to produce a detrended DEM. A detrended DEM normalizes stream bank elevations for a specific reach. 
@@ -184,7 +185,7 @@ The purpose of this step is to produce a detrended DEM. A detrended DEM normaliz
 * Inspect the reach to determine the width of the active floodplain. Use the measure tool to measure from the `flowline` outward to the widest extent of the active floodplain. This value will be used as the `buffer_distance` value in the following step.  
 * Use the `07 - Detrend` tool to create a detrended DEM for the study reach. Set the `buffer_distance` field to a distance wide enough to capture the reach's entire active floodplain.  
 
-### Identify Initial Channel Extent 
+### Estimate Initial Channel Extent 
 The purpose of this step is to use the detrended DEM to visually extract an initial channel extent polygon. The `detrend` DEM created in the last step can be used to iteratively explore different inundation extents derived from various water surface elevations.  
 
 * Add the `detrend` feature class to the map Table of Contents. Name this layer `Channel Extent`. 
@@ -203,7 +204,7 @@ The purpose of this step is to create a layer that defines an area just beyond t
 * In the symbology of this layer, change the renderer from `stretched` to `classified`. Set the number of classes to 2. In the `classification` dialog, set the break value between the two classes to about one to two feet higher than the initial bankfull extent estimate. A couple of feet above the initial bankfull extent estimate should define the extent of the just the channel. For example, if the initial bankfull extent was estimated at 102 detrended feet, the initial bankfull height estimate would be 2 feet. One foot higher than the 2 foot initial bankfull height estimate would therefore be 103 detrended feet. 
 * Set the transparency of the `Channel Mask` layer to 50%. 
 
-### Identify Initial Floodplain Extent
+### Estimate Initial Floodplain Extent
 The purpose of this step is to create a layer that defines the an initial estimate of the floodplain inundation extent. 
 
 * Add the `detrend` feature class to the map Table of Contents. Name this layer `Floodplain Mask`. 
@@ -219,11 +220,11 @@ The purpose of this step is to create a channel slope raster that can be used in
 
 ***
 
-## Layout Regular Cross Sections
-The purpose of this step is to create regularly spaced stream cross sections and extract terrain-derived hydraulic parameters for each cross section. 
+## Create Regular Cross Section Geometry
+The purpose of this stage is to create regularly spaced stream cross sections and extract terrain-derived hydraulic parameters for each reach and survey event. 
 
-### Layout Cross Sections
-The purpose of this step is to create regularly spaced cross sections for the current reach. 
+### Create Regular Cross Sections
+The purpose of this step is to create regularly spaced cross sections along each reach.  
 
 * The goal of this step is to create a set of regularly spaced cross sections that well represent the channel conditions found in this reach. 
 * Determine the typical maximum distance from the reach `flowline` to the edge of the active floodplain. The goal is not to identify the maximum distance to the edge of the floodplain, but to identify the typical distance to the edge of the floodplain. 
@@ -231,8 +232,8 @@ The purpose of this step is to create regularly spaced cross sections for the cu
 * Use the `11 - XS Layout` tool to create a set of regularly spaced cross sections (referred to as transects in this tool). Use the values determined in the previous steps to set this tool's parameters. 
 
 
-### Calculate Watershed Area
-The purpose of this step is to calculate the contributing drainage area for each cross section. 
+### Calculate Cross Section Watershed Area
+The purpose of this step is to calculate the watershed area for each regularly spaced cross section. 
 
 * From the study area geodatabase, use the `watershed_contributing_area` raster that covers the entire contributing watershed of the study area.    
 * Use the ERSI `Clip Raster` tool to clip the `watershed_contributing_area` raster to `stream_network_buffer` to speed tool run time. 
@@ -240,14 +241,16 @@ The purpose of this step is to calculate the contributing drainage area for each
 * Add the `flowline` and regular cross section features classes to the map. Place them on top of the `contributing_area_buffer` raster. 
 * Determine the maximum distance from the intersection of each cross section and the `flowline` to the nearest pixel of high flow in the `contributing_area_buffer` raster. This value will be used for the `snap_distance` in the next step. 
 * Use the `12 - XS Watershed Area` tool to calculate the watershed area for each cross section. 
-* 
 
 
-### Assign River Position
+### Calculate Cross Section River Position
+The purpose of this step is to calculate the river position for each regularly spaced cross section. 
 
-### Calculate Cross Section Station Points
+### Calculate Cross Section Points
+The purpose of this step is to convert each cross section into a set of evenly stationed points and assign DEM and detrended elevation values. 
 
-### Calculate Cross Section Dimensions
+### Calculate Cross Section L1 Dimensions
+The purpose of this step is to calculate the L1 dimensions for the regularly spaced cross sections. 
 
 * Check degree of elevation smoothing by creating a chart. 
 
@@ -256,21 +259,24 @@ The purpose of this step is to calculate the contributing drainage area for each
 ***
 
 ## Identify Infrastructure
-The purpose of this step is to identify built infrastructure in the floodplain that may be affecting channel hydraulics. 
+The purpose of this stage is to identify salient features in the floodplain that may be affecting channel hydraulics along each reach. 
 
-### Digitize Built Infrastructure
+### Create Features
+The purpose of this step is to identify the longitudinal position of noteworthy stream features for graph and map labeling. 
 
 
 
 
 ***
 
-## Level 1 Report
+## Run Report
+The purpose of this stage is to run the Level 1 report for each reach. 
 
-### Run the Report
+### Run the Level 1 Report
+The purpose of this step is to run the L1 report for each reach. 
 
-### QA Checklist
-
+### Perform QA
+The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.
 
 
 ***

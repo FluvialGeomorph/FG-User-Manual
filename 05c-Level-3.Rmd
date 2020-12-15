@@ -1,2 +1,51 @@
 # Level 3 Workflow
-This chapter describes the workflow steps necessary to complete a Level 3 FluvialGeomorph analysis. 
+This chapter describes the workflow steps necessary to complete a Level 3 FluvialGeomorph analysis. The purpose of this level is to extract planform dimensions. This section will provide a brief overview of the Level 3 (L3) workflow.
+
+## Define Valley Line
+The purpose of this stage is to define the valley trend line for the base year for each reach. 
+
+### Determine Final Floodplain Extent
+The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain. 
+
+### Develop Candidate Valleylines
+The purpose of this step is to create a set of candidate valleylines through iterative smoothing of the flowline for each reach. 
+
+### Choose Final Valleyline
+The purpose of this step is to choose from the candidate valleylines the one that best captures the overall valley trend line. 
+
+
+***
+
+## Define Meander Loops
+The purpose of this stage is to define meander loops and bends for the base year for each reach. 
+
+### Define Loop Points
+The purpose of this step is to create a new FC named `loop_points` and use it to identify the start and end stream meander loops and bends. 
+
+### Derive Bankline Points
+The purpose of this step is to convert the banklines to a set of points and assign elevations and loop and bend locations. 
+
+### Assign Cross Section Loops
+The purpose of this step is to assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach. 
+
+
+***
+
+## Calculate L3 Cross Section Geometry
+The purpose of this stage is to calculate the Level 3 dimensions for each reach. 
+
+### Calculate Cross Section L3 Dimensions
+The purpose of this step is to calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach. 
+
+
+
+***
+
+## Run Report
+The purpose of this stage is to run the Level 3 report for each reach. 
+
+### Run the L3 Report
+The purpose of this step is to run the L2 report for each reach. 
+
+### Perform QA
+The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected. 

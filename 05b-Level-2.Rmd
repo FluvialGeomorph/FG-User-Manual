@@ -1,3 +1,70 @@
 # Level 2 Workflow
 This chapter describes the workflow steps necessary to complete a Level 2 FluvialGeomorph analysis.  
 
+
+## Create Initial Riffle Geometry
+The purpose of this stage is to identify and map riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach. 
+
+### Create Riffle Floodplain
+The purpose of this step is to identify riffle locations and map these cross sections across the lateral extent of the floodplain for each reach. 
+
+### Calculate Cross Section Watershed Area
+The purpose of this step is to calculate the watershed area for each riffle spaced cross section. 
+
+### Calculate Cross Section River Position
+The purpose of this step is to calculate the river position for each riffle cross section. 
+
+### Create Riffle Channel
+The purpose of this step is to edit the lateral extent of the `riffle_channel` FC to just cover the initial channel extent. 
+
+### Calculate Cross Section Points
+The purpose of this step is to convert each riffle cross section into a set of evenly stationed points and assign DEM and detrended elevation values.
+
+### Calculate Initial Cross Section L2 Dimension
+The purpose of this step is to calculate the initial L2 dimensions for the the riffle cross sections for each reach. 
+
+
+
+***
+
+## Estimate Bankfull
+The purpose of this stage is to estimate the detrended bankfull elevation for the base year for each reach. 
+
+### Run the Estimate Bankfull Report
+The purpose of this step is to run the Estimate Bankfull report for each reach. 
+
+### Perform QA
+The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected. 
+
+### Determine Bankfull Elevation
+The purpose of this step is to interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach. 
+
+### Create Bankfull Area
+The purpose of this step is to use the final bankfull elevation determined in the previous step to derive a final `bankfull_area` polygon for each reach. 
+
+### Create Banklines
+The purpose of this step is to convert the `bankfull_area` polygon into polylines and edit into a `banklines` FC for each reach. 
+
+
+
+***
+
+## Calculate Final L2 Cross Section Geometry
+The purpose of this stage is to use the bankfull elevation determined in the last stage to calculate the final level 2 cross section dimensions for the base year for each reach. 
+
+### Calculate Final Cross Section L2 Dimensions
+The purpose of this step is to calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach. 
+
+
+
+***
+
+## Run Report
+The purpose of this stage is to produce the Level 2 report for each reach. 
+
+### Run the L2 Report
+The purpose of this step is to run the L2 report for each reach. 
+
+### Perform QA
+The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected. 
+
