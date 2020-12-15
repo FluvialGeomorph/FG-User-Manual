@@ -104,9 +104,9 @@
 <li class="chapter" data-level="3.4" data-path="workflow.html"><a href="workflow.html#derived-features"><i class="fa fa-check"></i><b>3.4</b> Derived Features</a></li>
 <li class="chapter" data-level="3.5" data-path="workflow.html"><a href="workflow.html#project-file-structure"><i class="fa fa-check"></i><b>3.5</b> Project File Structure</a></li>
 <li class="chapter" data-level="3.6" data-path="workflow.html"><a href="workflow.html#workflows"><i class="fa fa-check"></i><b>3.6</b> Workflows</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="workflow.html"><a href="workflow.html#L1_summary"><i class="fa fa-check"></i><b>3.6.1</b> Level 1 (L1)</a></li>
-<li class="chapter" data-level="3.6.2" data-path="workflow.html"><a href="workflow.html#L2_summary"><i class="fa fa-check"></i><b>3.6.2</b> Level 2 (L2)</a></li>
-<li class="chapter" data-level="3.6.3" data-path="workflow.html"><a href="workflow.html#L3_summary"><i class="fa fa-check"></i><b>3.6.3</b> Level 3 (L3)</a></li>
+<li class="chapter" data-level="3.6.1" data-path="workflow.html"><a href="workflow.html#L1_summary"><i class="fa fa-check"></i><b>3.6.1</b> Level 1</a></li>
+<li class="chapter" data-level="3.6.2" data-path="workflow.html"><a href="workflow.html#L2_summary"><i class="fa fa-check"></i><b>3.6.2</b> Level 2</a></li>
+<li class="chapter" data-level="3.6.3" data-path="workflow.html"><a href="workflow.html#L3_summary"><i class="fa fa-check"></i><b>3.6.3</b> Level 3</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="workflow.html"><a href="workflow.html#qa_tools"><i class="fa fa-check"></i><b>3.7</b> Quality Assurance</a></li>
 </ul></li>
@@ -267,9 +267,9 @@
 <h2><span class="header-section-number">3.2</span> Analysis Levels</h2>
 <p>We have defined a standard workflow that is modular, allowing analysts to prescribe and customers to purchase progressively more detailed analysis as needed. The workflow is organized according to the following levels:</p>
 <ul>
-<li><strong>Level 1:</strong> The purpose of Level 1 is to extract basic channel dimensions.</li>
-<li><strong>Level 2:</strong> The purpose of Level 2 is to extract bankfull channel dimensions.</li>
-<li><strong>Level 3:</strong> The purpose of Level 3 is to extract planform dimensions.</li>
+<li><strong>Level 1:</strong> Extract basic channel dimensions.</li>
+<li><strong>Level 2:</strong> Extract bankfull channel dimensions.</li>
+<li><strong>Level 3:</strong> Extract planform dimensions.</li>
 </ul>
 </div>
 <div id="geodatabases" class="section level2">
@@ -337,12 +337,12 @@
 <ul>
 <li><p><strong>Levels:</strong> The top hierarchical grouping of the workflow. Levels are distinguished by the degree of fluvial geometric detail and metrics that will be derived. Levels 2 and 3 are optional.</p></li>
 <li><p><strong>Stages:</strong> The second hierarchical grouping of the workflow. Each level is subdivided into stages. Stages are mostly a conceptual grouping of steps to accomplish a specific objective in the analysis chain.</p></li>
-<li><p><strong>Steps:</strong> The third hierarchical grouping of the workflow. Stages are subdivided into steps. Steps typically involve running tools, manual editing, and quality assurance checks.</p></li>
+<li><p><strong>Steps:</strong> The third hierarchical grouping of the workflow. Stages are subdivided into steps. Steps typically involve running tools, manual editing, and performing quality assurance checks.</p></li>
 <li><p><strong>Tools:</strong> Tools are the lowest hierarchical grouping of the workflow. Tools perform operations that are suitable for automation.</p></li>
 </ul>
 <div id="L1_summary" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Level 1 (L1)</h3>
-<p>The purpose of this level is to extract basic channel dimensions. This section will provide a brief overview of the Level 1 workflow.</p>
+<h3><span class="header-section-number">3.6.1</span> Level 1</h3>
+<p>The purpose of this level is to extract basic channel dimensions. This section will provide a brief overview of the Level 1 (L1) workflow.</p>
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/Workflow_watershed.png" alt="Level 1 Workflow Diagram" width="100%" />
 <p class="caption">
@@ -352,79 +352,115 @@ Figure 3.1: Level 1 Workflow Diagram
 <p><strong>Create Terrain:</strong>
 The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys.</p>
 <ul>
-<li>Acquire Point Cloud - This step</li>
-<li>Derive DEM</li>
-<li>Hydromodify DEM</li>
+<li><em>Acquire Point Cloud</em> - Identify the elevation data steward and download or transfer the LiDAR point cloud data on an external drive.</li>
+<li><em>Derive DEM</em> - Assemble the <code>.las</code> files into a LAS Dataset, apply class filters, and export as a raster DEM.</li>
+<li><em>Hydromodify DEM</em> - Identify flow blockages along streams and burn these features into the DEM.</li>
 </ul>
 <p><strong>Define Stream Reaches:</strong>
 The purpose of this stage is to derive a synthetic stream network for the entire project study area and define their contributing watersheds.</p>
 <ul>
-<li>Calculate Contributing Area</li>
-<li>Derive Stream Network</li>
-<li>Define Reaches</li>
-<li>delineate Watersheds</li>
+<li><em>Calculate Contributing Area</em> - Calculate the flow accumulation model for the DEM.</li>
+<li><em>Derive Stream Network</em> - Use the flow accumulation model to derive the synthetic flow <code>stream_network</code> FC for the project study area.</li>
+<li><em>Define Reaches</em> - Subdivide the project study area <code>stream_network</code> FC into a set of analysis reaches.</li>
+<li><em>Delineate Watersheds</em> - Use the flow accumulation model to delineate the watersheds for all project study area reaches.</li>
 </ul>
 <p><strong>Derive Flowline:</strong>
 The purpose of this stage is to derive a flowline, for each reach and survey event.</p>
 <ul>
-<li>Derive Flowline</li>
-<li>Create Flowline Points</li>
+<li><em>Derive Flowline</em> - Develop the <code>flowline</code> FC for each reach and survey event.</li>
+<li><em>Create Flowline Points</em> - Create the <code>flowline_points</code> FC for each reach and survey event.</li>
 </ul>
 <p><strong>Define Initial Floodplain and Channel Extent:</strong>
 The purpose of this stage is to define the initial floodplain and channel extent, for each reach and survey event.</p>
 <ul>
-<li>Detrend DEM</li>
-<li>Estimate Initial Channel Extent</li>
-<li>Estimate Initial Floodplain Extent</li>
-<li>Calculate Channel Slope Raster</li>
+<li><em>Detrend DEM</em> - Use the <code>flowline_points</code> FC to develop a relative elevation model for each reach and survey event.</li>
+<li><em>Estimate Initial Channel Extent</em> - Use the <code>detrend</code> DEM to interactively “flood” the channel to make an initial estimate of the detrended bankfull elevation.</li>
+<li><em>Estimate Initial Floodplain Extent</em> - Use the <code>detrend</code> DEM to interactively “flood” the active floodplain to make an initial estimate of the detrended floodplain elevation.</li>
+<li><em>Calculate Channel Slope Raster</em> - Calculate the slope raster of the initial channel extent area.</li>
 </ul>
 <p><strong>Create Regular Cross Section Geometry:</strong>
 The purpose of this stage is to create regularly spaced cross sections and calculate dimensions, for each reach and survey event.</p>
 <ul>
-<li>Create Regular Cross Sections</li>
-<li>Calculate Cross Section Watershed Area</li>
-<li>Calculate Cross Section River Position</li>
-<li>Calculate Cross Section Level 1 Dimensions</li>
+<li><em>Create Regular Cross Sections</em> - Create regularly spaced cross sections along each reach.</li>
+<li><em>Calculate Cross Section Watershed Area</em> - Calculate the watershed area for each regularly spaced cross section.</li>
+<li><em>Calculate Cross Section River Position</em> - Calculate the river position for each regularly spaced cross section.</li>
+<li><em>Calculate Cross Section Points</em> - Convert each cross section into a set of evenly stationed points and assign DEM and detrended elevation values.</li>
+<li><em>Calculate Cross Section L1 Dimensions</em> - Calculate the L1 dimensions for the regularly spaced cross sections.</li>
 </ul>
 <p><strong>Identify Features:</strong>
 The purpose of this stage is to identify salient features along each reach.</p>
 <ul>
-<li>Create Features</li>
+<li><em>Create Features</em> - Identify the longitudinal position of noteworthy stream features for graph and map labeling.</li>
 </ul>
 <p><strong>Run Report:</strong>
 The purpose of this stage is to run the Level 1 report for each reach.</p>
 <ul>
-<li>Run Level 1 Report</li>
-<li>Perform QA</li>
+<li><em>Run the Level 1 Report</em> - Run the L1 report for each reach.</li>
+<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
 </ul>
 </div>
 <div id="L2_summary" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Level 2 (L2)</h3>
-<p>The purpose of this level is to extract bankfull channel dimensions.</p>
+<h3><span class="header-section-number">3.6.2</span> Level 2</h3>
+<p>The purpose of this level is to extract bankfull channel dimensions. This section will provide a brief overview of the Level 2 (L2) workflow.</p>
 <p><strong>Create Initial Riffle Geometry:</strong>
 The purpose of this stage is to identify and map riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.</p>
 <ul>
-<li>Create Riffle Floodplain</li>
-<li></li>
+<li><em>Create Riffle Floodplain</em> - Identify riffle locations and map these cross sections across the lateral extent of the floodplain for each reach.</li>
+<li><em>Calculate Cross Section Watershed Area</em> - Calculate the watershed area for each riffle spaced cross section.</li>
+<li><em>Calculate Cross Section River Position</em> - Calculate the river position for each riffle cross section.</li>
+<li><em>Create Riffle Channel</em> - Edit the lateral extent of the <code>riffle_channel</code> FC to just cover the initial channel extent.</li>
+<li><em>Calculate Cross Section Points</em> - Convert each riffle cross section into a set of evenly stationed points and assign DEM and detrended elevation values.</li>
+<li><em>Calculate Initial Cross Section L2 Dimensions</em> - Calculate the initial L2 dimensions for the the riffle cross sections for each reach.</li>
 </ul>
 <p><strong>Estimate Bankfull:</strong>
 The purpose of this stage is to estimate the detrended bankfull elevation for the base year for each reach.</p>
+<ul>
+<li><em>Run the Estimate Bankfull Report</em> - Run the Estimate Bankfull report for each reach.</li>
+<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
+<li><em>Determine Bankfull Elevation</em> - Interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach.</li>
+<li><em>Create Bankfull Area</em> - Use the final bankfull elevation determined in the previous step to derive a final <code>bankfull_area</code> polygon for each reach.</li>
+<li><em>Create Banklines</em> - Convert the <code>bankfull_area</code> polygon into polylines and edit into a <code>banklines</code> FC for each reach.</li>
+</ul>
 <p><strong>Calculate Final L2 Cross Section Geometry:</strong>
 The purpose of this stage is to use the bankfull elevation determined in the last stage to calculate the final level 2 cross section dimensions for the base year for each reach.</p>
+<ul>
+<li><em>Calculate Final Cross Section L2 Dimensions</em> - Calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach.</li>
+</ul>
 <p><strong>Run Report:</strong>
 The purpose of this stage is to produce the Level 2 report for each reach.</p>
+<ul>
+<li><em>Run the L2 Report</em> - Run the L2 report for each reach.</li>
+<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
+</ul>
 </div>
 <div id="L3_summary" class="section level3">
-<h3><span class="header-section-number">3.6.3</span> Level 3 (L3)</h3>
-<p>The purpose of this level is to extract planform dimensions.</p>
+<h3><span class="header-section-number">3.6.3</span> Level 3</h3>
+<p>The purpose of this level is to extract planform dimensions. This section will provide a brief overview of the Level 3 (L3) workflow.</p>
 <p><strong>Define Valley Line:</strong>
 The purpose of this stage is to define the valley trend line for the base year for each reach.</p>
+<ul>
+<li><em>Determine Final Floodplain Extent</em> - Use the detrended bankfull elevation identified in L2 to delineate the active floodplain.</li>
+<li><em>Develop Candidate Valleylines</em> - Through iterative smoothing of the flowline, create a set of candidate valleylines for each reach.</li>
+<li><em>Choose Final Valleyline</em> - From the candidate valleylines, choose the one that best captures the overall valley trend line.</li>
+</ul>
 <p><strong>Define Meander Loops:</strong>
 The purpose of this stage is to define meander loops and bends for the base year for each reach.</p>
+<ul>
+<li><em>Define Loop Points</em> - Create a new FC named <code>loop_points</code> and use it to identify the start and end stream meander loops and bends.</li>
+<li><em>Derive Bankline Points</em> - From the banklines derived in L2, convert to a set of points arranged along the banklines, assign elevations and loop and bend locations.</li>
+<li><em>Assign Cross Section Loops</em> - Assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach.</li>
+</ul>
 <p><strong>Calculate L3 Cross Section Geometry:</strong>
 The purpose of this stage is to calculate the Level 3 dimensions for each reach.</p>
+<ul>
+<li><em>Calculate Cross Section L3 Dimensions</em> - Calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach.</li>
+</ul>
 <p><strong>Run Report:</strong>
 The purpose of this stage is to run the Level 3 report for each reach.</p>
+<ul>
+<li><em>Run the L3 Report</em> - Run the L2 report for each reach.</li>
+<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
+</ul>
 </div>
 </div>
 <div id="qa_tools" class="section level2">
