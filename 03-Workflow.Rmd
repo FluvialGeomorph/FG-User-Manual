@@ -194,14 +194,14 @@ The purpose of this level is to extract planform dimensions. This section will p
 The purpose of this stage is to define the valley trend line for the base year for each reach. 
 
 * _Determine Final Floodplain Extent_ - Use the detrended bankfull elevation identified in L2 to delineate the active floodplain. 
-* _Develop Candidate Valleylines_ - Through iterative smoothing of the flowline, create a set of candidate valleylines for each reach. 
-* _Choose Final Valleyline_ - From the candidate valleylines, choose the one that best captures the overall valley trend line. 
+* _Develop Candidate Valleylines_ - Create a set of candidate valleylines through iterative smoothing of the flowline for each reach. 
+* _Choose Final Valleyline_ - Choose from the candidate valleylines the one that best captures the overall valley trend line. 
 
 **Define Meander Loops:** 
 The purpose of this stage is to define meander loops and bends for the base year for each reach. 
 
 * _Define Loop Points_ - Create a new FC named `loop_points` and use it to identify the start and end stream meander loops and bends. 
-* _Derive Bankline Points_ - From the banklines derived in L2, convert to a set of points arranged along the banklines, assign elevations and loop and bend locations. 
+* _Derive Bankline Points_ - Convert the banklines to a set of points and assign elevations and loop and bend locations. 
 * _Assign Cross Section Loops_ - Assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach. 
 
 **Calculate L3 Cross Section Geometry:**
