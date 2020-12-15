@@ -38,9 +38,7 @@ knitr::include_graphics("docs/images/FRMP_300.png")
 
 
 ## Abstract
-The abstract appears on the reverse side of the title page. It summarizes
-the research problem, project objective, and outcome of the investigation.
-It should run no more than 200 words. 
+The FluvialGeomorph ArcGIS toolbox provides a set of tools for conducting rapid fluvial geomorphology analysis and assessment. It allows a user to use high resolution, remotely sensed LiDAR (Light Detection and Ranging) terrain data to cost effectively extract stream channel dimensions at fine scale for large spatial extents. More than just documenting a toolbox, this user manual presents an analysis framework that guides GIS analysts with step-by-step instructions through the process of transforming LiDAR data into fluvial geomorphic assessments. These assessments can be used by fluvial geomorphologists and water resource professionals to assess stream conditions and identify problems and opportunities. By organizing several complex datasets into standard reports, the FluvialGeomorph toolbox concisely presents volumes of data in a concise way to aid analysis. 
 
 
 ## Distribution Statement
