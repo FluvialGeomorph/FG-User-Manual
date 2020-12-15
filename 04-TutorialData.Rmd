@@ -1,2 +1,2 @@
 # Tutorial Data
-This chapter will describe how to download the tutorial data and configure your workspace. 
+This chapter describes how to download the tutorial data and configure your workspace. 
