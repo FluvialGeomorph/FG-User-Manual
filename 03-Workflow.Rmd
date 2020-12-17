@@ -2,7 +2,7 @@
 This chapter provides an overview of some of the workflows that can be used to perform a rapid watershed assessment using `FluvialGeomorph`. Through analyzing a wide range of project sites, we have created a standard analysis framework. This framework defines a series of standard analysis objects that are used in a regular process to perform different types of analysis. 
 
 
-## Units of Analysis
+## Units of Analysis {#units_of_analysis}
 To help organize the workflow process we have defined several units of analysis:
 
 * **Project:** These are the primary work units and correspond to projects that customers have requested for analysis. Customers define specific goals for each project that determine the specific workflow chosen. These goals define a project study area for each project. These project study areas typically consist of a particular watershed, a mainstem section of a named river, or a discrete stream reach. 
@@ -11,7 +11,7 @@ To help organize the workflow process we have defined several units of analysis:
 
 * **Reach:** Sites are further subdivided into "reaches". Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.   
 
-* **Year:** Since `FluvialGeomorph` analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the base year. 
+* **Year:** Since `FluvialGeomorph` analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the *base year*. 
 
 
 ## Analysis Levels

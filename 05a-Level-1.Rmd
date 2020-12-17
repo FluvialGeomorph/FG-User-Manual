@@ -8,8 +8,19 @@ The purpose of this stage is to develop the terrain models for the project study
 The purpose of this step is to define the location and extent of the study area.  
 
 #### Create a Study Area Geodatabase
+The purpose of this step is to create a new study area geodatabase to store the project study area data. This step will need to be repeated for each [LiDAR survey](#units_of_analysis) that exists for this project study area. For example:
+
+* Papillion_Creek_2016.gdb
+* Papillion_Creek_2010.gdb
+* Papillion_Creek_2006.gdb
+
+The elevation data for each LiDAR survey will be processed separately and a synthetic stream network will be derived for each LiDAR survey independently. Begin processing the data for the [base year](#units_of_analysis) first, then work backward in time to process earlier LiDAR surveys in reverse chronological order. Several analysis steps require the base year data to be processed first. For some tools, surveys prior to the base year use the base year data as inputs. This is done to express earlier surveys in terms of the base year for comparison purposes. 
+
 * Create a new folder on a local workstation drive. Name it for the study area. 
 * Within this project folder, create a new study area file geodatabase. Name it for the study area.  
+* Choose a coordinate system for this project. You will use this coordinate system for all vector datasets created for this project. It is the analyst's responsibility to ensure that each vector dataset in this project uses this coordinate system. The only exception to this requirement are raster DEMs (which may use another coordinate system).  
+
+
 
 #### Define the Longitudinal Extent of the Study Area
 * Use the [USGS National Hydrography Dataset(NHD)](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/national-hydrography-dataset) High Resolution to define the longitudinal extent of the reaches of the study area. 
@@ -35,6 +46,9 @@ The purpose of this step is to acquire an existing, pre-made DEM of the entire s
 * Determine if an existing, pre-made DEM will serve for this analysis. 
 * Derive study area watershed extents.
 * Calculate reach scale drainage area. The coverage of this DEM should cover the entire upstream contributing watershed of the study area. 
+
+**Multiple LiDAR Surveys**   
+Since the study area watershed boundaries are unlikely to have changed between LiDAR surveys, it is unnecessary to acquire the entire watershed elevation model for LiDAR survey dates before the [base year](#units_of_analysis). Only the watershed elevation model representing the base year needs to be acquired. 
 
 #### Identify a source of elevation data for your study area
 #### Determine if the pre-made DEM has sufficient resolution
@@ -73,14 +87,6 @@ The purpose of this step is to remove flow blockages from the terrain.
 * Use the `02 - Burn Cutlines` tool to "burn" the `cutlines` features into the high resolution DEM. This tool creates the `dem_hydro` raster. 
 
 
-### Multiple LiDAR Surveys
-If multiple LiDAR surveys exist for the study area, repeat the above steps for each LiDAR survey. 
-
-* Each LiDAR survey will receive its own study area geodatabase. Multiple LiDAR resurvey study area geodatabases can be distinguished by appending their collection year to the end of the study area name (e.g. Cole_Creek_2016).  
-* Since the contributing watershed is unlikely to change between LiDAR resurveys, it is unnecessary to acquire the watershed elevation model for the new LiDAR resurvey date. 
-* Contributing area and stream network derivation (next steps) will need to be repeated for each LiDAR survey date. 
-
-
 ***
 
 ## Define Stream Reaches
@@ -113,7 +119,7 @@ The purpose of this step is to examine the stream network slope and sinuosity to
 ### Define Reaches
 The purpose of this step is to segment the stream network into a set of reaches that can be analyzed in more detail through the remainder of the study. The `stream_network` must be sub-divided into a set of reach that meet the following requirements:
 
-**Criteria for creating reaches:**
+**Criteria for Creating Reaches:**   
 
 * "Major" tributaries should be used to divide reaches. How big of an increase in drainage area/discharge constitutes a major tributary depends on the size of the watershed and physiographic region. 
 * A reach should contain a range of similar drainage area values. 
@@ -121,7 +127,7 @@ The purpose of this step is to segment the stream network into a set of reaches 
 * Built infrastructure may be used to divide reaches (e.g., dams, major roads). 
 * Study objectives may drive the definition of reaches (e.g., economic benefits analysis, existing project reach definition). 
 
-Using the criteria chosen from the list above, use the standard ESRI edit tools to sub divide the `stream_network` feature class into a set of features representing the reaches of your study.  
+Using the criteria chosen from the list above, use the standard ESRI edit tools to subdivide the `stream_network` feature class into a set of features representing the reaches of your study.  
 
 * Manually edit the `stream_network` feature class to modify the geometry to create a set of features representing the study area reaches.
 * Set the `ReachName` field to the value to be used to uniquely define the reach throughout the remainder of the study. 
@@ -141,21 +147,32 @@ The purpose of this step is to delineate the watersheds for each reach in the st
 ***
 
 ## Derive Flowline
-The purpose of this stage is to create a new reach geodatabase for a specific study reach and derive the reach flowline. This step will need to be repeated for each reach in the study area. 
+The purpose of this stage is to create a new reach geodatabase for a specific reach and derive the reach flowline. This step will need to be repeated for each reach and survey in the project study area [site](#units_of_analysis). For example, if a site has five reaches (e.g., R1-R5) and three LiDAR surveys (e.g., 2016, 2010, 2006), then a total of 15 reach geodatabases must be created at this stage:
+
+2016         | 2010         | 2006 
+:---         | :---         | :---
+y2016_R1.gdb | y2010_R1.gdb | y2006_R1.gdb 
+y2016_R2.gdb | y2010_R2.gdb | y2006_R2.gdb 
+y2016_R3.gdb | y2010_R3.gdb | y2006_R3.gdb 
+y2016_R4.gdb | y2010_R4.gdb | y2006_R4.gdb 
+y2016_R5.gdb | y2010_R5.gdb | y2006_R5.gdb 
+
+Table: Reach Geodatabases Required for a Site with 5 Reaches and 3 LiDAR Surveys. 
 
 ### Create the reach geodatabase
 The purpose of this step is to create a new reach geodatabase and populate it with initial data. 
 
 * In the study area folder, create a new reach geodatabase named for the reach. Use the `ReachName` value for the name of this new reach file geodatabase. 
 * Back in the study area geodatabase, select the feature in the `stream_network` feature class representing the current study reach. Use the "Data | Export Features" function to export the selected reach feature to the new reach geodatabase. Name the exported feature class `stream_network`. 
-* Ensure this new reach geodatabase version of of `stream_network` contains only one feature representing the current reach. 
+* Ensure this new reach geodatabase version of `stream_network` contains only one feature representing the current reach. 
+* Ensure that the `ReachName` field contains the correct name for the reach. As this reach name value is used throughout the toolbox, it is extremely important to ensure this value is used consistently across all FCs for this reach. Failure to be consistent with the `ReachName` value will lead to lots of errors that are difficult to troubleshoot. Get it right from the beginning. 
 * Examine the `dem_hydro` raster and determine the maximum width of the active floodplain along the entire reach. Be conservative with this estimate. Given its later use, it is important to generously overestimate this value. 
 * Use this maximum floodplain width estimate to buffer the reach `stream_network` feature class and name it `stream_network_buffer`. 
 * Use the ESRI `Clip Raster` tool to clip the study area geodatabase `dem_hydro` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `dem_hydro_<buffer distance>` (e.g., `dem_hydro_1000` for a buffer distance of 1000 meters). 
 * Use the ESRI `Clip Raster` tool to clip the study area geodatabase `contributing_area` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `contributing_area_<buffer distance>` (e.g., `contributing_area_1000` for a buffer distance of 1000 meters).  
 
 ### Create the Flowline
-The purpose of this step is to derive the reach flowline. It converts a `stream_network` feature into a `flowline` feature class. It smooths the geometry and converts it into a route. 
+The purpose of this step is to derive the reach flowline. The `05 - Flowline` tool converts a `stream_network` feature into a `flowline` FC. It smooths the geometry and converts it into a route. 
 
 * Use the `05 - Flowline` tool to process the `stream_network` feature class that was just edited to produce a new `flowline` feature class. 
 * Set the `output_workspace` parameter to the reach geodatabase. 
@@ -167,17 +184,28 @@ The purpose of this step is to derive the reach flowline. It converts a `stream_
 * It is critical that the flowline is digitized in the upstream direction. If this step is not performed, all subsequent tools will malfunction. 
 
 ### Create Flowline Points
-The purpose of this step is convert the `flowline` into a series of points along the reach. This tool takes the `flowline` feature class, converts it to a route, calculates the distance to the mouth of the river for all vertices, and creates a `flowline_points` feature class. 
+The purpose of this step is convert the `flowline` into a series of points along the reach. The `06 - Flowline Points` tool takes the `flowline` feature class, converts it to a route, calculates the distance to the mouth of the river for all vertices, and creates a `flowline_points` feature class. 
 
-* Use the `06 - Flowline Points` tool to convert the `flowline` feature class into `flowline_points`. For this study, set the `km_to_mouth` parameter to 0 and the `station_distance` field to 1 meter. This tool will create a new feature class named `flowline_points`. 
+* Use the `06 - Flowline Points` tool to convert the `flowline` feature class into a new FC named `flowline_points`. 
+* Set the `station_distance` field to approximately 1 meter. 
+* For a site with multiple reaches, set the `km_to_mouth` parameter for the downstream-most reach to 0. 
+* Set the `km_to_mouth` parameter for each upstream reach to the upstream-most value (i.e., the highest `km_to_mouth` value of the downstream reach's `flowline_points` FC) of the downstream reach. For example, set the `km_to_mouth` of the Reach-2 `flowline_points` FC to `1.2345` if the maximum value of Reach-1's `flowline_points` FC `km_to_mouth` field is `1.2345`. 
+* The goal is that longitudinal stationing within a site containing multiple reaches should be sequential and unique throughout the site (i.e., lower station values at the bottom of the site and higher station values at the top of the site). This allows reach FCs to be combined after reach-level analysis is complete. 
+* The `calibration_points`, `point_id_field`, and `measure_field` parameters can be left blank when processing the [base year](#units_of_analysis).
 
-* steps for multiple reaches
-* steps for multiple surveys
+**Multiple Surveys**   
+To make LiDAR surveys collected before the [base year](#units_of_analysis) directly comparable to the base year, previous survey flowlines must be ["calibrated"](https://pro.arcgis.com/en/pro-app/latest/tool-reference/linear-referencing/calibrate-routes.htm) to the base year. This adjusts any changes in flowline planform between surveys to be expressed in terms of the base year longitudinal stationing. 
+
+* If multiple LiDAR surveys exist for a project study area, the `flowline_points` for any previous LiDAR survey must be calibrated using the `flowline_points` of the base year. 
+* For example, if 2016 is the base year, when deriving the `flowline_points` for a LiDAR survey from 2010, the base year's `flowline_points` (2016) must be used for the `06 - Flowline Points` tool's `calibration_points` parameter value. 
+* Set the `point_id_field` and `measure_field` parameters to the fields in the base year's `flowline_points` FC. 
+* Set the `search_radius` parameter to the maximum distance between the `flowline` of the current survey and the base year `flowline`. 
 
 
 ***
 
 ## Define Initial Floodplain and Channel Extent
+The purpose of this stage is to define the initial floodplain and channel extent, for each reach and survey event. 
 
 ### Detrend DEM
 The purpose of this step is to produce a detrended DEM. A detrended DEM normalizes stream bank elevations for a specific reach. 
@@ -249,6 +277,11 @@ The purpose of this step is to calculate the river position for each regularly s
 ### Calculate Cross Section Points
 The purpose of this step is to convert each cross section into a set of evenly stationed points and assign DEM and detrended elevation values. 
 
+* Use the `14 - XS Points` tool to calculate cross section station points for each cross section. 
+* The `station_distance` parameter should be set to approximately the resolution of the DEM. For example, if the DEM has a cell size of 1 foot (0.3048 meter), set the `station_distance` to that distance (using the linear units of the coordinate system used for the project's vector data). 
+* This tool creates a new feature class named `<cross section FC name>_points`. 
+
+
 ### Calculate Cross Section L1 Dimensions
 The purpose of this step is to calculate the L1 dimensions for the regularly spaced cross sections. 
 
@@ -259,12 +292,26 @@ The purpose of this step is to calculate the L1 dimensions for the regularly spa
 ***
 
 ## Identify Infrastructure
-The purpose of this stage is to identify salient features in the floodplain that may be affecting channel hydraulics along each reach. 
+The purpose of this stage is to identify salient features in the floodplain that may be affecting channel hydraulics along each reach. Here are some ideas for the features you should identify:
+
+* Significant tributaries
+* Built infrastructure
+* Significant geologic features
+
 
 ### Create Features
 The purpose of this step is to identify the longitudinal position of noteworthy stream features for graph and map labeling. 
 
-
+* Create a new point FC named `features` containing the following fields:
+    * `Name` - Text (50), Used to record the name of the river feature. 
+    * `km_to_mouth` - double, Used to record the feature's longitudinal position within the reach. 
+* Working upstream from the downstream end of the reach, examine the DEM and aerial imagery for significant river features and built infrastructure that could potentially impact stream structure and function.
+* Add the `flowline_points` feature class to the current map. 
+* Set the display field to the `km_to_mouth` field. 
+* Create a `features` point feature centered along the `flowline` FC. 
+* Assign it a descriptive label in the `Name` field, and record its longitudinal position along the reach (see next bullet) in the `km_to_mouth` field. 
+* To determine a feature's longitudinal position along the reach, use the identify tool to find the closest point in the `flowline_points` feature class and use the value from its `POINT_M` value. 
+* Repeat these steps to record all of the significant features along each reach. 
 
 
 ***
