@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2020-12-16" />
+<meta name="date" content="2020-12-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -445,8 +445,28 @@ Since the study area watershed boundaries are unlikely to have changed between L
 <p>The purpose of this step is to examine the stream network slope and sinuosity to help make decisions about how best to define study reaches.</p>
 <ul>
 <li>Use the <code>04a - Stream Network Points</code> tool to convert the <code>stream_network</code> feature class into the <code>stream_networks_points</code> feature class.</li>
-<li>Use the <code>04b - Slope and Sinuosity</code> tool to calculate the slope and sinuosity of the <code>stream_network_points</code> feature class. Set the <code>gradient_distance</code> field to the number of upstream <code>stream_network_points</code> features that the tool should look to calculate the slope and sinuosity.</li>
-<li>Examine the distribution of the slope and sinuosity values along the stream network to help determine the natural breaks in the stream network.</li>
+</ul>
+<p><strong>Determine the moving window size</strong><br />
+Slope and sinuosity are scale dependent metrics. This means that these metrics are affected by the size of the upstream moving window used in their calculation. To determine the appropriate size of this moving window for this study area, use the following steps:</p>
+<ul>
+<li>It is recommended that slope and sinuosity be calculated using a moving window size equal to two meander wavelengths.</li>
+<li>Estimate a rough initial bankfull width for the reach. Use the DEM to examine several representative locations throughout the study area.</li>
+<li>Estimate the length of two meander wavelengths by multiplying the rough bankfull width by 10 (e.g., 30ft bankfull width * 10 = 300ft, two meander wavelengths).<br />
+</li>
+<li>Determine how many <code>stream_network_points</code> two meander wavelengths represent. For example, if <code>stream_network_points</code> are spaced 1m apart on average, then two meander wavelengths would be 91 points (i.e., 300ft / 3.28084ft per m).</li>
+</ul>
+<p><strong>Calculate Slope and Sinuosity</strong></p>
+<ul>
+<li>Use the <code>04b - Slope and Sinuosity</code> tool to calculate the slope and sinuosity of the <code>stream_network_points</code> feature class.</li>
+<li>Set the <code>gradient_distance</code> parameter to the number of upstream <code>stream_network_points</code> that you calculated in a previous step.</li>
+<li>If the elevations in the channel seem noisy, check the <code>use_smoothing</code> parameter and set the <code>loess_span</code> parameter to a value between 0-1.</li>
+</ul>
+<p><strong>Confirm the degree of smoothing</strong></p>
+<ul>
+<li>Use a chart to verify the choice of the smoothing <code>loess_span</code> parameter.</li>
+<li>Right-click on the <code>gradient_*</code> FC in the map Table of Contents and select “Create Chart”, and select “Line”. In the <code>Date or Number</code> dropdown, choose the field <code>POINT_M</code>. In the <code>Aggregation</code> dropdown, choose <code>None</code>. In the <code>Numeric field(s)</code> checklist, check the boxes next to <code>Z</code> and <code>Z_smooth</code>. Click the <code>Apply</code> button to view the chart.</li>
+<li>Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change.</li>
+<li>If the smoothing is not ideal, re-run the tool and adjust the <code>loess_span</code> parameter.</li>
 </ul>
 </div>
 <div id="define-reaches" class="section level3">
@@ -459,6 +479,7 @@ Since the study area watershed boundaries are unlikely to have changed between L
 <li>Slope and sinuosity can be considered in the decision to subdivide a reach.</li>
 <li>Built infrastructure may be used to divide reaches (e.g., dams, major roads).</li>
 <li>Study objectives may drive the definition of reaches (e.g., economic benefits analysis, existing project reach definition).</li>
+<li>The distribution of the slope and sinuosity values along the stream network may help determine the natural breaks in the stream network.</li>
 </ul>
 <p>Using the criteria chosen from the list above, use the standard ESRI edit tools to subdivide the <code>stream_network</code> feature class into a set of features representing the reaches of your study.</p>
 <ul>
@@ -654,6 +675,10 @@ To make LiDAR surveys collected before the <a href="workflow.html#units_of_analy
 <div id="calculate-cross-section-river-position" class="section level3">
 <h3><span class="header-section-number">6.5.3</span> Calculate Cross Section River Position</h3>
 <p>The purpose of this step is to calculate the river position for each regularly spaced cross section.</p>
+<ul>
+<li>Use the <code>13 - XS River Position</code> tool to calculate the distance to the mouth of the river for each cross section.</li>
+<li>The river position of each cross section will be used in later steps to calculate several channel parameters (i.e., gradient, sinuosity).</li>
+</ul>
 </div>
 <div id="calculate-cross-section-points" class="section level3">
 <h3><span class="header-section-number">6.5.4</span> Calculate Cross Section Points</h3>
@@ -667,8 +692,29 @@ To make LiDAR surveys collected before the <a href="workflow.html#units_of_analy
 <div id="calculate-cross-section-l1-dimensions" class="section level3">
 <h3><span class="header-section-number">6.5.5</span> Calculate Cross Section L1 Dimensions</h3>
 <p>The purpose of this step is to calculate the L1 dimensions for the regularly spaced cross sections.</p>
+<p><strong>Determine the moving window size</strong><br />
+Many stream metrics are scale dependent, meaning these metrics are affected by the size of the moving window used in their calculation. To determine the appropriate size of the moving window for this reach, use the following steps:</p>
 <ul>
-<li>Check degree of elevation smoothing by creating a chart.</li>
+<li>Many stream metrics are typically calculated using a moving window size equal to two meander wavelengths.</li>
+<li>Using the initial <code>Channel Mask</code> layer that you created earlier, estimate the typical bankfull width for the reach.</li>
+<li>Estimate the length of two meander wavelengths by multiplying the bankfull width estimated in the last step by 10 (e.g., 30ft bankfull width * 10 = 300ft, two meander wavelengths).<br />
+</li>
+<li>Determine how many cross sections two meander wavelengths represent. For example, if regular cross sections are spaced 100ft apart, then two meander wavelengths would be 3 cross sections (i.e., 300ft / 100ft between cross sections).</li>
+</ul>
+<p><strong>Calculate L1 Dimensions</strong></p>
+<ul>
+<li>Use the <code>15a - XS Dimensions, Level 1</code> tool to calculate L1 dimensions.</li>
+<li>Set the <code>xs_fc</code> parameter to the regular cross sections FC you created in a previous step.</li>
+<li>Set the <code>lead_n</code> parameter to the number of upstream cross sections that you calculated in a previous step.</li>
+<li>If the elevations in the channel seem noisy, check the <code>use_smoothing</code> parameter and set the <code>loess_span</code> parameter to a value between 0-1.</li>
+<li>Confirm that the <code>vert_units</code> of the DEM are in feet.</li>
+</ul>
+<p><strong>Confirm the degree of smoothing</strong></p>
+<ul>
+<li>Use a chart to verify the choice of the smoothing <code>loess_span</code> parameter.</li>
+<li>Right-click on the <code>*gradient_**_dims_L1</code> FC in the map Table of Contents and select “Create Chart”, and select “Line”. In the <code>Date or Number</code> dropdown, choose the field <code>POINT_M</code>. In the <code>Aggregation</code> dropdown, choose <code>None</code>. In the <code>Numeric field(s)</code> checklist, check the boxes next to <code>Z</code> and <code>Z_smooth</code>. Click the <code>Apply</code> button to view the chart.</li>
+<li>Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change.</li>
+<li>If the smoothing is not ideal, re-run the tool and adjust the <code>loess_span</code> parameter.</li>
 </ul>
 <hr />
 </div>
