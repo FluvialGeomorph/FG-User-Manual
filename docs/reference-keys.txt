@@ -22,7 +22,7 @@ test-the-toolbox
 troubleshooting
 install-tutorial-data
 workflow
-units-of-analysis
+units_of_analysis
 analysis-levels
 geodatabases
 derived-features
@@ -89,7 +89,6 @@ create-a-hillshade-to-improve-visualization-1
 hydro-modify-dem
 identify-flow-blockages
 burn-cutlines-into-the-terrains
-multiple-lidar-surveys
 define-stream-reaches-1
 calculate-contributing-area
 derive-stream-network

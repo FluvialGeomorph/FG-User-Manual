@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2020-12-15" />
+<meta name="date" content="2020-12-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -101,7 +101,7 @@
 <li class="chapter" data-level="2.7" data-path="install.html"><a href="install.html#install-tutorial-data"><i class="fa fa-check"></i><b>2.7</b> Install Tutorial Data</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>3</b> Workflow</a><ul>
-<li class="chapter" data-level="3.1" data-path="workflow.html"><a href="workflow.html#units-of-analysis"><i class="fa fa-check"></i><b>3.1</b> Units of Analysis</a></li>
+<li class="chapter" data-level="3.1" data-path="workflow.html"><a href="workflow.html#units_of_analysis"><i class="fa fa-check"></i><b>3.1</b> Units of Analysis</a></li>
 <li class="chapter" data-level="3.2" data-path="workflow.html"><a href="workflow.html#analysis-levels"><i class="fa fa-check"></i><b>3.2</b> Analysis Levels</a></li>
 <li class="chapter" data-level="3.3" data-path="workflow.html"><a href="workflow.html#geodatabases"><i class="fa fa-check"></i><b>3.3</b> Geodatabases</a></li>
 <li class="chapter" data-level="3.4" data-path="workflow.html"><a href="workflow.html#derived-features"><i class="fa fa-check"></i><b>3.4</b> Derived Features</a></li>
@@ -165,7 +165,6 @@
 <li class="chapter" data-level="6.1.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#acquire-study-area-watershed-elevation-model"><i class="fa fa-check"></i><b>6.1.2</b> Acquire Study Area Watershed Elevation Model</a></li>
 <li class="chapter" data-level="6.1.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#develop-high-resolution-elevation-model"><i class="fa fa-check"></i><b>6.1.3</b> Develop High Resolution Elevation Model</a></li>
 <li class="chapter" data-level="6.1.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#hydro-modify-dem"><i class="fa fa-check"></i><b>6.1.4</b> Hydro Modify DEM</a></li>
-<li class="chapter" data-level="6.1.5" data-path="level-1-workflow.html"><a href="level-1-workflow.html#multiple-lidar-surveys"><i class="fa fa-check"></i><b>6.1.5</b> Multiple LiDAR Surveys</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#define-stream-reaches-1"><i class="fa fa-check"></i><b>6.2</b> Define Stream Reaches</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#calculate-contributing-area"><i class="fa fa-check"></i><b>6.2.1</b> Calculate Contributing Area</a></li>
@@ -297,14 +296,14 @@
 <div id="workflow" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Workflow</h1>
 <p>This chapter provides an overview of some of the workflows that can be used to perform a rapid watershed assessment using <code>FluvialGeomorph</code>. Through analyzing a wide range of project sites, we have created a standard analysis framework. This framework defines a series of standard analysis objects that are used in a regular process to perform different types of analysis.</p>
-<div id="units-of-analysis" class="section level2">
+<div id="units_of_analysis" class="section level2">
 <h2><span class="header-section-number">3.1</span> Units of Analysis</h2>
 <p>To help organize the workflow process we have defined several units of analysis:</p>
 <ul>
 <li><p><strong>Project:</strong> These are the primary work units and correspond to projects that customers have requested for analysis. Customers define specific goals for each project that determine the specific workflow chosen. These goals define a project study area for each project. These project study areas typically consist of a particular watershed, a mainstem section of a named river, or a discrete stream reach.</p></li>
 <li><p><strong>Site:</strong> Project areas are subdivided into “sites”. Sites are typically named tributaries and their subwatersheds within the project study area.</p></li>
 <li><p><strong>Reach:</strong> Sites are further subdivided into “reaches”. Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.</p></li>
-<li><p><strong>Year:</strong> Since <code>FluvialGeomorph</code> analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the base year.</p></li>
+<li><p><strong>Year:</strong> Since <code>FluvialGeomorph</code> analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the <em>base year</em>.</p></li>
 </ul>
 </div>
 <div id="analysis-levels" class="section level2">
