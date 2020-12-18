@@ -290,7 +290,8 @@ The purpose of this step is to calculate the watershed area for each regularly s
 * Add the `flowline` and regular cross section features classes to the map. Place them on top of the `contributing_area_buffer` raster. 
 * Determine the maximum distance from the intersection of each cross section and the `flowline` to the nearest pixel of high flow in the `contributing_area_buffer` raster. This value will be used for the `snap_distance` in the next step. 
 * Use the `12 - XS Watershed Area` tool to calculate the watershed area for each cross section. 
-
+* For the `flow_accum` parameter, use the `contributing_area_buffer` raster. 
+* For the `snap_distance` parameter, use the distance you calculated in a previous step.
 
 ### Calculate Cross Section River Position
 The purpose of this step is to calculate the river position for each regularly spaced cross section. 
