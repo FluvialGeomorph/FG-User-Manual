@@ -1,5 +1,6 @@
 fig:unnamed-chunk-3
 fig:unnamed-chunk-4
+fig:unnamed-chunk-5
 abstract
 distribution-statement
 unit-conversion-factors
@@ -120,6 +121,7 @@ determine-next-steps
 level-2-workflow
 create-initial-riffle-geometry
 create-riffle-floodplain
+assign-cross-section-ids-1
 calculate-cross-section-watershed-area-2
 calculate-cross-section-river-position-1
 create-riffle-channel
@@ -136,6 +138,7 @@ calculate-final-cross-section-l2-dimensions
 run-report-1
 run-the-l2-report
 perform-qa-2
+determine-next-steps-1
 level-3-workflow
 define-valley-line-1
 determine-final-floodplain-extent
@@ -150,6 +153,7 @@ calculate-cross-section-l3-dimensions
 run-report-2
 run-the-l3-report
 perform-qa-3
+determine-next-steps-2
 summary
 L1_report_qa
 L1_study_area_overview
