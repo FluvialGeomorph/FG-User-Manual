@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2020-12-18" />
+<meta name="date" content="2020-12-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <li class="chapter" data-level="3.2" data-path="workflow.html"><a href="workflow.html#analysis-levels"><i class="fa fa-check"></i><b>3.2</b> Analysis Levels</a></li>
 <li class="chapter" data-level="3.3" data-path="workflow.html"><a href="workflow.html#geodatabases"><i class="fa fa-check"></i><b>3.3</b> Geodatabases</a></li>
 <li class="chapter" data-level="3.4" data-path="workflow.html"><a href="workflow.html#derived-features"><i class="fa fa-check"></i><b>3.4</b> Derived Features</a></li>
-<li class="chapter" data-level="3.5" data-path="workflow.html"><a href="workflow.html#project-file-structure"><i class="fa fa-check"></i><b>3.5</b> Project File Structure</a></li>
+<li class="chapter" data-level="3.5" data-path="workflow.html"><a href="workflow.html#folder_structure"><i class="fa fa-check"></i><b>3.5</b> Project Folder Structure</a></li>
 <li class="chapter" data-level="3.6" data-path="workflow.html"><a href="workflow.html#workflows"><i class="fa fa-check"></i><b>3.6</b> Workflows</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="workflow.html"><a href="workflow.html#L1_summary"><i class="fa fa-check"></i><b>3.6.1</b> Level 1</a></li>
 <li class="chapter" data-level="3.6.2" data-path="workflow.html"><a href="workflow.html#L2_summary"><i class="fa fa-check"></i><b>3.6.2</b> Level 2</a></li>
@@ -174,9 +174,10 @@
 <li class="chapter" data-level="6.2.5" data-path="level-1-workflow.html"><a href="level-1-workflow.html#delineate-watersheds"><i class="fa fa-check"></i><b>6.2.5</b> Delineate Watersheds</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#derive-flowline"><i class="fa fa-check"></i><b>6.3</b> Derive Flowline</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.1</b> Create the reach geodatabase</a></li>
+<li class="chapter" data-level="6.3.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-site-geodatabase"><i class="fa fa-check"></i><b>6.3.1</b> Create the site geodatabase</a></li>
 <li class="chapter" data-level="6.3.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-flowline"><i class="fa fa-check"></i><b>6.3.2</b> Create the Flowline</a></li>
-<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-flowline-points"><i class="fa fa-check"></i><b>6.3.3</b> Create Flowline Points</a></li>
+<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.3</b> Create the reach geodatabase</a></li>
+<li class="chapter" data-level="6.3.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-flowline-points"><i class="fa fa-check"></i><b>6.3.4</b> Create Flowline Points</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#define-initial-floodplain-and-channel-extent"><i class="fa fa-check"></i><b>6.4</b> Define Initial Floodplain and Channel Extent</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#detrend-dem-1"><i class="fa fa-check"></i><b>6.4.1</b> Detrend DEM</a></li>
@@ -322,16 +323,17 @@
 <h2><span class="header-section-number">3.3</span> Geodatabases</h2>
 <p>The <code>FluvialGeomorph</code> workflow was designed around a standard set of objects organized into a standard set of geodatabases.</p>
 <ul>
-<li><p><strong>Study Area Geodatabase:</strong> This type of geodatabase stores feature classes (FC) that apply to the entire project study area or site. The workflow begins with developing FCs that define the project study area, Digital Elevation Models (DEM), derived stream network, etc. If there are multiple LiDAR surveys for the project study area, a separate study area geodatabase representing each survey is created beginning with the base year.</p></li>
-<li><p><strong>Reach Geodatabase:</strong> This type of geodatabases stores FCs that apply to a specific reach. The <code>FluvialGeomorph</code> tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.</p></li>
+<li><p><strong>Study Area Geodatabase:</strong> This type of geodatabase stores feature classes (FC) that apply to the entire project study area. The workflow begins with developing FCs that define the project study area, Digital Elevation Models (DEM), derived stream network, etc. If there are multiple LiDAR surveys for the project study area, a separate study area geodatabase representing each survey is created beginning with the base year.</p></li>
+<li><p><strong>Site Geodatabase: </strong> This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific “site” unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.</p></li>
+<li><p><strong>Reach Geodatabase:</strong> This type of geodatabase stores FCs that apply to a specific reach. The <code>FluvialGeomorph</code> tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.</p></li>
 </ul>
 </div>
 <div id="derived-features" class="section level2">
 <h2><span class="header-section-number">3.4</span> Derived Features</h2>
 <p>The definition of a common set of derived features is an important step in standardizing any workflow. The standard <code>FluvialGeomorph</code> database objects form a tightly linked set of features that work together in a particular order to accomplish the analysis. See the <a href="https://techmanual.fluvialgeomorph.org">FluvialGeomorph Tech Manual</a> for a detailed description of each of these standard FCs.</p>
 </div>
-<div id="project-file-structure" class="section level2">
-<h2><span class="header-section-number">3.5</span> Project File Structure</h2>
+<div id="folder_structure" class="section level2">
+<h2><span class="header-section-number">3.5</span> Project Folder Structure</h2>
 <p>Establishing a standard storage structure for all project data is an important quality control step. A standard folder structure has the following benefits:</p>
 <ul>
 <li>Clearly defined functional roles for each storage location reduces ambiguity and confusion.</li>
@@ -343,6 +345,8 @@
 └─── Sites
 │    └─── 01_Site_Name
 │    │    └─── Data
+│    │    │        Site1_year1.gdb
+│    │    │        Site1_year2.gdb
 │    │    │        Reach1_year1.gdb
 │    │    │        Reach1_year2.gdb
 │    │    │        Reach2_year1.gdb
@@ -369,9 +373,10 @@
 └─── Maps
 </code></pre>
 <ul>
+<li><strong>Project Study Area Folder:</strong> The project study area folder is used to store all of the files for the project.</li>
 <li><strong>Site Folders:</strong> Site folders are used to store all of the files for each site. Each site in the project study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name.</li>
-<li><strong>Elevation Folders:</strong> The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder is used to hold all of the <code>.las</code> files for each LiDAR survey. Since these datasets can be massive, the idea is to separate these data into their own folder to improve data management. Once the terrain data are processed, only derived DEMs are then copied to the geodatabases in the Data folders.</li>
-<li><strong>Site Data Folders:</strong> The site data folders are used to store all of the site study area and reach geodatabases.</li>
+<li><strong>Elevation Folders:</strong> The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in <code>.las</code> format for modern surveys) for each LiDAR survey for the project study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders.</li>
+<li><strong>Site Data Folders:</strong> The site data folders are used to store all of the site site and reach geodatabases.</li>
 <li><strong>Reports:</strong> The Reports folders are used to store the reports created by tools for each reach.</li>
 <li><strong>Maps:</strong> The Maps folders are used to store map documents for a given project or site.</li>
 <li><strong>Exports Folders:</strong> The Exports folders are used to store static <code>.pdf</code> map documents exported from map projects for a given project or site.</li>

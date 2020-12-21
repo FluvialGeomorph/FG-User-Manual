@@ -27,7 +27,7 @@ units_of_analysis
 analysis-levels
 geodatabases
 derived-features
-project-file-structure
+folder_structure
 workflows
 L1_summary
 L2_summary
@@ -97,8 +97,9 @@ calculate-slope-and-sinuosity
 define-reaches
 delineate-watersheds
 derive-flowline
-create-the-reach-geodatabase
+create-the-site-geodatabase
 create-the-flowline
+create-the-reach-geodatabase
 create-flowline-points
 define-initial-floodplain-and-channel-extent
 detrend-dem-1

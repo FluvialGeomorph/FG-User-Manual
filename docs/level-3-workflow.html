@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2020-12-18" />
+<meta name="date" content="2020-12-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <li class="chapter" data-level="3.2" data-path="workflow.html"><a href="workflow.html#analysis-levels"><i class="fa fa-check"></i><b>3.2</b> Analysis Levels</a></li>
 <li class="chapter" data-level="3.3" data-path="workflow.html"><a href="workflow.html#geodatabases"><i class="fa fa-check"></i><b>3.3</b> Geodatabases</a></li>
 <li class="chapter" data-level="3.4" data-path="workflow.html"><a href="workflow.html#derived-features"><i class="fa fa-check"></i><b>3.4</b> Derived Features</a></li>
-<li class="chapter" data-level="3.5" data-path="workflow.html"><a href="workflow.html#project-file-structure"><i class="fa fa-check"></i><b>3.5</b> Project File Structure</a></li>
+<li class="chapter" data-level="3.5" data-path="workflow.html"><a href="workflow.html#folder_structure"><i class="fa fa-check"></i><b>3.5</b> Project Folder Structure</a></li>
 <li class="chapter" data-level="3.6" data-path="workflow.html"><a href="workflow.html#workflows"><i class="fa fa-check"></i><b>3.6</b> Workflows</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="workflow.html"><a href="workflow.html#L1_summary"><i class="fa fa-check"></i><b>3.6.1</b> Level 1</a></li>
 <li class="chapter" data-level="3.6.2" data-path="workflow.html"><a href="workflow.html#L2_summary"><i class="fa fa-check"></i><b>3.6.2</b> Level 2</a></li>
@@ -174,9 +174,10 @@
 <li class="chapter" data-level="6.2.5" data-path="level-1-workflow.html"><a href="level-1-workflow.html#delineate-watersheds"><i class="fa fa-check"></i><b>6.2.5</b> Delineate Watersheds</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#derive-flowline"><i class="fa fa-check"></i><b>6.3</b> Derive Flowline</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.1</b> Create the reach geodatabase</a></li>
+<li class="chapter" data-level="6.3.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-site-geodatabase"><i class="fa fa-check"></i><b>6.3.1</b> Create the site geodatabase</a></li>
 <li class="chapter" data-level="6.3.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-flowline"><i class="fa fa-check"></i><b>6.3.2</b> Create the Flowline</a></li>
-<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-flowline-points"><i class="fa fa-check"></i><b>6.3.3</b> Create Flowline Points</a></li>
+<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.3</b> Create the reach geodatabase</a></li>
+<li class="chapter" data-level="6.3.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-flowline-points"><i class="fa fa-check"></i><b>6.3.4</b> Create Flowline Points</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#define-initial-floodplain-and-channel-extent"><i class="fa fa-check"></i><b>6.4</b> Define Initial Floodplain and Channel Extent</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#detrend-dem-1"><i class="fa fa-check"></i><b>6.4.1</b> Detrend DEM</a></li>
@@ -305,14 +306,38 @@
 <div id="determine-final-floodplain-extent" class="section level3">
 <h3><span class="header-section-number">8.1.1</span> Determine Final Floodplain Extent</h3>
 <p>The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain.</p>
+<ul>
+<li>From the final Estimate Bankfull Report created in Level 2, use the detrended bankfull elevation identified. In the example from Level 2, this value was 104 ft.</li>
+<li><strong>Determine the bankfull depth.</strong> The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach:</li>
+<li><code>104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth</code></li>
+<li><strong>Determine flood prone height.</strong> Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:</li>
+<li><code>2 * 4 ft bankfull depth = 8 ft flood prone height</code></li>
+<li>Therefore, the flood prone detrended elevation would be 108 ft:</li>
+<li><code>100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height</code></li>
+<li>With the detrended flood prone elevation for your reach determined in the last step, use the <code>08 - Water Surface Extent</code> tool to extract a flood prone area polygon. This tool creates a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation selected.</li>
+<li>This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the <code>banks_raw_xxx</code> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>. Polygons with <code>gridcode</code> = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting <code>gridcode</code> = 1 polygons with the largest area until the entire flood prone area is selected.</li>
+<li>Export these selected features to a new feature class named <code>flood_prone</code>.</li>
+<li>Delete the <code>banks_raw_xxx</code> feature class created in this section.</li>
+</ul>
 </div>
 <div id="develop-candidate-valleylines" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Develop Candidate Valleylines</h3>
 <p>The purpose of this step is to create a set of candidate valleylines through iterative smoothing of the flowline for each reach.</p>
+<ul>
+<li>Use the ESRI <code>Smooth Line</code> tool to smooth the <code>flowline</code> feature class. Use the <code>PAEK</code> smoothing algorithm. For example, use a <code>Smoothing Tolarance</code> value of 200 meters. In this case you would name the output feature class <code>valleyline_200</code></li>
+<li>Repeat the previous step using the <code>Smoothing Tolerance</code> values such as 400, 800, and 1000.</li>
+<li>Depending on the detail of the <code>flowline</code> geometry, you may need to select a different range or step value of <code>Smoothing Tolerance</code> parameter values to test.</li>
+</ul>
 </div>
 <div id="choose-final-valleyline" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Choose Final Valleyline</h3>
 <p>The purpose of this step is to choose from the candidate valleylines the one that best captures the overall valley trend line.</p>
+<ul>
+<li>The goal of this step is to select from the candidate valleylines the one that is the most smoothed, yet still fits (primarily) within the <code>flood_prone</code> polygon extent.</li>
+<li>Add the <code>flood_prone</code> polygon and all of the candidate valleyline FCs to the current map.</li>
+<li>Identify the valley line feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the <code>flood_prone</code> polygon.</li>
+<li>Rename the selected valley line to <code>valleyline</code>.</li>
+</ul>
 <hr />
 </div>
 </div>
@@ -322,6 +347,27 @@
 <div id="define-loop-points" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> Define Loop Points</h3>
 <p>The purpose of this step is to create a new FC named <code>loop_points</code> and use it to identify the start and end stream meander loops and bends.</p>
+<ul>
+<li>Create a new point feature class named <code>loop_points</code>. Enable z and m values. The feature class should contain the following fields:
+<ul>
+<li><code>ReachName</code>: Text (50) - The purpose of this field is to store the reach name.</li>
+<li><code>loop</code>: Long Integer - The purpose of this field is to store the loop unique identifier for the point.</li>
+<li><code>bend</code>: Long Integer - The purpose of the field is to store the bend identifier for the point.</li>
+<li><code>position</code>: Text (10) - The purpose of this field is to store position identifier for the point. This field must have one three values: “start”, “end”, or “apex”.</li>
+</ul></li>
+</ul>
+<p><strong>Create Loop Points</strong><br />
+* <code>loop_point</code> features are used to define the start and end location of loop bends and the location of a loop’s apex.
+* <code>loop_point</code> features are always placed along (i.e., snapped to) a <code>bankline</code> feature.
+* Begin numbering loops starting at the downstream end of the reach and increment the <code>loop</code> integer values moving upstream.
+* In FluvialGeomorph, the <code>valleyline</code> is used segment the <code>flowline</code> into loops.
+* The beginning and end of loops are delineated where the <code>valleyline</code> <em>definitively</em> crosses the <code>flowline</code>.
+* If the <code>flowline</code> crosses the <code>valleyline</code> and then crosses back over in a short distance, this is not considered a <em>definitive</em> crossing. A definitive crossing is one where the <code>flowline</code> approaches the <code>valleyline</code>, crosses it, and then continues to move away from the <code>valleyline</code> for a significant longitudinal distance.
+* Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank</p>
+<ul>
+<li>Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3).</li>
+<li>Bend numbering restarts within each loop. The first <code>bend</code> value within a loop always begins with the value 1.</li>
+</ul>
 </div>
 <div id="derive-bankline-points" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Derive Bankline Points</h3>
