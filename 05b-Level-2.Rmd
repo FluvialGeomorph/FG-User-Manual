@@ -10,9 +10,9 @@ The purpose of this step is to identify riffle locations and map these cross sec
 
 A riffle is a shallow river landform where water flows in a steep, thin sheet [@luna_bergere_leopold_river_1957]. Riffles can be identified with the help of the `channel_slope` raster calculated in Level 1, and confirmed with high resolution aerial imagery. In the `channel_slope` raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.
 
-* Create a new line feature class named `riffle_floodplain` to store riffle cross sections. This feature class must use the same coordinate system as the vector datasets of the project. Add the following fields:
-    * `ReachName` - Text 50
-    * `Seq` - long integer
+* Create a new line feature class (FC) named `riffle_floodplain` to store riffle cross sections. This feature class must use the same coordinate system as the vector datasets of the project. Add the following fields:
+    * `ReachName`: Text (50) - The purpose of this field is to store the reach name. 
+    * `Seq`: long integer - The purpose of this field is to uniquely identify each cross section. 
 
 
 **Riffle Identifying Characteristics:**  
@@ -101,7 +101,7 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 
 **Confirm the degree of smoothing**   
 
-* Use a chart to verify the choice of the smoothing `loess_span` parameter. 
+* Use a chart to verify the choice of the smoothing `loess_span` parameter in the `*_dims_L2` FC. 
 * Right-click on the `*_dims_L2` FC in the map table of contents and select "Create Chart", and select "Line". In the `Date or Number` dropdown, choose the field `POINT_M`. In the `Aggregation` dropdown, choose `None`. In the `Numeric field(s)` checklist, check the boxes next to `Z` and `Z_smooth`. Click the `Apply` button to view the chart.
 * Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change. 
 * If the smoothing is not ideal, re-run the tool and adjust the `loess_span` parameter. 
@@ -133,28 +133,63 @@ The purpose of this step is to run the Estimate Bankfull report for each reach.
 * For the `bf_estimate` parameter, specify the detrended elevation value that represents the bankfull water surface elevation. 
 
 
-The `Estimate Bankfull` tool is intended to be run iteratively, testing the fit of a range of detrended bankfull elevations. Use the Bankfull Elevation Goodness of Fit graph in the report to determine the detrended bankfull elevation that minimizes error. Choose the detrended bankfull elevation that minimizes error on subsequent runs of the report. 
+### Perform QA
+The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected. 
 
-* From the initial `Estimate Bankfull` report, select the detrended bankfull elevation that minimizes error on the Bankfull Elevation Goodness of Fit graph and rerun the report using that value. 
-* In the example figure below, the detrended bankfull elevation of 104 ft. minimizes error (y-axis Mean Average Error) for both area and depth. Although 102 ft. appears to be the detrended elevation that minimizes error for width, 104 ft. does a better job for area and depth. Therefore, using the logic of "best two out three", a detrended bankfull elevation of 104 ft. should be chosen for this reach and will be used for later steps in this analysis.
+* Follow the instructions in the QA Checklist Chapter, [Estimate Bankfull Report](#estimate_bankfull_report_qa) section, to verify that the reports have run correctly. 
+* Make the required changes suggested in the QA Checklist and rerun the report. 
+* Repeat these QA iterations until the reports are correct. 
+
+
+### Determine Bankfull Elevation
+The purpose of this step is to interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach. The `Estimate Bankfull` tool is intended to be run iteratively, testing the fit of a range of detrended bankfull elevations against different regional curves. 
+
+* From the initial Estimate Bankfull Report, use the Bankfull Elevation Goodness of Fit sensitivity analysis graph to examine the effect of choice of detrended bankfull elevation on the error statistic. 
+* Identify the detrended bankfull elevation that minimizes error on the Bankfull Elevation Goodness of Fit sensitivity analysis graph. 
+* In the example figure below, the detrended bankfull elevation of 104 ft. minimizes error (y-axis Mean Average Error) for both area and depth. Although 102 ft. appears to be the detrended elevation that minimizes error for width, 104 ft. does a better job for area and depth. Using the logic of "best two out three", a detrended bankfull elevation of 104 ft. could be chosen for this reach and will be used for later steps in this analysis. However, other criteria could be used depending on the goals of your study.
+* Rerun the report using the value chosen in the previous step. 
 
 ```{r echo=FALSE, out.width="100%", fig.cap="Bankfull Elevation Goodness of Fit"}
 include_graphics("images/reach_gof_graph.png")
 ```
 
 
-### Perform QA
-The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected. 
-
-### Determine Bankfull Elevation
-The purpose of this step is to interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach. 
-
 ### Create Bankfull Area
 The purpose of this step is to use the final bankfull elevation determined in the previous step to derive a final `bankfull_area` polygon for each reach. 
 
-### Create Banklines
-The purpose of this step is to convert the `bankfull_area` polygon into polylines and edit into a `banklines` FC for each reach. 
+* From the final Estimate Bankfull Report, use the detrended bankfull elevation identified in the last step. In the example above, this value was 104 ft. 
+* Use the `08 - Water Surface Extent` tool to extract a bankfull area polygon. This tool creates a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation specified. 
+* The `banks_raw_xxx` FC must be edited to select only the polygons that represent the bankfull area polygon(s). 
+* Open the attribute table for the `banks_raw_xxx` FC and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. 
+* Polygons with `gridcode` = 1 are polygons inundated at the detrended elevation. 
+* Typically, the polygons with the largest area represent the channel. 
+* Begin by selecting `gridcode` = 1 polygons with the largest area until the entire bankfull area is selected. 
+* Export these selected features to a new feature class named `bankfull_area`. 
+* Delete the `banks_raw_xxx` FC. 
 
+
+### Create Banklines
+The purpose of this step is to convert the `bankfull_area` polygon into polylines and edit into a `banklines` FC for each reach. The `banklines` feature class will have two records, one representing the left descending bankline and another the right descending bankline for the stream reach. 
+
+* Use the ESRI `Polygon To Line` tool to convert the `bankfull_area` polygon FC to a new polyline FC named `banklines`. 
+* Add the following fields to the `banklines` FC:
+    * `ReachName`: Text (50) - The purpose of this field is to store the reach name. 
+    * `bank_id`: Long Integer - The purpose of this field is to uniquely identify each bank. 
+    * `bank`: Text (50) - The purpose of this field is to designate which bank is the `right descending` bank and which is the `left descending` bank. 
+* Start editing the `banklines` FC.
+* Use the ESRI `Explode Multipart Feature` tool to explode any multipart line feature in the `banklines` FC. 
+* Add the `flowline` FC to the map. 
+* Use the ESRI `Split Tool` to split the line features at the downstream and upstream ends of the `flowline` FC. 
+* The features in the `banklines` FC should not extend past the end of the `flowline` feature.
+* Use the ESRI `Split Tool` to trim any tributaries from the `banklines` FC.
+* The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features. 
+* Ensure that the banklines are digitized in the upstream direction (like a `flowline` feature). Edit the `banklines` FC to ensure that each bankline is digitized beginning with the downstream end and digitized upstream. 
+* While editing, select a `bankline` feature, choose to edit vertices. Ensure that the red endpoint is at the upstream end of each bankline. 
+* Use the "Reverse Direction" command (aka flip) to ensure each bankline is digitized in the upstream direction. 
+* Check that each bankline is digitized in the upstream direction (red endpoint at the upstream end) before going on to the next step. 
+* In the `ReachName` field enter the reach name. 
+* In the `bank` field, enter the string `right descending` or `left descending` to designate which bank each line represents. 
+* In the `bank_id` field enter a `1` for the `right descending` bank and `2` for the `left descending` bank. 
 
 
 ***
@@ -163,8 +198,33 @@ The purpose of this step is to convert the `bankfull_area` polygon into polyline
 The purpose of this stage is to use the bankfull elevation determined in the last stage to calculate the final level 2 cross section dimensions for the base year for each reach. 
 
 ### Calculate Final Cross Section L2 Dimensions
-The purpose of this step is to calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach. 
+The purpose of this step is to calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach. Repeat the following steps for regular spaced cross section FC, the `riffle_floodplain` FC, and the `riffle_channel` FC. 
 
+**Determine the moving window size**    
+Many stream metrics are scale dependent, meaning these metrics are affected by the size of the moving window used in their calculation. To determine the appropriate size of the moving window for this reach, use the following steps:
+
+* Many stream metrics are typically calculated using a moving window size equal to two meander wavelengths. 
+* Using the `bankfull_area` FC, estimate the typical bankfull width for the reach. 
+* Estimate the length of two meander wavelengths by multiplying the bankfull width estimated in the last step by 10 (e.g., 30ft bankfull width * 10 = 300ft, two meander wavelengths).  
+* Determine how many cross sections two meander wavelengths represent. 
+* For riffle cross section for example, if they are spaced about 300ft apart, then two meander wavelengths would be 1 riffle cross section (i.e., 300ft / 300ft between riffle cross sections). 
+* For regular cross section for example, if they are spaced about 100ft apart, then two meander wavelengths would be 3 regular cross sections (i.e., 300ft / 100ft between regular cross sections). 
+
+**Calculate Final L2 Dimensions**   
+
+* Delete the initial Level 2 dimensions `*_dims_L2` FCs created earlier in Level 2. 
+* Use the `15b - XS Dimensions, Level 2` tool to calculate final L2 dimensions. 
+* Set the `xs_fc` parameter to the cross sections FC. 
+* Set the `lead_n` parameter to the number of upstream cross sections that you calculated in a previous step depending on the type of cross section (i.e., regular cross section, riffle cross section). 
+* If the elevations in the channel seem noisy, check the `use_smoothing` parameter and set the `loess_span` parameter to a value between 0-1. 
+* Confirm that the `vert_units` of the DEM are in feet. 
+
+**Confirm the degree of smoothing**   
+
+* Use a chart to verify the choice of the smoothing `loess_span` parameter in the `*_dims_L2` FC. 
+* Right-click on the `*_dims_L2` FC in the map table of contents and select "Create Chart", and select "Line". In the `Date or Number` dropdown, choose the field `POINT_M`. In the `Aggregation` dropdown, choose `None`. In the `Numeric field(s)` checklist, check the boxes next to `Z` and `Z_smooth`. Click the `Apply` button to view the chart.
+* Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change. 
+* If the smoothing is not ideal, re-run the tool and adjust the `loess_span` parameter. 
 
 
 ***
@@ -175,11 +235,31 @@ The purpose of this stage is to produce the Level 2 report for each reach.
 ### Run the L2 Report
 The purpose of this step is to run the L2 report for each reach. 
 
+* In the Reports toolset, use the `Level 2 Report` tool to produce the Level 2 Report. 
+* For the `stream` parameter, use the value of the `ReachName` field used in the `flowline` FC. 
+* For the `flowline_fc` parameter, enter the `flowline` FC for the base year survey. 
+* For the `xs_dims_fc` parameter, use the `*_dims_L2` FC calculated for the regular cross sections of the base year. 
+* The `xs_points_*` parameters should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
+* The `survey_name_*` parameters are used to label the surveys in maps and graphs. 
+* The FCs and labels used for the `flowline_points_*`, `xs_points_*`, and `survey_name_*` parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters. 
+* For the `dem` parameter, enter the DEM for the base year survey. 
+* For the `banklines_fc` parameter, enter the `banklines` FC created for the base year survey.  
+* For the `features_fc` parameter, enter the `features` FC for the base year survey. 
+* For the `bf_estimate` parameter, specify the detrended elevation value that represents the bankfull water surface elevation. 
+* For the `regions` parameter, select the regions to use for estimating the bankfull water surface elevation. 
+
+
 ### Perform QA
 The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected. 
+
+* Follow the instructions in the QA Checklist Chapter, [Level 2 Report](#L2_report_qa) section, to verify that the reports have run correctly. 
+* Make the required changes suggested in the QA Checklist and rerun the report. 
+* Repeat these QA iterations until the reports are correct. 
 
 
 ***
 
 ## Determine Next Steps
-The purpose of this step is to determine what further steps need to be taken.
+The purpose of this step is to determine what further steps need to be taken. 
+
+* Review the results of the Level 2 Report and determine if the project goals require proceeding to developing the Level 3 analysis. 

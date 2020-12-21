@@ -7,11 +7,33 @@ The purpose of this stage is to define the valley trend line for the base year f
 ### Determine Final Floodplain Extent
 The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain. 
 
+* From the final Estimate Bankfull Report created in Level 2, use the detrended bankfull elevation identified. In the example from Level 2, this value was 104 ft. 
+* **Determine the bankfull depth.** The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach: 
+ * ```104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth```
+* **Determine flood prone height.** Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:
+* ```2 * 4 ft bankfull depth = 8 ft flood prone height``` 
+* Therefore, the flood prone detrended elevation would be 108 ft: 
+* ```100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height```
+* With the detrended flood prone elevation for your reach determined in the last step, use the `08 - Water Surface Extent` tool to extract a flood prone area polygon. This tool creates a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
+* This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire flood prone area is selected. 
+* Export these selected features to a new feature class named `flood_prone`. 
+* Delete the `banks_raw_xxx` feature class created in this section. 
+
+
 ### Develop Candidate Valleylines
 The purpose of this step is to create a set of candidate valleylines through iterative smoothing of the flowline for each reach. 
 
+* Use the ESRI `Smooth Line` tool to smooth the `flowline` feature class. Use the `PAEK` smoothing algorithm. For example, use a `Smoothing Tolarance` value of 200 meters. In this case you would name the output feature class `valleyline_200`
+* Repeat the previous step using the `Smoothing Tolerance` values such as 400, 800, and 1000. 
+* Depending on the detail of the `flowline` geometry, you may need to select a different range or step value of `Smoothing Tolerance` parameter values to test. 
+
 ### Choose Final Valleyline
 The purpose of this step is to choose from the candidate valleylines the one that best captures the overall valley trend line. 
+
+* The goal of this step is to select from the candidate valleylines the one that is the most smoothed, yet still fits (primarily) within the `flood_prone` polygon extent.
+* Add the `flood_prone` polygon and all of the candidate valleyline FCs to the current map.
+* Identify the valley line feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the `flood_prone` polygon. 
+* Rename the selected valley line to `valleyline`. 
 
 
 ***
@@ -21,6 +43,24 @@ The purpose of this stage is to define meander loops and bends for the base year
 
 ### Define Loop Points
 The purpose of this step is to create a new FC named `loop_points` and use it to identify the start and end stream meander loops and bends. 
+
+* Create a new point feature class named `loop_points`. Enable z and m values. The feature class should contain the following fields:
+    * `ReachName`: Text (50) - The purpose of this field is to store the reach name. 
+    * `loop`: Long Integer - The purpose of this field is to store the loop unique identifier for the point. 
+    * `bend`: Long Integer - The purpose of the field is to store the bend identifier for the point. 
+    * `position`: Text (10) - The purpose of this field is to store position identifier for the point. This field must have one three values: "start", "end", or "apex". 
+
+**Create Loop Points**   
+* `loop_point` features are used to define the start and end location of loop bends and the location of a loop's apex. 
+* `loop_point` features are always placed along (i.e., snapped to) a `bankline` feature. 
+* Begin numbering loops starting at the downstream end of the reach and increment the `loop` integer values moving upstream. 
+* In FluvialGeomorph, the `valleyline` is used segment the `flowline` into loops. 
+* The beginning and end of loops are delineated where the `valleyline` *definitively* crosses the `flowline`. 
+* If the `flowline` crosses the `valleyline` and then crosses back over in a short distance, this is not considered a *definitive* crossing. A definitive crossing is one where the `flowline` approaches the `valleyline`, crosses it, and then continues to move away from the `valleyline` for a significant longitudinal distance. 
+* Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank
+
+* Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3). 
+* Bend numbering restarts within each loop. The first `bend` value within a loop always begins with the value 1. 
 
 ### Derive Bankline Points
 The purpose of this step is to convert the banklines to a set of points and assign elevations and loop and bend locations. 

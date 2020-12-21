@@ -168,29 +168,22 @@ The purpose of this step is to delineate the watersheds for each reach in the st
 ***
 
 ## Derive Flowline
-The purpose of this stage is to create a new reach geodatabase for a specific reach and derive the reach flowline. This step will need to be repeated for each reach and survey in the project study area [site](#units_of_analysis). For example, if a site has five reaches (e.g., R1-R5) and three LiDAR surveys (e.g., 2016, 2010, 2006), then a total of 15 reach geodatabases must be created at this stage:
+The purpose of this stage is to create a new site geodatabase and new reach geodatabases for each reach and derive each reach's flowline. 
 
-2016         | 2010         | 2006 
-:---         | :---         | :---
-y2016_R1.gdb | y2010_R1.gdb | y2006_R1.gdb 
-y2016_R2.gdb | y2010_R2.gdb | y2006_R2.gdb 
-y2016_R3.gdb | y2010_R3.gdb | y2006_R3.gdb 
-y2016_R4.gdb | y2010_R4.gdb | y2006_R4.gdb 
-y2016_R5.gdb | y2010_R5.gdb | y2006_R5.gdb 
+### Create the site geodatabase
+The purpose of this step is to create a new site geodatabase and populate it with initial data. In the example above, the Papillion Creek project study area could be subdivided into a specific site called Cole Creek. 
 
-Table: Reach Geodatabases Required for a Site with 5 Reaches and 3 LiDAR Surveys. 
+* Cole_Creek_2016.gdb
+* Cole_Creek_2010.gdb
+* Cole_Creek_2006.gdb
 
-### Create the reach geodatabase
-The purpose of this step is to create a new reach geodatabase and populate it with initial data. 
-
-* In the study area folder, create a new reach geodatabase named for the reach. Use the `ReachName` value for the name of this new reach file geodatabase. 
-* Back in the study area geodatabase, select the feature in the `stream_network` feature class representing the current study reach. Use the "Data | Export Features" function to export the selected reach feature to the new reach geodatabase. Name the exported feature class `stream_network`. 
-* Ensure this new reach geodatabase version of `stream_network` contains only one feature representing the current reach. 
-* Ensure that the `ReachName` field contains the correct name for the reach. As this reach name value is used throughout the toolbox, it is extremely important to ensure this value is used consistently across all FCs for this reach. Failure to be consistent with the `ReachName` value will lead to lots of errors that are difficult to troubleshoot. Get it right from the beginning. 
+* In the [study area folder](#folder_structure), create a new site folder named for the site. 
+* Back in the study area geodatabase, select the features in the `stream_network` feature class representing the current site. Use the "Data | Export Features" function to export the selected site features to the new site geodatabase. Name the exported feature class `stream_network`. 
 * Examine the `dem_hydro` raster and determine the maximum width of the active floodplain along the entire reach. Be conservative with this estimate. Given its later use, it is important to generously overestimate this value. 
 * Use this maximum floodplain width estimate to buffer the reach `stream_network` feature class and name it `stream_network_buffer`. 
 * Use the ESRI `Clip Raster` tool to clip the study area geodatabase `dem_hydro` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `dem_hydro_<buffer distance>` (e.g., `dem_hydro_1000` for a buffer distance of 1000 meters). 
 * Use the ESRI `Clip Raster` tool to clip the study area geodatabase `contributing_area` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `contributing_area_<buffer distance>` (e.g., `contributing_area_1000` for a buffer distance of 1000 meters).  
+
 
 ### Create the Flowline
 The purpose of this step is to derive the reach flowline. The `05 - Flowline` tool converts a `stream_network` feature into a `flowline` FC. It smooths the geometry and converts it into a route. 
@@ -203,6 +196,26 @@ The purpose of this step is to derive the reach flowline. The `05 - Flowline` to
 * In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. 
 * If not, use the "Reverse Direction" (aka flip) command to ensure the flowline is digitized in the upstream direction.  
 * It is critical that the flowline is digitized in the upstream direction. If this step is not performed, all subsequent tools will malfunction. 
+
+
+### Create the reach geodatabase
+The purpose of this step is to create a new reach geodatabase and populate it with initial data. This step will need to be repeated for each reach and survey in the project study area [site](#units_of_analysis). For example, if a site has five reaches (e.g., R1-R5) and three LiDAR surveys (e.g., 2016, 2010, 2006), then a total of 15 reach geodatabases must be created at this stage:
+
+2016         | 2010         | 2006 
+:---         | :---         | :---
+y2016_R1.gdb | y2010_R1.gdb | y2006_R1.gdb 
+y2016_R2.gdb | y2010_R2.gdb | y2006_R2.gdb 
+y2016_R3.gdb | y2010_R3.gdb | y2006_R3.gdb 
+y2016_R4.gdb | y2010_R4.gdb | y2006_R4.gdb 
+y2016_R5.gdb | y2010_R5.gdb | y2006_R5.gdb 
+
+Table: Reach Geodatabases Required for a Site with 5 Reaches and 3 LiDAR Surveys. 
+
+* In the [site data folder](#folder_structure), create a new reach geodatabase named for the reach. Use the `ReachName` value for the name of this new reach file geodatabase. 
+* Back in the site geodatabase, select the feature in the `stream_network` feature class representing the current study reach. Use the "Data | Export Features" function to export the selected reach feature to the new reach geodatabase. Name the exported feature class `stream_network`. 
+* Ensure this new reach geodatabase version of `stream_network` contains only one feature representing the current reach. 
+* Ensure that the `ReachName` field contains the correct name for the reach. As this reach name value is used throughout the toolbox, it is extremely important to ensure this value is used consistently across all FCs for this reach. Failure to be consistent with the `ReachName` value will lead to lots of errors that are difficult to troubleshoot. Get it right from the beginning. 
+
 
 ### Create Flowline Points
 The purpose of this step is convert the `flowline` into a series of points along the reach. The `06 - Flowline Points` tool takes the `flowline` feature class, converts it to a route, calculates the distance to the mouth of the river for all vertices, and creates a `flowline_points` feature class. 
@@ -392,3 +405,6 @@ The purpose of this step is to use the QA Checklist to verify the reports have r
 
 ## Determine Next Steps
 The purpose of this step is to determine what further steps need to be taken. 
+
+* Review the results of the Level 1 Report and determine if the project goals require proceeding to developing the Level 2 analysis. 
+

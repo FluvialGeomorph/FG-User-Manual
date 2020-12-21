@@ -25,16 +25,18 @@ We have defined a standard workflow that is modular, allowing analysts to prescr
 ## Geodatabases
 The `FluvialGeomorph` workflow was designed around a standard set of objects organized into a standard set of geodatabases. 
 
-* **Study Area Geodatabase:** This type of geodatabase stores feature classes (FC) that apply to the entire project study area or site. The workflow begins with developing FCs that define the project study area, Digital Elevation Models (DEM), derived stream network, etc. If there are multiple LiDAR surveys for the project study area, a separate study area geodatabase representing each survey is created beginning with the base year. 
+* **Study Area Geodatabase:** This type of geodatabase stores feature classes (FC) that apply to the entire project study area. The workflow begins with developing FCs that define the project study area, Digital Elevation Models (DEM), derived stream network, etc. If there are multiple LiDAR surveys for the project study area, a separate study area geodatabase representing each survey is created beginning with the base year. 
 
-* **Reach Geodatabase:** This type of geodatabases stores FCs that apply to a specific reach. The `FluvialGeomorph` tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each "reach" unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year. 
+* **Site Geodatabase: ** This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific "site" unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.  
+
+* **Reach Geodatabase:** This type of geodatabase stores FCs that apply to a specific reach. The `FluvialGeomorph` tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each "reach" unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year. 
 
 
 ## Derived Features
 The definition of a common set of derived features is an important step in standardizing any workflow. The standard `FluvialGeomorph` database objects form a tightly linked set of features that work together in a particular order to accomplish the analysis. See the [FluvialGeomorph Tech Manual](https://techmanual.fluvialgeomorph.org) for a detailed description of each of these standard FCs. 
 
 
-## Project File Structure
+## Project Folder Structure {#folder_structure}
 Establishing a standard storage structure for all project data is an important quality control step. A standard folder structure has the following benefits: 
 
 * Clearly defined functional roles for each storage location reduces ambiguity and confusion. 
@@ -48,6 +50,8 @@ Project_Name
 └─── Sites
 │    └─── 01_Site_Name
 │    │    └─── Data
+│    │    │        Site1_year1.gdb
+│    │    │        Site1_year2.gdb
 │    │    │        Reach1_year1.gdb
 │    │    │        Reach1_year2.gdb
 │    │    │        Reach2_year1.gdb
@@ -75,9 +79,10 @@ Project_Name
 
 ```
 
+* **Project Study Area Folder:** The project study area folder is used to store all of the files for the project. 
 * **Site Folders:** Site folders are used to store all of the files for each site. Each site in the project study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name. 
-* **Elevation Folders:** The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder is used to hold all of the `.las` files for each LiDAR survey. Since these datasets can be massive, the idea is to separate these data into their own folder to improve data management. Once the terrain data are processed, only derived DEMs are then copied to the geodatabases in the Data folders. 
-* **Site Data Folders:** The site data folders are used to store all of the site study area and reach geodatabases. 
+* **Elevation Folders:** The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in `.las` format for modern surveys) for each LiDAR survey for the project study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders. 
+* **Site Data Folders:** The site data folders are used to store all of the site site and reach geodatabases. 
 * **Reports:** The Reports folders are used to store the reports created by tools for each reach. 
 * **Maps:** The Maps folders are used to store map documents for a given project or site. 
 * **Exports Folders:** The Exports folders are used to store static `.pdf` map documents exported from map projects for a given project or site. 
