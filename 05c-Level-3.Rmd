@@ -64,16 +64,36 @@ The purpose of this step is to create a new FC named `loop_points` and use it to
 * In FluvialGeomorph, the `valleyline` is used segment the `flowline` into loops. 
 * The beginning and end of loops are delineated where the `valleyline` *definitively* crosses the `flowline`. 
 * If the `flowline` crosses the `valleyline` and then crosses back over in a short distance, this is not considered a *definitive* crossing. A definitive crossing is one where the `flowline` approaches the `valleyline`, crosses it, and then continues to move away from the `valleyline` for a significant longitudinal distance. 
-* Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank
-
+* Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank, then loop 2 is delineated along the left descending bank. 
 * Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3). 
 * Bend numbering restarts within each loop. The first `bend` value within a loop always begins with the value 1. 
+
+**Multiple Reaches: **   
+* For a site with multiple reaches, loops must be uniquely numbered across all reaches. The `loop` field values of `loop_points` should not repeat within the reaches of a site.  
+* The downstream-most loop in the site should be numbered starting with the `loop` field value of 1 and increase moving upstream.  
+* Set the `loop` field value for each upstream reach to the upstream-most value (i.e., the highest `loop` value of the downstream reach’s `loop_points` FC) of the downstream reach. For example, set the value of the field `loop` of the first Reach-2 `loop_points` feature to 8 if the maximum value of Reach-1’s `loop_points` FC `loop` field is 7.
+
+**Check Loop Points: **   
+* Use the `Check Loop Points` tool in the `Check` toolset to verify that loops and bends are defined correctly. 
+* Review the messages produced by this tool to identify and correct problems with loop and bend delineation. 
 
 ### Derive Bankline Points
 The purpose of this step is to convert the banklines to a set of points and assign elevations and loop and bend locations. 
 
+* Use the `14b - Bankline Points` tool to assign loops, bends, elevations and valley line positions to bankline points. 
+* When the tool completes, check that this tools runs correctly by running the `Check Bankline Points` tool in the `Check` toolset. 
+* The check tool ensures that the `loop`, `bend`, `position`, `valley_POINT_X`, `valley_POINT_Y`, and `valley_POINT_M` fields are populated. Only `bankline_points` features within loops and bends will have values in the `loop`, `bend`, and `position` fields. 
+* All records should have values in the `valley_POINT_X`, `valley_POINT_Y`, and `valley_POINT_M` fields. 
+* Additionally, apply the following definition query to the `bankline_points` feature class: "loop IS NOT NULL". Only `bankline_points` features between `loop_points` features should be visible. 
+
+
 ### Assign Cross Section Loops
 The purpose of this step is to assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach. 
+
+* Use the `14c - Assign Loops` tool to assign loops and bends to a cross section FC. 
+* Set the value of the `cross_section` parameter to the regular cross section FC. 
+* After the tool completes, check the cross section FC that the `loop` and `bend` fields are assigned the correct loop and bend values. 
+* Repeat this step for both the `riffle_channel` and `riffle_floodplain` feature classes. 
 
 
 ***
@@ -84,6 +104,9 @@ The purpose of this stage is to calculate the Level 3 dimensions for each reach.
 ### Calculate Cross Section L3 Dimensions
 The purpose of this step is to calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach. 
 
+* If any `*_dims_L3` FCs exist in the reach geodatabase (created during a previous run), delete these FCs.  
+* Use the `15c - XS Planform, Level 3` tool to calculate the L3 dimensions. 
+* Verify in the attribute table that the L3 dimensions have been calculated. 
 
 
 ***
@@ -94,12 +117,30 @@ The purpose of this stage is to run the Level 3 report for each reach.
 ### Run the L3 Report
 The purpose of this step is to run the L2 report for each reach. 
 
+* In the Reports toolset, use the `Level 3 Report` tool to produce the Level 3 Report. 
+* For the `stream` parameter, use the value of the `ReachName` field used in the `flowline` FC. 
+* For the `flowline_fc` parameter, enter the `flowline` FC for the base year survey. 
+* For the `xs_dims_fc` parameter, use the `*_dims_L3` FC calculated for the regular cross sections of the base year. 
+* The `xs_points_*` parameters should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
+* The `survey_name_*` parameters are used to label the surveys in maps and graphs. 
+* The FCs and labels used for the `flowline_points_*`, `xs_points_*`, and `survey_name_*` parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters. 
+* For the `dem` parameter, enter the DEM for the base year survey. 
+* For the `banklines_fc` parameter, enter the `banklines` FC created for the base year survey.  
+* For the `features_fc` parameter, enter the `features` FC for the base year survey. 
+* For the `bf_estimate` parameter, specify the detrended elevation value that represents the bankfull water surface elevation. 
+* For the `regions` parameter, select the regions to use for estimating the bankfull water surface elevation. 
+
+
 ### Perform QA
 The purpose of this step is to use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected. 
 
-
+* Follow the instructions in the QA Checklist Chapter, [Level 3 Report](#L3_report_qa) section, to verify that the reports have run correctly. 
+* Make the required changes suggested in the QA Checklist and rerun the report. 
+* Repeat these QA iterations until the reports are correct. 
 
 ***
 
 ## Determine Next Steps
-The purpose of this step is to determine what further steps need to be taken.
+The purpose of this step is to determine what further steps need to be taken.  
+
+* Review the results of the Level 3 Report and determine if the project goals require further analysis. 
