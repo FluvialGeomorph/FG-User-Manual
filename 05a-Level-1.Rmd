@@ -8,7 +8,7 @@ The purpose of this stage is to develop the terrain models for the project study
 The purpose of this step is to define the location and extent of the study area.  
 
 #### Create a Study Area Geodatabase
-The purpose of this step is to create a new study area geodatabase to store the project study area data. This step will need to be repeated for each [LiDAR survey](#units_of_analysis) that exists for this project study area. For example:
+The purpose of this step is to create a new study area geodatabase to store the project study area data. This step will need to be repeated for each [LiDAR survey](#units_of_analysis) that exists for this project study area. Since three LiDAR surveys exist for the project study area, three geodatabases will need to be created:
 
 * Papillion_Creek_2016.gdb
 * Papillion_Creek_2010.gdb
@@ -16,8 +16,9 @@ The purpose of this step is to create a new study area geodatabase to store the 
 
 The elevation data for each LiDAR survey will be processed separately and a synthetic stream network will be derived for each LiDAR survey independently. Begin processing the data for the [base year](#units_of_analysis) first, then work backward in time to process earlier LiDAR surveys in reverse chronological order. Several analysis steps require the base year data to be processed first. For some tools, surveys prior to the base year use the base year data as inputs. This is done to express earlier surveys in terms of the base year for comparison purposes. 
 
-* Create a new folder on a local workstation drive. Name it for the study area. 
-* Within this project folder, create a new study area file geodatabase. Name it for the study area.  
+* Create a new folder on a local workstation drive. Name it for the project study area. 
+* Within this project folder, create a new study area file geodatabase. Name it for the study area. 
+* If there are multiple LiDAR surveys, add a date suffix to the geodatabase name.  
 * Choose a coordinate system for this project. You will use this coordinate system for all vector datasets created for this project. It is the analyst's responsibility to ensure that each vector dataset in this project uses this coordinate system. The only exception to this requirement are raster DEMs (which may use another coordinate system).  
 
 
@@ -137,12 +138,17 @@ Slope and sinuosity are scale dependent metrics. This means that these metrics a
 
 
 ### Define Reaches
-The purpose of this step is to segment the stream network into a set of reaches that can be analyzed in more detail through the remainder of the study. The `stream_network` must be sub-divided into a set of reach that meet the following requirements:
+The purpose of this step is to segment the stream network into a set of sites and reaches that can be analyzed in more detail through the remainder of the study. The `stream_network` must be sub-divided into a set of sites and reaches that meet the following requirements:
+
+**Criteria for Creating Sites:**
+
+* A project study area composed of several sub-watersheds will need to be divided into a set of [sites](#units_of_analysis). 
+* Sites within a project area are typically named tributaries that are the next hierarchical level beneath the project. 
 
 **Criteria for Creating Reaches:**   
 
-* "Major" tributaries should be used to divide reaches. How big of an increase in drainage area/discharge constitutes a major tributary depends on the size of the watershed and physiographic region. 
-* A reach should contain a range of similar drainage area values. 
+* "Major" tributaries should be used to divide a site into reaches. How big of an increase in drainage area/discharge constitutes a major tributary depends on the size of the watershed and physiographic region. 
+* A specific reach should contain a range of similar drainage area values. 
 * Slope and sinuosity can be considered in the decision to subdivide a reach. 
 * Built infrastructure may be used to divide reaches (e.g., dams, major roads). 
 * Study objectives may drive the definition of reaches (e.g., economic benefits analysis, existing project reach definition). 
@@ -150,9 +156,11 @@ The purpose of this step is to segment the stream network into a set of reaches 
 
 Using the criteria chosen from the list above, use the standard ESRI edit tools to subdivide the `stream_network` feature class into a set of features representing the reaches of your study.  
 
-* Manually edit the `stream_network` feature class to modify the geometry to create a set of features representing the study area reaches.
-* Set the `ReachName` field to the value to be used to uniquely define the reach throughout the remainder of the study. 
-* Be deliberate with the naming of reaches as these names are used for all operations by each tool.  
+* Manually edit the `stream_network` feature class to modify the geometry to create a set of features representing the study area sites and reaches.  
+* Set the `ReachName` field to the value to be used to uniquely define sites and reaches throughout the remainder of the study. 
+* Reach names are typically created using the site name and adding a suffix for the reach (e.g., R1, R2, etc.). 
+* Site names are typically defined by the primary tributary name. 
+* Be deliberate with the naming of sites and reaches as these names are used for all operations by each tool.  
 
 ### Delineate Watersheds
 The purpose of this step is to delineate the watersheds for each reach in the study area. 
@@ -168,38 +176,42 @@ The purpose of this step is to delineate the watersheds for each reach in the st
 ***
 
 ## Derive Flowline
-The purpose of this stage is to create a new site geodatabase and new reach geodatabases for each reach and derive each reach's flowline. 
+The purpose of this stage is to create a new site geodatabase, derive the site flowline, create new reach geodatabases for each reach, and copy the flowline to  each reach's geodatabase. 
 
 ### Create the site geodatabase
-The purpose of this step is to create a new site geodatabase and populate it with initial data. In the example above, the Papillion Creek project study area could be subdivided into a specific site called Cole Creek. 
+The purpose of this step is to create a new site geodatabase and populate it with initial data. 
 
-* Cole_Creek_2016.gdb
-* Cole_Creek_2010.gdb
-* Cole_Creek_2006.gdb
+* In the [study area folder](#folder_structure), begin by creating a new site folder named for the site.  
+* In the new site folder, create a new "Data" folder. 
+* In the new site data folder, create a new site geodatabase for each LiDAR survey. In the example above, the Papillion Creek project study area will be subdivided into a specific site called Cole Creek. Since there are multiple LiDAR surveys for this study area (e.g., 2016, 2010, 2006), three site geodatabases will need to be created.  
 
-* In the [study area folder](#folder_structure), create a new site folder named for the site. 
+  * Cole_Creek_2016.gdb   
+  * Cole_Creek_2010.gdb   
+  * Cole_Creek_2006.gdb   
+
 * Back in the study area geodatabase, select the features in the `stream_network` feature class representing the current site. Use the "Data | Export Features" function to export the selected site features to the new site geodatabase. Name the exported feature class `stream_network`. 
-* Examine the `dem_hydro` raster and determine the maximum width of the active floodplain along the entire reach. Be conservative with this estimate. Given its later use, it is important to generously overestimate this value. 
+* Examine the `dem_hydro` raster and determine the maximum width of the active floodplain along the entire site. Be conservative with this estimate. Given its later use, it is important to generously overestimate this value. 
 * Use this maximum floodplain width estimate to buffer the reach `stream_network` feature class and name it `stream_network_buffer`. 
 * Use the ESRI `Clip Raster` tool to clip the study area geodatabase `dem_hydro` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `dem_hydro_<buffer distance>` (e.g., `dem_hydro_1000` for a buffer distance of 1000 meters). 
 * Use the ESRI `Clip Raster` tool to clip the study area geodatabase `contributing_area` to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `contributing_area_<buffer distance>` (e.g., `contributing_area_1000` for a buffer distance of 1000 meters).  
+* If you discover in later steps that the buffer distance was underestimated, you will need to repeat this step with a wider buffer. 
 
 
 ### Create the Flowline
-The purpose of this step is to derive the reach flowline. The `05 - Flowline` tool converts a `stream_network` feature into a `flowline` FC. It smooths the geometry and converts it into a route. 
+The purpose of this step is to derive the site flowline. The `05 - Flowline` tool converts a `stream_network` feature into a `flowline` FC. It smooths the geometry and converts it into a route. 
 
-* Use the `05 - Flowline` tool to process the `stream_network` feature class that was just edited to produce a new `flowline` feature class. 
-* Set the `output_workspace` parameter to the reach geodatabase. 
+* Use the `05 - Flowline` tool to process the site `stream_network` feature class to produce a new `flowline` feature class. 
+* Set the `output_workspace` parameter to the site geodatabase. 
 * Use a smoothing tolerance from 5-20. The goal is produce a smooth flowline, but not to remove too much resolution from the line. 
 * Ensure that the flowline remains in the channel and is not simplified into the floodplain. If this occurs, rerun reducing the degree of smoothing. 
 * Edit the `flowline` feature class to ensure that the flowline is digitized beginning with the downstream end and digitized upstream. 
-* In an edit session, select the flowline, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. 
+* In an edit session, select the flowline feature, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. 
 * If not, use the "Reverse Direction" (aka flip) command to ensure the flowline is digitized in the upstream direction.  
 * It is critical that the flowline is digitized in the upstream direction. If this step is not performed, all subsequent tools will malfunction. 
 
 
-### Create the reach geodatabase
-The purpose of this step is to create a new reach geodatabase and populate it with initial data. This step will need to be repeated for each reach and survey in the project study area [site](#units_of_analysis). For example, if a site has five reaches (e.g., R1-R5) and three LiDAR surveys (e.g., 2016, 2010, 2006), then a total of 15 reach geodatabases must be created at this stage:
+### Create the Reach Geodatabase
+The purpose of this step is to create a set of new reach geodatabases for each reach in a site and populate these reach geodatabases with initial data. This step will need to be repeated for each reach AND survey in the project study area [site](#units_of_analysis). For example, if a site has five reaches (e.g., R1-R5) and three LiDAR surveys (e.g., 2016, 2010, 2006), then a total of 15 reach geodatabases must be created at this stage:
 
 2016         | 2010         | 2006 
 :---         | :---         | :---
@@ -212,8 +224,9 @@ y2016_R5.gdb | y2010_R5.gdb | y2006_R5.gdb
 Table: Reach Geodatabases Required for a Site with 5 Reaches and 3 LiDAR Surveys. 
 
 * In the [site data folder](#folder_structure), create a new reach geodatabase named for the reach. Use the `ReachName` value for the name of this new reach file geodatabase. 
-* Back in the site geodatabase, select the feature in the `stream_network` feature class representing the current study reach. Use the "Data | Export Features" function to export the selected reach feature to the new reach geodatabase. Name the exported feature class `stream_network`. 
-* Ensure this new reach geodatabase version of `stream_network` contains only one feature representing the current reach. 
+* Reach names are typically created using the site name and adding a suffix for the reach (e.g., R1, R2, etc.). 
+* Back in the site geodatabase, select the feature in the `flowline` feature class representing the current study reach. Use the "Data | Export Features" function to export the selected reach feature to the new reach geodatabase. Name the exported feature class `flowline`. 
+* Ensure this new reach geodatabase version of `flowline` contains only one feature representing the current reach. 
 * Ensure that the `ReachName` field contains the correct name for the reach. As this reach name value is used throughout the toolbox, it is extremely important to ensure this value is used consistently across all FCs for this reach. Failure to be consistent with the `ReachName` value will lead to lots of errors that are difficult to troubleshoot. Get it right from the beginning. 
 
 
@@ -292,6 +305,11 @@ The purpose of this step is to create regularly spaced cross sections along each
 * Determine the typical maximum distance from the reach `flowline` to the edge of the active floodplain. The goal is not to identify the maximum distance to the edge of the floodplain, but to identify the typical distance to the edge of the floodplain. 
 * Determine the spacing between cross sections necessary to represent conditions along this stream. Cross section spacing for small stream of 50-100 feet works well. Larger rivers do not require such tight spacing. 
 * Use the `11 - XS Layout` tool to create a set of regularly spaced cross sections (referred to as transects in this tool). Use the values determined in the previous steps to set this tool's parameters. 
+* For a site with multiple reaches, regular cross sections must be uniquely numbered across all reaches. The `Seq` field values of regular cross sections should not repeat within the reaches of a site. 
+* The downstream-most cross section in the site should be numbered starting with the `Seq` field value of 1 and increase moving upstream. 
+* The `11 - XS - Layout` tool automatically numbers regular cross sections `Seq` values starting with the value 1 at the downstream-most cross section. For all reaches other than the first reach (downstream-most) in a site, the cross sections must be resequenced using the `13a - XS Resequence` tool. 
+* Use the `13a - XS Resequence` tool to set the starting `Seq` value for each reach. * Set the `Seq` field value for each upstream reach to the upstream-most value (i.e., the highest `Seq` value of the downstream reach’s regular cross section FC) of the downstream reach. For example, set the `Seq` of the Reach-2 regular cross section FC to 58 if the maximum value of Reach-1’s regular cross section FC `Seq` field is 57.
+
 
 
 ### Calculate Cross Section Watershed Area

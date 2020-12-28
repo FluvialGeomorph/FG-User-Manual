@@ -8,9 +8,9 @@ The purpose of this stage is to define the valley trend line for the base year f
 The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain. 
 
 * From the final Estimate Bankfull Report created in Level 2, use the detrended bankfull elevation identified. In the example from Level 2, this value was 104 ft. 
-* **Determine the bankfull depth.** The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach: 
+* **Determine the bankfull depth: ** The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach: 
  * ```104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth```
-* **Determine flood prone height.** Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:
+* **Determine flood prone height: ** Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:
 * ```2 * 4 ft bankfull depth = 8 ft flood prone height``` 
 * Therefore, the flood prone detrended elevation would be 108 ft: 
 * ```100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height```
@@ -23,17 +23,24 @@ The purpose of this step is to use the detrended bankfull elevation identified i
 ### Develop Candidate Valleylines
 The purpose of this step is to create a set of candidate valleylines through iterative smoothing of the flowline for each reach. 
 
-* Use the ESRI `Smooth Line` tool to smooth the `flowline` feature class. Use the `PAEK` smoothing algorithm. For example, use a `Smoothing Tolarance` value of 200 meters. In this case you would name the output feature class `valleyline_200`
+* The following steps are performed in the site geodatabase for the base year. This is done to ensure that a valleyline is created smoothly through all of the reaches in a site. 
+* In the site geodatabase for the base year, use the ESRI `Smooth Line` tool to smooth the site `flowline` FC. 
+* Choose the `PAEK` smoothing algorithm. 
+* For the first candidate valleyline, use a `Smoothing Tolarance` value of 200 meters. In this case you would name the output feature class `valleyline_200`
 * Repeat the previous step using the `Smoothing Tolerance` values such as 400, 800, and 1000. 
-* Depending on the detail of the `flowline` geometry, you may need to select a different range or step value of `Smoothing Tolerance` parameter values to test. 
+* Depending on the detail of the `flowline` geometry, you may need to select a different range or set of step values of the `Smoothing Tolerance` parameter values to evaluate. 
+* The goal is to create a wide degree of flowline smoothing in the candidate vallelines to select from in the next step. 
+
 
 ### Choose Final Valleyline
 The purpose of this step is to choose from the candidate valleylines the one that best captures the overall valley trend line. 
 
-* The goal of this step is to select from the candidate valleylines the one that is the most smoothed, yet still fits (primarily) within the `flood_prone` polygon extent.
+* The goal of this step is to select from the candidate valleylines the one that is the most smoothed, yet still fits primarily within the `flood_prone` polygon extent.
 * Add the `flood_prone` polygon and all of the candidate valleyline FCs to the current map.
 * Identify the valley line feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the `flood_prone` polygon. 
-* Rename the selected valley line to `valleyline`. 
+* In the site geodatabase of the base year, rename the selected valley line to `valleyline`. 
+* Delete the unused candidate valleylines from the site geodatabase of the base year. 
+* Copy the `valleyline` FC you just created from the site geodatabase to each of the base year reach geodatabases. 
 
 
 ***

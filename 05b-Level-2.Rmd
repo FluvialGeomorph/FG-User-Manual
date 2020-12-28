@@ -35,6 +35,10 @@ A riffle is a shallow river landform where water flows in a steep, thin sheet [@
 * Check that each cross section is digitized in the correct direction (start at the left descending bank and end on the right descending bank) before going on to the next step. 
 * Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each `riffle_floodplain` feature to ensure that it extends at least to the edge of the `Floodplain Mask` layer, but no further. 
 * This ensures that each `riffle_floodplain` feature covers the entire floodplain, but does not extend too far into the uplands.  
+* For a site with multiple reaches, riffle cross sections must be uniquely numbered across all reaches. The `Seq` field values of riffle cross sections should not repeat within the reaches of a site. 
+* The downstream-most cross section in the site should be numbered starting with the `Seq` field value of 1 and increase moving upstream. 
+* If necessary, use the `13a - XS Resequence` tool to set the starting `Seq` value for each reach. 
+* Set the `Seq` field value for each upstream reach to the upstream-most value (i.e., the highest `Seq` value of the downstream reach’s riffle cross section FC) of the downstream reach. For example, set the `Seq` of the Reach-2 riffle cross section FC to 18 if the maximum value of Reach-1’s riffle cross section FC `Seq` field is 17.
 
 
 ### Assign Cross Section IDs
