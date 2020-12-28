@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2020-12-21" />
+<meta name="date" content="2020-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -176,7 +176,7 @@
 <li class="chapter" data-level="6.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#derive-flowline"><i class="fa fa-check"></i><b>6.3</b> Derive Flowline</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-site-geodatabase"><i class="fa fa-check"></i><b>6.3.1</b> Create the site geodatabase</a></li>
 <li class="chapter" data-level="6.3.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-flowline"><i class="fa fa-check"></i><b>6.3.2</b> Create the Flowline</a></li>
-<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.3</b> Create the reach geodatabase</a></li>
+<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.3</b> Create the Reach Geodatabase</a></li>
 <li class="chapter" data-level="6.3.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-flowline-points"><i class="fa fa-check"></i><b>6.3.4</b> Create Flowline Points</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#define-initial-floodplain-and-channel-extent"><i class="fa fa-check"></i><b>6.4</b> Define Initial Floodplain and Channel Extent</a><ul>
@@ -333,7 +333,12 @@
 <li>A red vertex denotes the end of a line segment. Therefore, the red end vertex should be on the right descending bank.</li>
 <li>Check that each cross section is digitized in the correct direction (start at the left descending bank and end on the right descending bank) before going on to the next step.</li>
 <li>Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each <code>riffle_floodplain</code> feature to ensure that it extends at least to the edge of the <code>Floodplain Mask</code> layer, but no further.</li>
-<li>This ensures that each <code>riffle_floodplain</code> feature covers the entire floodplain, but does not extend too far into the uplands.</li>
+<li>This ensures that each <code>riffle_floodplain</code> feature covers the entire floodplain, but does not extend too far into the uplands.<br />
+</li>
+<li>For a site with multiple reaches, riffle cross sections must be uniquely numbered across all reaches. The <code>Seq</code> field values of riffle cross sections should not repeat within the reaches of a site.</li>
+<li>The downstream-most cross section in the site should be numbered starting with the <code>Seq</code> field value of 1 and increase moving upstream.</li>
+<li>If necessary, use the <code>13a - XS Resequence</code> tool to set the starting <code>Seq</code> value for each reach.</li>
+<li>Set the <code>Seq</code> field value for each upstream reach to the upstream-most value (i.e., the highest <code>Seq</code> value of the downstream reach’s riffle cross section FC) of the downstream reach. For example, set the <code>Seq</code> of the Reach-2 riffle cross section FC to 18 if the maximum value of Reach-1’s riffle cross section FC <code>Seq</code> field is 17.</li>
 </ul>
 </div>
 <div id="assign-cross-section-ids-1" class="section level3">

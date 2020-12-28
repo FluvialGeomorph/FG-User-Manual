@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2020-12-21" />
+<meta name="date" content="2020-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -176,7 +176,7 @@
 <li class="chapter" data-level="6.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#derive-flowline"><i class="fa fa-check"></i><b>6.3</b> Derive Flowline</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-site-geodatabase"><i class="fa fa-check"></i><b>6.3.1</b> Create the site geodatabase</a></li>
 <li class="chapter" data-level="6.3.2" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-flowline"><i class="fa fa-check"></i><b>6.3.2</b> Create the Flowline</a></li>
-<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.3</b> Create the reach geodatabase</a></li>
+<li class="chapter" data-level="6.3.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-reach-geodatabase"><i class="fa fa-check"></i><b>6.3.3</b> Create the Reach Geodatabase</a></li>
 <li class="chapter" data-level="6.3.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-flowline-points"><i class="fa fa-check"></i><b>6.3.4</b> Create Flowline Points</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#define-initial-floodplain-and-channel-extent"><i class="fa fa-check"></i><b>6.4</b> Define Initial Floodplain and Channel Extent</a><ul>
@@ -308,9 +308,9 @@
 <p>The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain.</p>
 <ul>
 <li>From the final Estimate Bankfull Report created in Level 2, use the detrended bankfull elevation identified. In the example from Level 2, this value was 104 ft.</li>
-<li><strong>Determine the bankfull depth.</strong> The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach:</li>
+<li><strong>Determine the bankfull depth: </strong> The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach:</li>
 <li><code>104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth</code></li>
-<li><strong>Determine flood prone height.</strong> Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:</li>
+<li><strong>Determine flood prone height: </strong> Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:</li>
 <li><code>2 * 4 ft bankfull depth = 8 ft flood prone height</code></li>
 <li>Therefore, the flood prone detrended elevation would be 108 ft:</li>
 <li><code>100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height</code></li>
@@ -324,19 +324,25 @@
 <h3><span class="header-section-number">8.1.2</span> Develop Candidate Valleylines</h3>
 <p>The purpose of this step is to create a set of candidate valleylines through iterative smoothing of the flowline for each reach.</p>
 <ul>
-<li>Use the ESRI <code>Smooth Line</code> tool to smooth the <code>flowline</code> feature class. Use the <code>PAEK</code> smoothing algorithm. For example, use a <code>Smoothing Tolarance</code> value of 200 meters. In this case you would name the output feature class <code>valleyline_200</code></li>
+<li>The following steps are performed in the site geodatabase for the base year. This is done to ensure that a valleyline is created smoothly through all of the reaches in a site.</li>
+<li>In the site geodatabase for the base year, use the ESRI <code>Smooth Line</code> tool to smooth the site <code>flowline</code> FC.</li>
+<li>Choose the <code>PAEK</code> smoothing algorithm.</li>
+<li>For the first candidate valleyline, use a <code>Smoothing Tolarance</code> value of 200 meters. In this case you would name the output feature class <code>valleyline_200</code></li>
 <li>Repeat the previous step using the <code>Smoothing Tolerance</code> values such as 400, 800, and 1000.</li>
-<li>Depending on the detail of the <code>flowline</code> geometry, you may need to select a different range or step value of <code>Smoothing Tolerance</code> parameter values to test.</li>
+<li>Depending on the detail of the <code>flowline</code> geometry, you may need to select a different range or set of step values of the <code>Smoothing Tolerance</code> parameter values to evaluate.</li>
+<li>The goal is to create a wide degree of flowline smoothing in the candidate vallelines to select from in the next step.</li>
 </ul>
 </div>
 <div id="choose-final-valleyline" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Choose Final Valleyline</h3>
 <p>The purpose of this step is to choose from the candidate valleylines the one that best captures the overall valley trend line.</p>
 <ul>
-<li>The goal of this step is to select from the candidate valleylines the one that is the most smoothed, yet still fits (primarily) within the <code>flood_prone</code> polygon extent.</li>
+<li>The goal of this step is to select from the candidate valleylines the one that is the most smoothed, yet still fits primarily within the <code>flood_prone</code> polygon extent.</li>
 <li>Add the <code>flood_prone</code> polygon and all of the candidate valleyline FCs to the current map.</li>
 <li>Identify the valley line feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the <code>flood_prone</code> polygon.</li>
-<li>Rename the selected valley line to <code>valleyline</code>.</li>
+<li>In the site geodatabase of the base year, rename the selected valley line to <code>valleyline</code>.</li>
+<li>Delete the unused candidate valleylines from the site geodatabase of the base year.</li>
+<li>Copy the <code>valleyline</code> FC you just created from the site geodatabase to each of the base year reach geodatabases.</li>
 </ul>
 <hr />
 </div>
