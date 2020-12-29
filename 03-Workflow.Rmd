@@ -17,8 +17,8 @@ To help organize the workflow process we have defined several units of analysis:
 ## Analysis Levels
 We have defined a standard workflow that is modular, allowing analysts to prescribe and customers to purchase progressively more detailed analysis as needed. The workflow is organized according to the following levels:
 
-* **Level 1:** Extract basic channel dimensions. 
-* **Level 2:** Extract bankfull channel dimensions. 
+* **Level 1:** Extract basic channel dimensions and profile. 
+* **Level 2:** Extract bankfull channel dimensions and profile. 
 * **Level 3:** Extract planform dimensions. 
 
 
@@ -224,10 +224,13 @@ The purpose of this stage is to run the Level 3 report for each reach.
 ## Quality Assurance {#qa_tools}
 This workflow contains a LOT of detailed steps! If everything isn't done just right, problems happen. So to help analysts stay on top of all of these details, we have adopted a layered approach to making sure everything gets done right. Here are the ways   
 
-* **Task Tracking Spreadsheet:** To guide analysts through this workflow, we have developed a [task tracking spreadsheet]() to use to record progress through the analysis. This spreadsheet allows an analyst to record the completion of each of the steps outlined above, as well as key values used in the analysis. This spreadsheet can be stored in the site folder while data development progresses. Records in this spreadsheet can be periodically appended to a project or team level version to improve team communication on project progress. 
+* **Task Tracking Spreadsheet:** To guide analysts through this workflow, we have developed a [task tracking spreadsheet](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Task_Tracking.xlsx) to use to record progress through the analysis. This spreadsheet allows an analyst to record the completion of each of the steps outlined above, as well as key values used in the analysis. This spreadsheet can be stored in the site folder while data development progresses. Records in this spreadsheet can be periodically appended to a project or team level version to improve team communication on project progress. 
 
 * **Check Tools:** The FluvialGeomorph toolbox contains the `Check` toolset that allows the analyst to perform checks on the standard FluvialGeomorph FCs for basic rule compliance. If analysts have questions about if a specific FC is causing problems, these check tools can be used. 
 
 * **Tool Error Messages:** A series of low-level defensive programming checks have been implemented across all FluvialGeomorph functions and tools to help head-off problems. 
 
 * **QA Checklist:** The [QA Checklist](#qa_checklist) helps analysts review the reports created using the tools to identify and fix problems in the underlying derived data. See the [QA Checklist](#qa_checklist) chapter in this manual for details. 
+
+
+***
