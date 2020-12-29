@@ -198,11 +198,11 @@ The purpose of this step is to create a new site geodatabase and populate it wit
 
 
 ### Create the Flowline
-The purpose of this step is to derive the site flowline. The `05 - Flowline` tool converts a `stream_network` feature into a `flowline` FC. It smooths the geometry and converts it into a route. 
+The purpose of this step is to derive the site flowline. The `05 - Flowline` tool converts a `stream_network` feature into a `flowline` FC. This tool smooths the `stream_network` geometry and converts the flowline into a route. 
 
-* Use the `05 - Flowline` tool to process the site `stream_network` feature class to produce a new `flowline` feature class. 
+* Use the `05 - Flowline` tool to process the site `stream_network` FC to produce a new `flowline` FC. 
 * Set the `output_workspace` parameter to the site geodatabase. 
-* Use a smoothing tolerance from 5-20. The goal is produce a smooth flowline, but not to remove too much resolution from the line. 
+* Use a `smooth_tolerance` parameter value from 5-20. The goal is to produce a smooth flowline, but not to remove too much resolution from the line. 
 * Ensure that the flowline remains in the channel and is not simplified into the floodplain. If this occurs, rerun reducing the degree of smoothing. 
 * Edit the `flowline` feature class to ensure that the flowline is digitized beginning with the downstream end and digitized upstream. 
 * In an edit session, select the flowline feature, choose to edit vertices, and ensure that the red endpoint is at the upstream end of the flowline. 
@@ -426,3 +426,5 @@ The purpose of this step is to determine what further steps need to be taken.
 
 * Review the results of the Level 1 Report and determine if the project goals require proceeding to developing the Level 2 analysis. 
 
+
+***

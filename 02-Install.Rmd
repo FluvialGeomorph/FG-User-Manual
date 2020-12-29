@@ -47,21 +47,32 @@ ESRI `ArcGIS Pro` is the GIS application where the FluvialGeomorph analysis will
 * `ArcGIS Pro` version 2.6+ is recommended. 
 
 
-### Limited `ArcMap` Support
+### Limited `ArcMap` support
 ESRI `ArcMap` can currently be used to run the FluvialGeomorph toolbox, but use of `ArcGIS Pro` provides more functionality (e.g., charting, map templates, etc.). As the `ArcMap` application approaches end of life, it will no longer be supported by the FluvialGeomorph toolbox. As `ArcMap` is a 32-bit application, some `R` functions currently do not always perform as expected under 32-bit `R`. If you expect to get the most out of the FluvialGeomorph toolbox, migrate now to `ArcGIS Pro` to take advantage of the latest data formats, geoprocessing speed, Python 3, and 64-bit `R`.  
 
 
-### Download the `arcgisbinding` package
-The `arcgisbinding` `R` package allows `ArcGIS Pro` and `ArcMap` to read and write to `R` sessions. Installing it through `ArcGIS Pro` also enables it for use in `ArcMap` as well. See the [NEWS](NEWS.md) for more details on version compatibility. Please manually download the specified version using these instructions:
+## Install `arcgisbinding`
+The ESRI `arcgisbinding` `R` package allows `ArcGIS Pro` and `ArcMap` to read and write to `R` sessions. Installing it through `ArcGIS Pro` also enables it for use in `ArcMap` as well. See the [NEWS](NEWS.md) for more details on version compatibility for each release. 
+
+### Install the latest `arcgisbinding` version
+
+* In `ArcGIS Pro`, on the top menu, click "Project", and click "Options" on the left menu.
+* In the "Options" dialog box, click "Geoprocessing" on the left menu. 
+* On the "Geoprocessing" page, scroll down to the "R-ArcGIS Support" section.
+* In the "R-ArcGIS Support" section, verify the installed `R` version for ArcGIS to use. 
+* Select an `R` version in the 4.x series.  
+* From the "Installed 'arcgisbinding' package version:" dropdown menu, choose the "Check package for updates" option. 
+
+
+### Download a specific `arcgisbinding` package version
+Sometimes the FluvialGeomorph toolbox requires a specific version of the `arcgisbinding` package. Check the version compatibility matrix in the release notes for guidance. If the FluvialGeomporph toolbox release you are using specifies a particular combination of software versions, please manually download the specified version using these instructions:
 
 * Navigate to the following URL: [https://github.com/R-ArcGIS/r-bridge](https://github.com/R-ArcGIS/r-bridge)
 * In the "Releases" section on the middle-right side of the page, click the "+ xx releases" link. 
 * Download the `v1.0.1.239` version. This file is named: `arcgisbinding_1.0.1.239.zip`
 * Note the location of the file you just downloaded. We will use it in a following step.
 
-
-### Install the `arcgisbinding` package
-The `arcgisbinding` `R` package is developed and maintained by ESRI to support the import and export of GIS data into `R`. 
+### Install a specific `arcgisbinding` package version
 
 * In `ArcGIS Pro`, on the top menu, click "Project", and click "Options" on the left menu.
 * In the "Options" dialog box, click "Geoprocessing" on the left menu. 
@@ -82,15 +93,24 @@ The code in the [FluvialGeomorph-toolbox/](https://github.com/FluvialGeomorph/Fl
 * Unzip the archive file of the latest version to your project folder. 
 * In `ArcMap` or `ArcGIS Pro`, navigate to the folder where you just unzipped the archive and you are ready to use this ArcGIS toolbox. 
 
-### Test the Toolbox
-In this section we will test your FluvialGeomorph toolbox installation. 
+### Install the FluvialGeomorph `R` packages
+In this section we will use the FluvialGeomorph toolbox to install the `R` packages needed by the toolbox. 
+
+* Ensure that all other `R` applications (e.g., `RGui`, `RStudio`) are closed. 
+* In `ArcGIS Pro`, navigate to the FluvialGeomorph toolbox and add it to your project. 
+* In the `Install` toolset, use the `Install R packages` tool to install the required `R` packages. 
+* In the tool's "Messages" section, follow the `R` console output for messages on installation progress. 
 
 
 ### Troubleshooting
+This is a list of commonly experienced errors and warnings when installing FluvialGeomorph `R` packages and their workarounds. 
+
+**Problem: ** `cannot remove prior installation of package '<some package>'`   
+**Solution: ** Ensure that all other `R` applications (e.g., `RGui`, `RStudio`) are closed. 
 
 
 ## Install Tutorial Data
 
 
 
-
+***

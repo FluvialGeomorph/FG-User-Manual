@@ -172,3 +172,5 @@ This report section contains a Level 2 cross section metrics plot drawn using th
 ### Cross Section Profiles
 This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the "regular" cross section dimensions fc "_dims_L3" and the "dem_hydro" raster. The cross section profile graph is drawn using the cross section "_points" fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 
 
+
+***
