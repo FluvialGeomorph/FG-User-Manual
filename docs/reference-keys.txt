@@ -15,10 +15,12 @@ install-rstudio
 install-taudem
 install-arcgis-pro
 limited-arcmap-support
-download-the-arcgisbinding-package
-install-the-arcgisbinding-package
+install-arcgisbinding
+install-the-latest-arcgisbinding-version
+download-a-specific-arcgisbinding-package-version
+install-a-specific-arcgisbinding-package-version
 install-fluvialgeomorph
-test-the-toolbox
+install-the-fluvialgeomorph-r-packages
 troubleshooting
 install-tutorial-data
 workflow
