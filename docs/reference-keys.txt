@@ -34,7 +34,8 @@ L1_summary
 L2_summary
 L3_summary
 qa_tools
-tutorial-data
+tutorial_data
+cole-creek
 level-1-workflow
 create-terrain
 define-study-area

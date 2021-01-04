@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2020-12-29" />
+<meta name="date" content="2021-01-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,7 +114,9 @@
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="workflow.html"><a href="workflow.html#qa_tools"><i class="fa fa-check"></i><b>3.7</b> Quality Assurance</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="tutorial-data.html"><a href="tutorial-data.html"><i class="fa fa-check"></i><b>4</b> Tutorial Data</a></li>
+<li class="chapter" data-level="4" data-path="tutorial-data.html"><a href="tutorial-data.html"><i class="fa fa-check"></i><b>4</b> Tutorial Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="tutorial-data.html"><a href="tutorial-data.html#cole-creek"><i class="fa fa-check"></i><b>4.1</b> Cole Creek</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="level-1-workflow.html"><a href="level-1-workflow.html"><i class="fa fa-check"></i><b>5</b> Level 1 Workflow</a><ul>
 <li class="chapter" data-level="5.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-terrain"><i class="fa fa-check"></i><b>5.1</b> Create Terrain</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#define-study-area"><i class="fa fa-check"></i><b>5.1.1</b> Define Study Area</a></li>
@@ -253,11 +255,34 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tutorial-data" class="section level1">
+<div id="tutorial_data" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Tutorial Data</h1>
 <p>This chapter describes how to download the tutorial data and configure your workspace.</p>
+<div id="cole-creek" class="section level2">
+<h2><span class="header-section-number">4.1</span> Cole Creek</h2>
+<p>In this section we will assemble the tutorial data for the Cole Creek Site in the Papillion Creek, NE project study area.</p>
+<ul>
+<li>Start preparing your project working directory by creating the following folder structure:</li>
+</ul>
+<pre><code>Papillion_Creek
+└─── Sites
+│    └─── 01_Cole_Creek
+│    │    └─── Data
+│    │    └─── Elevation
+│    │    └─── Exports
+│    │    └─── Maps
+│    │    └─── Reports
+└─── Elevation
+└─── Exports
+└─── Maps
+</code></pre>
+<ul>
+<li>Download the <a href="https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/ColeCreek/ColeCreek_Data.zip">Cole Creek Site Data</a> site data using this link.</li>
+<li>Unarchive this <code>.zip</code> file to the Cole Creek site data folder.</li>
+</ul>
 <hr />
 
+</div>
 </div>
             </section>
 
