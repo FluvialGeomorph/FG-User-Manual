@@ -110,7 +110,7 @@ This is a list of commonly experienced errors and warnings when installing Fluvi
 
 
 ## Install Tutorial Data
-
+See the [Tutorial Data chapter](#tutorial_data) for instructions on downloading and setting-up the tutorial data. 
 
 
 ***

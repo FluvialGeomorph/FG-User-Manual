@@ -1,5 +1,33 @@
-# Tutorial Data
+# Tutorial Data {#tutorial_data}
 This chapter describes how to download the tutorial data and configure your workspace. 
+
+
+## Cole Creek
+In this section we will assemble the tutorial data for the Cole Creek Site in the Papillion Creek, NE project study area. 
+
+* Start preparing your project working directory by creating the following folder structure: 
+
+```
+Papillion_Creek
+└─── Sites
+│    └─── 01_Cole_Creek
+│    │    └─── Data
+│    │    └─── Elevation
+│    │    └─── Exports
+│    │    └─── Maps
+│    │    └─── Reports
+└─── Elevation
+└─── Exports
+└─── Maps
+
+```
+
+
+* Download the [Cole Creek Site Data](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/ColeCreek/ColeCreek_Data.zip) site data using this link. 
+* Unarchive this `.zip` file to the Cole Creek site data folder. 
+
+
+
 
 
 ***
