@@ -5,7 +5,7 @@ This chapter describes how to download the tutorial data and configure your work
 ## Cole Creek
 In this section we will assemble the tutorial data for the Cole Creek Site in the Papillion Creek, NE project study area. 
 
-* Start preparing your project working directory by creating the following folder structure: 
+* Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
 
 ```
 Papillion_Creek
