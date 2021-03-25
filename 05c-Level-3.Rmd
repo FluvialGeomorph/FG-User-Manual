@@ -58,6 +58,7 @@ The purpose of this step is to create a new FC named `loop_points` and use it to
     * `position`: Text (10) - The purpose of this field is to store position identifier for the point. This field must have one three values: "start", "end", or "apex". 
 
 **Create Loop Points**   
+
 * `loop_point` features are used to define the start and end location of loop bends and the location of a loop's apex. 
 * `loop_point` features are always placed along (i.e., snapped to) a `bankline` feature. 
 * Begin numbering loops starting at the downstream end of the reach and increment the `loop` integer values moving upstream. 
@@ -69,11 +70,13 @@ The purpose of this step is to create a new FC named `loop_points` and use it to
 * Bend numbering restarts within each loop. The first `bend` value within a loop always begins with the value 1. 
 
 **Multiple Reaches: **   
+
 * For a site with multiple reaches, loops must be uniquely numbered across all reaches. The `loop` field values of `loop_points` should not repeat within the reaches of a site.  
 * The downstream-most loop in the site should be numbered starting with the `loop` field value of 1 and increase moving upstream.  
 * Set the `loop` field value for each upstream reach to the upstream-most value (i.e., the highest `loop` value of the downstream reach’s `loop_points` FC) of the downstream reach. For example, set the value of the field `loop` of the first Reach-2 `loop_points` feature to 8 if the maximum value of Reach-1’s `loop_points` FC `loop` field is 7.
 
 **Check Loop Points: **   
+
 * Use the `Check Loop Points` tool in the `Check` toolset to verify that loops and bends are defined correctly. 
 * Review the messages produced by this tool to identify and correct problems with loop and bend delineation. 
 

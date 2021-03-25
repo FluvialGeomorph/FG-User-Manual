@@ -321,23 +321,31 @@
 <li><code>position</code>: Text (10) - The purpose of this field is to store position identifier for the point. This field must have one three values: “start”, “end”, or “apex”.</li>
 </ul></li>
 </ul>
-<p><strong>Create Loop Points</strong><br />
-* <code>loop_point</code> features are used to define the start and end location of loop bends and the location of a loop’s apex.
-* <code>loop_point</code> features are always placed along (i.e., snapped to) a <code>bankline</code> feature.
-* Begin numbering loops starting at the downstream end of the reach and increment the <code>loop</code> integer values moving upstream.
-* In FluvialGeomorph, the <code>valleyline</code> is used segment the <code>flowline</code> into loops.
-* The beginning and end of loops are delineated where the <code>valleyline</code> <em>definitively</em> crosses the <code>flowline</code>.
-* If the <code>flowline</code> crosses the <code>valleyline</code> and then crosses back over in a short distance, this is not considered a <em>definitive</em> crossing. A definitive crossing is one where the <code>flowline</code> approaches the <code>valleyline</code>, crosses it, and then continues to move away from the <code>valleyline</code> for a significant longitudinal distance.
-* Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank, then loop 2 is delineated along the left descending bank.
-* Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3).
-* Bend numbering restarts within each loop. The first <code>bend</code> value within a loop always begins with the value 1.</p>
-<p><strong>Multiple Reaches: </strong><br />
-* For a site with multiple reaches, loops must be uniquely numbered across all reaches. The <code>loop</code> field values of <code>loop_points</code> should not repeat within the reaches of a site.<br />
-* The downstream-most loop in the site should be numbered starting with the <code>loop</code> field value of 1 and increase moving upstream.<br />
-* Set the <code>loop</code> field value for each upstream reach to the upstream-most value (i.e., the highest <code>loop</code> value of the downstream reach’s <code>loop_points</code> FC) of the downstream reach. For example, set the value of the field <code>loop</code> of the first Reach-2 <code>loop_points</code> feature to 8 if the maximum value of Reach-1’s <code>loop_points</code> FC <code>loop</code> field is 7.</p>
-<p><strong>Check Loop Points: </strong><br />
-* Use the <code>Check Loop Points</code> tool in the <code>Check</code> toolset to verify that loops and bends are defined correctly.
-* Review the messages produced by this tool to identify and correct problems with loop and bend delineation.</p>
+<p><strong>Create Loop Points</strong></p>
+<ul>
+<li><code>loop_point</code> features are used to define the start and end location of loop bends and the location of a loop’s apex.</li>
+<li><code>loop_point</code> features are always placed along (i.e., snapped to) a <code>bankline</code> feature.</li>
+<li>Begin numbering loops starting at the downstream end of the reach and increment the <code>loop</code> integer values moving upstream.</li>
+<li>In FluvialGeomorph, the <code>valleyline</code> is used segment the <code>flowline</code> into loops.</li>
+<li>The beginning and end of loops are delineated where the <code>valleyline</code> <em>definitively</em> crosses the <code>flowline</code>.</li>
+<li>If the <code>flowline</code> crosses the <code>valleyline</code> and then crosses back over in a short distance, this is not considered a <em>definitive</em> crossing. A definitive crossing is one where the <code>flowline</code> approaches the <code>valleyline</code>, crosses it, and then continues to move away from the <code>valleyline</code> for a significant longitudinal distance.</li>
+<li>Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank, then loop 2 is delineated along the left descending bank.</li>
+<li>Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3).</li>
+<li>Bend numbering restarts within each loop. The first <code>bend</code> value within a loop always begins with the value 1.</li>
+</ul>
+<p><strong>Multiple Reaches: </strong></p>
+<ul>
+<li>For a site with multiple reaches, loops must be uniquely numbered across all reaches. The <code>loop</code> field values of <code>loop_points</code> should not repeat within the reaches of a site.<br />
+</li>
+<li>The downstream-most loop in the site should be numbered starting with the <code>loop</code> field value of 1 and increase moving upstream.<br />
+</li>
+<li>Set the <code>loop</code> field value for each upstream reach to the upstream-most value (i.e., the highest <code>loop</code> value of the downstream reach’s <code>loop_points</code> FC) of the downstream reach. For example, set the value of the field <code>loop</code> of the first Reach-2 <code>loop_points</code> feature to 8 if the maximum value of Reach-1’s <code>loop_points</code> FC <code>loop</code> field is 7.</li>
+</ul>
+<p><strong>Check Loop Points: </strong></p>
+<ul>
+<li>Use the <code>Check Loop Points</code> tool in the <code>Check</code> toolset to verify that loops and bends are defined correctly.</li>
+<li>Review the messages produced by this tool to identify and correct problems with loop and bend delineation.</li>
+</ul>
 </div>
 <div id="derive-bankline-points" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Derive Bankline Points</h3>
