@@ -101,6 +101,7 @@ perform-qa-1
 determine-bankfull-elevation
 create-bankfull-area
 create-banklines
+create-centerline
 calculate-final-l2-cross-section-geometry
 calculate-final-cross-section-l2-dimensions
 run-report-1
