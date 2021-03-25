@@ -289,7 +289,6 @@ The purpose of this step is to create a channel slope raster that can be used in
 * Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. Use the `intitial_channel_extent` polygon created earlier to define the channel area within which the slope raster will be calculated. This tool creates a new feature class named `channel_slope`. 
 
 
-
 ***
 
 ## Create Regular Cross Section Geometry

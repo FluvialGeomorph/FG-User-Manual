@@ -196,6 +196,12 @@ The purpose of this step is to convert the `bankfull_area` polygon into polyline
 * In the `bank_id` field enter a `1` for the `right descending` bank and `2` for the `left descending` bank. 
 
 
+### Create Centerline
+The purpose of this step is to create a stream centerline. The centerline represents the rough midline of the stream between the banklines.  
+
+* Use the `10 - Centerline` tool to create a `centerline` polyline feature class representing the stream midline at the bankfull water surface elevation. 
+
+
 ***
 
 ## Calculate Final L2 Cross Section Geometry
