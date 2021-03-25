@@ -6,7 +6,7 @@ author:
   - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-url: 'https:\://fluvialgeomorph.org/FG-User_Manual'
+url: 'https://usermanual.fluvialgeomorph.org'
 github-repo: "FluvialGeomorph/FG-User-Manual"
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -27,13 +27,17 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
 * [Regional Sediment Management Program (RSM)](https://rsm.usace.army.mil/)
 * [Mississippi River Geomorphology and Potamology Program (MRG&P)](https://www.mvd.usace.army.mil/Missions/Mississippi-River-Science-Technology/MS-River-Geomorphology-Potamology/)
 * [Flood Risk Management Program (FRM)](https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/)
+* [Engineering With Nature (EWN)](https://ewn.el.erdc.dren.mil/)
+
 
 ```{r echo=FALSE}
-knitr::include_graphics("docs/images/HDQLO-03_h120.jpg")
-knitr::include_graphics("docs/images/EMRRP_logo_300.png")
-knitr::include_graphics("docs/images/RSMlogo.png")
+knitr::include_graphics("docs/images/USACE_200.png")
+knitr::include_graphics("docs/images/EMRRP_logo_200.png")
+knitr::include_graphics("docs/images/RSM_200.png")
 knitr::include_graphics("docs/images/MRG&P_300.png")
-knitr::include_graphics("docs/images/FRMP_300.png")
+knitr::include_graphics("docs/images/FRMP_200.png")
+knitr::include_graphics("docs/images/SilverJackets_200.png")
+knitr::include_graphics("docs/images/EWN_200.png")
 ```
 
 

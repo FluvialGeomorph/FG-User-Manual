@@ -1,11 +1,13 @@
 # Tutorial Data {#tutorial_data}
 This chapter describes how to download the tutorial data and configure your workspace. 
 
+## Map Templates  
+To standardize the maps used for this project, use these project [site map templates](https://usace-mvr.maps.arcgis.com/home/item.html?id=5a1114c658da4929bc1fb994b0d79a8e). 
 
-## Cole Creek
+## Cole Creek  
 In this section we will assemble the tutorial data for the Cole Creek Site in the Papillion Creek, NE project study area. 
 
-* Start preparing your project working directory by creating the following folder structure: 
+* Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
 
 ```
 Papillion_Creek
