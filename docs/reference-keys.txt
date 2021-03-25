@@ -35,6 +35,7 @@ L2_summary
 L3_summary
 qa_tools
 tutorial_data
+map-templates
 cole-creek
 level-1-workflow
 create-terrain

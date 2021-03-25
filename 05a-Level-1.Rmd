@@ -167,7 +167,6 @@ The purpose of this step is to delineate the areal extent of watersheds for each
 
 * In the `stream_network_points` feature class, select points that represent the downstream location of each of the sites in the project study area. 
 * Export these point features to a new feature class named `watershed_points` in the study area geodatabase. 
-* Add a new text field named `ReachName` and ensure it is populated with the correct reach name. 
 * Use the `04c - Watershed` tool to create a watershed polygon for each feature in the `watershed_points` feature class. 
 
 

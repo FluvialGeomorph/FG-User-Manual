@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2021-01-15" />
+<meta name="date" content="2021-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -115,7 +115,8 @@
 <li class="chapter" data-level="3.7" data-path="workflow.html"><a href="workflow.html#qa_tools"><i class="fa fa-check"></i><b>3.7</b> Quality Assurance</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tutorial-data.html"><a href="tutorial-data.html"><i class="fa fa-check"></i><b>4</b> Tutorial Data</a><ul>
-<li class="chapter" data-level="4.1" data-path="tutorial-data.html"><a href="tutorial-data.html#cole-creek"><i class="fa fa-check"></i><b>4.1</b> Cole Creek</a></li>
+<li class="chapter" data-level="4.1" data-path="tutorial-data.html"><a href="tutorial-data.html#map-templates"><i class="fa fa-check"></i><b>4.1</b> Map Templates</a></li>
+<li class="chapter" data-level="4.2" data-path="tutorial-data.html"><a href="tutorial-data.html#cole-creek"><i class="fa fa-check"></i><b>4.2</b> Cole Creek</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="level-1-workflow.html"><a href="level-1-workflow.html"><i class="fa fa-check"></i><b>5</b> Level 1 Workflow</a><ul>
 <li class="chapter" data-level="5.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-terrain"><i class="fa fa-check"></i><b>5.1</b> Create Terrain</a><ul>
@@ -461,13 +462,10 @@ Slope and sinuosity are scale dependent metrics. This means that these metrics a
 </div>
 <div id="delineate-watersheds" class="section level3">
 <h3><span class="header-section-number">5.2.5</span> Delineate Watersheds</h3>
-<p>The purpose of this step is to delineate the watersheds for each reach in the study area.</p>
+<p>The purpose of this step is to delineate the areal extent of watersheds for each reach in the study area.</p>
 <ul>
-<li>Create a new feature class named <code>watershed_points</code>.</li>
-<li>Add a new text field named <code>ReachName</code>.</li>
-<li>Add the <code>watershed_contributing_area</code> raster to a map and symbolize with a “hot-cold” stretch renderer.</li>
-<li>Create a feature in the <code>watershed_points</code> feature class to represent the downstream location of each study reach.</li>
-<li>Place each point within a pixel of high flow accumulation in the <code>watershed_contributing_area</code> raster.</li>
+<li>In the <code>stream_network_points</code> feature class, select points that represent the downstream location of each of the sites in the project study area.</li>
+<li>Export these point features to a new feature class named <code>watershed_points</code> in the study area geodatabase.</li>
 <li>Use the <code>04c - Watershed</code> tool to create a watershed polygon for each feature in the <code>watershed_points</code> feature class.</li>
 </ul>
 <hr />
@@ -693,7 +691,7 @@ To make LiDAR surveys collected before the <a href="workflow.html#units_of_analy
 <p><strong>Determine the moving window size</strong><br />
 Many stream metrics are scale dependent, meaning these metrics are affected by the size of the moving window used in their calculation. To determine the appropriate size of the moving window for this reach, use the following steps:</p>
 <ul>
-<li>Many stream metrics are typically calculated using a moving window size equal to two meander wavelengths.</li>
+<li>Many stream metrics are typically calculated using a moving window size equal to two meander wavelengths (one upstream meander wavelength and one downstream meander wavelength).</li>
 <li>Using the initial <code>Channel Mask</code> layer that you created earlier, estimate the typical bankfull width for the reach.</li>
 <li>Estimate the length of two meander wavelengths by multiplying the bankfull width estimated in the last step by 10 (e.g., 30ft bankfull width * 10 = 300ft, two meander wavelengths).<br />
 </li>
