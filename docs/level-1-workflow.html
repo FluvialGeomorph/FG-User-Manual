@@ -25,7 +25,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2021-03-25" />
+<meta name="date" content="2021-03-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,6 +144,7 @@
 <li class="chapter" data-level="5.4.3" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-the-initial-channel-mask-layer"><i class="fa fa-check"></i><b>5.4.3</b> Create the Initial Channel Mask layer</a></li>
 <li class="chapter" data-level="5.4.4" data-path="level-1-workflow.html"><a href="level-1-workflow.html#estimate-initial-floodplain-extent"><i class="fa fa-check"></i><b>5.4.4</b> Estimate Initial Floodplain Extent</a></li>
 <li class="chapter" data-level="5.4.5" data-path="level-1-workflow.html"><a href="level-1-workflow.html#calculate-channel-slope-raster"><i class="fa fa-check"></i><b>5.4.5</b> Calculate Channel Slope Raster</a></li>
+<li class="chapter" data-level="5.4.6" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-initial-centerline"><i class="fa fa-check"></i><b>5.4.6</b> Create Initial Centerline</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-regular-cross-section-geometry"><i class="fa fa-check"></i><b>5.5</b> Create Regular Cross Section Geometry</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="level-1-workflow.html"><a href="level-1-workflow.html#create-regular-cross-sections"><i class="fa fa-check"></i><b>5.5.1</b> Create Regular Cross Sections</a></li>
@@ -177,7 +178,7 @@
 <li class="chapter" data-level="6.2.3" data-path="level-2-workflow.html"><a href="level-2-workflow.html#determine-bankfull-elevation"><i class="fa fa-check"></i><b>6.2.3</b> Determine Bankfull Elevation</a></li>
 <li class="chapter" data-level="6.2.4" data-path="level-2-workflow.html"><a href="level-2-workflow.html#create-bankfull-area"><i class="fa fa-check"></i><b>6.2.4</b> Create Bankfull Area</a></li>
 <li class="chapter" data-level="6.2.5" data-path="level-2-workflow.html"><a href="level-2-workflow.html#create-banklines"><i class="fa fa-check"></i><b>6.2.5</b> Create Banklines</a></li>
-<li class="chapter" data-level="6.2.6" data-path="level-2-workflow.html"><a href="level-2-workflow.html#create-centerline"><i class="fa fa-check"></i><b>6.2.6</b> Create Centerline</a></li>
+<li class="chapter" data-level="6.2.6" data-path="level-2-workflow.html"><a href="level-2-workflow.html#create-final-centerline"><i class="fa fa-check"></i><b>6.2.6</b> Create Final Centerline</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="level-2-workflow.html"><a href="level-2-workflow.html#calculate-final-l2-cross-section-geometry"><i class="fa fa-check"></i><b>6.3</b> Calculate Final L2 Cross Section Geometry</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="level-2-workflow.html"><a href="level-2-workflow.html#calculate-final-cross-section-l2-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Calculate Final Cross Section L2 Dimensions</a></li>
@@ -354,12 +355,12 @@ Since the study area watershed boundaries are unlikely to have changed between L
 <p>The purpose of this step is to create a hydro-modified DEM to ensure proper water flow across the study area.</p>
 <div id="identify-flow-blockages" class="section level4">
 <h4><span class="header-section-number">5.1.4.1</span> Identify Flow Blockages</h4>
-<p>The purpose of this step is to develop a <code>cutlines</code> feature class representing flow blockages in the study area.</p>
+<p>The purpose of this step is to develop a <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines-fc"><code>cutlines</code></a> feature class representing flow blockages in the study area.</p>
 <ul>
 <li>Examine the stream channel through the study area and determine if there are any blockages to flow in the DEM.</li>
 <li>Focus only on flow blockages within the main channel of the study reaches. Flow blockages outside of the the channels of the study reaches do not need to be identified for FluvialGeomorph analysis.</li>
 <li>These blockages are typically built infrastructure such as road embankments where streams are conveyed through culverts or underground storm water structures.</li>
-<li>If there are flow blockages in the study area reach channels, create a new line feature class named <code>cutlines</code> to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified.</li>
+<li>If there are flow blockages in the study area reach channels, create a new line feature class named <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines-fc"><code>cutlines</code></a> to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified.</li>
 <li>In an edit session, identify human structures that block flow along the channel of the stream reach being studied.</li>
 <li>Draw a cutline beginning at the upstream side of the blockage to a point just downstream of the blockage.</li>
 <li>The start point and end point of the cutline must cover the area to be modified.</li>
@@ -370,8 +371,8 @@ Since the study area watershed boundaries are unlikely to have changed between L
 <h4><span class="header-section-number">5.1.4.2</span> Burn cutlines into the terrains</h4>
 <p>The purpose of this step is to remove flow blockages from the terrain.</p>
 <ul>
-<li>Use the <code>02 - Burn Cutlines</code> tool to “burn” the <code>cutlines</code> features into the study area watershed DEM. This tool creates the <code>dem_hydro</code> raster. Rename this DEM <code>watershed_dem_hydro</code>.</li>
-<li>Use the <code>02 - Burn Cutlines</code> tool to “burn” the <code>cutlines</code> features into the high resolution DEM. This tool creates the <code>dem_hydro</code> raster.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#hydro-dem-tool"><code>02 - Hydro DEM</code></a> tool to “burn” the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines"><code>cutlines</code></a> features into the study area watershed DEM. This tool creates the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#hydro-modified-raster"><code>dem_hydro</code></a> raster. Rename this DEM <code>watershed_dem_hydro</code>.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#hydro-dem-tool"><code>02 - Hydro DEM</code></a> tool to “burn” the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines"><code>cutlines</code></a> features into the high resolution DEM. This tool creates the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster"><code>dem_hydro</code></a> raster.</li>
 </ul>
 <hr />
 </div>
@@ -633,6 +634,13 @@ To make LiDAR surveys collected before the <a href="workflow.html#units_of_analy
 <p>The purpose of this step is to create a channel slope raster that can be used in the visual identification of riffle locations in following step.</p>
 <ul>
 <li>Use the <code>09 - Channel Slope</code> tool to calculate a raster of the channel slope. Use the <code>intitial_channel_extent</code> polygon created earlier to define the channel area within which the slope raster will be calculated. This tool creates a new feature class named <code>channel_slope</code>.</li>
+</ul>
+</div>
+<div id="create-initial-centerline" class="section level3">
+<h3><span class="header-section-number">5.4.6</span> Create Initial Centerline</h3>
+<p>The purpose of this step is to create a stream centerline. The centerline represents the rough midline of the stream between the banklines.</p>
+<ul>
+<li>Use the <code>10 - Centerline</code> tool to create a <code>centerline</code> polyline feature class representing the stream midline at the estimated bankfull water surface elevation using the <code>initial_channel_extent</code> feature class.</li>
 </ul>
 <hr />
 </div>

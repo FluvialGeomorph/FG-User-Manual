@@ -70,12 +70,12 @@ The purpose of this DEM is to derive a detailed stream terrain model that meets 
 The purpose of this step is to create a hydro-modified DEM to ensure proper water flow across the study area. 
 
 #### Identify Flow Blockages
-The purpose of this step is to develop a `cutlines` feature class representing flow blockages in the study area. 
+The purpose of this step is to develop a [`cutlines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines-fc) feature class representing flow blockages in the study area. 
 
 * Examine the stream channel through the study area and determine if there are any blockages to flow in the DEM. 
 * Focus only on flow blockages within the main channel of the study reaches. Flow blockages outside of the the channels of the study reaches do not need to be identified for FluvialGeomorph analysis. 
 * These blockages are typically built infrastructure such as road embankments where streams are conveyed through culverts or underground storm water structures. 
-* If there are flow blockages in the study area reach channels, create a new line feature class named `cutlines` to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified. 
+* If there are flow blockages in the study area reach channels, create a new line feature class named [`cutlines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines-fc) to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified. 
 * In an edit session, identify human structures that block flow along the channel of the stream reach being studied. 
 * Draw a cutline beginning at the upstream side of the blockage to a point just downstream of the blockage. 
 * The start point and end point of the cutline must cover the area to be modified. 
@@ -84,8 +84,8 @@ The purpose of this step is to develop a `cutlines` feature class representing f
 #### Burn cutlines into the terrains
 The purpose of this step is to remove flow blockages from the terrain. 
 
-* Use the `02 - Burn Cutlines` tool to "burn" the `cutlines` features into the study area watershed DEM. This tool creates the `dem_hydro` raster. Rename this DEM `watershed_dem_hydro`. 
-* Use the `02 - Burn Cutlines` tool to "burn" the `cutlines` features into the high resolution DEM. This tool creates the `dem_hydro` raster. 
+* Use the [`02 - Hydro DEM`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#hydro-dem-tool) tool to "burn" the [`cutlines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines) features into the study area watershed DEM. This tool creates the [`dem_hydro`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#hydro-modified-raster) raster. Rename this DEM `watershed_dem_hydro`. 
+* Use the [`02 - Hydro DEM`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#hydro-dem-tool) tool to "burn" the [`cutlines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines) features into the high resolution DEM. This tool creates the [`dem_hydro`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster) raster. 
 
 
 ***
@@ -287,6 +287,11 @@ The purpose of this step is to create a layer that defines the an initial estima
 The purpose of this step is to create a channel slope raster that can be used in the visual identification of riffle locations in following step. 
 
 * Use the `09 - Channel Slope` tool to calculate a raster of the channel slope. Use the `intitial_channel_extent` polygon created earlier to define the channel area within which the slope raster will be calculated. This tool creates a new feature class named `channel_slope`. 
+
+### Create Initial Centerline
+The purpose of this step is to create a stream centerline. The centerline represents the rough midline of the stream between the banklines.  
+
+* Use the `10 - Centerline` tool to create a `centerline` polyline feature class representing the stream midline at the estimated bankfull water surface elevation using the `initial_channel_extent` feature class. 
 
 
 ***
