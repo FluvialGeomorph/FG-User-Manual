@@ -308,10 +308,11 @@ The purpose of this step is to create regularly spaced cross sections along each
 * Use the `11 - XS Layout` tool to create a set of regularly spaced cross sections (referred to as transects in this tool). Use the values determined in the previous steps to set this tool's parameters. 
 * For a site with multiple reaches, regular cross sections must be uniquely numbered across all reaches. The `Seq` field values of regular cross sections should not repeat within the reaches of a site. 
 * The downstream-most cross section in the site should be numbered starting with the `Seq` field value of 1 and increase moving upstream. 
-* The `11 - XS - Layout` tool automatically numbers regular cross sections `Seq` values starting with the value 1 at the downstream-most cross section. For all reaches other than the first reach (downstream-most) in a site, the cross sections must be resequenced using the `13a - XS Resequence` tool. 
-* Use the `13a - XS Resequence` tool to set the starting `Seq` value for each reach. * Set the `Seq` field value for each upstream reach to the upstream-most value (i.e., the highest `Seq` value of the downstream reach’s regular cross section FC) of the downstream reach. For example, set the `Seq` of the Reach-2 regular cross section FC to 58 if the maximum value of Reach-1’s regular cross section FC `Seq` field is 57.
-
-
+* The `11 - XS - Layout` tool automatically numbers regular cross sections `Seq` values starting with the value 1 at the downstream-most cross section.  
+* Use the `13a - XS Resequence` tool to set the starting `Seq` value for each reach.  
+* For all reaches other than the first reach (downstream-most) in a site, the cross sections must be re-sequenced using the `13a - XS Resequence` tool. 
+* Set the `Seq` field value for each upstream reach to the upstream-most value (i.e., the highest `Seq` value of the downstream reach’s regular cross section FC) of the downstream reach. 
+* For example, set the `Seq` of the Reach-2 regular cross section FC to 58 if the maximum value of Reach-1’s regular cross section FC `Seq` field is 57.
 
 ### Calculate Cross Section Watershed Area
 The purpose of this step is to calculate the watershed area for each regularly spaced cross section. 
@@ -330,7 +331,6 @@ The purpose of this step is to calculate the river position for each regularly s
 
 * Use the `13 - XS River Position` tool to calculate the distance to the mouth of the river for each cross section. 
 * The river position of each cross section will be used in later steps to calculate several channel parameters (i.e., gradient, sinuosity). 
-
 
 ### Calculate Cross Section Points
 The purpose of this step is to convert each cross section into a set of evenly stationed points and assign DEM and detrended elevation values. 

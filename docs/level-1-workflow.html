@@ -658,8 +658,13 @@ To make LiDAR surveys collected before the <a href="workflow.html#units_of_analy
 <li>Use the <code>11 - XS Layout</code> tool to create a set of regularly spaced cross sections (referred to as transects in this tool). Use the values determined in the previous steps to set this tool’s parameters.</li>
 <li>For a site with multiple reaches, regular cross sections must be uniquely numbered across all reaches. The <code>Seq</code> field values of regular cross sections should not repeat within the reaches of a site.</li>
 <li>The downstream-most cross section in the site should be numbered starting with the <code>Seq</code> field value of 1 and increase moving upstream.</li>
-<li>The <code>11 - XS - Layout</code> tool automatically numbers regular cross sections <code>Seq</code> values starting with the value 1 at the downstream-most cross section. For all reaches other than the first reach (downstream-most) in a site, the cross sections must be resequenced using the <code>13a - XS Resequence</code> tool.</li>
-<li>Use the <code>13a - XS Resequence</code> tool to set the starting <code>Seq</code> value for each reach. * Set the <code>Seq</code> field value for each upstream reach to the upstream-most value (i.e., the highest <code>Seq</code> value of the downstream reach’s regular cross section FC) of the downstream reach. For example, set the <code>Seq</code> of the Reach-2 regular cross section FC to 58 if the maximum value of Reach-1’s regular cross section FC <code>Seq</code> field is 57.</li>
+<li>The <code>11 - XS - Layout</code> tool automatically numbers regular cross sections <code>Seq</code> values starting with the value 1 at the downstream-most cross section.<br />
+</li>
+<li>Use the <code>13a - XS Resequence</code> tool to set the starting <code>Seq</code> value for each reach.<br />
+</li>
+<li>For all reaches other than the first reach (downstream-most) in a site, the cross sections must be re-sequenced using the <code>13a - XS Resequence</code> tool.</li>
+<li>Set the <code>Seq</code> field value for each upstream reach to the upstream-most value (i.e., the highest <code>Seq</code> value of the downstream reach’s regular cross section FC) of the downstream reach.</li>
+<li>For example, set the <code>Seq</code> of the Reach-2 regular cross section FC to 58 if the maximum value of Reach-1’s regular cross section FC <code>Seq</code> field is 57.</li>
 </ul>
 </div>
 <div id="calculate-cross-section-watershed-area" class="section level3">
