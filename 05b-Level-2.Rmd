@@ -234,8 +234,13 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 * Use a chart to verify the choice of the smoothing `loess_span` parameter in the `*_dims_L2` FC. 
 * Right-click on the `*_dims_L2` FC in the map table of contents and select "Create Chart", and select "Line". In the `Date or Number` dropdown, choose the field `POINT_M`. In the `Aggregation` dropdown, choose `None`. In the `Numeric field(s)` checklist, check the boxes next to `Z` and `Z_smooth`. Click the `Apply` button to view the chart.
 * Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change. 
-* If the smoothing is not ideal, re-run the tool and adjust the `loess_span` parameter. 
+* If the smoothing is not ideal, re-run the tool and adjust the `loess_span` parameter.  
 
+### Add Modeled Water Surface Elevation
+The purpose of this optional step is to add an HEC-RAS hydraulic model estimated water surface elevation (if available) to a cross section dimension feature class.  
+
+* Use the `16 - XS RAS Watersurface` tool to add a modeled watersurface to the input cross section feature class. 
+* Use the `RAS_model_name` to distinguish between multiple RAS model scenarios. 
 
 ***
 

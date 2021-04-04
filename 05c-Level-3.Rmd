@@ -108,8 +108,14 @@ The purpose of this stage is to calculate the Level 3 dimensions for each reach.
 The purpose of this step is to calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach. 
 
 * If any `*_dims_L3` FCs exist in the reach geodatabase (created during a previous run), delete these FCs.  
-* Use the `15c - XS Planform, Level 3` tool to calculate the L3 dimensions. 
-* Verify in the attribute table that the L3 dimensions have been calculated. 
+* Use the `15c - XS Planform, Level 3` tool to calculate the L3 dimensions.  
+* Verify in the attribute table that the L3 dimensions have been calculated.  
+
+### Add Modeled Water Surface Elevation  
+The purpose of this optional step is to add an HEC-RAS hydraulic model estimated water surface elevation (if available) to a cross section dimension feature class.  
+
+* Use the `16 - XS RAS Watersurface` tool to add a modeled watersurface to the input cross section feature class. 
+* Use the `RAS_model_name` to distinguish between multiple RAS model scenarios. 
 
 
 ***

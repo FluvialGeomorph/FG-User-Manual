@@ -105,6 +105,7 @@ create-banklines
 create-final-centerline
 calculate-final-l2-cross-section-geometry
 calculate-final-cross-section-l2-dimensions
+add-modeled-water-surface-elevation
 run-report-1
 run-the-l2-report
 perform-qa-2
@@ -120,6 +121,7 @@ derive-bankline-points
 assign-cross-section-loops
 calculate-l3-cross-section-geometry
 calculate-cross-section-l3-dimensions
+add-modeled-water-surface-elevation-1
 run-report-2
 run-the-l3-report
 perform-qa-3
