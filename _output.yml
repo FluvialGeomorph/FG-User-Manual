@@ -1,10 +1,13 @@
 bookdown::gitbook:
   css: style.css
+  toc_depth: 4
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: yes
       before: |
         <li><a href="./">FluvialGeomorph User Manual</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
-    download: ["pdf", "epub"]
+    edit: https://github.com/rstudio/bookdown-demo/%s
+    download: ["epub"]
