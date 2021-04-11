@@ -328,16 +328,16 @@
             <section class="normal" id="section-">
 <div id="level-2-workflow" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Level 2 Workflow</h1>
-<p>This chapter describes the workflow steps necessary to complete a Level 2 FluvialGeomorph analysis.</p>
+<p>This chapter describes the workflow steps necessary to complete a Level 2 (L2) FluvialGeomorph analysis. The purpose of this level is to calculate bankfull channel dimensions.</p>
 <div id="create-initial-riffle-geometry" class="section level2">
 <h2><span class="header-section-number">6.1</span> Create Initial Riffle Geometry</h2>
 <p>The purpose of this stage is to identify and map riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.</p>
 <div id="create-riffle-floodplain" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Create Riffle Floodplain</h3>
 <p>The purpose of this step is to identify riffle locations and map these cross sections across the lateral extent of the floodplain for each reach.</p>
-<p>A riffle is a shallow river landform where water flows in a steep, thin sheet <span class="citation">(Luna Bergere Leopold and M. Gordon Wolman <a href="#ref-luna_bergere_leopold_river_1957" role="doc-biblioref">1957</a>)</span>. Riffles can be identified with the help of the <code>channel_slope</code> raster calculated in Level 1, and confirmed with high resolution aerial imagery. In the <code>channel_slope</code> raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.</p>
+<p>A riffle is a shallow river landform where water flows in a steep, thin sheet <span class="citation">(Luna Bergere Leopold and M. Gordon Wolman <a href="#ref-luna_bergere_leopold_river_1957" role="doc-biblioref">1957</a>)</span>. Riffles can be identified with the help of the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#channel-slope-raster"><code>channel_slope</code></a> raster calculated in Level 1, and confirmed with high resolution aerial imagery. In the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#channel-slope-raster"><code>channel_slope</code></a> raster, pools appear as relatively smooth areas of low slope due to the absence of LiDAR points (deep water absorbs laser pulses). Shallow water riffles appear as highly textured areas of relatively higher slope between pools due to the higher number of LiDAR points from the exposed bed material.</p>
 <ul>
-<li>Create a new line feature class (FC) named <code>riffle_floodplain</code> to store riffle cross sections. This feature class must use the same coordinate system as the vector datasets of the project. Add the following fields:
+<li>Create a new line feature class named <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> to store riffle cross sections. This feature class must use the same coordinate system as the vector datasets of the project. Add the following fields:
 <ul>
 <li><code>ReachName</code>: Text (50) - The purpose of this field is to store the reach name.</li>
 <li><code>Seq</code>: long integer - The purpose of this field is to uniquely identify each cross section.</li>
@@ -361,13 +361,13 @@
 <li>Digitize riffle cross sections beginning with the left descending bank. While editing, use the “Reverse Direction” command (aka flip) to ensure riffles are digitized in the correct direction.</li>
 <li>A red vertex denotes the end of a line segment. Therefore, the red end vertex should be on the right descending bank.</li>
 <li>Check that each cross section is digitized in the correct direction (start at the left descending bank and end on the right descending bank) before going on to the next step.</li>
-<li>Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each <code>riffle_floodplain</code> feature to ensure that it extends at least to the edge of the <code>Floodplain Mask</code> layer, but no further.</li>
-<li>This ensures that each <code>riffle_floodplain</code> feature covers the entire floodplain, but does not extend too far into the uplands.<br />
+<li>Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> feature to ensure that it extends at least to the edge of the <code>Floodplain Mask</code> layer, but no further.</li>
+<li>This ensures that each <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> feature covers the entire floodplain, but does not extend too far into the uplands.<br />
 </li>
 <li>For a site with multiple reaches, riffle cross sections must be uniquely numbered across all reaches. The <code>Seq</code> field values of riffle cross sections should not repeat within the reaches of a site.</li>
 <li>The downstream-most cross section in the site should be numbered starting with the <code>Seq</code> field value of 1 and increase moving upstream.</li>
-<li>If necessary, use the <code>13a - XS Resequence</code> tool to set the starting <code>Seq</code> value for each reach.</li>
-<li>Set the <code>Seq</code> field value for each upstream reach to the upstream-most value (i.e., the highest <code>Seq</code> value of the downstream reach’s riffle cross section FC) of the downstream reach. For example, set the <code>Seq</code> of the Reach-2 riffle cross section FC to 18 if the maximum value of Reach-1’s riffle cross section FC <code>Seq</code> field is 17.</li>
+<li>If necessary, use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-resequence-tool"><code>13a - XS Resequence</code></a> tool to set the starting <code>Seq</code> value for each reach.</li>
+<li>Set the <code>Seq</code> field value for each upstream reach to the upstream-most value (i.e., the highest <code>Seq</code> value of the downstream reach’s riffle cross section feature class) of the downstream reach. For example, set the <code>Seq</code> of the Reach-2 riffle cross section feature class to 18 if the maximum value of Reach-1’s riffle cross section feature class <code>Seq</code> field is 17.</li>
 </ul>
 </div>
 <div id="assign-cross-section-ids" class="section level3">
@@ -381,13 +381,13 @@
 <h3><span class="header-section-number">6.1.3</span> Calculate Cross Section Watershed Area</h3>
 <p>The purpose of this step is to calculate the watershed area for each riffle cross section.</p>
 <ul>
-<li>From the study area geodatabase, use the <code>watershed_contributing_area</code> raster that covers the entire contributing watershed of the study area.<br />
+<li>From the study area geodatabase, use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#contributing-area-raster"><code>watershed_contributing_area</code></a> raster that covers the entire contributing watershed of the study area.<br />
 </li>
-<li>Use the ERSI <code>Clip Raster</code> tool to clip the <code>watershed_contributing_area</code> raster to <code>stream_network_buffer</code> to speed tool run time.</li>
+<li>Use the <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/clip.htm">ERSI <code>Clip Raster</code></a> tool to clip the <code>watershed_contributing_area</code> raster to <code>stream_network_buffer</code> to speed tool run time.</li>
 <li>Add the <code>contributing_area_buffer</code> raster to a map and symbolize with a “hot-cold” stretch renderer.</li>
-<li>Add the <code>flowline</code> and regular cross section features classes to the map. Place them on top of the <code>contributing_area_buffer</code> raster.</li>
-<li>Determine the maximum distance from the intersection of each cross section and the <code>flowline</code> to the nearest pixel of high flow in the <code>contributing_area_buffer</code> raster. This value will be used for the <code>snap_distance</code> in the next step.</li>
-<li>Use the <code>12 - XS Watershed Area</code> tool to calculate the watershed area for each cross section.</li>
+<li>Add the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc"><code>flowline</code></a> and regular cross section features classes to the map. Place them on top of the <code>contributing_area_buffer</code> raster.</li>
+<li>Determine the maximum distance from the intersection of each cross section and the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc"><code>flowline</code></a> to the nearest pixel of high flow in the <code>contributing_area_buffer</code> raster. This value will be used for the <code>snap_distance</code> in the next step.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-watershed-area-tool"><code>12 - XS Watershed Area</code></a> tool to calculate the watershed area for each cross section.</li>
 <li>For the <code>flow_accum</code> parameter, use the <code>contributing_area_buffer</code> raster.</li>
 <li>For the <code>snap_distance</code> parameter, use the distance you calculated in a previous step.</li>
 </ul>
@@ -396,32 +396,32 @@
 <h3><span class="header-section-number">6.1.4</span> Calculate Cross Section River Position</h3>
 <p>The purpose of this step is to calculate the river position for each riffle cross section.</p>
 <ul>
-<li>Use the <code>13 - XS River Position</code> tool to calculate the distance to the mouth of the river for each cross section.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-river-position"><code>13 - XS River Position</code></a> tool to calculate the distance to the mouth of the river for each cross section.</li>
 <li>The river position of each cross section will be used in later steps to calculate several channel parameters (i.e., gradient, sinuosity).</li>
 </ul>
 </div>
 <div id="create-riffle-channel" class="section level3">
 <h3><span class="header-section-number">6.1.5</span> Create Riffle Channel</h3>
-<p>The purpose of this step is to edit the lateral extent of the <code>riffle_channel</code> FC to just cover the initial channel extent. This allows a more detailed examination of the channel area.</p>
+<p>The purpose of this step is to edit the lateral extent of the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_channel</code></a> feature class to just cover the initial channel extent. This allows a more detailed examination of the channel area.</p>
 <ul>
-<li>In the Catalog window, make a copy of the <code>riffle_floodplain</code> feature class and name it <code>riffle_channel</code>.</li>
-<li>Edit each <code>riffle_channel</code> feature to ensure that it extends at least to the edge of the <code>Channel Mask</code> layer, but no further. This ensures that each <code>riffle_channel</code> feature covers the entire channel, but does not extend too far into the floodplain.</li>
-<li>Use snapping to ensure that vertices of the <code>riffle_channel</code> features are coincident with the overlapping <code>riffle_floodplain</code> features.</li>
+<li>In the Catalog window, make a copy of the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> feature class and name it <code>riffle_channel</code>.</li>
+<li>Edit each <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_channel</code></a> feature to ensure that it extends at least to the edge of the <code>Channel Mask</code> layer, but no further. This ensures that each <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_channel</code></a> feature covers the entire channel, but does not extend too far into the floodplain.</li>
+<li>Use snapping to ensure that vertices of the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_channel</code></a> features are coincident with the overlapping <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> features.</li>
 </ul>
 </div>
 <div id="calculate-cross-section-points-1" class="section level3">
 <h3><span class="header-section-number">6.1.6</span> Calculate Cross Section Points</h3>
 <p>The purpose of this step is to convert each riffle cross section into a set of evenly stationed points and assign DEM and detrended elevation values.</p>
 <ul>
-<li>Use the <code>14 - XS Points</code> tool to calculate cross section station points for each cross section.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-tool"><code>14 - XS Points</code></a> tool to calculate cross section station points for each cross section.</li>
 <li>The <code>station_distance</code> parameter should be set to approximately the resolution of the DEM. For example, if the DEM has a cell size of 1 foot (0.3048 meter), set the <code>station_distance</code> to that distance (using the linear units of the coordinate system used for the project’s vector data).</li>
-<li>This tool creates a new feature class named <code>&lt;cross section FC name&gt;_points</code>.</li>
-<li>Repeat this step for both the <code>riffle_floodplain</code> and <code>riffle_channel</code> FCs.</li>
+<li>This tool creates a new feature class named <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-fc"><code>&lt;cross section feature class name&gt;_points</code></a>.</li>
+<li>Repeat this step for both the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> and <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_channel</code></a> feature classes.</li>
 </ul>
 </div>
 <div id="calculate-initial-cross-section-l2-dimension" class="section level3">
 <h3><span class="header-section-number">6.1.7</span> Calculate Initial Cross Section L2 Dimension</h3>
-<p>The purpose of this step is to calculate the initial L2 dimensions for the the riffle cross sections for each reach. Repeat the following steps for both the <code>riffle_floodplain</code> FC and the <code>riffle_channel</code> FC.</p>
+<p>The purpose of this step is to calculate the initial L2 dimensions for the the riffle cross sections for each reach. Repeat the following steps for both the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> and <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_channel</code></a> feature classes.</p>
 <p><strong>Determine the moving window size</strong><br />
 Many stream metrics are scale dependent, meaning these metrics are affected by the size of the moving window used in their calculation. To determine the appropriate size of the moving window for this reach, use the following steps:</p>
 <ul>
@@ -433,16 +433,16 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 </ul>
 <p><strong>Calculate Initial L2 Dimensions</strong></p>
 <ul>
-<li>Use the <code>15b - XS Dimensions, Level 2</code> tool to calculate L2 dimensions.</li>
-<li>Set the <code>xs_fc</code> parameter to the regular cross sections FC you created in a previous step.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-L2-tool"><code>15b - XS Dimensions, Level 2</code></a> tool to calculate L2 dimensions.</li>
+<li>Set the <code>xs_fc</code> parameter to the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#regular-xs-fc">regular cross sections</a> feature class you created in a previous step.</li>
 <li>Set the <code>lead_n</code> parameter to the number of upstream cross sections that you calculated in a previous step.</li>
 <li>If the elevations in the channel seem noisy, check the <code>use_smoothing</code> parameter and set the <code>loess_span</code> parameter to a value between 0-1.</li>
 <li>Confirm that the <code>vert_units</code> of the DEM are in feet.</li>
 </ul>
 <p><strong>Confirm the degree of smoothing</strong></p>
 <ul>
-<li>Use a chart to verify the choice of the smoothing <code>loess_span</code> parameter in the <code>*_dims_L2</code> FC.</li>
-<li>Right-click on the <code>*_dims_L2</code> FC in the map table of contents and select “Create Chart”, and select “Line”. In the <code>Date or Number</code> dropdown, choose the field <code>POINT_M</code>. In the <code>Aggregation</code> dropdown, choose <code>None</code>. In the <code>Numeric field(s)</code> checklist, check the boxes next to <code>Z</code> and <code>Z_smooth</code>. Click the <code>Apply</code> button to view the chart.</li>
+<li>Use a chart to verify the choice of the smoothing <code>loess_span</code> parameter in the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc"><code>*_dims_L2</code></a> feature class.</li>
+<li>Right-click on the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc"><code>*_dims_L2</code></a> feature class in the map table of contents and select “Create Chart”, and select “Line”. In the <code>Date or Number</code> dropdown, choose the field <code>POINT_M</code>. In the <code>Aggregation</code> dropdown, choose <code>None</code>. In the <code>Numeric field(s)</code> checklist, check the boxes next to <code>Z</code> and <code>Z_smooth</code>. Click the <code>Apply</code> button to view the chart.</li>
 <li>Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change.</li>
 <li>If the smoothing is not ideal, re-run the tool and adjust the <code>loess_span</code> parameter.</li>
 </ul>
@@ -456,16 +456,16 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 <h3><span class="header-section-number">6.2.1</span> Run the Estimate Bankfull Report</h3>
 <p>The purpose of this step is to run the Estimate Bankfull report for each reach.</p>
 <ul>
-<li>In the <code>Reports</code> toolset, use the <code>Estimate Bankfull</code> tool to produce the Estimate Bankfull Report.</li>
-<li>For the <code>stream</code> parameter, use the value of the <code>ReachName</code> field used in the <code>flowline</code> FC.</li>
-<li>For the <code>flowline_fc</code> parameter, enter the <code>flowline</code> FC for the base year survey.</li>
-<li>For the <code>xs_dims_fc</code> parameter, use the <code>riffle_channel_dims_L2</code> FC calculated for the base year.</li>
-<li>The <code>xs_points_ch_*</code> parameter set requires a <code>riffle_channel_points</code> FC. These FCs should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
-<li>The <code>xs_points_fp_*</code> parameter set requires a <code>riffle_floodplain_points</code> FC. These FCs should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
+<li>In the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#reports-toolset"><code>Reports</code></a> toolset, use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#estimate-bankfull-report-tool"><code>L2 Estimate Bankfull</code></a> tool to produce the Estimate Bankfull Report.</li>
+<li>For the <code>stream</code> parameter, use the value of the <code>ReachName</code> field used in the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc"><code>flowline</code></a> feature class.</li>
+<li>For the <code>flowline_fc</code> parameter, enter the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc"><code>flowline</code></a> feature class for the base year survey.</li>
+<li>For the <code>xs_dims_fc</code> parameter, use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc"><code>riffle_channel_dims_L2</code></a> feature class calculated for the base year.</li>
+<li>The <code>xs_points_ch_*</code> parameter set requires a <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-fc"><code>riffle_channel_points</code></a> feature class. These feature classes should be entered with the feature class for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
+<li>The <code>xs_points_fp_*</code> parameter set requires a <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-fc"><code>riffle_floodplain_points</code></a> feature class. These feature classes should be entered with the feature class for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
 <li>The <code>survey_name_*</code> parameters are used to label the surveys in maps and graphs.</li>
-<li>The FCs and labels used for the <code>xs_points_*</code> and <code>survey_name_*</code> parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters.</li>
-<li>For the <code>features_fc</code> parameter, enter the <code>features</code> FC for the base year survey.</li>
-<li>For the <code>dem</code> parameter, enter the DEM for the base year survey.</li>
+<li>The feature classes and labels used for the <code>xs_points_*</code> and <code>survey_name_*</code> parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters.</li>
+<li>For the <code>features_fc</code> parameter, enter the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-fc"><code>features</code></a> feature class for the base year survey.</li>
+<li>For the <code>dem</code> parameter, enter the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster">DEM</a> for the base year survey.</li>
 <li>For the <code>regions</code> parameter, select the regions to use for estimating the bankfull water surface elevation.</li>
 <li>For the <code>from_elevation</code> parameter, specify the lowest detrended elevation value to use for sensitivity analysis.</li>
 <li>For the <code>to_elevation</code> parameter, specify the highest detrended elevation value to use for sensitivity analysis.</li>
@@ -485,9 +485,9 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 </div>
 <div id="determine-bankfull-elevation" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Determine Bankfull Elevation</h3>
-<p>The purpose of this step is to interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach. The <code>Estimate Bankfull</code> tool is intended to be run iteratively, testing the fit of a range of detrended bankfull elevations against different regional curves.</p>
+<p>The purpose of this step is to interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach. The <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-fc"><code>L2 Estimate Bankfull</code></a> tool is intended to be run iteratively, testing the fit of a range of detrended bankfull elevations against different regional curves.</p>
 <ul>
-<li>From the initial Estimate Bankfull Report, use the Bankfull Elevation Goodness of Fit sensitivity analysis graph to examine the effect of choice of detrended bankfull elevation on the error statistic.</li>
+<li>From the initial <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#estimate-bankfull-report">Estimate Bankfull Report</a>, use the Bankfull Elevation Goodness of Fit sensitivity analysis graph to examine the effect of choice of detrended bankfull elevation on the error statistic.</li>
 <li>Identify the detrended bankfull elevation that minimizes error on the Bankfull Elevation Goodness of Fit sensitivity analysis graph.</li>
 <li>In the example figure below, the detrended bankfull elevation of 104 ft. minimizes error (y-axis Mean Average Error) for both area and depth. Although 102 ft. appears to be the detrended elevation that minimizes error for width, 104 ft. does a better job for area and depth. Using the logic of “best two out three”, a detrended bankfull elevation of 104 ft. could be chosen for this reach and will be used for later steps in this analysis. However, other criteria could be used depending on the goals of your study.</li>
 <li>Rerun the report using the value chosen in the previous step.</li>
@@ -501,40 +501,40 @@ Figure 6.1: Bankfull Elevation Goodness of Fit
 </div>
 <div id="create-bankfull-area" class="section level3">
 <h3><span class="header-section-number">6.2.4</span> Create Bankfull Area</h3>
-<p>The purpose of this step is to use the final bankfull elevation determined in the previous step to derive a final <code>bankfull_area</code> polygon for each reach.</p>
+<p>The purpose of this step is to use the final bankfull elevation determined in the previous step to derive a final <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>bankfull_area</code></a> polygon for each reach.</p>
 <ul>
 <li>From the final Estimate Bankfull Report, use the detrended bankfull elevation identified in the last step. In the example above, this value was 104 ft.</li>
-<li>Use the <code>08 - Water Surface Extent</code> tool to extract a bankfull area polygon. This tool creates a new polygon feature class named <code>banks_raw_xxx</code>, where xxx is the detrended elevation specified.</li>
-<li>The <code>banks_raw_xxx</code> FC must be edited to select only the polygons that represent the bankfull area polygon(s).</li>
-<li>Open the attribute table for the <code>banks_raw_xxx</code> FC and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#water-surface-extent"><code>08 - Water Surface Extent</code></a> tool to extract a bankfull area polygon. This tool creates a new polygon feature class named <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>banks_raw_xxx</code></a>, where xxx is the detrended elevation specified.</li>
+<li>The <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>banks_raw_xxx</code></a> feature class must be edited to select only the polygons that represent the bankfull area polygon(s).</li>
+<li>Open the attribute table for the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>banks_raw_xxx</code></a> feature class and use advanced sorting to sort first by <code>gridcode</code> and then by <code>Shape_Area</code>.</li>
 <li>Polygons with <code>gridcode</code> = 1 are polygons inundated at the detrended elevation.</li>
 <li>Typically, the polygons with the largest area represent the channel.</li>
 <li>Begin by selecting <code>gridcode</code> = 1 polygons with the largest area until the entire bankfull area is selected.</li>
 <li>Export these selected features to a new feature class named <code>bankfull_area</code>.</li>
-<li>Delete the <code>banks_raw_xxx</code> FC.</li>
+<li>Delete the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>banks_raw_xxx</code></a> feature class.</li>
 </ul>
 </div>
 <div id="create-banklines" class="section level3">
 <h3><span class="header-section-number">6.2.5</span> Create Banklines</h3>
-<p>The purpose of this step is to convert the <code>bankfull_area</code> polygon into polylines and edit into a <code>banklines</code> FC for each reach. The <code>banklines</code> feature class will have two records, one representing the left descending bankline and another the right descending bankline for the stream reach.</p>
+<p>The purpose of this step is to convert the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>bankfull_area</code></a> polygon into polylines and edit into a <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class for each reach. The <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class will have two records, one representing the left descending bankline and another the right descending bankline for the stream reach.</p>
 <ul>
-<li>Use the ESRI <code>Polygon To Line</code> tool to convert the <code>bankfull_area</code> polygon FC to a new polyline FC named <code>banklines</code>.</li>
-<li>Add the following fields to the <code>banklines</code> FC:
+<li>Use the <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/polygon-to-line.htm">ESRI <code>Polygon To Line</code></a> tool to convert the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>bankfull_area</code></a> polygon feature class to a new polyline feature class named <code>banklines</code>.</li>
+<li>Add the following fields to the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class:
 <ul>
 <li><code>ReachName</code>: Text (50) - The purpose of this field is to store the reach name.</li>
 <li><code>bank_id</code>: Long Integer - The purpose of this field is to uniquely identify each bank.</li>
 <li><code>bank</code>: Text (50) - The purpose of this field is to designate which bank is the <code>right descending</code> bank and which is the <code>left descending</code> bank.</li>
 </ul></li>
-<li>Start editing the <code>banklines</code> FC.</li>
-<li>Use the ESRI <code>Explode Multipart Feature</code> tool to explode any multipart line feature in the <code>banklines</code> FC.</li>
-<li>Add the <code>flowline</code> FC to the map.</li>
-<li>Use the ESRI <code>Split Tool</code> to split the line features at the downstream and upstream ends of the <code>flowline</code> FC.</li>
-<li>The features in the <code>banklines</code> FC should not extend past the end of the <code>flowline</code> feature.</li>
-<li>Use the ESRI <code>Split Tool</code> to trim any tributaries from the <code>banklines</code> FC.</li>
+<li>Start editing the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class.</li>
+<li>Use the <a href="https://pro.arcgis.com/en/pro-app/latest/help/editing/explode-a-multipart-feature.htm">ESRI <code>Explode Multipart Feature</code></a> tool to explode any multipart line feature in the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class.</li>
+<li>Add the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc"><code>flowline</code></a> feature class to the map.</li>
+<li>Use the <a href="https://pro.arcgis.com/en/pro-app/latest/help/editing/split-a-feature.htm">ESRI <code>Split Tool</code></a> to split the line features at the downstream and upstream ends of the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc"><code>flowline</code></a> feature class.</li>
+<li>The features in the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class should not extend past the end of the <code>flowline</code> feature.</li>
+<li>Use the <a href="https://pro.arcgis.com/en/pro-app/latest/help/editing/split-a-feature.htm">ESRI <code>Split Tool</code></a> to trim any tributaries from the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class.</li>
 <li>The goal of this step is to have only two features, one representing the left descending bankline and another the right descending bankline. Delete all other line features.</li>
-<li>Ensure that the banklines are digitized in the upstream direction (like a <code>flowline</code> feature). Edit the <code>banklines</code> FC to ensure that each bankline is digitized beginning with the downstream end and digitized upstream.</li>
+<li>Ensure that the banklines are digitized in the upstream direction (like a <code>flowline</code> feature). Edit the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class to ensure that each bankline is digitized beginning with the downstream end and digitized upstream.</li>
 <li>While editing, select a <code>bankline</code> feature, choose to edit vertices. Ensure that the red endpoint is at the upstream end of each bankline.</li>
-<li>Use the “Reverse Direction” command (aka flip) to ensure each bankline is digitized in the upstream direction.</li>
+<li>Use the <a href="https://pro.arcgis.com/en/pro-app/latest/help/editing/reverse-the-direction-of-a-polyline.htm">“Reverse Direction” command (aka flip)</a> to ensure each bankline is digitized in the upstream direction.</li>
 <li>Check that each bankline is digitized in the upstream direction (red endpoint at the upstream end) before going on to the next step.</li>
 <li>In the <code>ReachName</code> field enter the reach name.</li>
 <li>In the <code>bank</code> field, enter the string <code>right descending</code> or <code>left descending</code> to designate which bank each line represents.</li>
@@ -545,7 +545,7 @@ Figure 6.1: Bankfull Elevation Goodness of Fit
 <h3><span class="header-section-number">6.2.6</span> Create Final Centerline</h3>
 <p>The purpose of this step is to create a stream centerline. The centerline represents the rough midline of the stream between the banklines.</p>
 <ul>
-<li>Use the <code>10 - Centerline</code> tool to create a <code>centerline</code> polyline feature class representing the stream midline at the bankfull water surface elevation.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#centerline-tool"><code>10 - Centerline</code></a> tool to create a <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#centerline-fc"><code>centerline</code></a> polyline feature class representing the stream midline at the bankfull water surface elevation.</li>
 </ul>
 <hr />
 </div>
@@ -555,12 +555,12 @@ Figure 6.1: Bankfull Elevation Goodness of Fit
 <p>The purpose of this stage is to use the bankfull elevation determined in the last stage to calculate the final level 2 cross section dimensions for the base year for each reach.</p>
 <div id="calculate-final-cross-section-l2-dimensions" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Calculate Final Cross Section L2 Dimensions</h3>
-<p>The purpose of this step is to calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach. Repeat the following steps for regular spaced cross section FC, the <code>riffle_floodplain</code> FC, and the <code>riffle_channel</code> FC.</p>
+<p>The purpose of this step is to calculate the final L2 dimensions for the regularly spaced and riffle cross section feature classes for each reach. Repeat the following steps for <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#regular-xs-fc">regular spaced cross section</a> feature class, the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_floodplain</code></a> feature class, and the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc"><code>riffle_channel</code></a> feature class.</p>
 <p><strong>Determine the moving window size</strong><br />
 Many stream metrics are scale dependent, meaning these metrics are affected by the size of the moving window used in their calculation. To determine the appropriate size of the moving window for this reach, use the following steps:</p>
 <ul>
 <li>Many stream metrics are typically calculated using a moving window size equal to two meander wavelengths.</li>
-<li>Using the <code>bankfull_area</code> FC, estimate the typical bankfull width for the reach.</li>
+<li>Using the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc"><code>bankfull_area</code></a> feature class, estimate the typical bankfull width for the reach.</li>
 <li>Estimate the length of two meander wavelengths by multiplying the bankfull width estimated in the last step by 10 (e.g., 30ft bankfull width * 10 = 300ft, two meander wavelengths).<br />
 </li>
 <li>Determine how many cross sections two meander wavelengths represent.</li>
@@ -569,17 +569,17 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 </ul>
 <p><strong>Calculate Final L2 Dimensions</strong></p>
 <ul>
-<li>Delete the initial Level 2 dimensions <code>*_dims_L2</code> FCs created earlier in Level 2.</li>
-<li>Use the <code>15b - XS Dimensions, Level 2</code> tool to calculate final L2 dimensions.</li>
-<li>Set the <code>xs_fc</code> parameter to the cross sections FC.</li>
+<li>Delete the initial Level 2 dimensions <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc"><code>*_dims_L2</code></a> feature classes created earlier in Level 2.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-L2-tool"><code>15b - XS Dimensions, Level 2</code></a> tool to calculate final L2 dimensions.</li>
+<li>Set the <code>xs_fc</code> parameter to the cross sections feature class.</li>
 <li>Set the <code>lead_n</code> parameter to the number of upstream cross sections that you calculated in a previous step depending on the type of cross section (i.e., regular cross section, riffle cross section).</li>
 <li>If the elevations in the channel seem noisy, check the <code>use_smoothing</code> parameter and set the <code>loess_span</code> parameter to a value between 0-1.</li>
 <li>Confirm that the <code>vert_units</code> of the DEM are in feet.</li>
 </ul>
 <p><strong>Confirm the degree of smoothing</strong></p>
 <ul>
-<li>Use a chart to verify the choice of the smoothing <code>loess_span</code> parameter in the <code>*_dims_L2</code> FC.</li>
-<li>Right-click on the <code>*_dims_L2</code> FC in the map table of contents and select “Create Chart”, and select “Line”. In the <code>Date or Number</code> dropdown, choose the field <code>POINT_M</code>. In the <code>Aggregation</code> dropdown, choose <code>None</code>. In the <code>Numeric field(s)</code> checklist, check the boxes next to <code>Z</code> and <code>Z_smooth</code>. Click the <code>Apply</code> button to view the chart.</li>
+<li>Use a chart to verify the choice of the smoothing <code>loess_span</code> parameter in the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc"><code>*_dims_L2</code></a> feature class.</li>
+<li>Right-click on the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc"><code>*_dims_L2</code></a> feature class in the map table of contents and select “Create Chart”, and select “Line”. In the <code>Date or Number</code> dropdown, choose the field <code>POINT_M</code>. In the <code>Aggregation</code> dropdown, choose <code>None</code>. In the <code>Numeric field(s)</code> checklist, check the boxes next to <code>Z</code> and <code>Z_smooth</code>. Click the <code>Apply</code> button to view the chart.</li>
 <li>Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change.</li>
 <li>If the smoothing is not ideal, re-run the tool and adjust the <code>loess_span</code> parameter.</li>
 </ul>
@@ -588,8 +588,8 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 <h3><span class="header-section-number">6.3.2</span> Add Modeled Water Surface Elevation</h3>
 <p>The purpose of this optional step is to add an HEC-RAS hydraulic model estimated water surface elevation (if available) to a cross section dimension feature class.</p>
 <ul>
-<li>Use the <code>16 - XS RAS Watersurface</code> tool to add a modeled watersurface to the input cross section feature class.</li>
-<li>Use the <code>RAS_model_name</code> to distinguish between multiple RAS model scenarios.</li>
+<li>Use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-ras-watersurface-tool"><code>16 - XS RAS Watersurface</code></a> tool to add a modeled water surface elevation field to the input cross section feature class.</li>
+<li>Use the <code>RAS_model_name</code> parameter to distinguish between multiple RAS model scenarios.</li>
 </ul>
 <hr />
 </div>
@@ -601,17 +601,17 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 <h3><span class="header-section-number">6.4.1</span> Run the L2 Report</h3>
 <p>The purpose of this step is to run the L2 report for each reach.</p>
 <ul>
-<li>In the Reports toolset, use the <code>Level 2 Report</code> tool to produce the Level 2 Report.</li>
-<li>For the <code>stream</code> parameter, use the value of the <code>ReachName</code> field used in the <code>flowline</code> FC.</li>
-<li>For the <code>flowline_fc</code> parameter, enter the <code>flowline</code> FC for the base year survey.</li>
-<li>For the <code>xs_dims_fc</code> parameter, use the <code>*_dims_L2</code> FC calculated for the regular cross sections of the base year.</li>
-<li>The <code>xs_points_*</code> parameters should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
+<li>In the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#reports-toolset">Reports</a> toolset, use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#L2-report-tool"><code>Level 2 Report</code></a> tool to produce the Level 2 Report.</li>
+<li>For the <code>stream</code> parameter, use the value of the <code>ReachName</code> field used in the <code>flowline</code> feature class.</li>
+<li>For the <code>flowline_fc</code> parameter, enter the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc"><code>flowline</code></a> feature class for the base year survey.</li>
+<li>For the <code>xs_dims_fc</code> parameter, use the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc"><code>*_dims_L2</code></a> feature class calculated for the regular cross sections of the base year.</li>
+<li>The <code>xs_points_*</code> parameters should be entered with the feature class for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
 <li>The <code>survey_name_*</code> parameters are used to label the surveys in maps and graphs.</li>
-<li>The FCs and labels used for the <code>flowline_points_*</code>, <code>xs_points_*</code>, and <code>survey_name_*</code> parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters.</li>
-<li>For the <code>dem</code> parameter, enter the DEM for the base year survey.</li>
-<li>For the <code>banklines_fc</code> parameter, enter the <code>banklines</code> FC created for the base year survey.<br />
+<li>The feature classes and labels used for the <code>flowline_points_*</code>, <code>xs_points_*</code>, and <code>survey_name_*</code> parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters.</li>
+<li>For the <code>dem</code> parameter, enter the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster">DEM</a> for the base year survey.</li>
+<li>For the <code>banklines_fc</code> parameter, enter the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc"><code>banklines</code></a> feature class created for the base year survey.<br />
 </li>
-<li>For the <code>features_fc</code> parameter, enter the <code>features</code> FC for the base year survey.</li>
+<li>For the <code>features_fc</code> parameter, enter the <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#features-fc"><code>features</code></a> feature class for the base year survey.</li>
 <li>For the <code>bf_estimate</code> parameter, specify the detrended elevation value that represents the bankfull water surface elevation.</li>
 <li>For the <code>regions</code> parameter, select the regions to use for estimating the bankfull water surface elevation.</li>
 </ul>

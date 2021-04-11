@@ -1,5 +1,5 @@
 # Level 3 Workflow
-This chapter describes the workflow steps necessary to complete a Level 3 FluvialGeomorph analysis. The purpose of this level is to extract planform dimensions. This section will provide a brief overview of the Level 3 (L3) workflow.
+This chapter describes the workflow steps necessary to complete a Level 3 (L3) FluvialGeomorph analysis. The purpose of this level is to extract planform dimensions. 
 
 ## Define Valley Line
 The purpose of this stage is to define the valley trend line for the base year for each reach. 
@@ -8,39 +8,42 @@ The purpose of this stage is to define the valley trend line for the base year f
 The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain. 
 
 * From the final Estimate Bankfull Report created in Level 2, use the detrended bankfull elevation identified. In the example from Level 2, this value was 104 ft. 
-* **Determine the bankfull depth: ** The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach: 
- * ```104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth```
-* **Determine flood prone height: ** Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:
-* ```2 * 4 ft bankfull depth = 8 ft flood prone height``` 
-* Therefore, the flood prone detrended elevation would be 108 ft: 
-* ```100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height```
-* With the detrended flood prone elevation for your reach determined in the last step, use the `08 - Water Surface Extent` tool to extract a flood prone area polygon. This tool creates a new polygon feature class named `banks_raw_xxx`, where xxx is the detrended elevation selected. 
-* This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the `banks_raw_xxx` feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire flood prone area is selected. 
+* **Determine the bankfull depth: ** The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore, a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach:  
+```104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth```  
+
+* **Determine flood prone height: ** Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:  
+```2 * 4 ft bankfull depth = 8 ft flood prone height```  
+
+* Therefore, the flood prone detrended elevation would be 108 ft:  
+```100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height```  
+
+* With the detrended flood prone elevation for your reach determined in the last step, use the [`08 - Water Surface Extent`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#water-surface-extent) tool to extract a flood prone area polygon. This tool creates a new polygon feature class named [`banks_raw_xxx`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc), where xxx is the detrended elevation selected. 
+* This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the [`banks_raw_xxx`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc) feature class and use advanced sorting to sort first by `gridcode` and then by `Shape_Area`. Polygons with `gridcode` = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting `gridcode` = 1 polygons with the largest area until the entire flood prone area is selected. 
 * Export these selected features to a new feature class named `flood_prone`. 
-* Delete the `banks_raw_xxx` feature class created in this section. 
+* Delete the [`banks_raw_xxx`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankfull-area-fc) feature class created in this section. 
 
 
 ### Develop Candidate Valleylines
-The purpose of this step is to create a set of candidate valleylines through iterative smoothing of the flowline for each reach. 
+The purpose of this step is to create a set of candidate [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature classes through iterative smoothing of the flowline for each reach. 
 
-* The following steps are performed in the site geodatabase for the base year. This is done to ensure that a valleyline is created smoothly through all of the reaches in a site. 
-* In the site geodatabase for the base year, use the ESRI `Smooth Line` tool to smooth the site `flowline` FC. 
+* The following steps are performed in the site geodatabase for the base year. This is done to ensure that a [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature class is created smoothly through all of the reaches in a site. 
+* In the site geodatabase for the base year, use the [ESRI `Smooth Line`](https://pro.arcgis.com/en/pro-app/latest/tool-reference/cartography/smooth-line.htm) tool to smooth the site [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) feature class. 
 * Choose the `PAEK` smoothing algorithm. 
 * For the first candidate valleyline, use a `Smoothing Tolarance` value of 200 meters. In this case you would name the output feature class `valleyline_200`
 * Repeat the previous step using the `Smoothing Tolerance` values such as 400, 800, and 1000. 
-* Depending on the detail of the `flowline` geometry, you may need to select a different range or set of step values of the `Smoothing Tolerance` parameter values to evaluate. 
-* The goal is to create a wide degree of flowline smoothing in the candidate vallelines to select from in the next step. 
+* Depending on the detail of the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) feature class geometry, you may need to select a different range or set of step values of the `Smoothing Tolerance` parameter values to evaluate. 
+* The goal is to create a wide degree of flowline smoothing in the candidate [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature classes to select from in the next step. 
 
 
 ### Choose Final Valleyline
-The purpose of this step is to choose from the candidate valleylines the one that best captures the overall valley trend line. 
+The purpose of this step is to choose from the candidate [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature classes the one that best captures the overall valley trend line. 
 
-* The goal of this step is to select from the candidate valleylines the one that is the most smoothed, yet still fits primarily within the `flood_prone` polygon extent.
-* Add the `flood_prone` polygon and all of the candidate valleyline FCs to the current map.
-* Identify the valley line feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the `flood_prone` polygon. 
+* The goal of this step is to select from the candidate [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature classes the one that is the most smoothed, yet still fits primarily within the `flood_prone` polygon extent.
+* Add the `flood_prone` polygon and all of the candidate [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature classes to the current map.
+* Identify the [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the `flood_prone` polygon. 
 * In the site geodatabase of the base year, rename the selected valley line to `valleyline`. 
-* Delete the unused candidate valleylines from the site geodatabase of the base year. 
-* Copy the `valleyline` FC you just created from the site geodatabase to each of the base year reach geodatabases. 
+* Delete the unused candidate [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature classes from the site geodatabase of the base year. 
+* Copy the [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) feature class you just created from the site geodatabase to each of the base year reach geodatabases. 
 
 
 ***
@@ -49,9 +52,9 @@ The purpose of this step is to choose from the candidate valleylines the one tha
 The purpose of this stage is to define meander loops and bends for the base year for each reach. 
 
 ### Define Loop Points
-The purpose of this step is to create a new FC named `loop_points` and use it to identify the start and end stream meander loops and bends. 
+The purpose of this step is to create a new feature class named [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) and use it to identify the start and end stream meander loops and bends. 
 
-* Create a new point feature class named `loop_points`. Enable z and m values. The feature class should contain the following fields:
+* Create a new point feature class named [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc). Enable z and m values. The feature class should contain the following fields:
     * `ReachName`: Text (50) - The purpose of this field is to store the reach name. 
     * `loop`: Long Integer - The purpose of this field is to store the loop unique identifier for the point. 
     * `bend`: Long Integer - The purpose of the field is to store the bend identifier for the point. 
@@ -59,10 +62,10 @@ The purpose of this step is to create a new FC named `loop_points` and use it to
 
 **Create Loop Points**   
 
-* `loop_point` features are used to define the start and end location of loop bends and the location of a loop's apex. 
-* `loop_point` features are always placed along (i.e., snapped to) a `bankline` feature. 
+* [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) features are used to define the start and end location of loop bends and the location of a loop's apex. 
+* [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) features are always placed along (i.e., snapped to) a [`bankline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc) feature. 
 * Begin numbering loops starting at the downstream end of the reach and increment the `loop` integer values moving upstream. 
-* In FluvialGeomorph, the `valleyline` is used segment the `flowline` into loops. 
+* In FluvialGeomorph, the [`valleyline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#valleyline-fc) is used segment the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) into loops. 
 * The beginning and end of loops are delineated where the `valleyline` *definitively* crosses the `flowline`. 
 * If the `flowline` crosses the `valleyline` and then crosses back over in a short distance, this is not considered a *definitive* crossing. A definitive crossing is one where the `flowline` approaches the `valleyline`, crosses it, and then continues to move away from the `valleyline` for a significant longitudinal distance. 
 * Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank, then loop 2 is delineated along the left descending bank. 
@@ -71,32 +74,32 @@ The purpose of this step is to create a new FC named `loop_points` and use it to
 
 **Multiple Reaches: **   
 
-* For a site with multiple reaches, loops must be uniquely numbered across all reaches. The `loop` field values of `loop_points` should not repeat within the reaches of a site.  
+* For a site with multiple reaches, loops must be uniquely numbered across all reaches. The `loop` field values of [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) should not repeat within the reaches of a site.  
 * The downstream-most loop in the site should be numbered starting with the `loop` field value of 1 and increase moving upstream.  
-* Set the `loop` field value for each upstream reach to the upstream-most value (i.e., the highest `loop` value of the downstream reach’s `loop_points` FC) of the downstream reach. For example, set the value of the field `loop` of the first Reach-2 `loop_points` feature to 8 if the maximum value of Reach-1’s `loop_points` FC `loop` field is 7.
+* Set the `loop` field value for each upstream reach to the upstream-most value (i.e., the highest `loop` value of the downstream reach’s [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) feature class) of the downstream reach. For example, set the value of the field `loop` of the first Reach-2 [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) feature to 8 if the maximum value of Reach-1’s [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) feature class `loop` field is 7.
 
 **Check Loop Points: **   
 
-* Use the `Check Loop Points` tool in the `Check` toolset to verify that loops and bends are defined correctly. 
+* Use the [`Check Loop Points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#check-loop-points-tool) tool in the [`Check`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#check-toolset) toolset to verify that loops and bends are defined correctly. 
 * Review the messages produced by this tool to identify and correct problems with loop and bend delineation. 
 
 ### Derive Bankline Points
-The purpose of this step is to convert the banklines to a set of points and assign elevations and loop and bend locations. 
+The purpose of this step is to convert the [`banklines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc) to a set of [`bankline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankline-points-fc) and assign elevations and loop and bend locations to these features. 
 
-* Use the `14b - Bankline Points` tool to assign loops, bends, elevations and valley line positions to bankline points. 
-* When the tool completes, check that this tools runs correctly by running the `Check Bankline Points` tool in the `Check` toolset. 
-* The check tool ensures that the `loop`, `bend`, `position`, `valley_POINT_X`, `valley_POINT_Y`, and `valley_POINT_M` fields are populated. Only `bankline_points` features within loops and bends will have values in the `loop`, `bend`, and `position` fields. 
+* Use the [`14b - Bankline Points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankline-points-tool) tool to assign loops, bends, elevations and valley line positions to the [`bankline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankline-points-fc). 
+* When the tool completes, check that this tools runs correctly by running the [`Check Bankline Points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#check-bankline-points-tool) tool in the [`Check`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#check-toolset) toolset. 
+* The check tool ensures that the `loop`, `bend`, `position`, `valley_POINT_X`, `valley_POINT_Y`, and `valley_POINT_M` fields are populated. Only [`bankline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankline-points-fc) features within loops and bends will have values in the `loop`, `bend`, and `position` fields. 
 * All records should have values in the `valley_POINT_X`, `valley_POINT_Y`, and `valley_POINT_M` fields. 
-* Additionally, apply the following definition query to the `bankline_points` feature class: "loop IS NOT NULL". Only `bankline_points` features between `loop_points` features should be visible. 
+* Additionally, apply the following definition query to the [`bankline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankline-points-fc) feature class: "loop IS NOT NULL". Only [`bankline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#bankline-points-fc) features between [`loop_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#loop-points-fc) features should be visible. 
 
 
 ### Assign Cross Section Loops
-The purpose of this step is to assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach. 
+The purpose of this step is to assign loop and bend identifiers to regularly spaced and riffle cross section feature classes for each reach. 
 
-* Use the `14c - Assign Loops` tool to assign loops and bends to a cross section FC. 
-* Set the value of the `cross_section` parameter to the regular cross section FC. 
-* After the tool completes, check the cross section FC that the `loop` and `bend` fields are assigned the correct loop and bend values. 
-* Repeat this step for both the `riffle_channel` and `riffle_floodplain` feature classes. 
+* Use the [`14c - Assign Loops`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-assign-loops-tool) tool to assign loops and bends to a cross section feature class. 
+* Set the value of the `cross_section` parameter to the [regular cross section](https://www.techmanual.fluvialgeomorph.org/toolbox.html#regular-xs-fc) feature class. 
+* After the tool completes, check the [regular cross section](https://www.techmanual.fluvialgeomorph.org/toolbox.html#regular-xs-fc) feature class that the `loop` and `bend` fields are assigned the correct loop and bend values. 
+* Repeat this step for both the [`riffle_channel`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc) and [`riffle_floodplain`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#riffle-xs-fc) feature classes. 
 
 
 ***
@@ -105,17 +108,17 @@ The purpose of this step is to assign loop and bend identifiers to regularly spa
 The purpose of this stage is to calculate the Level 3 dimensions for each reach. 
 
 ### Calculate Cross Section L3 Dimensions
-The purpose of this step is to calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach. 
+The purpose of this step is to calculate the L3 dimensions for the regularly spaced and riffle cross section feature classes for each reach. 
 
-* If any `*_dims_L3` FCs exist in the reach geodatabase (created during a previous run), delete these FCs.  
-* Use the `15c - XS Planform, Level 3` tool to calculate the L3 dimensions.  
-* Verify in the attribute table that the L3 dimensions have been calculated.  
+* If any [`*_dims_L3`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc) feature classes exist in the reach geodatabase (created during a previous run), delete these feature classes.  
+* Use the [`15c - XS Planform, Level 3`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-L3-tool) tool to calculate the L3 dimensions.  
+* Verify in the attribute table that the [L3 dimensions](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc) have been calculated.  
 
 ### Add Modeled Water Surface Elevation  
 The purpose of this optional step is to add an HEC-RAS hydraulic model estimated water surface elevation (if available) to a cross section dimension feature class.  
 
-* Use the `16 - XS RAS Watersurface` tool to add a modeled watersurface to the input cross section feature class. 
-* Use the `RAS_model_name` to distinguish between multiple RAS model scenarios. 
+* Use the [`16 - XS RAS Watersurface`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-ras-watersurface-tool) tool to add a modeled water surface elevation field to the input cross section feature class. 
+* Use the `RAS_model_name` parameter to distinguish between multiple RAS model scenarios. 
 
 
 ***
@@ -126,16 +129,16 @@ The purpose of this stage is to run the Level 3 report for each reach.
 ### Run the L3 Report
 The purpose of this step is to run the L2 report for each reach. 
 
-* In the Reports toolset, use the `Level 3 Report` tool to produce the Level 3 Report. 
-* For the `stream` parameter, use the value of the `ReachName` field used in the `flowline` FC. 
-* For the `flowline_fc` parameter, enter the `flowline` FC for the base year survey. 
-* For the `xs_dims_fc` parameter, use the `*_dims_L3` FC calculated for the regular cross sections of the base year. 
-* The `xs_points_*` parameters should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
+* In the [Reports](https://www.techmanual.fluvialgeomorph.org/toolbox.html#reports-toolset) toolset, use the [`Level 3 Report`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#L3-report-tool) tool to produce the [Level 3 Report](https://www.techmanual.fluvialgeomorph.org/toolbox.html#L3-report). 
+* For the `stream` parameter, use the value of the `ReachName` field used in the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) feature class. 
+* For the `flowline_fc` parameter, enter the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) feature class for the base year survey. 
+* For the `xs_dims_fc` parameter, use the [`*_dims_L3`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc) feature class calculated for the regular cross sections of the base year. 
+* The `xs_points_*` parameters should be entered with the feature class for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
 * The `survey_name_*` parameters are used to label the surveys in maps and graphs. 
-* The FCs and labels used for the `flowline_points_*`, `xs_points_*`, and `survey_name_*` parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters. 
-* For the `dem` parameter, enter the DEM for the base year survey. 
-* For the `banklines_fc` parameter, enter the `banklines` FC created for the base year survey.  
-* For the `features_fc` parameter, enter the `features` FC for the base year survey. 
+* The feature classes and labels used for the `flowline_points_*`, `xs_points_*`, and `survey_name_*` parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters. 
+* For the `dem` parameter, enter the [DEM](https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster) for the base year survey. 
+* For the `banklines_fc` parameter, enter the [`banklines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#banklines-fc) feature class created for the base year survey.  
+* For the `features_fc` parameter, enter the [`features`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#features-fc) feature class for the base year survey. 
 * For the `bf_estimate` parameter, specify the detrended elevation value that represents the bankfull water surface elevation. 
 * For the `regions` parameter, select the regions to use for estimating the bankfull water surface elevation. 
 

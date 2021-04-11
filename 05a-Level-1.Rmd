@@ -1,5 +1,5 @@
 # Level 1 Workflow
-This chapter describes the workflow steps necessary to complete a Level 1 FluvialGeomorph analysis. 
+This chapter describes the workflow steps necessary to complete a Level 1 (L1) FluvialGeomorph analysis. The purpose of this level is to extract basic channel dimensions from LiDAR surveys. 
 
 ## Create Terrain
 The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys. 
@@ -409,7 +409,7 @@ The purpose of this step is to run the L1 report for each reach. The Level 1 Rep
 * The `survey_name_*` parameters are used to label the surveys in maps and graphs. 
 * The feature classes and labels used for the `flowline_points_*`, `xs_points_*`, and `survey_name_*` parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters. 
 * For the `features_fc` parameter, enter the [`features`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#features-fc) feature class for the base year survey. 
-* For the `dem` parameter, enter the DEM for the base year survey. 
+* For the `dem` parameter, enter the [DEM](https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster) for the base year survey. 
 
 
 ### Perform QA
