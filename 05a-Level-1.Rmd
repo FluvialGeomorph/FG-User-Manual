@@ -132,7 +132,7 @@ Slope and sinuosity are scale dependent metrics. This means that these metrics a
 **Confirm the degree of smoothing** 
 
 * Use a chart to verify the choice of the smoothing `loess_span` parameter. 
-* Right-click on the `gradient_*` FC in the map Table of Contents and select "Create Chart", and select "Line". In the `Date or Number` dropdown, choose the field `POINT_M`. In the `Aggregation` dropdown, choose `None`. In the `Numeric field(s)` checklist, check the boxes next to `Z` and `Z_smooth`. Click the `Apply` button to view the chart.
+* Right-click on the [`gradient_*`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#gradient-fc) feature class in the map Table of Contents and select "Create Chart", and select "Line". In the `Date or Number` dropdown, choose the field `POINT_M`. In the `Aggregation` dropdown, choose `None`. In the `Numeric field(s)` checklist, check the boxes next to `Z` and `Z_smooth`. Click the `Apply` button to view the chart.
 * Visually assess the degree of smoothing. The smoothing should be high enough to eliminate LiDAR elevation noise, but not so high as to eliminate meaningful channel elevation change. 
 * If the smoothing is not ideal, re-run the tool and adjust the `loess_span` parameter. 
 
@@ -189,8 +189,8 @@ The purpose of this step is to create a new site geodatabase and populate it wit
 * Back in the study area geodatabase, select the features in the [`stream_network`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#stream-network-fc) feature class representing the current site. Use the "Data | Export Features" function to export the selected site features to the new site geodatabase. Name the exported feature class [`stream_network`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#stream-network-fc). 
 * Examine the [`dem_hydro`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster) raster and determine the maximum width of the active floodplain along the entire site. Be conservative with this estimate. Given its later use, it is important to generously overestimate this value. 
 * Use this maximum floodplain width estimate to buffer the reach [`stream_network`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#stream-network-fc) feature class and name it `stream_network_buffer`. 
-* Use the ESRI `Clip Raster` tool to clip the study area geodatabase [`dem_hydro`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster) to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `dem_hydro_<buffer distance>` (e.g., `dem_hydro_1000` for a buffer distance of 1000 meters). 
-* Use the ESRI `Clip Raster` tool to clip the study area geodatabase [`contributing_area`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#contributing-area-raster) to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `contributing_area_<buffer distance>` (e.g., `contributing_area_1000` for a buffer distance of 1000 meters).  
+* Use the [ESRI `Clip Raster`](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/clip.htm) tool to clip the study area geodatabase [`dem_hydro`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster) to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `dem_hydro_<buffer distance>` (e.g., `dem_hydro_1000` for a buffer distance of 1000 meters). 
+* Use the [ESRI `Clip Raster`](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/clip.htm) tool to clip the study area geodatabase [`contributing_area`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#contributing-area-raster) to the extent of the reach using the `stream_network_buffer` feature class. Save the clipped raster to the reach geodatabase and name it `contributing_area_<buffer distance>` (e.g., `contributing_area_1000` for a buffer distance of 1000 meters).  
 * If you discover in later steps that the buffer distance was underestimated, you will need to repeat this step with a wider buffer. 
 
 
@@ -238,7 +238,7 @@ The purpose of this step is convert the [`flowline`](https://www.techmanual.fluv
 * The `calibration_points`, `point_id_field`, and `measure_field` parameters can be left blank when processing the [base year](#units_of_analysis).
 
 **Multiple Surveys**   
-To make LiDAR surveys collected before the [base year](#units_of_analysis) directly comparable to the base year, previous survey flowlines must be ["calibrated"](https://pro.arcgis.com/en/pro-app/latest/tool-reference/linear-referencing/calibrate-routes.htm) to the base year. This adjusts any changes in flowline planform between surveys to be expressed in terms of the base year longitudinal stationing. 
+To make LiDAR surveys collected before the [base year](#units_of_analysis) directly comparable to the base year, the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) from each previous survey must be [calibrated](https://pro.arcgis.com/en/pro-app/latest/tool-reference/linear-referencing/calibrate-routes.htm) to the base year. This adjusts any changes in flowline planform between survey events to be expressed in terms of the base year longitudinal stationing. 
 
 * If multiple LiDAR surveys exist for a project study area, the [`flowline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-points-fc) for any previous LiDAR survey must be calibrated using the [`flowline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-points-fc) of the base year. 
 * For example, if 2016 is the base year, when deriving the [`flowline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-points-fc) for a LiDAR survey from 2010, the base year's [`flowline_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-points-fc) (2016) must be used for the [`06 - Flowline Points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-points-tool) tool's `calibration_points` parameter value. 
@@ -255,12 +255,12 @@ The purpose of this stage is to define the initial floodplain and channel extent
 The purpose of this step is to produce a detrended DEM. A detrended DEM normalizes stream bank elevations for a specific reach. 
 
 * Inspect the reach to determine the width of the active floodplain. Use the measure tool to measure from the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) outward to the widest extent of the active floodplain. This value will be used as the `buffer_distance` value in the following step.  
-* Use the [`07 - Detrend`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#detrend-dem-tool) tool to create a detrended DEM for the study reach. Set the `buffer_distance` field to a distance wide enough to capture the reach's entire active floodplain.  
+* Use the [`07 - Detrend`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#detrend-dem-tool) tool to create a [`detrend`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#detrend-raster)  detrended DEM for the study reach. Set the `buffer_distance` field to a distance wide enough to capture the reach's entire active floodplain.  
 
 ### Estimate Initial Channel Extent 
 The purpose of this step is to use the detrended DEM to visually extract an initial channel extent polygon. The [`detrend`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#detrend-raster) DEM created in the last step can be used to iteratively explore different inundation extents derived from various water surface elevations.  
 
-* Add the `detrend` raster to the map Table of Contents. Name this layer `Channel Extent`. 
+* Add the [`detrend`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#detrend-raster) raster to the map Table of Contents. Name this layer `Channel Extent`. 
 * On the Symbology tab of the `Channel Extent` layer, use the Classified renderer to classify the raster into 2 classes. Set the first class boundary to the detrended elevation that you would like to explore. Set the color of the first class (min value - detrended elevation) to blue and the color of the second class (detrended elevation - max value) to No Color. 
 * Set the transparency of the `Channel Extent` layer to 50%. 
 * Begin to delineate the channel extent by selecting a detrended elevation that inundates the channel up to at least the first terrace. The goal at this stage is to select a detrended elevation that captures the extent of the channel without "spilling" too much water into the floodplain. Once you discover which detrended elevation begins to allow water to access the floodplain, reduce the detrended elevation value slightly to keep the water in the channel. Try several detrended elevation values to help make the decision. 
@@ -311,14 +311,14 @@ The purpose of this step is to create regularly spaced cross sections along each
 * The [`11 - XS Layout`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-layout-tool) tool automatically numbers regular cross sections `Seq` values starting with the value 1 at the downstream-most cross section.  
 * Use the [`13a - XS Resequence`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-resequence-tool) tool to set the starting `Seq` value for each reach.  
 * For all reaches other than the first reach (downstream-most) in a site, the cross sections must be re-sequenced using the [`13a - XS Resequence`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-resequence-tool) tool. 
-* Set the `Seq` field value for each upstream reach to the upstream-most value (i.e., the highest `Seq` value of the downstream reach’s regular cross section FC) of the downstream reach. 
-* For example, set the `Seq` of the Reach-2 regular cross section FC to 58 if the maximum value of Reach-1’s regular cross section FC `Seq` field is 57.
+* Set the `Seq` field value for each upstream reach to the upstream-most value (i.e., the highest `Seq` value of the downstream reach’s regular cross section feature class) of the downstream reach. 
+* For example, set the `Seq` of the Reach-2 regular cross section feature class to 58 if the maximum value of Reach-1’s regular cross section feature class `Seq` field is 57.
 
 ### Calculate Cross Section Watershed Area
 The purpose of this step is to calculate the watershed area for each regularly spaced cross section. 
 
 * From the study area geodatabase, use the [`watershed_contributing_area`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#contributing-area-raster) raster that covers the entire contributing watershed of the study area.    
-* Use the ERSI `Clip Raster` tool to clip the [`watershed_contributing_area`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#contributing-area-raster) raster to `stream_network_buffer` to speed tool run time. 
+* Use the [ERSI `Clip Raster`](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/clip.htm) tool to clip the [`watershed_contributing_area`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#contributing-area-raster) raster to `stream_network_buffer` to speed tool run time. 
 * Add the `contributing_area_buffer` raster to a map and symbolize with a “hot-cold” stretch renderer.
 * Add the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) and regular cross section features classes to the map. Place them on top of the `contributing_area_buffer` raster. 
 * Determine the maximum distance from the intersection of each cross section and the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) to the nearest pixel of high flow in the `contributing_area_buffer` raster. This value will be used for the `snap_distance` in the next step. 
@@ -337,7 +337,7 @@ The purpose of this step is to convert each cross section into a set of evenly s
 
 * Use the [`14 - XS Points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-tool) tool to calculate cross section station points for each cross section. 
 * The `station_distance` parameter should be set to approximately the resolution of the DEM. For example, if the DEM has a cell size of 1 foot (0.3048 meter), set the `station_distance` to that distance (using the linear units of the coordinate system used for the project's vector data). 
-* This tool creates a new feature class named [`<cross section FC name>_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-fc). 
+* This tool creates a new feature class named [`<cross section feature class name>_points`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-points-fc). 
 
 
 ### Calculate Cross Section L1 Dimensions
@@ -354,7 +354,7 @@ Many stream metrics are scale dependent, meaning these metrics are affected by t
 **Calculate L1 Dimensions**   
 
 * Use the [`15a - XS Dimensions, Level 1`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-L1-tool) tool to calculate L1 dimensions. 
-* Set the `xs_fc` parameter to the regular cross sections FC you created in a previous step. 
+* Set the `xs_fc` parameter to the regular cross sections feature class you created in a previous step. 
 * Set the `lead_n` parameter to the number of upstream cross sections that you calculated in a previous step. 
 * If the elevations in the channel seem noisy, check the `use_smoothing` parameter and set the `loess_span` parameter to a value between 0-1. 
 * Confirm that the `vert_units` of the DEM are in feet. 
@@ -380,7 +380,7 @@ The purpose of this stage is to identify salient features in the floodplain that
 ### Create Features
 The purpose of this step is to identify the longitudinal position of noteworthy stream features for graph and map labeling. 
 
-* Create a new point FC named [`features`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#features-fc) containing the following fields:
+* Create a new point feature class named [`features`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#features-fc) containing the following fields:
     * `Name` - Text (50), Used to record the name of the river feature. 
     * `km_to_mouth` - double, Used to record the feature's longitudinal position within the reach. 
 * Working upstream from the downstream end of the reach, examine the DEM and aerial imagery for significant river features and built infrastructure that could potentially impact stream structure and function.
@@ -404,8 +404,8 @@ The purpose of this step is to run the L1 report for each reach. The Level 1 Rep
 * For the `stream` parameter, use the value of the `ReachName` field used in the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) feature class. 
 * For the `flowline_fc` parameter, enter the [`flowline`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#flowline-fc) feature class for the base year survey. 
 * For the `xs_dimensions_fc` parameter, use the [`*_dims_L1`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#xs-dimensions-fc) feature class calculated for the [regular cross sections](https://www.techmanual.fluvialgeomorph.org/toolbox.html#regular-xs-fc) of the base year. 
-* The `flowline_points_*` parameters should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
-* The `xs_points_*` parameters should be entered with the FC for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
+* The `flowline_points_*` parameters should be entered with the feature class for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
+* The `xs_points_*` parameters should be entered with the feature class for the most recent survey first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006). 
 * The `survey_name_*` parameters are used to label the surveys in maps and graphs. 
 * The feature classes and labels used for the `flowline_points_*`, `xs_points_*`, and `survey_name_*` parameters must be entered in the same order (e.g., 2016, 2010, 2006) in each set of numbered parameters. 
 * For the `features_fc` parameter, enter the [`features`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#features-fc) feature class for the base year survey. 
