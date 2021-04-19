@@ -1,7 +1,8 @@
 book_filename: "FG-User-Manual"
 output_dir: "docs"
-delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
-
+delete_merged_file: true
+view: https://github.com/FluvialGeomorph/FG-User-Manual/blob/master/%s
+edit: https://github.com/FluvialGeomorph/FG-User-Manual/edit/master/%s
