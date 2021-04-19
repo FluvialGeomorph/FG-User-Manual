@@ -104,7 +104,7 @@ The `FluvialGeomorph` workflow has been organized using the following hierarchic
 The purpose of this level is to extract basic channel dimensions. This section will provide a brief overview of the Level 1 (L1) workflow. 
 
 ```{r echo=FALSE, out.width="100%", fig.cap="Level 1 Workflow Diagram"}
-include_graphics("images/Workflow_watershed.png")
+include_graphics("figures/Workflow_watershed.png")
 ```
 
 **Create Terrain:**
