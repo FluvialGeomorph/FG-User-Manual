@@ -22,12 +22,14 @@ vison for what the analysis can be used to accomplish
 The objective is a concise statement of what the research is intended to accomplish.
 
 
-Goals
+Goals  
+
 *	Provide a USACE Planning method for rapid watershed assessments
 *	Develop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles
 *	Develop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits
 
-Objectives
+Objectives  
+
 *	Develop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. 
 *	Use existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics. 
 *	Develop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits. 

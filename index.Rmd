@@ -6,8 +6,9 @@ author:
   - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-url: 'https://usermanual.fluvialgeomorph.org'
+url: 'https\://usermanual.fluvialgeomorph.org/'
 github-repo: "FluvialGeomorph/FG-User-Manual"
+favicon: "favicon.ico"
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: chicago
@@ -42,7 +43,7 @@ knitr::include_graphics("docs/images/EWN_200.png")
 
 
 ## Abstract
-The FluvialGeomorph ArcGIS toolbox provides a set of tools for conducting rapid fluvial geomorphology analysis and assessment. It allows a user to use high resolution, remotely sensed LiDAR (Light Detection and Ranging) terrain data to cost effectively extract stream channel dimensions at fine scale for large spatial extents. More than just documenting a toolbox, this user manual presents an analysis framework that guides GIS analysts with step-by-step instructions through the process of transforming LiDAR data into fluvial geomorphic assessments. These assessments can be used by fluvial geomorphologists and water resource professionals to assess stream conditions and identify problems and opportunities. By organizing several complex datasets into standard reports, the FluvialGeomorph toolbox concisely presents volumes of data in a concise way to aid analysis. 
+The [FluvialGeomorph ArcGIS toolbox](https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox) provides a set of tools for conducting rapid fluvial geomorphology analysis and assessment. It allows a user to use high resolution, remotely sensed LiDAR (Light Detection and Ranging) terrain data to cost effectively extract stream channel dimensions at fine scale for large spatial extents. This user manual presents an analysis framework that guides GIS analysts with step-by-step instructions through the process of transforming LiDAR data into fluvial geomorphic assessments. These assessments can be used by fluvial geomorphologists and water resource professionals to assess stream conditions and identify problems and opportunities. By organizing a standard set of complex datasets into standard reports, the FluvialGeomorph toolbox concisely presents volumes of data in a concise way to aid stream analysis. This user manual is designed to be used alongside its companion [FluvialGeomorph Technical Manual](https://www.techmanual.fluvialgeomorph.org/) that documents the concepts, tools, datasets, metrics, and methods behind this workflow. 
 
 
 ## Distribution Statement
