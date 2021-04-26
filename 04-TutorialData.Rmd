@@ -9,7 +9,7 @@ In this section we will assemble the tutorial data for the Cole Creek Site in th
 
 * Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
 
-```
+``` {fig.cap="Papillion Creek Folder Structure."}
 Papillion_Creek
 └─── Sites
 │    └─── 01_Cole_Creek
@@ -29,7 +29,33 @@ Papillion_Creek
 * Unarchive this `.zip` file to the Cole Creek site data folder. 
 
 
+## Big Blue River, KS
+In this section we will assemble the tutorial data for the Big Blue River sites in the Big Blue River, KS project study area. 
 
+* Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
 
+``` {fig.cap="Big Blue river Folder Structure."}
+Big_Blue_River
+└─── Sites
+│    └─── 01_Horseshoe_Creek
+│    │    └─── Data
+│    │    └─── Elevation
+│    │    └─── Exports
+│    │    └─── Maps
+│    │    └─── Reports
+│    └─── 02_McIntire_Creek
+│    │    └─── Data
+│    │    └─── Elevation
+│    │    └─── Exports
+│    │    └─── Maps
+│    │    └─── Reports
+└─── Elevation
+└─── Exports
+└─── Maps
+
+```
+* Download the [Horseshoe Creek](https://s3.console.aws.amazon.com/s3/object/tutorial-fluvialgeomorph?region=us-east-2&prefix=Big_Blue_KS/Horseshoe_Creek.zip) site data using this link. 
+* Download the [McIntire Creek](https://s3.console.aws.amazon.com/s3/object/tutorial-fluvialgeomorph?region=us-east-2&prefix=Big_Blue_KS/McIntireCreek.zip) site data using this link. 
+* Unarchive these `.zip` files to the appropriate Big Blue River site `Data` folder. 
 
 ***

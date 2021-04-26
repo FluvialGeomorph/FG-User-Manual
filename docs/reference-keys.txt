@@ -37,6 +37,7 @@ qa_tools
 tutorial_data
 map-templates
 cole-creek
+big-blue-river-ks
 level-1-workflow
 create-terrain
 define-study-area
