@@ -54,8 +54,8 @@ Big_Blue_River
 └─── Maps
 
 ```
-* Download the [Horseshoe Creek](https://s3.console.aws.amazon.com/s3/object/tutorial-fluvialgeomorph?region=us-east-2&prefix=Big_Blue_KS/Horseshoe_Creek.zip) site data using this link. 
-* Download the [McIntire Creek](https://s3.console.aws.amazon.com/s3/object/tutorial-fluvialgeomorph?region=us-east-2&prefix=Big_Blue_KS/McIntireCreek.zip) site data using this link. 
+* Download the [Horseshoe Creek](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/Horseshoe_Creek.zip) site data using this link. 
+* Download the [McIntire Creek](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/McIntireCreek.zip) site data using this link. 
 * Unarchive these `.zip` files to the appropriate Big Blue River site `Data` folder. 
 
 ***
