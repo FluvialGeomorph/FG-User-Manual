@@ -29,13 +29,13 @@ Papillion_Creek
 * Unarchive this `.zip` file to the Cole Creek site data folder. 
 
 
-## Big Blue River, KS
-In this section we will assemble the tutorial data for the Big Blue River sites in the Big Blue River, KS project study area. 
+## Big Blue Dam, KS
+In this section we will assemble the tutorial data for the Big Blue Dam sites in the Big Blue Dam, KS project study area. 
 
 * Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
 
-``` {fig.cap="Big Blue river Folder Structure."}
-Big_Blue_River
+``` {fig.cap="Big Blue Dam Folder Structure."}
+Big_Blue_Dam
 └─── Sites
 │    └─── 01_Horseshoe_Creek
 │    │    └─── Data
