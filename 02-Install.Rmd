@@ -7,7 +7,7 @@ This chapter describes the process for installing and configuring the FluvialGeo
 Here is a summary of the software that must be installed to use the FluvialGeomorph toolbox. The rest of this chapter will describe how to complete these installations. 
 
 * Windows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.
-* R Statistical Computing Language (3.6.3+ recommended)
+* R Statistical Computing Language (4.x+ recommended)
 * RStudio Desktop (1.3+ recommended)
 * TauDEM (5.3.7+ recommended)
 * ArcGIS Pro (2.6+ recommended) 
@@ -19,15 +19,15 @@ Here is a summary of the software that must be installed to use the FluvialGeomo
 [`R`](https://cran.r-project.org/) is a statistical computing environment required to perform calculations and report generation (@R-base). 
 
 * Ensure that `R` is installed. 
-* `R` version 3.6.3 or greater is recommended. 
-* Ensure that `RTools` is installed. You will need either  [`RTools35`](https://cran.r-project.org/bin/windows/Rtools/history.html) for `R` v3.6.x or [`RTools40`](https://cran.r-project.org/bin/windows/Rtools/) for `R` v4.x. `RTools` is required for compiling `R` packages from source. It is highly recommended, but not strictly required. 
+* `R` version 4.x or greater is recommended. 
+* Ensure that `RTools` is installed. You will need either  [`RTools35`](https://cran.r-project.org/bin/windows/Rtools/history.html) for `R` v3.5.x or [`RTools40`](https://cran.r-project.org/bin/windows/Rtools/) for `R` v4.x. `RTools` is required for compiling `R` packages from source. It is highly recommended, but not strictly required. 
 * Ensure that your `RTools` installation is on the system `PATH` (i.e., open a command prompt window, use the `path` command). If not, set your user environment `PATH` variable to the appropriate (depending on the `R` major version) `RTools` `bin` directory (e.g., `C:\Rtools\bin`, `C:\rtools40\usr\bin`). 
 
 ## Install `RStudio`
 `Rstudio` is an Integrated Development Environment (IDE) for `R` that streamlines development and troubleshooting. 
 
 * Ensure that `Rstudio` is installed.
-* `RStudio` version 1.3 or greater is recommended. 
+* `RStudio` version 1.4 or greater is recommended. 
 * `RStudio` is recommended, but not strictly required. 
 * Update your currently installed `R` packages to the latest version. On the `RStudio` tools menu, select "Check for Package Updates...". Click the "Select All" button and click the "Install Updates" button. 
 * If asked to compile packages from source, select "Yes" if you installed `RTools`. 
