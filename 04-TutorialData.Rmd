@@ -57,5 +57,7 @@ Big_Blue_Dam
 * Download the [Horseshoe Creek](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/Horseshoe_Creek.zip) site data using this link. 
 * Download the [McIntire Creek](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/McIntireCreek.zip) site data using this link. 
 * Unarchive these `.zip` files to the appropriate Big Blue River site `Data` folder. 
+* Download the [Big Blue Reports](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/Big_Blue_Reports.zip) using this link. 
+* Unarchive this `.zip` file to the appropriate Big Blue River site `Reports` folder. 
 
 ***
