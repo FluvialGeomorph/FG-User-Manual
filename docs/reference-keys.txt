@@ -38,8 +38,9 @@ tutorial_data
 map-templates
 cole-creek
 big-blue-dam-ks
-level-1-workflow
 create-terrain
+level-1-workflow
+create-terrain-1
 define-study-area
 create-a-study-area-geodatabase
 define-the-longitudinal-extent-of-the-study-area
@@ -127,7 +128,7 @@ run-report-2
 run-the-l3-report
 perform-qa-3
 determine-next-steps-2
-summary
+qa_checklist
 L1_report_qa
 L1_study_area_overview
 check-the-stream-name
@@ -188,3 +189,4 @@ cross-section-metrics-1
 ensure-metrics-values-are-smooth-2
 radius-of-curvature-to-bankfull-width-values-are-reasonable
 cross-section-profiles-2
+summary
