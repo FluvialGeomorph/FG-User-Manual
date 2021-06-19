@@ -1,0 +1,2 @@
+# Create Terrain
+This chapter describes how to create the terrain datasets required for the analysis in the later steps of the analysis. 
