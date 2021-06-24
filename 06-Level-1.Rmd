@@ -1,78 +1,14 @@
 # Level 1 Workflow
 This chapter describes the workflow steps necessary to complete a Level 1 (L1) FluvialGeomorph analysis. The purpose of this level is to extract basic channel dimensions from LiDAR surveys. 
 
-## Create Terrain
-The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys. 
 
-### Define Study Area
-The purpose of this step is to define the location and extent of the study area.  
-
-#### Create a Study Area Geodatabase
-The purpose of this step is to create a new study area geodatabase to store the project study area data. This step will need to be repeated for each [LiDAR survey](#units_of_analysis) that exists for this project study area. Since three LiDAR surveys exist for the project study area, three geodatabases will need to be created:
-
-* Papillion_Creek_2016.gdb
-* Papillion_Creek_2010.gdb
-* Papillion_Creek_2006.gdb
-
-The elevation data for each LiDAR survey will be processed separately and a synthetic stream network will be derived for each LiDAR survey independently. Begin processing the data for the [base year](#units_of_analysis) first, then work backward in time to process earlier LiDAR surveys in reverse chronological order. Several analysis steps require the base year data to be processed first. For some tools, surveys prior to the base year use the base year data as inputs. This is done to express earlier surveys in terms of the base year for comparison purposes. 
-
-* Create a new folder on a local workstation drive. Name it for the project study area. 
-* Within this project folder, create a new study area file geodatabase. Name it for the study area. 
-* If there are multiple LiDAR surveys, add a date suffix to the geodatabase name.  
-* Choose a coordinate system for this project. You will use this coordinate system for all vector datasets created for this project. It is the analyst's responsibility to ensure that each vector dataset in this project uses this coordinate system. The only exception to this requirement are raster DEMs (which may use another coordinate system).  
-
-
-
-#### Define the Longitudinal Extent of the Study Area
-* Use the [USGS National Hydrography Dataset(NHD)](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/national-hydrography-dataset) High Resolution to define the longitudinal extent of the reaches of the study area. 
-* Import the NHD Flowline feature class to represent the study area reaches. 
-* These will be used only as an initial coarse-scale representation of the study reaches to facilitate early study area definition. This study will derive high resolution definitions of study reaches. 
-* Edit the extent of the NHD Flowline feature class into a set of initial study area reaches.   
-
-#### Define the Areal Extent of the Study Area. 
-* Create a new polygon feature class named [`study_area`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#study-area-fc). 
-* This polygon should outline the extent of the study reaches. 
-* If the study reaches are already known, sub divide the [`study_area`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#study-area-fc) polygon into these study reaches. 
-* This polygon should define the "must-have" extent for both communicating the study area, as well as helping to define the area to acquire elevation data.  
-
-#### Determine the Contributing Watershed to the Study Area
-* Use the [NRCS Watershed Boundary Dataset (WBD)](https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water/watersheds/dataset/) to define the upstream contributing watershed of the study reach. 
-* Depending on the scale of the study reach, identify the relevant hierarchical levels to characterize the study area. 
-* Import these Hydrologic Unit Code (HUC) polygons into the study area geodatabase. 
-
-
-### Acquire Study Area Watershed Elevation Model
-The purpose of this step is to acquire an existing, pre-made DEM of the entire study area watershed. This DEM will help determine the following parameters:
-
-* Determine if an existing, pre-made DEM will serve for this analysis. 
-* Derive study area watershed extents.
-* Calculate reach scale drainage area. The coverage of this DEM should cover the entire upstream contributing watershed of the study area. 
-
-**Multiple LiDAR Surveys**   
-Since the study area watershed boundaries are unlikely to have changed between LiDAR surveys, it is unnecessary to acquire the entire watershed elevation model for LiDAR survey dates before the [base year](#units_of_analysis). Only the watershed elevation model representing the base year needs to be acquired. 
-
-#### Identify a source of elevation data for your study area
-#### Determine if the pre-made DEM has sufficient resolution
-#### Verify that the DEM elevations are in feet
-#### Create a hillshade to improve visualization
-
-### Develop High Resolution Elevation Model
-The purpose of this DEM is to derive a detailed stream terrain model that meets the resolution requirements of the study. 
-
-#### Download LiDAR point cloud data
-#### Build a DEM from LiDAR point cloud data
-#### Verify that the DEM elevations are in feet
-#### Create a hillshade to improve visualization
-
-
-
-### Hydro Modify DEM
+## Hydro Modify DEM
 The purpose of this step is to create a hydro-modified DEM to ensure proper water flow across the study area. 
 
-#### Identify Flow Blockages
+### Identify Flow Blockages
 The purpose of this step is to develop a [`cutlines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines-fc) feature class representing flow blockages in the study area. 
 
-* Examine the stream channel through the study area and determine if there are any blockages to flow in the DEM. 
+* Examine the stream channel to be analyzed through the study area and determine if there are any blockages to flow in the DEM. 
 * Focus only on flow blockages within the main channel of the study reaches. Flow blockages outside of the the channels of the study reaches do not need to be identified for FluvialGeomorph analysis. 
 * These blockages are typically built infrastructure such as road embankments where streams are conveyed through culverts or underground storm water structures. 
 * If there are flow blockages in the study area reach channels, create a new line feature class named [`cutlines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines-fc) to store terrain modifications that remove flow blockages. This feature class must be in the same coordinate system as the DEM being modified. 
@@ -81,7 +17,7 @@ The purpose of this step is to develop a [`cutlines`](https://www.techmanual.flu
 * The start point and end point of the cutline must cover the area to be modified. 
 * The downstream end of this cutline must be located in "good data", because the lowest DEM value found along this line will be used to re-assign DEM values to all DEM pixels covered by the cutline. 
 
-#### Burn cutlines into the terrains
+### Burn cutlines into the terrain
 The purpose of this step is to remove flow blockages from the terrain. 
 
 * Use the [`02 - Hydro DEM`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#hydro-dem-tool) tool to "burn" the [`cutlines`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#cutlines) features into the study area watershed DEM. This tool creates the [`dem_hydro`](https://www.techmanual.fluvialgeomorph.org/toolbox.html#dem-hydro-raster) raster. Rename this DEM `watershed_dem_hydro`. 

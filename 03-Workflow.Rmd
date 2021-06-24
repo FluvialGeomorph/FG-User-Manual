@@ -11,7 +11,7 @@ To help organize the workflow process we have defined several units of analysis:
 
 * **Reach:** Sites are further subdivided into "reaches". Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.   
 
-* **Year:** Since `FluvialGeomorph` analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the *base year*. 
+* **Year:** Since `FluvialGeomorph` analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods (typically separated by years) for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the *base year*. 
 
 
 ## Analysis Levels
@@ -67,12 +67,12 @@ Project_Name
 │    └─── 02_Site_Name
 │         ...
 └─── Elevation
-│    └─── Year1
-│    │    year1.gdb
+│    └─── ProjectName_Year1
 │    │    └─── LAS
-│    └─── Year2
-│         year2.gdb
+│    │    ProjectName_Year1.gdb
+│    └─── ProjectName_Year2
 │         └─── LAS
+│         ProjectName_Year2.gdb
 │         ...
 └─── Exports
 └─── Maps
