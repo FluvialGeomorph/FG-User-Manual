@@ -1,5 +1,5 @@
 # FluvialGeomorph User Manual
-The user manual for the FluvialGeomorph project. <img src="docs/images/HDQLO-03_h120.jpg" align="right" />
+The user manual for the FluvialGeomorph project. <img src="images/HDQLO-03_h120.jpg" align="right" />
 
 ## Project Status
 [![Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle)
