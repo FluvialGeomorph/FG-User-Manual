@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction | FluvialGeomorph User Manual</title>
   <meta name="description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction | FluvialGeomorph User Manual" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://usermanual.fluvialgeomorph.org/" />
   
   <meta property="og:description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
   <meta name="github-repo" content="FluvialGeomorph/FG-User-Manual" />
@@ -25,7 +24,7 @@
 <meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers" />
 
 
-<meta name="date" content="2021-06-24" />
+<meta name="date" content="2025-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +33,8 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="index.html"/>
 <link rel="next" href="install.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,9 +50,39 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -122,11 +151,11 @@
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="workflow.html"><a href="workflow.html#qa_tools"><i class="fa fa-check"></i><b>3.7</b> Quality Assurance</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="tutorial-data.html"><a href="tutorial-data.html"><i class="fa fa-check"></i><b>4</b> Tutorial Data</a>
+<li class="chapter" data-level="4" data-path="tutorial_data.html"><a href="tutorial_data.html"><i class="fa fa-check"></i><b>4</b> Tutorial Data</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="tutorial-data.html"><a href="tutorial-data.html#map-templates"><i class="fa fa-check"></i><b>4.1</b> Map Templates</a></li>
-<li class="chapter" data-level="4.2" data-path="tutorial-data.html"><a href="tutorial-data.html#cole-creek"><i class="fa fa-check"></i><b>4.2</b> Cole Creek</a></li>
-<li class="chapter" data-level="4.3" data-path="tutorial-data.html"><a href="tutorial-data.html#big-blue-dam-ks"><i class="fa fa-check"></i><b>4.3</b> Big Blue Dam, KS</a></li>
+<li class="chapter" data-level="4.1" data-path="tutorial_data.html"><a href="tutorial_data.html#map-templates"><i class="fa fa-check"></i><b>4.1</b> Map Templates</a></li>
+<li class="chapter" data-level="4.2" data-path="tutorial_data.html"><a href="tutorial_data.html#cole-creek"><i class="fa fa-check"></i><b>4.2</b> Cole Creek</a></li>
+<li class="chapter" data-level="4.3" data-path="tutorial_data.html"><a href="tutorial_data.html#big-blue-dam-ks"><i class="fa fa-check"></i><b>4.3</b> Big Blue Dam, KS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="create-terrain.html"><a href="create-terrain.html"><i class="fa fa-check"></i><b>5</b> Create Terrain</a>
 <ul>
@@ -262,93 +291,93 @@
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="level-3-workflow.html"><a href="level-3-workflow.html#determine-next-steps-2"><i class="fa fa-check"></i><b>8.5</b> Determine Next Steps</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="qa-checklist.html"><a href="qa-checklist.html"><i class="fa fa-check"></i><b>9</b> QA Checklist</a>
+<li class="chapter" data-level="9" data-path="qa_checklist.html"><a href="qa_checklist.html"><i class="fa fa-check"></i><b>9</b> QA Checklist</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_report_qa"><i class="fa fa-check"></i><b>9.1</b> Level 1 Report</a>
+<li class="chapter" data-level="9.1" data-path="qa_checklist.html"><a href="qa_checklist.html#L1_report_qa"><i class="fa fa-check"></i><b>9.1</b> Level 1 Report</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_study_area_overview"><i class="fa fa-check"></i><b>9.1.1</b> Study Area Overview</a>
+<li class="chapter" data-level="9.1.1" data-path="qa_checklist.html"><a href="qa_checklist.html#L1_study_area_overview"><i class="fa fa-check"></i><b>9.1.1</b> Study Area Overview</a>
 <ul>
-<li class="chapter" data-level="9.1.1.1" data-path="qa-checklist.html"><a href="qa-checklist.html#check-the-stream-name"><i class="fa fa-check"></i><b>9.1.1.1</b> Check the stream name</a></li>
-<li class="chapter" data-level="9.1.1.2" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-labels-at-the-correct-interval"><i class="fa fa-check"></i><b>9.1.1.2</b> Cross section labels at the correct interval</a></li>
-<li class="chapter" data-level="9.1.1.3" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-sections-cover-the-full-extent-of-the-flowine"><i class="fa fa-check"></i><b>9.1.1.3</b> Cross sections cover the full extent of the flowine</a></li>
-<li class="chapter" data-level="9.1.1.4" data-path="qa-checklist.html"><a href="qa-checklist.html#map-basemap-displaying-correctly"><i class="fa fa-check"></i><b>9.1.1.4</b> Map basemap displaying correctly</a></li>
+<li class="chapter" data-level="9.1.1.1" data-path="qa_checklist.html"><a href="qa_checklist.html#check-the-stream-name"><i class="fa fa-check"></i><b>9.1.1.1</b> Check the stream name</a></li>
+<li class="chapter" data-level="9.1.1.2" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-labels-at-the-correct-interval"><i class="fa fa-check"></i><b>9.1.1.2</b> Cross section labels at the correct interval</a></li>
+<li class="chapter" data-level="9.1.1.3" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-sections-cover-the-full-extent-of-the-flowine"><i class="fa fa-check"></i><b>9.1.1.3</b> Cross sections cover the full extent of the flowine</a></li>
+<li class="chapter" data-level="9.1.1.4" data-path="qa_checklist.html"><a href="qa_checklist.html#map-basemap-displaying-correctly"><i class="fa fa-check"></i><b>9.1.1.4</b> Map basemap displaying correctly</a></li>
 </ul></li>
-<li class="chapter" data-level="9.1.2" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_long_profiles"><i class="fa fa-check"></i><b>9.1.2</b> Longitudinal Profiles</a>
+<li class="chapter" data-level="9.1.2" data-path="qa_checklist.html"><a href="qa_checklist.html#L1_long_profiles"><i class="fa fa-check"></i><b>9.1.2</b> Longitudinal Profiles</a>
 <ul>
-<li class="chapter" data-level="9.1.2.1" data-path="qa-checklist.html"><a href="qa-checklist.html#elevation-values-are-reasonable"><i class="fa fa-check"></i><b>9.1.2.1</b> Elevation values are reasonable</a></li>
-<li class="chapter" data-level="9.1.2.2" data-path="qa-checklist.html"><a href="qa-checklist.html#elevation-ranges-are-similar-between-surveys"><i class="fa fa-check"></i><b>9.1.2.2</b> Elevation ranges are similar between surveys</a></li>
-<li class="chapter" data-level="9.1.2.3" data-path="qa-checklist.html"><a href="qa-checklist.html#multiple-surveys-are-labeled-correctly"><i class="fa fa-check"></i><b>9.1.2.3</b> Multiple surveys are labeled correctly</a></li>
-<li class="chapter" data-level="9.1.2.4" data-path="qa-checklist.html"><a href="qa-checklist.html#multiple-surveys-are-correctly-calibrated-to-the-base-year"><i class="fa fa-check"></i><b>9.1.2.4</b> Multiple surveys are correctly calibrated to the base year</a></li>
-<li class="chapter" data-level="9.1.2.5" data-path="qa-checklist.html"><a href="qa-checklist.html#stationing-in-the-correct-units"><i class="fa fa-check"></i><b>9.1.2.5</b> Stationing in the correct units</a></li>
-<li class="chapter" data-level="9.1.2.6" data-path="qa-checklist.html"><a href="qa-checklist.html#stream-feature-labels-display-correctly"><i class="fa fa-check"></i><b>9.1.2.6</b> Stream feature labels display correctly</a></li>
+<li class="chapter" data-level="9.1.2.1" data-path="qa_checklist.html"><a href="qa_checklist.html#elevation-values-are-reasonable"><i class="fa fa-check"></i><b>9.1.2.1</b> Elevation values are reasonable</a></li>
+<li class="chapter" data-level="9.1.2.2" data-path="qa_checklist.html"><a href="qa_checklist.html#elevation-ranges-are-similar-between-surveys"><i class="fa fa-check"></i><b>9.1.2.2</b> Elevation ranges are similar between surveys</a></li>
+<li class="chapter" data-level="9.1.2.3" data-path="qa_checklist.html"><a href="qa_checklist.html#multiple-surveys-are-labeled-correctly"><i class="fa fa-check"></i><b>9.1.2.3</b> Multiple surveys are labeled correctly</a></li>
+<li class="chapter" data-level="9.1.2.4" data-path="qa_checklist.html"><a href="qa_checklist.html#multiple-surveys-are-correctly-calibrated-to-the-base-year"><i class="fa fa-check"></i><b>9.1.2.4</b> Multiple surveys are correctly calibrated to the base year</a></li>
+<li class="chapter" data-level="9.1.2.5" data-path="qa_checklist.html"><a href="qa_checklist.html#stationing-in-the-correct-units"><i class="fa fa-check"></i><b>9.1.2.5</b> Stationing in the correct units</a></li>
+<li class="chapter" data-level="9.1.2.6" data-path="qa_checklist.html"><a href="qa_checklist.html#stream-feature-labels-display-correctly"><i class="fa fa-check"></i><b>9.1.2.6</b> Stream feature labels display correctly</a></li>
 </ul></li>
-<li class="chapter" data-level="9.1.3" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_xs_metrics"><i class="fa fa-check"></i><b>9.1.3</b> Cross Section Metrics</a>
+<li class="chapter" data-level="9.1.3" data-path="qa_checklist.html"><a href="qa_checklist.html#L1_xs_metrics"><i class="fa fa-check"></i><b>9.1.3</b> Cross Section Metrics</a>
 <ul>
-<li class="chapter" data-level="9.1.3.1" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-watershed-area-calculated-correctly"><i class="fa fa-check"></i><b>9.1.3.1</b> Cross section watershed area calculated correctly</a></li>
-<li class="chapter" data-level="9.1.3.2" data-path="qa-checklist.html"><a href="qa-checklist.html#elevation-smoothing-is-acceptable"><i class="fa fa-check"></i><b>9.1.3.2</b> Elevation smoothing is acceptable</a></li>
-<li class="chapter" data-level="9.1.3.3" data-path="qa-checklist.html"><a href="qa-checklist.html#ensure-metrics-values-are-smooth"><i class="fa fa-check"></i><b>9.1.3.3</b> Ensure metrics values are smooth</a></li>
-<li class="chapter" data-level="9.1.3.4" data-path="qa-checklist.html"><a href="qa-checklist.html#slope-values-are-reasonable"><i class="fa fa-check"></i><b>9.1.3.4</b> Slope values are reasonable</a></li>
-<li class="chapter" data-level="9.1.3.5" data-path="qa-checklist.html"><a href="qa-checklist.html#sinuosity-values-are-reasonable"><i class="fa fa-check"></i><b>9.1.3.5</b> Sinuosity values are reasonable</a></li>
+<li class="chapter" data-level="9.1.3.1" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-watershed-area-calculated-correctly"><i class="fa fa-check"></i><b>9.1.3.1</b> Cross section watershed area calculated correctly</a></li>
+<li class="chapter" data-level="9.1.3.2" data-path="qa_checklist.html"><a href="qa_checklist.html#elevation-smoothing-is-acceptable"><i class="fa fa-check"></i><b>9.1.3.2</b> Elevation smoothing is acceptable</a></li>
+<li class="chapter" data-level="9.1.3.3" data-path="qa_checklist.html"><a href="qa_checklist.html#ensure-metrics-values-are-smooth"><i class="fa fa-check"></i><b>9.1.3.3</b> Ensure metrics values are smooth</a></li>
+<li class="chapter" data-level="9.1.3.4" data-path="qa_checklist.html"><a href="qa_checklist.html#slope-values-are-reasonable"><i class="fa fa-check"></i><b>9.1.3.4</b> Slope values are reasonable</a></li>
+<li class="chapter" data-level="9.1.3.5" data-path="qa_checklist.html"><a href="qa_checklist.html#sinuosity-values-are-reasonable"><i class="fa fa-check"></i><b>9.1.3.5</b> Sinuosity values are reasonable</a></li>
 </ul></li>
-<li class="chapter" data-level="9.1.4" data-path="qa-checklist.html"><a href="qa-checklist.html#L1_xs_profiles"><i class="fa fa-check"></i><b>9.1.4</b> Cross Section Profiles</a>
+<li class="chapter" data-level="9.1.4" data-path="qa_checklist.html"><a href="qa_checklist.html#L1_xs_profiles"><i class="fa fa-check"></i><b>9.1.4</b> Cross Section Profiles</a>
 <ul>
-<li class="chapter" data-level="9.1.4.1" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-must-be-digitized-from-left-to-right"><i class="fa fa-check"></i><b>9.1.4.1</b> Cross section must be digitized from left to right</a></li>
-<li class="chapter" data-level="9.1.4.2" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-perpenduicular-to-the-channel"><i class="fa fa-check"></i><b>9.1.4.2</b> Cross section perpenduicular to the channel</a></li>
-<li class="chapter" data-level="9.1.4.3" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-covers-the-channel-extent"><i class="fa fa-check"></i><b>9.1.4.3</b> Cross section covers the channel extent</a></li>
-<li class="chapter" data-level="9.1.4.4" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-extends-onto-floodplain"><i class="fa fa-check"></i><b>9.1.4.4</b> Cross section extends onto floodplain</a></li>
-<li class="chapter" data-level="9.1.4.5" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-not-located-on-built-infrastructure"><i class="fa fa-check"></i><b>9.1.4.5</b> Cross section not located on built infrastructure</a></li>
-<li class="chapter" data-level="9.1.4.6" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-drawn-within-the-dem-extent"><i class="fa fa-check"></i><b>9.1.4.6</b> Cross section drawn within the DEM extent</a></li>
-<li class="chapter" data-level="9.1.4.7" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-y-axis-range-is-not-too-large"><i class="fa fa-check"></i><b>9.1.4.7</b> Cross section y-axis range is not too large</a></li>
-<li class="chapter" data-level="9.1.4.8" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-x-axis-range-is-not-too-large"><i class="fa fa-check"></i><b>9.1.4.8</b> Cross section x-axis range is not too large</a></li>
+<li class="chapter" data-level="9.1.4.1" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-must-be-digitized-from-left-to-right"><i class="fa fa-check"></i><b>9.1.4.1</b> Cross section must be digitized from left to right</a></li>
+<li class="chapter" data-level="9.1.4.2" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-perpenduicular-to-the-channel"><i class="fa fa-check"></i><b>9.1.4.2</b> Cross section perpenduicular to the channel</a></li>
+<li class="chapter" data-level="9.1.4.3" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-covers-the-channel-extent"><i class="fa fa-check"></i><b>9.1.4.3</b> Cross section covers the channel extent</a></li>
+<li class="chapter" data-level="9.1.4.4" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-extends-onto-floodplain"><i class="fa fa-check"></i><b>9.1.4.4</b> Cross section extends onto floodplain</a></li>
+<li class="chapter" data-level="9.1.4.5" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-not-located-on-built-infrastructure"><i class="fa fa-check"></i><b>9.1.4.5</b> Cross section not located on built infrastructure</a></li>
+<li class="chapter" data-level="9.1.4.6" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-drawn-within-the-dem-extent"><i class="fa fa-check"></i><b>9.1.4.6</b> Cross section drawn within the DEM extent</a></li>
+<li class="chapter" data-level="9.1.4.7" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-y-axis-range-is-not-too-large"><i class="fa fa-check"></i><b>9.1.4.7</b> Cross section y-axis range is not too large</a></li>
+<li class="chapter" data-level="9.1.4.8" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-x-axis-range-is-not-too-large"><i class="fa fa-check"></i><b>9.1.4.8</b> Cross section x-axis range is not too large</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="qa-checklist.html"><a href="qa-checklist.html#estimate_bankfull_report_qa"><i class="fa fa-check"></i><b>9.2</b> Estimate Bankfull Report</a>
+<li class="chapter" data-level="9.2" data-path="qa_checklist.html"><a href="qa_checklist.html#estimate_bankfull_report_qa"><i class="fa fa-check"></i><b>9.2</b> Estimate Bankfull Report</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="qa-checklist.html"><a href="qa-checklist.html#study-area-overview"><i class="fa fa-check"></i><b>9.2.1</b> Study Area Overview</a></li>
-<li class="chapter" data-level="9.2.2" data-path="qa-checklist.html"><a href="qa-checklist.html#bankfull-elevation-sensitivity-analysis"><i class="fa fa-check"></i><b>9.2.2</b> Bankfull Elevation Sensitivity Analysis</a>
+<li class="chapter" data-level="9.2.1" data-path="qa_checklist.html"><a href="qa_checklist.html#study-area-overview"><i class="fa fa-check"></i><b>9.2.1</b> Study Area Overview</a></li>
+<li class="chapter" data-level="9.2.2" data-path="qa_checklist.html"><a href="qa_checklist.html#bankfull-elevation-sensitivity-analysis"><i class="fa fa-check"></i><b>9.2.2</b> Bankfull Elevation Sensitivity Analysis</a>
 <ul>
-<li class="chapter" data-level="9.2.2.1" data-path="qa-checklist.html"><a href="qa-checklist.html#correct-regions-included"><i class="fa fa-check"></i><b>9.2.2.1</b> Correct regions included</a></li>
-<li class="chapter" data-level="9.2.2.2" data-path="qa-checklist.html"><a href="qa-checklist.html#adequate-range-of-bankfull-elevations"><i class="fa fa-check"></i><b>9.2.2.2</b> Adequate range of bankfull elevations</a></li>
-<li class="chapter" data-level="9.2.2.3" data-path="qa-checklist.html"><a href="qa-checklist.html#detrended-bankfull-elevation-set-to-a-reasonable-value"><i class="fa fa-check"></i><b>9.2.2.3</b> Detrended bankfull elevation set to a reasonable value</a></li>
-<li class="chapter" data-level="9.2.2.4" data-path="qa-checklist.html"><a href="qa-checklist.html#drainage-area-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.2.4</b> Drainage Area values are reasonable</a></li>
+<li class="chapter" data-level="9.2.2.1" data-path="qa_checklist.html"><a href="qa_checklist.html#correct-regions-included"><i class="fa fa-check"></i><b>9.2.2.1</b> Correct regions included</a></li>
+<li class="chapter" data-level="9.2.2.2" data-path="qa_checklist.html"><a href="qa_checklist.html#adequate-range-of-bankfull-elevations"><i class="fa fa-check"></i><b>9.2.2.2</b> Adequate range of bankfull elevations</a></li>
+<li class="chapter" data-level="9.2.2.3" data-path="qa_checklist.html"><a href="qa_checklist.html#detrended-bankfull-elevation-set-to-a-reasonable-value"><i class="fa fa-check"></i><b>9.2.2.3</b> Detrended bankfull elevation set to a reasonable value</a></li>
+<li class="chapter" data-level="9.2.2.4" data-path="qa_checklist.html"><a href="qa_checklist.html#drainage-area-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.2.4</b> Drainage Area values are reasonable</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2.3" data-path="qa-checklist.html"><a href="qa-checklist.html#estimate_bankfull_long_profile"><i class="fa fa-check"></i><b>9.2.3</b> Longitudinal Profile</a>
+<li class="chapter" data-level="9.2.3" data-path="qa_checklist.html"><a href="qa_checklist.html#estimate_bankfull_long_profile"><i class="fa fa-check"></i><b>9.2.3</b> Longitudinal Profile</a>
 <ul>
-<li class="chapter" data-level="9.2.3.1" data-path="qa-checklist.html"><a href="qa-checklist.html#elevation-values-are-reasonable-1"><i class="fa fa-check"></i><b>9.2.3.1</b> Elevation values are reasonable</a></li>
-<li class="chapter" data-level="9.2.3.2" data-path="qa-checklist.html"><a href="qa-checklist.html#stationing-in-the-correct-units-1"><i class="fa fa-check"></i><b>9.2.3.2</b> Stationing in the correct units</a></li>
-<li class="chapter" data-level="9.2.3.3" data-path="qa-checklist.html"><a href="qa-checklist.html#stream-feature-labels-display-correctly-1"><i class="fa fa-check"></i><b>9.2.3.3</b> Stream feature labels display correctly</a></li>
+<li class="chapter" data-level="9.2.3.1" data-path="qa_checklist.html"><a href="qa_checklist.html#elevation-values-are-reasonable-1"><i class="fa fa-check"></i><b>9.2.3.1</b> Elevation values are reasonable</a></li>
+<li class="chapter" data-level="9.2.3.2" data-path="qa_checklist.html"><a href="qa_checklist.html#stationing-in-the-correct-units-1"><i class="fa fa-check"></i><b>9.2.3.2</b> Stationing in the correct units</a></li>
+<li class="chapter" data-level="9.2.3.3" data-path="qa_checklist.html"><a href="qa_checklist.html#stream-feature-labels-display-correctly-1"><i class="fa fa-check"></i><b>9.2.3.3</b> Stream feature labels display correctly</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2.4" data-path="qa-checklist.html"><a href="qa-checklist.html#estimate_bankfull_xs_metrics"><i class="fa fa-check"></i><b>9.2.4</b> Cross Section Metrics</a>
+<li class="chapter" data-level="9.2.4" data-path="qa_checklist.html"><a href="qa_checklist.html#estimate_bankfull_xs_metrics"><i class="fa fa-check"></i><b>9.2.4</b> Cross Section Metrics</a>
 <ul>
-<li class="chapter" data-level="9.2.4.1" data-path="qa-checklist.html"><a href="qa-checklist.html#width-depth-ratio-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.1</b> Width-Depth Ratio values are reasonable</a></li>
-<li class="chapter" data-level="9.2.4.2" data-path="qa-checklist.html"><a href="qa-checklist.html#entrenchment-ratio-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.2</b> Entrenchment Ratio values are reasonable</a></li>
-<li class="chapter" data-level="9.2.4.3" data-path="qa-checklist.html"><a href="qa-checklist.html#slope-values-are-reasonable-1"><i class="fa fa-check"></i><b>9.2.4.3</b> Slope values are reasonable</a></li>
-<li class="chapter" data-level="9.2.4.4" data-path="qa-checklist.html"><a href="qa-checklist.html#sinuosity-values-are-reasonable-1"><i class="fa fa-check"></i><b>9.2.4.4</b> Sinuosity values are reasonable</a></li>
-<li class="chapter" data-level="9.2.4.5" data-path="qa-checklist.html"><a href="qa-checklist.html#shear-stress-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.5</b> Shear Stress values are reasonable</a></li>
-<li class="chapter" data-level="9.2.4.6" data-path="qa-checklist.html"><a href="qa-checklist.html#unit-stream-power-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.6</b> Unit Stream Power values are reasonable</a></li>
+<li class="chapter" data-level="9.2.4.1" data-path="qa_checklist.html"><a href="qa_checklist.html#width-depth-ratio-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.1</b> Width-Depth Ratio values are reasonable</a></li>
+<li class="chapter" data-level="9.2.4.2" data-path="qa_checklist.html"><a href="qa_checklist.html#entrenchment-ratio-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.2</b> Entrenchment Ratio values are reasonable</a></li>
+<li class="chapter" data-level="9.2.4.3" data-path="qa_checklist.html"><a href="qa_checklist.html#slope-values-are-reasonable-1"><i class="fa fa-check"></i><b>9.2.4.3</b> Slope values are reasonable</a></li>
+<li class="chapter" data-level="9.2.4.4" data-path="qa_checklist.html"><a href="qa_checklist.html#sinuosity-values-are-reasonable-1"><i class="fa fa-check"></i><b>9.2.4.4</b> Sinuosity values are reasonable</a></li>
+<li class="chapter" data-level="9.2.4.5" data-path="qa_checklist.html"><a href="qa_checklist.html#shear-stress-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.5</b> Shear Stress values are reasonable</a></li>
+<li class="chapter" data-level="9.2.4.6" data-path="qa_checklist.html"><a href="qa_checklist.html#unit-stream-power-values-are-reasonable"><i class="fa fa-check"></i><b>9.2.4.6</b> Unit Stream Power values are reasonable</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2.5" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-profiles"><i class="fa fa-check"></i><b>9.2.5</b> Cross Section Profiles</a></li>
+<li class="chapter" data-level="9.2.5" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-profiles"><i class="fa fa-check"></i><b>9.2.5</b> Cross Section Profiles</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="qa-checklist.html"><a href="qa-checklist.html#L2_report_qa"><i class="fa fa-check"></i><b>9.3</b> Level 2 Report</a>
+<li class="chapter" data-level="9.3" data-path="qa_checklist.html"><a href="qa_checklist.html#L2_report_qa"><i class="fa fa-check"></i><b>9.3</b> Level 2 Report</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="qa-checklist.html"><a href="qa-checklist.html#study-area-overview-1"><i class="fa fa-check"></i><b>9.3.1</b> Study Area Overview</a></li>
-<li class="chapter" data-level="9.3.2" data-path="qa-checklist.html"><a href="qa-checklist.html#longitudinal-profile"><i class="fa fa-check"></i><b>9.3.2</b> Longitudinal Profile</a></li>
-<li class="chapter" data-level="9.3.3" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-metrics"><i class="fa fa-check"></i><b>9.3.3</b> Cross Section Metrics</a>
+<li class="chapter" data-level="9.3.1" data-path="qa_checklist.html"><a href="qa_checklist.html#study-area-overview-1"><i class="fa fa-check"></i><b>9.3.1</b> Study Area Overview</a></li>
+<li class="chapter" data-level="9.3.2" data-path="qa_checklist.html"><a href="qa_checklist.html#longitudinal-profile"><i class="fa fa-check"></i><b>9.3.2</b> Longitudinal Profile</a></li>
+<li class="chapter" data-level="9.3.3" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-metrics"><i class="fa fa-check"></i><b>9.3.3</b> Cross Section Metrics</a>
 <ul>
-<li class="chapter" data-level="9.3.3.1" data-path="qa-checklist.html"><a href="qa-checklist.html#ensure-metrics-values-are-smooth-1"><i class="fa fa-check"></i><b>9.3.3.1</b> Ensure metrics values are smooth</a></li>
+<li class="chapter" data-level="9.3.3.1" data-path="qa_checklist.html"><a href="qa_checklist.html#ensure-metrics-values-are-smooth-1"><i class="fa fa-check"></i><b>9.3.3.1</b> Ensure metrics values are smooth</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3.4" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-profiles-1"><i class="fa fa-check"></i><b>9.3.4</b> Cross Section Profiles</a></li>
+<li class="chapter" data-level="9.3.4" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-profiles-1"><i class="fa fa-check"></i><b>9.3.4</b> Cross Section Profiles</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="qa-checklist.html"><a href="qa-checklist.html#L3_report_qa"><i class="fa fa-check"></i><b>9.4</b> Level 3 Report</a>
+<li class="chapter" data-level="9.4" data-path="qa_checklist.html"><a href="qa_checklist.html#L3_report_qa"><i class="fa fa-check"></i><b>9.4</b> Level 3 Report</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="qa-checklist.html"><a href="qa-checklist.html#study-area-overview-2"><i class="fa fa-check"></i><b>9.4.1</b> Study Area Overview</a></li>
-<li class="chapter" data-level="9.4.2" data-path="qa-checklist.html"><a href="qa-checklist.html#longitudinal-profile-1"><i class="fa fa-check"></i><b>9.4.2</b> Longitudinal Profile</a></li>
-<li class="chapter" data-level="9.4.3" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-metrics-1"><i class="fa fa-check"></i><b>9.4.3</b> Cross Section Metrics</a>
+<li class="chapter" data-level="9.4.1" data-path="qa_checklist.html"><a href="qa_checklist.html#study-area-overview-2"><i class="fa fa-check"></i><b>9.4.1</b> Study Area Overview</a></li>
+<li class="chapter" data-level="9.4.2" data-path="qa_checklist.html"><a href="qa_checklist.html#longitudinal-profile-1"><i class="fa fa-check"></i><b>9.4.2</b> Longitudinal Profile</a></li>
+<li class="chapter" data-level="9.4.3" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-metrics-1"><i class="fa fa-check"></i><b>9.4.3</b> Cross Section Metrics</a>
 <ul>
-<li class="chapter" data-level="9.4.3.1" data-path="qa-checklist.html"><a href="qa-checklist.html#ensure-metrics-values-are-smooth-2"><i class="fa fa-check"></i><b>9.4.3.1</b> Ensure metrics values are smooth</a></li>
-<li class="chapter" data-level="9.4.3.2" data-path="qa-checklist.html"><a href="qa-checklist.html#radius-of-curvature-to-bankfull-width-values-are-reasonable"><i class="fa fa-check"></i><b>9.4.3.2</b> Radius of Curvature to Bankfull Width values are reasonable</a></li>
+<li class="chapter" data-level="9.4.3.1" data-path="qa_checklist.html"><a href="qa_checklist.html#ensure-metrics-values-are-smooth-2"><i class="fa fa-check"></i><b>9.4.3.1</b> Ensure metrics values are smooth</a></li>
+<li class="chapter" data-level="9.4.3.2" data-path="qa_checklist.html"><a href="qa_checklist.html#radius-of-curvature-to-bankfull-width-values-are-reasonable"><i class="fa fa-check"></i><b>9.4.3.2</b> Radius of Curvature to Bankfull Width values are reasonable</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4.4" data-path="qa-checklist.html"><a href="qa-checklist.html#cross-section-profiles-2"><i class="fa fa-check"></i><b>9.4.4</b> Cross Section Profiles</a></li>
+<li class="chapter" data-level="9.4.4" data-path="qa_checklist.html"><a href="qa_checklist.html#cross-section-profiles-2"><i class="fa fa-check"></i><b>9.4.4</b> Cross Section Profiles</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>10</b> Summary</a></li>
@@ -373,10 +402,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<div id="background" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Background</h2>
+<div id="introduction" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="background" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Background<a href="introduction.html#background" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The background section defines the problem addressed by the research
 and its impact on the U.S. Army. It cites related previous studies and explains
 why the current research is necessary. It also may present other
@@ -391,8 +420,8 @@ historic field survey versus geomorphometric automated methods
 The purpose of regional curves and why they are important for rapid watershed assessment</p>
 <p>vison for what the analysis can be used to accomplish</p>
 </div>
-<div id="objective" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Objective</h2>
+<div id="objective" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Objective<a href="introduction.html#objective" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The objective is a concise statement of what the research is intended to accomplish.</p>
 <p>Goals</p>
 <ul>
@@ -407,8 +436,8 @@ The purpose of regional curves and why they are important for rapid watershed as
 <li>Develop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits.</li>
 </ul>
 </div>
-<div id="approach" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Approach</h2>
+<div id="approach" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Approach<a href="introduction.html#approach" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The approach section explains the research methodology. If the methodology
 is complex or otherwise warrants a chapter of its own, the approach
 section may simply cross-reference the reader to the appropriate chapter.</p>
@@ -426,7 +455,6 @@ section may simply cross-reference the reader to the appropriate chapter.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -445,6 +473,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -465,6 +494,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true

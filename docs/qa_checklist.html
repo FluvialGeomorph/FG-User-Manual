@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Create Terrain | FluvialGeomorph User Manual</title>
+  <title>Chapter 9 QA Checklist | FluvialGeomorph User Manual</title>
   <meta name="description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Create Terrain | FluvialGeomorph User Manual" />
+  <meta property="og:title" content="Chapter 9 QA Checklist | FluvialGeomorph User Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
   <meta name="github-repo" content="FluvialGeomorph/FG-User-Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Create Terrain | FluvialGeomorph User Manual" />
+  <meta name="twitter:title" content="Chapter 9 QA Checklist | FluvialGeomorph User Manual" />
   
   <meta name="twitter:description" content="This user manual describes how to use FluvialGeomorph for stream analysis." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="tutorial_data.html"/>
-<link rel="next" href="level-1-workflow.html"/>
+<link rel="prev" href="level-3-workflow.html"/>
+<link rel="next" href="summary.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -402,163 +402,230 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="create-terrain" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Create Terrain<a href="create-terrain.html#create-terrain" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys.</p>
-<div id="define-study-area" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Define Study Area<a href="create-terrain.html#define-study-area" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The purpose of this step is to define the location and extent of the study area. FluvialGeomorph project study areas are typically of three types, distinguished by their extent:</p>
-<ul>
-<li><strong>Small Reach</strong> - Required by projects analyzing a problem at a specific location. These project study areas are typically defined by a single point location, often representing a piece of built infrastructure (e.g., bridge, culvert, stream crossing, dam, revetment, gage, etc.) or specific stream feature (e.g., stream confluence, bank failure, severe bed erosion, oxbow cutoff, etc.). Analysis of these problems usually only requires examining a fixed distance up and down stream of the feature of interest. This distance up and down stream is determined by the scale of the driving factors.<br />
-</li>
-<li><strong>Long Reach</strong> - Required by projects analyzing a problem that spans a long set of connected stream reaches. These projects study areas are typically defined by several miles of stream, possibly including tributaries to the primary reach being analyzed.</li>
-<li><strong>Watershed</strong> - Required by projects analyzing watershed scale problems. FluvialGeomporh analysis of all streams in watersheds ranging in size from 1-3 HUC12 watersheds is feasible.</li>
-</ul>
-<div id="create-study-area-geodatabases" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Create Study Area Geodatabases<a href="create-terrain.html#create-study-area-geodatabases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The purpose of this step is to create a folder structure to store the the study area elevation data. Sub-folders will be created to store the terrain data for each available <a href="workflow.html#units_of_analysis">LiDAR survey</a>. Initially, you will not know what LiDAR surveys exist for your study area until you begin your search for data described below. You will repeat the following steps for each LiDAR survey that exists for this project study area. The elevation data for each LiDAR survey will be processed separately and a synthetic stream network will be derived for each LiDAR survey independently. You will begin processing the data for the <a href="workflow.html#units_of_analysis">base year</a> LiDAR survey first, then work backward in time to process earlier LiDAR surveys in reverse chronological order. Several analysis steps require the base year data to be processed first. For some tools, surveys prior to the base year use the base year data as inputs. This is done to express earlier surveys in terms of the base year for comparison purposes.</p>
-<p>Use the following steps to organize the project working directory:</p>
-<ul>
-<li>Create a new folder on a local workstation drive. Name it for the project study area.</li>
-<li>Within the project study area folder create an <code>Elevation</code> folder.</li>
-<li>Within the <code>Elevation</code> folder, create folders to store the data for each LiDAR survey.</li>
-<li>Name each folder using the project name and suffixed with the LiDAR survey year (<project name>_&lt;LiDAR survey 4-digit year&gt;).</li>
-<li>Within each LiDAR survey folder, create a new folder named <code>LAS</code>. This will be used in later steps if needed to store and process the raw LiDAR data for each survey.</li>
-<li>Within each LiDAR survey folder, create a new LiDAR survey file geodatabase.</li>
-<li>Name each file geodatabase using the project name and suffixed with the LiDAR survey year (<project name>_&lt;LiDAR survey 4-digit year&gt;).</li>
-<li>Use the following folder structure to organize the terrain data:</li>
-</ul>
-<pre><code>Project_Name
-└─── Elevation
-│    └─── ProjectName_Year1
-│    │    └─── LAS
-│    │    ProjectName_Year1.gdb
-│    └─── ProjectName_Year2
-│    |    └─── LAS
-│    |    ProjectName_Year2.gdb
-│    └─── ProjectName_Year3
-│         └─── LAS
-│         ProjectName_Year3.gdb
-│         ...
-└─── Exports
-└─── Maps</code></pre>
+<div id="qa_checklist" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> QA Checklist<a href="qa_checklist.html#qa_checklist" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports. This checklist will help you identify where things might not be exactly right with previous tool runs and what you’ll need to do fix them.</p>
+<div id="L1_report_qa" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Level 1 Report<a href="qa_checklist.html#L1_report_qa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="L1_study_area_overview" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Study Area Overview<a href="qa_checklist.html#L1_study_area_overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a set of reach overview maps drawn using the <code>flowline</code> and the regularly spaced cross section dimensions, <code>*_dims_L1</code>, feature classes (fc). Both the aerial photo and elevation are provided by <a href="https://docs.mapbox.com/api/maps/#raster-tiles">Mapbox Raster Tiles</a>.</p>
+<div id="check-the-stream-name" class="section level4 hasAnchor" number="9.1.1.1">
+<h4><span class="header-section-number">9.1.1.1</span> Check the stream name<a href="qa_checklist.html#check-the-stream-name" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>All of the tools depend on consistent reach naming! Ensuring consistent naming begins with deriving the “flowline” fc. The ReachName field must contain the same value for all of the fc’s within a reach geodatabase. This is the single biggest gotcha we find running these tools. If tools aren’t working correctly and you’re sure you’ve done everything else right, consistent stream names is the first thing to check!</p>
 </div>
-<div id="define-study-area-coordinate-system" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Define Study Area Coordinate System<a href="create-terrain.html#define-study-area-coordinate-system" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The purpose of this step is to choose a horizontal and vertical coordinate system for all of the vector and raster datasets created in this project. Using the same coordinate system for all project datasets helps avoid errors introduced by input datasets containing differing coordinate systems, particularly incorrect handling of datums and units. The horizontal and vertical coordinate systems that you select will be used for all datasets created for this project. It is the analyst’s responsibility to ensure that each dataset in this project uses these specified horizontal and vertical coordinate systems. Each dataset imported into a project geodatabase must be projected into the project horizontal and vertical coordinate systems.</p>
+<div id="cross-section-labels-at-the-correct-interval" class="section level4 hasAnchor" number="9.1.1.2">
+<h4><span class="header-section-number">9.1.1.2</span> Cross section labels at the correct interval<a href="qa_checklist.html#cross-section-labels-at-the-correct-interval" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Cross section labels usually cannot be placed on every cross section or the map or graph becomes unreadable due to label crowding. The <code>xs_label_freq</code> parameter can be adjusted to adequately space cross section labels. Typically <code>xs_label_freq</code> = 10 works for regularly spaced cross sections and <code>xs_label_freq</code> = 2 works for riffle cross sections.</p>
+</div>
+<div id="cross-sections-cover-the-full-extent-of-the-flowine" class="section level4 hasAnchor" number="9.1.1.3">
+<h4><span class="header-section-number">9.1.1.3</span> Cross sections cover the full extent of the flowine<a href="qa_checklist.html#cross-sections-cover-the-full-extent-of-the-flowine" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>flowline</code> fc extends from the downstream end of the reach to the upstream end. Cross sections should be spaced regularly across the entire reach, without any gaps at the upper or lower end.</p>
+</div>
+<div id="map-basemap-displaying-correctly" class="section level4 hasAnchor" number="9.1.1.4">
+<h4><span class="header-section-number">9.1.1.4</span> Map basemap displaying correctly<a href="qa_checklist.html#map-basemap-displaying-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The overview maps should contain an aerial photo or shaded relief elevation basemap.</p>
+</div>
+</div>
+<div id="L1_long_profiles" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Longitudinal Profiles<a href="qa_checklist.html#L1_long_profiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains two longitudinal profile graphs, one drawn using the <code>flowline_points</code> fc, and the second is drawn using the cross section dimensions, <code>*_dims_L1</code> fc.</p>
+<div id="elevation-values-are-reasonable" class="section level4 hasAnchor" number="9.1.2.1">
+<h4><span class="header-section-number">9.1.2.1</span> Elevation values are reasonable<a href="qa_checklist.html#elevation-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The elevation values displayed on the map or graph should be reasonable. Use the ESRI <code>Explore</code> tool to check the DEM elevation values. By convention in FluvialGeomorph, DEM values must always have vertical units = feet.</p>
+</div>
+<div id="elevation-ranges-are-similar-between-surveys" class="section level4 hasAnchor" number="9.1.2.2">
+<h4><span class="header-section-number">9.1.2.2</span> Elevation ranges are similar between surveys<a href="qa_checklist.html#elevation-ranges-are-similar-between-surveys" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Although stream elevations can change over time, the elevation ranges between subsequent survey dates should be roughly similar. If the elevation ranges are drastically different, check the terrain development steps for each survey time period to ensure that the elevation data was processed correctly.</p>
+</div>
+<div id="multiple-surveys-are-labeled-correctly" class="section level4 hasAnchor" number="9.1.2.3">
+<h4><span class="header-section-number">9.1.2.3</span> Multiple surveys are labeled correctly<a href="qa_checklist.html#multiple-surveys-are-labeled-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Reports that contain multiple surveys should be entered in the same way to ensure they are labeled and symbolized (e.g., each survey drawn with the same color in each report) the same way across all reports. Follow these guidelines to ensure consistency:</p>
 <ul>
-<li><strong>Horizontal Coordinate Systems</strong> - FluvialGeomorph currently supports any <em>projected</em> coordinate system with linear units of meter, feet, or US survey feet. Geographic coordinate systems (angular units, e.g., “Lat-Lon”) are not supported.<br />
-</li>
-<li><strong>Vertical Coordinate Systems</strong> - FluvialGeomporh currently <em>only supports vertical coordinate systems with units of feet</em>. Since most LiDAR is currently delivered in the NAVD 88 vertical datum, it is recommended to use NAVD 88 for consistency. The analyst must be sure that the raster DEMs created for analysis in this chapter have vertical units of feet. Instructions for converting raster DEM values from meters to feet are included below.</li>
+<li>Most recent survey listed at the top, with earlier surveys listed in reverse chronological order.</li>
+<li>Survey date indicates the date flown (e.g., not the contract or delivery date).</li>
 </ul>
 </div>
-<div id="define-study-area-longitudinal-extent" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Define Study Area Longitudinal Extent<a href="create-terrain.html#define-study-area-longitudinal-extent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The purpose of this step is to help define an initial study area longitudinal extent. This step will use existing, medium resolution hydrography to help establish the rough extent of the study area. The feature classes imported in this step will be used only as an initial coarse-scale representation of the study reaches to facilitate early study area definition. This study will derive high resolution definitions of study reaches.</p>
+<div id="multiple-surveys-are-correctly-calibrated-to-the-base-year" class="section level4 hasAnchor" number="9.1.2.4">
+<h4><span class="header-section-number">9.1.2.4</span> Multiple surveys are correctly calibrated to the base year<a href="qa_checklist.html#multiple-surveys-are-correctly-calibrated-to-the-base-year" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>On the longitudinal profile graphs, each survey line should start and end at the same x-axis station value. In other words, one survey line should not end before or after another survey line. Check the far right edge of the longitudinal graph to ensure all survey’s have the same ending value.</p>
+<p>If all of the surveys’ last station values do not align, it means that the previous surveys were not correctly calibrated to the base year flowline. Previous year surveys will need to have the <code>Flowline Points</code> tool rerun using the base year survey’s <code>flowline_points</code> for calibration.</p>
+</div>
+<div id="stationing-in-the-correct-units" class="section level4 hasAnchor" number="9.1.2.5">
+<h4><span class="header-section-number">9.1.2.5</span> Stationing in the correct units<a href="qa_checklist.html#stationing-in-the-correct-units" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Units can be chosen for the longitudinal profile stationing. Ensure that the correct units are selected.</p>
+</div>
+<div id="stream-feature-labels-display-correctly" class="section level4 hasAnchor" number="9.1.2.6">
+<h4><span class="header-section-number">9.1.2.6</span> Stream feature labels display correctly<a href="qa_checklist.html#stream-feature-labels-display-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Longitudinal graphs are labeled using the rows in the <code>features</code> fc. Ensure these river features are labeled correctly and are located at the correct longitudinal position.</p>
+</div>
+</div>
+<div id="L1_xs_metrics" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Cross Section Metrics<a href="qa_checklist.html#L1_xs_metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a Level 1 cross section metrics plot drawn using the cross section dimensions fc, <code>*_dims_L1</code>.</p>
+<div id="cross-section-watershed-area-calculated-correctly" class="section level4 hasAnchor" number="9.1.3.1">
+<h4><span class="header-section-number">9.1.3.1</span> Cross section watershed area calculated correctly<a href="qa_checklist.html#cross-section-watershed-area-calculated-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The watershed area metric is calculated by the <code>XS Watershed Area</code> tool. Given the complexities of automatically calculating watershed area for high resolution stream features, some watershed areas may not have been calculated correctly. Rerunning the Watershed Area tool or manual adjustment of the <code>Watershed_Area_SqMile</code> field may be required.</p>
 <ul>
-<li>Open the <a href="https://apps.nationalmap.gov/viewer/">National Map Viewer</a> in a web browser.</li>
-<li>In the National Map Viewer, zoom to the extent of the project study area.</li>
-<li>From the toolbar, open the <code>Layer List</code> panel.</li>
-<li>On the <code>Layer List</code> panel, toggle-on the visibility of the <code>National Hydrography Dataset</code> (NHD).</li>
-<li>Under the <code>National Hydrography Dataset</code>, toggle-off the visibility of all other NHD datasets except the <code>Flowline - Large Scale</code> layer. Note, you must zoom in to a fine enough scale for this layer to be visible.</li>
-<li>From the toolbar, open the <code>Select</code> panel. To begin, make all layers unselectable.</li>
-<li>Scroll down to the <code>Flowline - Large Scale</code> layer and check the box to select features from this layer.</li>
-<li>In the map panel, draw a rectangle around the extent of the NHD Flowline that represents your project area.</li>
-<li>On the <code>Select</code> panel, click the “three dot” menu of the <code>Flowline - Large Scale</code> layer. Select the <code>Export to GeoJSON</code> option and save the export file in the <code>ProjectName_Year1</code> folder.</li>
-<li>Open ArcGIS Pro and create a new project, saving it to the <code>\Project_Name\Maps</code> folder.</li>
-<li>In ArcGIS Pro, use the <code>JSON to Features</code> tool to convert the exported NHD Flowline JSON features into the <code>ProjectName_Year1.gdb</code> file geodatabase.</li>
-<li>Use the Data Management <code>Project</code> tool to project (verb) the imported NHD Flowline features to the chosen project (noun) coordinate system. Name the re-projected feature class <code>NHD_Flowline</code>.</li>
-<li>Edit the extent of the <code>NHD_Flowline</code> feature class to match the desired extent of the project study area.</li>
+<li>Watershed values are reasonable.</li>
+<li>Watershed area must increase moving downstream.</li>
 </ul>
 </div>
-<div id="define-study-area-areal-extent" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Define Study Area Areal Extent<a href="create-terrain.html#define-study-area-areal-extent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The purpose of this step is to create a rough bounding polygon of the project study area. This polygon should define the “must-have” extent for both communicating the extent of the study area, as well as helping to define the area within which to acquire elevation data. This extent only needs to cover the extent of the stream to be analyzed and <em>does not</em> need to include the entire contributing area of the analysis reaches.</p>
-<ul>
-<li>In ArcGIS Pro, in the <code>ProjectName_Year1.gdb</code> file geodatabase, create a new feature class using the following parameters:
-<ul>
-<li>Name: <a href="https://www.techmanual.fluvialgeomorph.org/toolbox.html#study-area-fc"><code>study_area</code></a></li>
-<li>Feature Class Type: polygon</li>
-<li>Field: <code>Project</code>, text 50</li>
-<li>Horizontal Coordinate System: project horizontal coordinate system</li>
-<li>Vertical Coordinate System: project vertical coordinate system</li>
-</ul></li>
-<li>Edit the extent of this polygon to outline the extent of the study area.</li>
-<li>Ensure that full extent of the project study area floodplain is included within the extent of the <code>study_area</code> polygon feature class.</li>
-<li>Set the value of the <code>study_area</code> <code>Project</code> field to the name of the study area.</li>
-</ul>
+<div id="elevation-smoothing-is-acceptable" class="section level4 hasAnchor" number="9.1.3.2">
+<h4><span class="header-section-number">9.1.3.2</span> Elevation smoothing is acceptable<a href="qa_checklist.html#elevation-smoothing-is-acceptable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>High resolution LiDAR derived stream elevations can be noisy. Smoothing the elevations longitudinally is a way reduce noise. However, too much smoothing can be applied, eliminating any of the relationships we want to observe. By visually comparing the raw elevation and the smoothed elevation graphs, verify that the amount of smoothing sufficiently reduces noise, but does not not go too far and removes substantive variation. Smoothing is controlled in the <code>XS Dimension</code> tools using the “loess_span” parameter.</p>
 </div>
-<div id="determine-study-area-contributing-watershed" class="section level3 hasAnchor" number="5.1.5">
-<h3><span class="header-section-number">5.1.5</span> Determine Study Area Contributing Watershed<a href="create-terrain.html#determine-study-area-contributing-watershed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The purpose of this step is to define the rough contributing area of the project study area. The contributing area polygon derived in this step is almost always larger than the <code>study_area</code> polygon, unless analyzing small headwater reaches or an entire headwater watershed.</p>
-<ul>
-<li>Open the <a href="https://apps.nationalmap.gov/viewer/">National Map Viewer</a> in a web browser.</li>
-<li>In the National Map Viewer, zoom to the extent of the project study area.</li>
-<li>From the toolbar, open the <code>Layer List</code> panel.</li>
-<li>On the <code>Layer List</code> panel, toggle-on the visibility of the <code>National Hydrography Dataset</code> (NHD).</li>
-<li>Under the <code>National Hydrography Dataset</code>, toggle-off the visibility of all other NHD datasets except the <code>Flowline - Large Scale</code> and <code>Flowline - Small Scale</code> layer.</li>
-<li>On the <code>Layer List</code> panel, toggle-on the visibility of the <code>Watershed Boundary Dataset</code> (WBD).</li>
-<li>While zoomed to the extent of your project area <code>NHD_Flowline</code> feature class, identify the smallest scale WBD Hydrologic Unit (HU) feature that defines the headwaters of your project area reach. For most small streams, this is typically a HUC12, while medium size streams may require multiple HUC12 watersheds or a possibly a HUC10 watershed.</li>
-<li>From the toolbar, open the <code>Select</code> panel. To begin, make all layers unselectable.</li>
-<li>Scroll down to the <code>xx-digit HU (xxx)</code> layer (based on the HU you identified in the previous step) and check the box to select features from this layer.</li>
-<li>In the map panel, draw a rectangle around the extent of the WBD HUs that represents the upstream drainage area of your project reach.</li>
-<li>On the <code>Select</code> panel, click the “three dot” menu of the <code>xx-digit HU (xxx)</code> layer chosen. Select the <code>Export to GeoJSON</code> option and save the export file in the <code>ProjectName_Year1</code> folder.</li>
-<li>In ArcGIS Pro, use the <code>JSON to Features</code> tool to convert the exported WBD HU JSON features into the <code>ProjectName_Year1.gdb</code> file geodatabase.</li>
-<li>Use the Data Management <code>Project</code> tool to project (verb) the imported WBD HU features to the chosen project (noun) coordinate system. Name the re-projected feature class <code>WBD_HU</code>.</li>
-</ul>
+<div id="ensure-metrics-values-are-smooth" class="section level4 hasAnchor" number="9.1.3.3">
+<h4><span class="header-section-number">9.1.3.3</span> Ensure metrics values are smooth<a href="qa_checklist.html#ensure-metrics-values-are-smooth" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Many reach metrics are calculated using a longitudinal moving window analysis. The size of the moving window is controlled in the <code>XS Dimensions</code> tools using the “lead_n” parameter. A smaller value applies a narrower moving mindow and a larger value applies a wider moving window. If the moving window is too small, metric values will be highly variable along the stream. As the moving window size gets larger, metric value variation will be reduced.</p>
+</div>
+<div id="slope-values-are-reasonable" class="section level4 hasAnchor" number="9.1.3.4">
+<h4><span class="header-section-number">9.1.3.4</span> Slope values are reasonable<a href="qa_checklist.html#slope-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Slope values should be greater than zero. If negative slopes are being recorded, it usually means that the moving window size needs to be increased.</p>
+</div>
+<div id="sinuosity-values-are-reasonable" class="section level4 hasAnchor" number="9.1.3.5">
+<h4><span class="header-section-number">9.1.3.5</span> Sinuosity values are reasonable<a href="qa_checklist.html#sinuosity-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sinuosity values should be greater than one.</p>
 </div>
 </div>
-<div id="acquire-contributing-area-watershed-elevation-model" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Acquire Contributing Area Watershed Elevation Model<a href="create-terrain.html#acquire-contributing-area-watershed-elevation-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The purpose of this step is to acquire an existing, pre-made DEM of the entire study area contributing watershed. This DEM will help determine the following parameters:</p>
-<ul>
-<li>Determine if an existing, pre-made DEM will serve for this FluvialGeomorph analysis.</li>
-<li>Derive high resolution project study area watershed extents.</li>
-<li>Calculate reach scale drainage area. The coverage of this DEM should cover the entire upstream contributing watershed of the study area.</li>
-</ul>
-<p><strong>Multiple LiDAR Surveys</strong><br />
-Since the study area watershed boundaries are unlikely to have changed between LiDAR surveys, it is unnecessary to acquire the entire watershed elevation model for LiDAR survey dates prior to the <a href="workflow.html#units_of_analysis">base year</a>. Only the watershed elevation model representing the base year needs to be acquired.</p>
-<ul>
-<li>Open the <a href="https://apps.nationalmap.gov/viewer/">National Map Viewer</a> in a web browser.</li>
-<li>Click the “Data Download” link at the top of the map viewer. This will open the <a href="https://apps.nationalmap.gov/downloader/#/">TNM Download app</a>.</li>
-<li>In the <a href="https://apps.nationalmap.gov/downloader/#/">TNM Download app</a>, in the map panel, zoom to the extent of the project study area.</li>
-<li>On the <code>Datasets</code> tab, under the <code>Data</code> section, check the box next to the <code>Elevation Products (3DEP)</code>. Choose the <code>1 meter DEM</code> option.</li>
-<li>Under the <code>Area of Interest</code> section, choose the <code>Polygon</code> tool, and in the map panel draw a polygon that covers the <code>WBD_HU</code> feature class created in the previous step.<br />
-</li>
-<li>Under the <code>Advanced Search</code> section, click the <code>Search Products</code> button. This will display a set of search results on the <code>Products</code> tab.</li>
-<li>Mouse-over each of the returned datasets to verify the areal coverage and collection date. Only the most recent survey date is needed.</li>
-<li>Determine which datasets are needed for full coverage of the project study area. Click the <code>Add to Cart</code> button to add the required datasets to your cart.</li>
-<li>On the <code>Cart</code> tab, use the download link to download each dataset individually if there are only a small number of datasets.</li>
-<li>If there are many DEMs to download, use the <a href="https://ugetdm.com/downloads/windows/"><code>uGet Download Manager</code></a> app to automate the download process. Use the <code>CSV</code> button to download a .csv file of the cart items. Use <code>uGet</code> to process the .csv file to complete the download.</li>
-</ul>
-<div id="mosaic-pre-made-dems" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Mosaic pre-made DEMs<a href="create-terrain.html#mosaic-pre-made-dems" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The purpose of this step is to combine the pre-made, coarse-scale DEMs into a single DEM covering the project study area contributing watershed area.</p>
+<div id="L1_xs_profiles" class="section level3 hasAnchor" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> Cross Section Profiles<a href="qa_checklist.html#L1_xs_profiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions <code>*_dims_L1</code> fc and the <code>dem_hydro</code> raster. The cross section profile graph is drawn using the cross section points fc’s for each survey.</p>
+<div id="cross-section-must-be-digitized-from-left-to-right" class="section level4 hasAnchor" number="9.1.4.1">
+<h4><span class="header-section-number">9.1.4.1</span> Cross section must be digitized from left to right<a href="qa_checklist.html#cross-section-must-be-digitized-from-left-to-right" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The graph is being viewed from the perspective of standing in the stream, looking downstream. To ensure this orientation, cross sections must be digitized from the left descending bank to the right descending bank.</p>
 </div>
-<div id="determine-if-the-pre-made-dem-has-sufficient-resolution" class="section level3 hasAnchor" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Determine if the pre-made DEM has sufficient resolution<a href="create-terrain.html#determine-if-the-pre-made-dem-has-sufficient-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cross-section-perpenduicular-to-the-channel" class="section level4 hasAnchor" number="9.1.4.2">
+<h4><span class="header-section-number">9.1.4.2</span> Cross section perpenduicular to the channel<a href="qa_checklist.html#cross-section-perpenduicular-to-the-channel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
-<div id="verify-that-the-dem-elevations-are-in-feet" class="section level3 hasAnchor" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Verify that the DEM elevations are in feet<a href="create-terrain.html#verify-that-the-dem-elevations-are-in-feet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cross-section-covers-the-channel-extent" class="section level4 hasAnchor" number="9.1.4.3">
+<h4><span class="header-section-number">9.1.4.3</span> Cross section covers the channel extent<a href="qa_checklist.html#cross-section-covers-the-channel-extent" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
-<div id="create-a-hillshade-to-improve-visualization" class="section level3 hasAnchor" number="5.2.4">
-<h3><span class="header-section-number">5.2.4</span> Create a hillshade to improve visualization<a href="create-terrain.html#create-a-hillshade-to-improve-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cross-section-extends-onto-floodplain" class="section level4 hasAnchor" number="9.1.4.4">
+<h4><span class="header-section-number">9.1.4.4</span> Cross section extends onto floodplain<a href="qa_checklist.html#cross-section-extends-onto-floodplain" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="cross-section-not-located-on-built-infrastructure" class="section level4 hasAnchor" number="9.1.4.5">
+<h4><span class="header-section-number">9.1.4.5</span> Cross section not located on built infrastructure<a href="qa_checklist.html#cross-section-not-located-on-built-infrastructure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="cross-section-drawn-within-the-dem-extent" class="section level4 hasAnchor" number="9.1.4.6">
+<h4><span class="header-section-number">9.1.4.6</span> Cross section drawn within the DEM extent<a href="qa_checklist.html#cross-section-drawn-within-the-dem-extent" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="cross-section-y-axis-range-is-not-too-large" class="section level4 hasAnchor" number="9.1.4.7">
+<h4><span class="header-section-number">9.1.4.7</span> Cross section y-axis range is not too large<a href="qa_checklist.html#cross-section-y-axis-range-is-not-too-large" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="cross-section-x-axis-range-is-not-too-large" class="section level4 hasAnchor" number="9.1.4.8">
+<h4><span class="header-section-number">9.1.4.8</span> Cross section x-axis range is not too large<a href="qa_checklist.html#cross-section-x-axis-range-is-not-too-large" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
 </div>
-<div id="develop-high-resolution-elevation-model" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Develop High Resolution Elevation Model<a href="create-terrain.html#develop-high-resolution-elevation-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The purpose of this DEM is to derive a detailed stream terrain model that meets the resolution requirements of the study.</p>
-<div id="download-lidar-point-cloud-data" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Download LiDAR point cloud data<a href="create-terrain.html#download-lidar-point-cloud-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="build-a-dem-from-lidar-point-cloud-data" class="section level3 hasAnchor" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> Build a DEM from LiDAR point cloud data<a href="create-terrain.html#build-a-dem-from-lidar-point-cloud-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="estimate_bankfull_report_qa" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Estimate Bankfull Report<a href="qa_checklist.html#estimate_bankfull_report_qa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="study-area-overview" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Study Area Overview<a href="qa_checklist.html#study-area-overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a set of reach overview maps drawn using the <code>flowline</code> and the riffle cross section dimensions, <code>*_dims_L2</code>, feature classes (fc). Both the aerial photo and elevation are provided by <a href="https://docs.mapbox.com/api/maps/#raster-tiles">Mapbox Raster Tiles</a>. See the QA checklist items in the <a href="qa_checklist.html#L1_study_area_overview">Level 1 Report, Study Area Overview</a> section.</p>
 </div>
-<div id="verify-that-the-dem-elevations-are-in-feet-1" class="section level3 hasAnchor" number="5.3.3">
-<h3><span class="header-section-number">5.3.3</span> Verify that the DEM elevations are in feet<a href="create-terrain.html#verify-that-the-dem-elevations-are-in-feet-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="bankfull-elevation-sensitivity-analysis" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Bankfull Elevation Sensitivity Analysis<a href="qa_checklist.html#bankfull-elevation-sensitivity-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains the Bankfull Elevation sensitivity analysis Goodness of Fit graph and the Regional Hydraulic Geometry Curves graph drawn using the base year’s riffle cross section points fc.</p>
+<div id="correct-regions-included" class="section level4 hasAnchor" number="9.2.2.1">
+<h4><span class="header-section-number">9.2.2.1</span> Correct regions included<a href="qa_checklist.html#correct-regions-included" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
-<div id="create-a-hillshade-to-improve-visualization-1" class="section level3 hasAnchor" number="5.3.4">
-<h3><span class="header-section-number">5.3.4</span> Create a hillshade to improve visualization<a href="create-terrain.html#create-a-hillshade-to-improve-visualization-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="adequate-range-of-bankfull-elevations" class="section level4 hasAnchor" number="9.2.2.2">
+<h4><span class="header-section-number">9.2.2.2</span> Adequate range of bankfull elevations<a href="qa_checklist.html#adequate-range-of-bankfull-elevations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="detrended-bankfull-elevation-set-to-a-reasonable-value" class="section level4 hasAnchor" number="9.2.2.3">
+<h4><span class="header-section-number">9.2.2.3</span> Detrended bankfull elevation set to a reasonable value<a href="qa_checklist.html#detrended-bankfull-elevation-set-to-a-reasonable-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="drainage-area-values-are-reasonable" class="section level4 hasAnchor" number="9.2.2.4">
+<h4><span class="header-section-number">9.2.2.4</span> Drainage Area values are reasonable<a href="qa_checklist.html#drainage-area-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="estimate_bankfull_long_profile" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Longitudinal Profile<a href="qa_checklist.html#estimate_bankfull_long_profile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This section of the report contains a cross section longitudinal profile graph drawn using the riffle cross section dimensions, <code>riffle_channel_dims_L2</code> fc.</p>
+<div id="elevation-values-are-reasonable-1" class="section level4 hasAnchor" number="9.2.3.1">
+<h4><span class="header-section-number">9.2.3.1</span> Elevation values are reasonable<a href="qa_checklist.html#elevation-values-are-reasonable-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="stationing-in-the-correct-units-1" class="section level4 hasAnchor" number="9.2.3.2">
+<h4><span class="header-section-number">9.2.3.2</span> Stationing in the correct units<a href="qa_checklist.html#stationing-in-the-correct-units-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="stream-feature-labels-display-correctly-1" class="section level4 hasAnchor" number="9.2.3.3">
+<h4><span class="header-section-number">9.2.3.3</span> Stream feature labels display correctly<a href="qa_checklist.html#stream-feature-labels-display-correctly-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="estimate_bankfull_xs_metrics" class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Cross Section Metrics<a href="qa_checklist.html#estimate_bankfull_xs_metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a Level 2 cross section metrics plot drawn using the <code>riffle_channel_dims_L2</code> fc.</p>
+<div id="width-depth-ratio-values-are-reasonable" class="section level4 hasAnchor" number="9.2.4.1">
+<h4><span class="header-section-number">9.2.4.1</span> Width-Depth Ratio values are reasonable<a href="qa_checklist.html#width-depth-ratio-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="entrenchment-ratio-values-are-reasonable" class="section level4 hasAnchor" number="9.2.4.2">
+<h4><span class="header-section-number">9.2.4.2</span> Entrenchment Ratio values are reasonable<a href="qa_checklist.html#entrenchment-ratio-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="slope-values-are-reasonable-1" class="section level4 hasAnchor" number="9.2.4.3">
+<h4><span class="header-section-number">9.2.4.3</span> Slope values are reasonable<a href="qa_checklist.html#slope-values-are-reasonable-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="sinuosity-values-are-reasonable-1" class="section level4 hasAnchor" number="9.2.4.4">
+<h4><span class="header-section-number">9.2.4.4</span> Sinuosity values are reasonable<a href="qa_checklist.html#sinuosity-values-are-reasonable-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="shear-stress-values-are-reasonable" class="section level4 hasAnchor" number="9.2.4.5">
+<h4><span class="header-section-number">9.2.4.5</span> Shear Stress values are reasonable<a href="qa_checklist.html#shear-stress-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="unit-stream-power-values-are-reasonable" class="section level4 hasAnchor" number="9.2.4.6">
+<h4><span class="header-section-number">9.2.4.6</span> Unit Stream Power values are reasonable<a href="qa_checklist.html#unit-stream-power-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="cross-section-profiles" class="section level3 hasAnchor" number="9.2.5">
+<h3><span class="header-section-number">9.2.5</span> Cross Section Profiles<a href="qa_checklist.html#cross-section-profiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions fc <code>riffle_channel_dims_L2</code> and the <code>dem_hydro</code> raster. The cross section profile graph is drawn using the <code>riffle_channel_points</code> fc’s for each survey. see the QA checklist items in the <a href="qa_checklist.html#L1_xs_profiles">Level 1 Report, Cross Section Profiles</a> section.</p>
+</div>
+</div>
+<div id="L2_report_qa" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Level 2 Report<a href="qa_checklist.html#L2_report_qa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="study-area-overview-1" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Study Area Overview<a href="qa_checklist.html#study-area-overview-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a set of reach overview maps drawn using the <code>flowline</code> and the regularly spaced cross section dimensions, <code>*_dims_L2</code>, feature classes (fc). Both the aerial photo and elevation are provided by <a href="https://docs.mapbox.com/api/maps/#raster-tiles">Mapbox Raster Tiles</a>. See the QA checklist items in the <a href="qa_checklist.html#L1_study_area_overview">Level 1 Report, Study Area Overview</a> section.</p>
+</div>
+<div id="longitudinal-profile" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Longitudinal Profile<a href="qa_checklist.html#longitudinal-profile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, <code>*_dims_L2</code> fc. See the QA checklist items in the <a href="qa_checklist.html#estimate_bankfull_long_profile">Estimate Bankfull, Longitudinal Profile</a> section.</p>
+</div>
+<div id="cross-section-metrics" class="section level3 hasAnchor" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Cross Section Metrics<a href="qa_checklist.html#cross-section-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, <code>*_dims_L2</code> fc.See the QA checklist items in the <a href="qa_checklist.html#estimate_bankfull_xs_metrics">Estimate Bankfull, Cross section Metrics</a> section.</p>
+<div id="ensure-metrics-values-are-smooth-1" class="section level4 hasAnchor" number="9.3.3.1">
+<h4><span class="header-section-number">9.3.3.1</span> Ensure metrics values are smooth<a href="qa_checklist.html#ensure-metrics-values-are-smooth-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="cross-section-profiles-1" class="section level3 hasAnchor" number="9.3.4">
+<h3><span class="header-section-number">9.3.4</span> Cross Section Profiles<a href="qa_checklist.html#cross-section-profiles-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc <code>*_dims_L2</code> and the <code>dem_hydro</code> raster. The cross section profile graph is drawn using the cross section <code>*_points</code> fc’s for each survey. see the QA checklist items in the <a href="qa_checklist.html#L1_xs_profiles">Level 1 Report, Cross Section Profiles</a> section.</p>
+</div>
+</div>
+<div id="L3_report_qa" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Level 3 Report<a href="qa_checklist.html#L3_report_qa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="study-area-overview-2" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Study Area Overview<a href="qa_checklist.html#study-area-overview-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a set of reach overview maps drawn using the <code>flowline</code> and the regularly spaced cross section dimensions, <code>*_dims_L3</code>, feature classes (fc). Both the aerial photo and elevation are provided by <a href="https://docs.mapbox.com/api/maps/#raster-tiles">Mapbox Raster Tiles</a>. See the QA checklist items in the <a href="qa_checklist.html#L1_study_area_overview">Level 1 Report, Study Area Overview</a> section.</p>
+</div>
+<div id="longitudinal-profile-1" class="section level3 hasAnchor" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Longitudinal Profile<a href="qa_checklist.html#longitudinal-profile-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, <code>*_dims_L3</code> fc. See the QA checklist items in the <a href="qa_checklist.html#estimate_bankfull_long_profile">Estimate Bankfull, Longitudinal Profile</a> section.</p>
+</div>
+<div id="cross-section-metrics-1" class="section level3 hasAnchor" number="9.4.3">
+<h3><span class="header-section-number">9.4.3</span> Cross Section Metrics<a href="qa_checklist.html#cross-section-metrics-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, <code>*_dims_L3</code> fc.See the QA checklist items in the <a href="qa_checklist.html#estimate_bankfull_xs_metrics">Estimate Bankfull, Cross section Metrics</a> section.</p>
+<div id="ensure-metrics-values-are-smooth-2" class="section level4 hasAnchor" number="9.4.3.1">
+<h4><span class="header-section-number">9.4.3.1</span> Ensure metrics values are smooth<a href="qa_checklist.html#ensure-metrics-values-are-smooth-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="radius-of-curvature-to-bankfull-width-values-are-reasonable" class="section level4 hasAnchor" number="9.4.3.2">
+<h4><span class="header-section-number">9.4.3.2</span> Radius of Curvature to Bankfull Width values are reasonable<a href="qa_checklist.html#radius-of-curvature-to-bankfull-width-values-are-reasonable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="cross-section-profiles-2" class="section level3 hasAnchor" number="9.4.4">
+<h3><span class="header-section-number">9.4.4</span> Cross Section Profiles<a href="qa_checklist.html#cross-section-profiles-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc <code>*_dims_L3</code> and the <code>dem_hydro</code> raster. The cross section profile graph is drawn using the cross section “_points” fc’s for each survey. see the QA checklist items in the <a href="qa_checklist.html#L1_xs_profiles">Level 1 Report, Cross Section Profiles</a> section.</p>
+<hr />
 
 </div>
 </div>
@@ -568,8 +635,8 @@ Since the study area watershed boundaries are unlikely to have changed between L
           </div>
         </div>
       </div>
-<a href="tutorial_data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="level-1-workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="level-3-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -600,7 +667,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/FluvialGeomorph/FG-User-Manual/edit/master/05-CreateTerrain.Rmd",
+"link": "https://github.com/FluvialGeomorph/FG-User-Manual/edit/master/09-QAChecklist.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -608,7 +675,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/FluvialGeomorph/FG-User-Manual/blob/master/05-CreateTerrain.Rmd",
+"link": "https://github.com/FluvialGeomorph/FG-User-Manual/blob/master/09-QAChecklist.Rmd",
 "text": null
 },
 "download": null,
