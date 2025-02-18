@@ -51,4 +51,4 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 
 ## Read the Report
-Read the report here: [FG-User-Manual](https://usermanual.fluvialgeomorph.org/)
+Read the report here: [FG-User-Manual](https://fluvialgeomorph.github.io/FG-User-Manual/)
