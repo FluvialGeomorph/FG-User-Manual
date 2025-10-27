@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Level-2-2 Channel Bankfull Analysis – FluvialGeomorph User Manual</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Level-3.html" rel="next">
+<link href="./Level-2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Level-1.html">Workflows</a></li><li class="breadcrumb-item"><a href="./Level-2-2.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">FluvialGeomorph User Manual</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/FluvialGeomorph/FG-User-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Concepts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SoftwareRequirements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software Requirements</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./TutorialData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tutorial Data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Workflows</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Level-1 Initial Channel Assessment</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-2-2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Level-3 Planform Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Report Reviews</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-1-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Level 1 Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-2-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-2-2-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Level-3-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Level-3 Planform Report</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./References.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#application-and-data-setup" id="toc-application-and-data-setup" class="nav-link active" data-scroll-target="#application-and-data-setup">Application and Data Setup</a>
+  <ul class="collapse">
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#retreive-the-most-current-version-of-fluvgeo-toolbox-from-github" id="toc-retreive-the-most-current-version-of-fluvgeo-toolbox-from-github" class="nav-link" data-scroll-target="#retreive-the-most-current-version-of-fluvgeo-toolbox-from-github">Retreive the most current version of FluvGeo Toolbox from GITHUB</a></li>
+  <li><a href="#data-access-in-arcgis-pro" id="toc-data-access-in-arcgis-pro" class="nav-link" data-scroll-target="#data-access-in-arcgis-pro">Data access in ArcGIS Pro</a></li>
+  </ul></li>
+  <li><a href="#analysis-workflow" id="toc-analysis-workflow" class="nav-link" data-scroll-target="#analysis-workflow">Analysis Workflow</a>
+  <ul class="collapse">
+  <li><a href="#extend-original-xs_layout" id="toc-extend-original-xs_layout" class="nav-link" data-scroll-target="#extend-original-xs_layout">Extend original XS_layout</a></li>
+  <li><a href="#calculate-cross-section-watershed-area" id="toc-calculate-cross-section-watershed-area" class="nav-link" data-scroll-target="#calculate-cross-section-watershed-area">Calculate Cross Section Watershed Area</a></li>
+  <li><a href="#xs-river-position" id="toc-xs-river-position" class="nav-link" data-scroll-target="#xs-river-position">XS River Position</a></li>
+  <li><a href="#xs-points" id="toc-xs-points" class="nav-link" data-scroll-target="#xs-points">XS Points</a></li>
+  <li><a href="#xs-point-classify---14a" id="toc-xs-point-classify---14a" class="nav-link" data-scroll-target="#xs-point-classify---14a">XS Point Classify - 14a</a></li>
+  <li><a href="#create-banklines" id="toc-create-banklines" class="nav-link" data-scroll-target="#create-banklines">Create Banklines</a></li>
+  <li><a href="#edit-channel-line-layer" id="toc-edit-channel-line-layer" class="nav-link" data-scroll-target="#edit-channel-line-layer">Edit channel line layer</a></li>
+  <li><a href="#xs-dimensions-level-1" id="toc-xs-dimensions-level-1" class="nav-link" data-scroll-target="#xs-dimensions-level-1">XS Dimensions Level 1</a></li>
+  <li><a href="#join-from-csv-data-management-toolbox" id="toc-join-from-csv-data-management-toolbox" class="nav-link" data-scroll-target="#join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</a></li>
+  <li><a href="#go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-." id="toc-go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-." class="nav-link" data-scroll-target="#go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-.">Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach .</a></li>
+  <li><a href="#open-the-pdf-stream-stats-report-from-the-site-folder." id="toc-open-the-pdf-stream-stats-report-from-the-site-folder." class="nav-link" data-scroll-target="#open-the-pdf-stream-stats-report-from-the-site-folder.">Open the PDF Stream Stats Report from the site folder.</a></li>
+  </ul></li>
+  <li><a href="#run-report" id="toc-run-report" class="nav-link" data-scroll-target="#run-report">Run Report</a>
+  <ul class="collapse">
+  <li><a href="#l2-xs-dimensions" id="toc-l2-xs-dimensions" class="nav-link" data-scroll-target="#l2-xs-dimensions">L2 XS Dimensions</a></li>
+  <li><a href="#join-from-csv" id="toc-join-from-csv" class="nav-link" data-scroll-target="#join-from-csv">Join from CSV</a></li>
+  <li><a href="#generate-level-2-report" id="toc-generate-level-2-report" class="nav-link" data-scroll-target="#generate-level-2-report">Generate Level 2 Report</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Level-1.html">Workflows</a></li><li class="breadcrumb-item"><a href="./Level-2-2.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Analysis</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Analysis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 2 is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping of all cross sections and roughly estimate channel bankfull dimensions and profile for each reach. The data from level 1 will be needed to start the level 2 process. This analysis begins with modifications to the cross sections.</p>
+<section id="application-and-data-setup" class="level2">
+<h2 class="anchored" data-anchor-id="application-and-data-setup">Application and Data Setup</h2>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">Applications</h3>
+<ol type="1">
+<li>ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.</li>
+<li>R, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.</li>
+</ol>
+</section>
+<section id="retreive-the-most-current-version-of-fluvgeo-toolbox-from-github" class="level3">
+<h3 class="anchored" data-anchor-id="retreive-the-most-current-version-of-fluvgeo-toolbox-from-github">Retreive the most current version of FluvGeo Toolbox from GITHUB</h3>
+<ol type="1">
+<li>Get the latest version of the toolbox from this page under Releases.<a href="https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox" class="uri">https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox</a></li>
+<li>Place the install in a location that all required applications can access.</li>
+<li>In Rstudio under tools install package HERE.</li>
+<li>In ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.</li>
+</ol>
+</section>
+<section id="data-access-in-arcgis-pro" class="level3">
+<h3 class="anchored" data-anchor-id="data-access-in-arcgis-pro">Data access in ArcGIS Pro</h3>
+<ol type="1">
+<li>Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.</li>
+<li>Create a mapped drive and use that connection in ArcCatalog.</li>
+</ol>
+</section>
+</section>
+<section id="analysis-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-workflow">Analysis Workflow</h2>
+<section id="extend-original-xs_layout" class="level3">
+<h3 class="anchored" data-anchor-id="extend-original-xs_layout">Extend original XS_layout</h3>
+<ol type="1">
+<li>Use the original XS lines from level1 and extend each XS line high ground to high ground of the dem_hydro outside the floodplain on each side. XS extent must be beyond the floodplain at minimum and kept perpendicular to the channel.</li>
+<li>Save edits.</li>
+<li>Import the extended XS line layer into the older geodatabase.</li>
+</ol>
+</section>
+<section id="calculate-cross-section-watershed-area" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-cross-section-watershed-area">Calculate Cross Section Watershed Area</h3>
+<ol type="1">
+<li>Go to FluvialGeomorph toolbox open the XS Wastershed Area tool.</li>
+<li>Start with the more recent data first.</li>
+<li>Add the feature dataset.</li>
+<li>Add the extended XS line layer.</li>
+<li>Add the flowline.</li>
+<li>Add the flow_accum created in level or refer to level 1 instructions.</li>
+<li>Snap distance is 100.</li>
+<li>Hit Run.
+<ol type="i">
+<li>If it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime.</li>
+<li>The result is a new attribute field in the XS feature class that has a calculated watershed area for each regularly spaced cross section.</li>
+</ol></li>
+<li>Once it is done running, open attribute table and see if anything in the watershedareaSqMile is off.
+<ol type="i">
+<li>Some of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun Tool 12 Watershed Area and increase the snap distance.</li>
+<li>Check for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.</li>
+</ol></li>
+<li>Run for older geodatabase.</li>
+</ol>
+</section>
+<section id="xs-river-position" class="level3">
+<h3 class="anchored" data-anchor-id="xs-river-position">XS River Position</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, select XS River Position.</li>
+<li>Enter feature dataset for more recent geodatabase.</li>
+<li>Input extended XS.</li>
+<li>Input Flowline Points.</li>
+<li>Hit Run. Complete for both the channel and floodplain XS</li>
+<li>The result adds new fields in the attribute table of the XS feature class.</li>
+<li>Two temporary charts will populate the Contents tab under the Cross Section Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the XS River Position Tool to view them again.
+<ol type="i">
+<li>Open both Charts and inspect for any issues in the data.</li>
+<li>Note: This step provides charts which help see if there are gaps in the data.</li>
+</ol></li>
+<li>Repeat XS River Position for the older gdb.</li>
+</ol>
+</section>
+<section id="xs-points" class="level3">
+<h3 class="anchored" data-anchor-id="xs-points">XS Points</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, select XS Points.</li>
+<li>Enter feature dataset for more recent geodatabase.</li>
+<li>Input extended Cross Sections.</li>
+<li>Input dem_hydro.</li>
+<li>Change dem_units to ft.</li>
+<li>Input REM for the detrend_dem.</li>
+<li>Station Distance is 1.</li>
+<li>Hit Run. Complete for both the channel and floodplain XS.</li>
+<li>Points have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.</li>
+<li>Repeat these steps for the older gdb.</li>
+</ol>
+</section>
+<section id="xs-point-classify---14a" class="level3">
+<h3 class="anchored" data-anchor-id="xs-point-classify---14a">XS Point Classify - 14a</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, select XS Points Classify.</li>
+<li>Enter feature dataset for the most recent year.</li>
+<li>Input extended XS points.</li>
+<li>Input channel polygon.</li>
+<li>Input floodplain polygon.</li>
+<li>Leave buffer distance default.</li>
+<li>Repeat for earlier year extended XS Points.</li>
+</ol>
+</section>
+<section id="create-banklines" class="level3">
+<h3 class="anchored" data-anchor-id="create-banklines">Create Banklines</h3>
+<ol type="1">
+<li>Turn channel bank_raw polygon layer into a line layer.</li>
+<li>Use Esri Poygon to Line tool.</li>
+<li>Add the bank_raw channel polygon as the input feature.</li>
+<li>Add the feature dataset for the more recent gdb.</li>
+<li>Hit Run.</li>
+</ol>
+</section>
+<section id="edit-channel-line-layer" class="level3">
+<h3 class="anchored" data-anchor-id="edit-channel-line-layer">Edit channel line layer</h3>
+<div style="float: right; margin:1px 10px;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/banklines.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Step 2"><img src="images/banklines.jpg" class="img-fluid figure-img" style="width:1.5in" alt="Step 2"></a></p>
+<figcaption>Step 2</figcaption>
+</figure>
+</div>
+</div>
+<ol type="1">
+<li>Split the line and remove all parts that are not the streambank length of the flowline.<br>
+</li>
+<li>Set the flow on each streambank line to flow downstream. (Make sure the RED node is at the upstream end of the line and both ends are snapped together)<br>
+</li>
+<li>Save edits.</li>
+</ol>
+<p><br></p>
+</section>
+<section id="xs-dimensions-level-1" class="level3">
+<h3 class="anchored" data-anchor-id="xs-dimensions-level-1">XS Dimensions Level 1</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open XS Dimensions, Level 1.</li>
+<li>Extended XS’s for the newest year are added into xs_line fc.</li>
+<li>Enter 4 for the lead_n.
+<ol type="i">
+<li>This sets the moving window to average 4 XS’s above and below the XS being calculated.</li>
+</ol></li>
+<li>Leave the use_smoothing box unchecked and loess_span as 0.1.</li>
+<li>Check that the vert_units are in ft.</li>
+<li>After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.</li>
+</ol>
+</section>
+<section id="join-from-csv-data-management-toolbox" class="level3">
+<h3 class="anchored" data-anchor-id="join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.</li>
+<li>Feature_dataset will be the feature dataset of the most recent gdb.</li>
+<li>Fc will be the XS line feature class.</li>
+<li>Choose Seq in the dropdown for the fc_field.</li>
+<li>The csv_file will be the .csv file created from the XS Dimensions Level 1 Tool.</li>
+<li>Csv_field will match the fc_field so it should also be Seq.</li>
+<li>Hit Run.</li>
+<li>A new line feature class ending with dims_L1 will be added to the feature dataset.</li>
+</ol>
+</section>
+<section id="go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-." class="level3">
+<h3 class="anchored" data-anchor-id="go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-.">Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach .</h3>
+<pre><code>*Note - Other sources can be used to get the watershed discharge. 
+Check with hydrologist requesting the analysis for additional sources.*</code></pre>
+<div style="float: right; margin:1px 20px;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/sswatershed.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Step 3. i"><img src="images/sswatershed.jpg" class="img-fluid figure-img" style="width:2in" alt="Step 3. i"></a></p>
+<figcaption>Step 3. i</figcaption>
+</figure>
+</div>
+</div>
+<ol type="1">
+<li>Select the state of the reach on the left of the stream.</li>
+<li>Zoom into the location for the stream reach until the stream layer shows.</li>
+<li>Click the delineate button.
+<ol type="i">
+<li>On the map select the base of the stream reach. The watershed calculation will start. When it is complete a delineation of the reach will show.</li>
+<li>Click Continue.</li>
+<li>Select all 4 options under Regression Based Scenarios.</li>
+<li>Below expand Basin Characteristics and Select All Basin Characteristics.</li>
+<li>Click Continue. The calculations for the report will run.</li>
+<li>Once the calculations are completed scroll to the bottom of the left panel, check all the boxes and click Open Report.</li>
+<li>Add the site name to the report title. a. Ex. Site193 JODAVIESS County SWCD Stream Stats Report.</li>
+<li>Add any comments need to the comment section.</li>
+<li>Scroll to the bottom and print the report to PDF. Save to the site folder.</li>
+</ol></li>
+</ol>
+</section>
+<section id="open-the-pdf-stream-stats-report-from-the-site-folder." class="level3">
+<h3 class="anchored" data-anchor-id="open-the-pdf-stream-stats-report-from-the-site-folder.">Open the PDF Stream Stats Report from the site folder.</h3>
+<div style="float: none; margin:1px 30px;">
+<p><a href="images/stats.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/stats.jpg" class="img-fluid" style="width:6in"></a></p>
+</div>
+<ol type="1">
+<li>Locate the 50-percent AEP flood value under the Peak-Flow Statistics Flow Report section around page 8 of the report. This value will be used in the Level 2 report.</li>
+</ol>
+</section>
+</section>
+<section id="run-report" class="level2">
+<h2 class="anchored" data-anchor-id="run-report">Run Report</h2>
+<section id="l2-xs-dimensions" class="level3">
+<h3 class="anchored" data-anchor-id="l2-xs-dimensions">L2 XS Dimensions</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open XS Dimensions, Level 2.</li>
+<li>XS’s dimension level 1 for the riffles into extended xs_line fc.</li>
+<li>XS’s_points for the channel riffles are added to the extended XS_point_fc.</li>
+<li>Bankfull_elevation is from the channel depth of the bank_raw channel layer. Ex. 103.5</li>
+<li>Enter 4 for the lead_n.
+<ol type="i">
+<li>This sets the moving window to average 4 XS’s above and below the XS being calculated.</li>
+</ol></li>
+<li>Leave the use_smoothing box unchecked and loess_span as 0.1. Can be adjusted up to 1.</li>
+<li>Check that the vert_units are in ft.</li>
+<li>Discharge method is model_measure.</li>
+<li>Discharge_value is the 50-percent AEP flood value from the watershed discharge report.</li>
+<li>After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.</li>
+</ol>
+</section>
+<section id="join-from-csv" class="level3">
+<h3 class="anchored" data-anchor-id="join-from-csv">Join from CSV</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.</li>
+<li>Feature_dataset will be the feature dataset of the most recent gdb.</li>
+<li>Fc will be the extended XS _layout_dims_L1 line feature class.</li>
+<li>Choose Seq in the dropdown for the fc_field.</li>
+<li>The csv_file will be the .csv file created from the XS Dimensions Level 2 Tool.</li>
+<li>Csv_field will match the fc_field so it should also be Seq.</li>
+<li>Hit Run.</li>
+<li>A new line feature class ending with dims_L2 will be added to the feature dataset.</li>
+</ol>
+</section>
+<section id="generate-level-2-report" class="level3">
+<h3 class="anchored" data-anchor-id="generate-level-2-report">Generate Level 2 Report</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open the Report – L2b located in the Reports toolset.</li>
+<li>Stream will be the ReachName which was created when making the flowline. Copy and paste the ReachName from XS’s attribute table.</li>
+<li>Flowline_fc will be the flowline feature class from the recent survey event.</li>
+<li>Extended Xs_fc will be the XS feature class for the most recent survey event.</li>
+<li>Extended Xs_dimensions_fc will be the line feature class created during the Join From CSV tool.</li>
+<li>Extended Xs_points_1 will be the XS points point feature class created from the XS Points tool. Use the data from the most recent survey event.
+<ol type="i">
+<li>Extended Xs_points_2 will be the XS points point feature class for the older year.</li>
+</ol></li>
+<li>Survey_name_1 will be the survey event of the most recent data (ex: 2022).
+<ol type="i">
+<li>Survey_name_2 will be the survey event of the older data (ex: 2012).</li>
+</ol></li>
+<li>Features_fc will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.</li>
+<li>Channel_fc will be the lower number bank_raw layer that represents the channel.</li>
+<li>Floodplain_fc will be the higher number bank_raw layer that represents the floodplain,</li>
+<li>Dem will need the dem_hydro from the most recent survey event.</li>
+<li>Bf_estimate will be the 50-percent AEP flood from Stream Stats or other source.</li>
+<li>Regions will be selected based on needs for the site. They calculate an estimate of specific hydraulic dimension for a given drainage area. One to four curves can be selected for a report. Ex. IL sites normally use Southern Driftless, Lower Southern Driftless, and Eastern United States.</li>
+<li>Check the box for: show_xs_map.</li>
+<li>Change profile_units to feet.</li>
+<li>Check boxes for aerial and elevation.</li>
+<li>Xs_label_freq and exaggeration should already be set to 10 and extent_factor is 1.2.</li>
+<li>Output_dir is where the report will be stored. Each project has a Reports folder.</li>
+<li>Output_format is word_document.</li>
+<li>Hit Run.</li>
+<li>Review report for errors and anomalies in the data.</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Level-2.html" class="pagination-link" aria-label="Level-2 Estimate Bankfull Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Level-3.html" class="pagination-link" aria-label="Level-3 Planform Analysis">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Level-3 Planform Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Made with love by USACE</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

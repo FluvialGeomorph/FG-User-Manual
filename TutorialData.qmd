@@ -1,0 +1,68 @@
+---
+title: "Tutorial Data"
+format: html
+---
+
+
+This chapter describes how to download the tutorial data and configure your workspace. 
+
+## Map Templates  
+To standardize the maps used for this project, use these project [site map templates](https://usace-mvr.maps.arcgis.com/home/item.html?id=5a1114c658da4929bc1fb994b0d79a8e). 
+
+## Cole Creek  
+In this section we will assemble the tutorial data for the Cole Creek Site in the Papillion Creek, NE project study area. 
+
+* Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
+
+``` {fig.cap="Papillion Creek Folder Structure."}
+Papillion_Creek
+└─── Sites
+│    └─── 01_Cole_Creek
+│    │    └─── Data
+│    │    └─── Elevation
+│    │    └─── Exports
+│    │    └─── Maps
+│    │    └─── Reports
+└─── Elevation
+└─── Exports
+└─── Maps
+
+```
+
+
+* Download the [Cole Creek Site Data](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/ColeCreek/ColeCreek_Data.zip) site data using this link. 
+* Unarchive this `.zip` file to the Cole Creek site data folder. 
+
+
+## Big Blue Dam, KS
+In this section we will assemble the tutorial data for the Big Blue Dam sites in the Big Blue Dam, KS project study area. 
+
+* Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
+
+``` {fig.cap="Big Blue Dam Folder Structure."}
+Big_Blue_Dam
+└─── Sites
+│    └─── 01_Horseshoe_Creek
+│    │    └─── Data
+│    │    └─── Elevation
+│    │    └─── Exports
+│    │    └─── Maps
+│    │    └─── Reports
+│    └─── 02_McIntire_Creek
+│    │    └─── Data
+│    │    └─── Elevation
+│    │    └─── Exports
+│    │    └─── Maps
+│    │    └─── Reports
+└─── Elevation
+└─── Exports
+└─── Maps
+
+```
+* Download the [Horseshoe Creek](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/Horseshoe_Creek.zip) site data using this link. 
+* Download the [McIntire Creek](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/McIntireCreek.zip) site data using this link. 
+* Unarchive these `.zip` files to the appropriate Big Blue River site `Data` folder. 
+* Download the [Big Blue Reports](https://tutorial-fluvialgeomorph.s3.us-east-2.amazonaws.com/Big_Blue_KS/Big_Blue_Reports.zip) using this link. 
+* Unarchive this `.zip` file to the appropriate Big Blue River site `Reports` folder. 
+
+***
