@@ -1,0 +1,222 @@
+# Level-2 Estimate Bankfull Analysis
+
+The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.
+Level 2 Estimate Bankfull is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.
+The data from level 1 will be needed to start this estimate bankfull process. 
+
+## Estimate Bankfull Analysis
+
+## Application and Data Setup
+
+### 	Level-1 Data
+
+1.	Sites must have had a Level-1 analysis run. That data is essential to completing Level_2 analysis.
+2.	Level-1 software application and tools will be needed for Level-2 analysis. 
+
+
+### 	Data access in ArcGIS Pro
+
+1.	Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.
+2.	Create a mapped drive and use that connection in ArcCatalog. 
+
+## Analysis Workflow 
+
+### 	Create Riffle Cross Section Layers– for Channel 
+1.	Copy the XS_section line layer in the most recent database and rename one XS_Layout_riffles_ch (Ex. xs_300_150_riffels_ch).
+
+### 	Select the XS_section that represent best represent rock riffle areas in the reach.
+1.	Select between 3 and 6 riffle location based on the length and characteristics of 
+        the reach.
+2.	Riffle Identifying Characteristics:
+    i.	A straight reach between two meander bends, areas in the cross-overs between river bends
+    ii.	Clear indicators of the active floodplain or bankfull discharge
+    iii.	Presence of one or more terraces
+    iv.	Channel section and form typical of the stream
+    v.	A reasonably clear view of of geomorphic features
+    vi.	Areas of high water surface slope (in the case of high gradient streams)
+    vii.	Areas of minimum depth and width
+    viii.	Channel width parallel and consistent
+    ix.	Avoid tributary influences
+    x.	Cross sections should be drawn wide enough to capture the top of bank
+3.	Points in the LAS dataset can assist in locating riffles if the stream. Use symbolized LAS point layer to identify dense clusters ground points in the reach.
+4.	Imagery can also be used to identify potential riffle areas in the reach.
+5.	Once XS_section have been identified delete all other XS sections that are not 
+        determined to be riffles.
+
+### 	XS Resequence the riffle XS_sections 
+1.	Feature_dataset for the most recent year.
+2.	Xs_fc for the XS_Layout_riffles_ch. 
+
+### 	Resize the XS_Layout_riffles_ch
+1.	The riffle cross sections need to snapped perpendicular to the channel polygon at the current riffle location.
+2.	Save Edits
+
+### 	Create Floodplain riffle layer
+1.	Copy the XS_Layout_riffles_ch to the current year feature dataset and rename it XS_Layout_riffles_fp.
+2.	Edit XS_Layout_riffles_fp lines to the full width of the floodplain polygon. The XS_Layout_riffles_fp must line up with the XS_Layout_riffles_ch lines. 
+3.	Save edits.
+ 
+### 	Calculate Cross Section Watershed Area – for the channel and floodplain riffles
+1.	In the fluvialgeomorph folder, expand layers and add NHDPlusFac_National.tif
+2.	Right click the layer, go to data, then export raster
+3.	Add the output to whatever year folder.
+4.	Clipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.
+    i.	Optional: Create a clip for each project site of the NHDPlusFac_National.tif with the extent zoomed out 1:50000 centered on the site.
+5.	Go to FluvialGeomorph toolbox open XS Water Area tool.
+6.	Snap distance is 100.
+7.	Start with the more recent data first.
+8.	Hit Run.
+    i.	If it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime. 
+    ii.	The result is a new attribute field in the XS feature class that has a calculated watershed area for each regularly spaced cross section.
+9.	Once it is done running, open attribute table and see if anything in the watershedareaSqMile is off.
+    i.	Some of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun Watershed Area TOOL and increase the snap distance.
+    ii.	Check for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.
+
+### 	Import riffle cross sections into GDB feature dataset.
+1.	Import the finished XS_Layout_riffles_ch and XS_Layout_riffles_fp to the earlier year feature dataset. 
+
+### 	XS River Position 
+1.	In the FluvialGeomorph toolbox, select XS River Position.
+2.	Enter feature dataset for more recent geodatabase.
+3.	Input Riffle Cross Sections.
+4.	Input Flowline Points.
+5.	Hit Run. Complete for both the channel and floodplain XS
+6.	The result adds new fields in the attribute table of the XS feature class. 
+7.	Two temporary charts will populate the Contents tab under the Cross Section Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the XS River Position Tool to view them again.
+    i.	Open both Charts and inspect for any issues in the data.
+    ii.	Note: This step provides charts which help see if there are gaps in the data.
+8.	Repeat XS River Position for the older gdb.
+
+### XS Points 
+1.	In the FluvialGeomorph toolbox, select XS Points.
+2.	Enter feature dataset for more recent geodatabase.
+3.	Input Cross Sections.
+4.	Input dem_hydro.
+5.	Change dem_units to ft.
+6.	Input REM for the detrend_dem.
+7.	Station Distance is 1.
+8.	Hit Run. Complete for both the channel and floodplain XS.
+9.	Points have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.
+10.	Repeat these steps for the older gdb.
+
+### 	XS Point Classify 
+1.	In the FluvialGeomorph toolbox, select XS Points Classify.
+2.	Enter feature dataset for the most recent year.
+3.	Input XS points.
+4.	Input channel polygon.
+5.	Input floodplain polygon.
+7.	Leave buffer distance default.
+8.	Repeat for earlier year XS Points.
+
+## Run Report
+                                                              
+### 	XS Dimensions Level 1
+1.	In the FluvialGeomorph toolbox, open XS Dimensions, Level 1.
+2.	XS’s for the newest year are added into xs_line fc.
+3.	Enter 4 for the lead_n.
+    i.	This sets the moving window to average 4 XS’s above and below the XS being calculated.
+4.	Leave the use_smoothing box unchecked and loess_span as 0.1.
+5.	Check that the vert_units are in ft.
+6.	After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.
+
+### 	Join from CSV (Data Management toolbox)
+1.	In the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.
+2.	Feature_dataset will be the feature dataset of the most recent gdb.
+3.	Fc will be the XS line feature class.
+4.	Choose Seq in the dropdown for the fc_field.
+5.	The csv_file will be the .csv file created from the XS Dimensions Level 1 Tool.
+6.	Csv_field will match the fc_field so it should also be Seq.
+7.	Hit Run.
+8.	A new line feature class ending with dims_L1 will be added to the feature dataset.
+
+
+###	Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach . 
+
+    *Note - Other sources can be used to get the watershed discharge. 
+    Check with hydrologist requesting the analysis for additional sources.*
+    
+::: {style="float: right; margin:1px 20px;"}
+
+![Step 3. i](images/sswatershed.jpg){width="2in"}
+
+:::
+
+1.	Select the state of the reach on the left of the stream.
+2.	Zoom into the location for the stream reach until the stream layer shows.
+3.	Click the delineate button.
+    i.	On the map select the base of the stream reach. The watershed calculation will start. When it is complete a delineation of the reach will show.
+    ii.	  Click Continue. 
+    iii.    Select all 4 options under Regression Based Scenarios.
+    iv.	Below expand Basin Characteristics and Select All Basin Characteristics.
+    v.	Click Continue. The calculations for the report will run.
+    vi.	Once the calculations are completed scroll to the bottom of the left panel, check all the boxes and click Open             Report.
+    vii.	Add the site name to the report title.
+        a.	Ex. Site193 JODAVIESS County SWCD Stream Stats Report.
+    viii.	Add any comments need to the comment section.
+    ix.	Scroll to the bottom and print the report to PDF. Save to the site folder.
+
+
+
+###	Open the PDF Stream Stats Report from the site folder. 
+
+::: {style="float: none; margin:1px 30px;"}
+
+![](images/stats.jpg){width="6in"}
+
+:::
+
+1.	Locate the 50-percent AEP flood value under the Peak-Flow Statistics Flow Report section around page 8 of the report. This value will be used in the Level 2 report.
+
+
+###	L2 XS Dimensions 
+1.	In the FluvialGeomorph toolbox, open XS Dimensions, Level 2.
+2.	XS’s dimension level 1 for the riffles into xs_line fc. Ex. xs_300_150_riffels_ch_103_5_dims_L1
+3.	XS’s_points for the channel riffles are added to the XS_point_fc. Ex. xs_300_150_riffels_ch_103_5.
+4.	Bankfull_elevation is from the channel depth of the bank_raw channel layer. Ex. 103.5
+5.	Enter 4 for the lead_n.
+    i.	This sets the moving window to average 4 XS’s above and below the XS being calculated.
+6.	Leave the use_smoothing box unchecked and loess_span as 0.1. Can be adjusted up to 1.
+7.	Check that the vert_units are in ft.
+8.	Discharge method is model_measure.
+9.	Discharge_value is the 50-percent AEP flood value from the watershed discharge report.
+10.	After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.
+
+###	Join from CSV 
+1.	In the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.
+2.	Feature_dataset will be the feature dataset of the most recent gdb.
+3.	Fc will be the XS channel riffles _dims_L1 line feature class.
+4.	Choose Seq in the dropdown for the fc_field.
+5.	The csv_file will be the .csv file created from the XS Dimensions Level 2 Tool.
+6.	Csv_field will match the fc_field so it should also be Seq.
+7.	Hit Run.
+8.	A new line feature class ending with dims_L2 will be added to the feature dataset.
+
+###	Generate Level L2 Estimate Bankfull Report
+1.	In the FluvialGeomorph toolbox, open the Report – L2 Estimate Bankfull located in the Reports toolset.
+2.	Stream will be the ReachName which was created when making the flowline. Copy and paste the ReachName from XS’s attribute table.
+3.	Flowline_fc will be the flowline feature class from the recent survey event.
+4.	Xs_dimensions_fc will be the line feature class created during the Join From CSV tool.
+5.	Xs_point_ch_1 will be the flowline points from the most recent survey event.
+    i.	Xs_point_ch_2 will be the flowline points from the older survey event.
+6.	Xs_points_fp_1 will be the XS points point feature class created from the XS Points tool. Use the data from the most recent survey event.
+    i.	Xs_points_fp_2 will be the XS points point feature class for the older survey event.
+7.	Survey_name_1 will be the survey event of the most recent data (ex: 2022).
+    i.	Survey_name_2 will be the survey event of the older data (ex: 2012).
+8.	Features_fc will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.
+    i.	Channel_fc will be the lower number bank_raw layer that represents the channel.
+9.	Floodplain_fc will be the higher number bank_raw layer that represents the floodplain,
+10.	Dem will need the dem_hydro.
+11.	Regions will be selected based on needs for the site. They calculate an estimate of specific hydraulic dimension for a given drainage area. One to four curves can be selected for a report.  Ex. IL sites normally use Southern Driftless, Lower Southern Driftless, and Eastern United States. 
+12.	From_elevation is the low end number from a range built around the channel bf_estimate number. 
+    i.	Ex if your bankfull estimate for the reach is 104 the range could be 100-106. Making 100 the from_elevation and 106 the to_elevation. The range should be roughly 2-5 numbers below and above the bankfull estimate.
+13.	To_elevation is the high end number from a range built around the channel bf_estimate number.
+14.	By_elevation must a number divisible by the bf_estimate. It normally ranges from 0.1-2.
+15.	Bf_estimate will be the 50-percent AEP flood from Stream Stats or other source.
+16.	Check the box for: show_xs_map.
+17.	Change profile_units to feet.
+18.	Check boxes for aerial and elevation.
+19.	Xs_label_freq and exaggeration should already be set to 10 and extent_factor is 1.2.
+20.	Output_dir is where the report will be stored. Each project has a Reports folder. 
+21.	Output_format is word_document.
+22.	Hit Run.
+23.	Review report for errors and anomalies in the data. 
