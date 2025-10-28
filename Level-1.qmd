@@ -104,7 +104,7 @@ Data will need to be gathered from the most appropriate source for each reach lo
 8.	Under Classification Codes, make sure only ground, water, and rail are checked. Uncheck all other boxes. Hit Ok.
 9.	Zoom to the site area to the extent of 1:2000. Make sure you see the classified dots labeled water and ground.
 
-
+<br>
 
 ### Turn LAS Dataset to Raster
 1.	In the geoprocessing tab search LAS Dataset to Raster.

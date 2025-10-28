@@ -123,8 +123,12 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 
 ###	Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach . 
 
-    *Note - Other sources can be used to get the watershed discharge. 
-    Check with hydrologist requesting the analysis for additional sources.*
+:::{.callout-note}
+
+    Other sources can be used to get the watershed discharge. 
+    Check with hydrologist requesting the analysis for additional sources.
+
+:::
     
 ::: {style="float: right; margin:1px 20px;"}
 
