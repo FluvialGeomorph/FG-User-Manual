@@ -6,12 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers">
-<meta name="author" content="Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District">
-<meta name="author" content="Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District">
-<meta name="dcterms.date" content="2025-10-23">
 
-<title>FluvialGeomorph User Manual</title>
+<title>6&nbsp; Level-2 Estimate Bankfull Analysis – FluvialGeomorph User Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Intro.html" rel="next">
+<link href="./Level-2-2.html" rel="next">
+<link href="./Level-1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -46,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Level-1.html">Workflows</a></li><li class="breadcrumb-item"><a href="./Level-2.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Analysis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Level-2.html" class="sidebar-item-text sidebar-link">
+  <a href="./Level-2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Analysis</span></span></a>
   </div>
 </li>
@@ -254,11 +254,34 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <li><a href="#estimate-bankfull-analysis" id="toc-estimate-bankfull-analysis" class="nav-link active" data-scroll-target="#estimate-bankfull-analysis">Estimate Bankfull Analysis</a></li>
+  <li><a href="#application-and-data-setup" id="toc-application-and-data-setup" class="nav-link" data-scroll-target="#application-and-data-setup">Application and Data Setup</a>
   <ul class="collapse">
-  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
-  <li><a href="#distribution-statement" id="toc-distribution-statement" class="nav-link" data-scroll-target="#distribution-statement">Distribution Statement</a></li>
-  <li><a href="#notation-list" id="toc-notation-list" class="nav-link" data-scroll-target="#notation-list">Notation List</a></li>
+  <li><a href="#level-1-data" id="toc-level-1-data" class="nav-link" data-scroll-target="#level-1-data">Level-1 Data</a></li>
+  <li><a href="#data-access-in-arcgis-pro" id="toc-data-access-in-arcgis-pro" class="nav-link" data-scroll-target="#data-access-in-arcgis-pro">Data access in ArcGIS Pro</a></li>
+  </ul></li>
+  <li><a href="#analysis-workflow" id="toc-analysis-workflow" class="nav-link" data-scroll-target="#analysis-workflow">Analysis Workflow</a>
+  <ul class="collapse">
+  <li><a href="#create-riffle-cross-section-layers-for-channel" id="toc-create-riffle-cross-section-layers-for-channel" class="nav-link" data-scroll-target="#create-riffle-cross-section-layers-for-channel">Create Riffle Cross Section Layers– for Channel</a></li>
+  <li><a href="#select-the-xs_section-that-represent-best-represent-rock-riffle-areas-in-the-reach." id="toc-select-the-xs_section-that-represent-best-represent-rock-riffle-areas-in-the-reach." class="nav-link" data-scroll-target="#select-the-xs_section-that-represent-best-represent-rock-riffle-areas-in-the-reach.">Select the XS_section that represent best represent rock riffle areas in the reach.</a></li>
+  <li><a href="#xs-resequence-the-riffle-xs_sections" id="toc-xs-resequence-the-riffle-xs_sections" class="nav-link" data-scroll-target="#xs-resequence-the-riffle-xs_sections">XS Resequence the riffle XS_sections</a></li>
+  <li><a href="#resize-the-xs_layout_riffles_ch" id="toc-resize-the-xs_layout_riffles_ch" class="nav-link" data-scroll-target="#resize-the-xs_layout_riffles_ch">Resize the XS_Layout_riffles_ch</a></li>
+  <li><a href="#create-floodplain-riffle-layer" id="toc-create-floodplain-riffle-layer" class="nav-link" data-scroll-target="#create-floodplain-riffle-layer">Create Floodplain riffle layer</a></li>
+  <li><a href="#calculate-cross-section-watershed-area-for-the-channel-and-floodplain-riffles" id="toc-calculate-cross-section-watershed-area-for-the-channel-and-floodplain-riffles" class="nav-link" data-scroll-target="#calculate-cross-section-watershed-area-for-the-channel-and-floodplain-riffles">Calculate Cross Section Watershed Area – for the channel and floodplain riffles</a></li>
+  <li><a href="#import-riffle-cross-sections-into-gdb-feature-dataset." id="toc-import-riffle-cross-sections-into-gdb-feature-dataset." class="nav-link" data-scroll-target="#import-riffle-cross-sections-into-gdb-feature-dataset.">Import riffle cross sections into GDB feature dataset.</a></li>
+  <li><a href="#xs-river-position" id="toc-xs-river-position" class="nav-link" data-scroll-target="#xs-river-position">XS River Position</a></li>
+  <li><a href="#xs-points" id="toc-xs-points" class="nav-link" data-scroll-target="#xs-points">XS Points</a></li>
+  <li><a href="#xs-point-classify" id="toc-xs-point-classify" class="nav-link" data-scroll-target="#xs-point-classify">XS Point Classify</a></li>
+  </ul></li>
+  <li><a href="#run-report" id="toc-run-report" class="nav-link" data-scroll-target="#run-report">Run Report</a>
+  <ul class="collapse">
+  <li><a href="#xs-dimensions-level-1" id="toc-xs-dimensions-level-1" class="nav-link" data-scroll-target="#xs-dimensions-level-1">XS Dimensions Level 1</a></li>
+  <li><a href="#join-from-csv-data-management-toolbox" id="toc-join-from-csv-data-management-toolbox" class="nav-link" data-scroll-target="#join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</a></li>
+  <li><a href="#go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-." id="toc-go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-." class="nav-link" data-scroll-target="#go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-.">Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach .</a></li>
+  <li><a href="#open-the-pdf-stream-stats-report-from-the-site-folder." id="toc-open-the-pdf-stream-stats-report-from-the-site-folder." class="nav-link" data-scroll-target="#open-the-pdf-stream-stats-report-from-the-site-folder.">Open the PDF Stream Stats Report from the site folder.</a></li>
+  <li><a href="#l2-xs-dimensions" id="toc-l2-xs-dimensions" class="nav-link" data-scroll-target="#l2-xs-dimensions">L2 XS Dimensions</a></li>
+  <li><a href="#join-from-csv" id="toc-join-from-csv" class="nav-link" data-scroll-target="#join-from-csv">Join from CSV</a></li>
+  <li><a href="#generate-level-l2-estimate-bankfull-report" id="toc-generate-level-l2-estimate-bankfull-report" class="nav-link" data-scroll-target="#generate-level-l2-estimate-bankfull-report">Generate Level L2 Estimate Bankfull Report</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -266,30 +289,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Level-1.html">Workflows</a></li><li class="breadcrumb-item"><a href="./Level-2.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Analysis</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">FluvialGeomorph User Manual</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Analysis</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers </p>
-             <p>Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District </p>
-             <p>Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 23, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -299,28 +308,295 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Funding for development and maintenance of FluvialGeomorph has been provided by the following US Army Corps of Engineers (USACE) programs:</p>
-<ul>
-<li><a href="https://emrrp.el.erdc.dren.mil">Ecosystem Management and Restoration Research Program (EMRRP)</a>.</li>
-<li><a href="https://rsm.usace.army.mil/">Regional Sediment Management Program (RSM)</a></li>
-<li><a href="https://www.mvd.usace.army.mil/Missions/Mississippi-River-Science-Technology/MS-River-Geomorphology-Potamology/">Mississippi River Geomorphology and Potamology Program (MRG&amp;P)</a></li>
-<li><a href="https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/">Flood Risk Management Program (FRM)</a></li>
-<li><a href="https://ewn.el.erdc.dren.mil/">Engineering With Nature (EWN)</a></li>
-</ul>
-<p><img src="images/USACE_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="USACE"> <img src="images/EMRRP_logo_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="EMRRP"> <img src="images/FRMP_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="Caption for image 3"> <img src="images/SilverJackets_200.jpg" class="img-fluid" data-group="fig-gallery" width="90" alt="Silver Jackets"> <img src="images/EWN_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="EWN"> <img src="images/MRG&amp;P_300.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="MRG&amp;P"></p>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>The <a href="https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox">FluvialGeomorph ArcGIS toolbox</a> provides a set of tools for conducting rapid fluvial geomorphology analysis and assessment. It allows a user to use high resolution, remotely sensed LiDAR (Light Detection and Ranging) terrain data to cost effectively extract stream channel dimensions at fine scale for large spatial extents. This document describes the methods used in the development of the FluvialGeomorph project.</p>
+<p>The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 2 Estimate Bankfull is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach. The data from level 1 will be needed to start this estimate bankfull process.</p>
+<section id="estimate-bankfull-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="estimate-bankfull-analysis">Estimate Bankfull Analysis</h2>
 </section>
-<section id="distribution-statement" class="level2">
-<h2 class="anchored" data-anchor-id="distribution-statement">Distribution Statement</h2>
-<p>Approved for public release; distribution is unlimited</p>
+<section id="application-and-data-setup" class="level2">
+<h2 class="anchored" data-anchor-id="application-and-data-setup">Application and Data Setup</h2>
+<section id="level-1-data" class="level3">
+<h3 class="anchored" data-anchor-id="level-1-data">Level-1 Data</h3>
+<ol type="1">
+<li>Sites must have had a Level-1 analysis run. That data is essential to completing Level_2 analysis.</li>
+<li>Level-1 software application and tools will be needed for Level-2 analysis.</li>
+</ol>
 </section>
-<section id="notation-list" class="level2">
-<h2 class="anchored" data-anchor-id="notation-list">Notation List</h2>
-<hr>
+<section id="data-access-in-arcgis-pro" class="level3">
+<h3 class="anchored" data-anchor-id="data-access-in-arcgis-pro">Data access in ArcGIS Pro</h3>
+<ol type="1">
+<li>Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.</li>
+<li>Create a mapped drive and use that connection in ArcCatalog.</li>
+</ol>
+</section>
+</section>
+<section id="analysis-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-workflow">Analysis Workflow</h2>
+<section id="create-riffle-cross-section-layers-for-channel" class="level3">
+<h3 class="anchored" data-anchor-id="create-riffle-cross-section-layers-for-channel">Create Riffle Cross Section Layers– for Channel</h3>
+<ol type="1">
+<li>Copy the XS_section line layer in the most recent database and rename one XS_Layout_riffles_ch (Ex. xs_300_150_riffels_ch).</li>
+</ol>
+</section>
+<section id="select-the-xs_section-that-represent-best-represent-rock-riffle-areas-in-the-reach." class="level3">
+<h3 class="anchored" data-anchor-id="select-the-xs_section-that-represent-best-represent-rock-riffle-areas-in-the-reach.">Select the XS_section that represent best represent rock riffle areas in the reach.</h3>
+<ol type="1">
+<li>Select between 3 and 6 riffle location based on the length and characteristics of the reach.</li>
+<li>Riffle Identifying Characteristics:
+<ol type="i">
+<li>A straight reach between two meander bends, areas in the cross-overs between river bends</li>
+<li>Clear indicators of the active floodplain or bankfull discharge</li>
+<li>Presence of one or more terraces</li>
+<li>Channel section and form typical of the stream</li>
+<li>A reasonably clear view of of geomorphic features</li>
+<li>Areas of high water surface slope (in the case of high gradient streams)</li>
+<li>Areas of minimum depth and width</li>
+<li>Channel width parallel and consistent</li>
+<li>Avoid tributary influences</li>
+<li>Cross sections should be drawn wide enough to capture the top of bank</li>
+</ol></li>
+<li>Points in the LAS dataset can assist in locating riffles if the stream. Use symbolized LAS point layer to identify dense clusters ground points in the reach.</li>
+<li>Imagery can also be used to identify potential riffle areas in the reach.</li>
+<li>Once XS_section have been identified delete all other XS sections that are not determined to be riffles.</li>
+</ol>
+</section>
+<section id="xs-resequence-the-riffle-xs_sections" class="level3">
+<h3 class="anchored" data-anchor-id="xs-resequence-the-riffle-xs_sections">XS Resequence the riffle XS_sections</h3>
+<ol type="1">
+<li>Feature_dataset for the most recent year.</li>
+<li>Xs_fc for the XS_Layout_riffles_ch.&nbsp;</li>
+</ol>
+</section>
+<section id="resize-the-xs_layout_riffles_ch" class="level3">
+<h3 class="anchored" data-anchor-id="resize-the-xs_layout_riffles_ch">Resize the XS_Layout_riffles_ch</h3>
+<ol type="1">
+<li>The riffle cross sections need to snapped perpendicular to the channel polygon at the current riffle location.</li>
+<li>Save Edits</li>
+</ol>
+</section>
+<section id="create-floodplain-riffle-layer" class="level3">
+<h3 class="anchored" data-anchor-id="create-floodplain-riffle-layer">Create Floodplain riffle layer</h3>
+<ol type="1">
+<li>Copy the XS_Layout_riffles_ch to the current year feature dataset and rename it XS_Layout_riffles_fp.</li>
+<li>Edit XS_Layout_riffles_fp lines to the full width of the floodplain polygon. The XS_Layout_riffles_fp must line up with the XS_Layout_riffles_ch lines.</li>
+<li>Save edits.</li>
+</ol>
+</section>
+<section id="calculate-cross-section-watershed-area-for-the-channel-and-floodplain-riffles" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-cross-section-watershed-area-for-the-channel-and-floodplain-riffles">Calculate Cross Section Watershed Area – for the channel and floodplain riffles</h3>
+<ol type="1">
+<li>In the fluvialgeomorph folder, expand layers and add NHDPlusFac_National.tif</li>
+<li>Right click the layer, go to data, then export raster</li>
+<li>Add the output to whatever year folder.</li>
+<li>Clipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.
+<ol type="i">
+<li>Optional: Create a clip for each project site of the NHDPlusFac_National.tif with the extent zoomed out 1:50000 centered on the site.</li>
+</ol></li>
+<li>Go to FluvialGeomorph toolbox open XS Water Area tool.</li>
+<li>Snap distance is 100.</li>
+<li>Start with the more recent data first.</li>
+<li>Hit Run.
+<ol type="i">
+<li>If it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime.</li>
+<li>The result is a new attribute field in the XS feature class that has a calculated watershed area for each regularly spaced cross section.</li>
+</ol></li>
+<li>Once it is done running, open attribute table and see if anything in the watershedareaSqMile is off.
+<ol type="i">
+<li>Some of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun Watershed Area TOOL and increase the snap distance.</li>
+<li>Check for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.</li>
+</ol></li>
+</ol>
+</section>
+<section id="import-riffle-cross-sections-into-gdb-feature-dataset." class="level3">
+<h3 class="anchored" data-anchor-id="import-riffle-cross-sections-into-gdb-feature-dataset.">Import riffle cross sections into GDB feature dataset.</h3>
+<ol type="1">
+<li>Import the finished XS_Layout_riffles_ch and XS_Layout_riffles_fp to the earlier year feature dataset.</li>
+</ol>
+</section>
+<section id="xs-river-position" class="level3">
+<h3 class="anchored" data-anchor-id="xs-river-position">XS River Position</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, select XS River Position.</li>
+<li>Enter feature dataset for more recent geodatabase.</li>
+<li>Input Riffle Cross Sections.</li>
+<li>Input Flowline Points.</li>
+<li>Hit Run. Complete for both the channel and floodplain XS</li>
+<li>The result adds new fields in the attribute table of the XS feature class.</li>
+<li>Two temporary charts will populate the Contents tab under the Cross Section Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the XS River Position Tool to view them again.
+<ol type="i">
+<li>Open both Charts and inspect for any issues in the data.</li>
+<li>Note: This step provides charts which help see if there are gaps in the data.</li>
+</ol></li>
+<li>Repeat XS River Position for the older gdb.</li>
+</ol>
+</section>
+<section id="xs-points" class="level3">
+<h3 class="anchored" data-anchor-id="xs-points">XS Points</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, select XS Points.</li>
+<li>Enter feature dataset for more recent geodatabase.</li>
+<li>Input Cross Sections.</li>
+<li>Input dem_hydro.</li>
+<li>Change dem_units to ft.</li>
+<li>Input REM for the detrend_dem.</li>
+<li>Station Distance is 1.</li>
+<li>Hit Run. Complete for both the channel and floodplain XS.</li>
+<li>Points have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.</li>
+<li>Repeat these steps for the older gdb.</li>
+</ol>
+</section>
+<section id="xs-point-classify" class="level3">
+<h3 class="anchored" data-anchor-id="xs-point-classify">XS Point Classify</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, select XS Points Classify.</li>
+<li>Enter feature dataset for the most recent year.</li>
+<li>Input XS points.</li>
+<li>Input channel polygon.</li>
+<li>Input floodplain polygon.</li>
+<li>Leave buffer distance default.</li>
+<li>Repeat for earlier year XS Points.</li>
+</ol>
+</section>
+</section>
+<section id="run-report" class="level2">
+<h2 class="anchored" data-anchor-id="run-report">Run Report</h2>
+<section id="xs-dimensions-level-1" class="level3">
+<h3 class="anchored" data-anchor-id="xs-dimensions-level-1">XS Dimensions Level 1</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open XS Dimensions, Level 1.</li>
+<li>XS’s for the newest year are added into xs_line fc.</li>
+<li>Enter 4 for the lead_n.
+<ol type="i">
+<li>This sets the moving window to average 4 XS’s above and below the XS being calculated.</li>
+</ol></li>
+<li>Leave the use_smoothing box unchecked and loess_span as 0.1.</li>
+<li>Check that the vert_units are in ft.</li>
+<li>After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.</li>
+</ol>
+</section>
+<section id="join-from-csv-data-management-toolbox" class="level3">
+<h3 class="anchored" data-anchor-id="join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.</li>
+<li>Feature_dataset will be the feature dataset of the most recent gdb.</li>
+<li>Fc will be the XS line feature class.</li>
+<li>Choose Seq in the dropdown for the fc_field.</li>
+<li>The csv_file will be the .csv file created from the XS Dimensions Level 1 Tool.</li>
+<li>Csv_field will match the fc_field so it should also be Seq.</li>
+<li>Hit Run.</li>
+<li>A new line feature class ending with dims_L1 will be added to the feature dataset.</li>
+</ol>
+</section>
+<section id="go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-." class="level3">
+<h3 class="anchored" data-anchor-id="go-to-the-usgs-streamstats-website-to-get-the-50-percent-aep-flood-value-for-the-stream-reach-.">Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach .</h3>
+<pre><code>*Note - Other sources can be used to get the watershed discharge. 
+Check with hydrologist requesting the analysis for additional sources.*</code></pre>
+<div style="float: right; margin:1px 20px;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/sswatershed.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Step 3. i"><img src="images/sswatershed.jpg" class="img-fluid figure-img" style="width:2in" alt="Step 3. i"></a></p>
+<figcaption>Step 3. i</figcaption>
+</figure>
+</div>
+</div>
+<ol type="1">
+<li>Select the state of the reach on the left of the stream.</li>
+<li>Zoom into the location for the stream reach until the stream layer shows.</li>
+<li>Click the delineate button.
+<ol type="i">
+<li>On the map select the base of the stream reach. The watershed calculation will start. When it is complete a delineation of the reach will show.</li>
+<li>Click Continue.</li>
+<li>Select all 4 options under Regression Based Scenarios.</li>
+<li>Below expand Basin Characteristics and Select All Basin Characteristics.</li>
+<li>Click Continue. The calculations for the report will run.</li>
+<li>Once the calculations are completed scroll to the bottom of the left panel, check all the boxes and click Open Report.</li>
+<li>Add the site name to the report title. a. Ex. Site193 JODAVIESS County SWCD Stream Stats Report.</li>
+<li>Add any comments need to the comment section.</li>
+<li>Scroll to the bottom and print the report to PDF. Save to the site folder.</li>
+</ol></li>
+</ol>
+</section>
+<section id="open-the-pdf-stream-stats-report-from-the-site-folder." class="level3">
+<h3 class="anchored" data-anchor-id="open-the-pdf-stream-stats-report-from-the-site-folder.">Open the PDF Stream Stats Report from the site folder.</h3>
+<div style="float: none; margin:1px 30px;">
+<p><a href="images/stats.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/stats.jpg" class="img-fluid" style="width:6in"></a></p>
+</div>
+<ol type="1">
+<li>Locate the 50-percent AEP flood value under the Peak-Flow Statistics Flow Report section around page 8 of the report. This value will be used in the Level 2 report.</li>
+</ol>
+</section>
+<section id="l2-xs-dimensions" class="level3">
+<h3 class="anchored" data-anchor-id="l2-xs-dimensions">L2 XS Dimensions</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open XS Dimensions, Level 2.</li>
+<li>XS’s dimension level 1 for the riffles into xs_line fc. Ex. xs_300_150_riffels_ch_103_5_dims_L1</li>
+<li>XS’s_points for the channel riffles are added to the XS_point_fc. Ex. xs_300_150_riffels_ch_103_5.</li>
+<li>Bankfull_elevation is from the channel depth of the bank_raw channel layer. Ex. 103.5</li>
+<li>Enter 4 for the lead_n.
+<ol type="i">
+<li>This sets the moving window to average 4 XS’s above and below the XS being calculated.</li>
+</ol></li>
+<li>Leave the use_smoothing box unchecked and loess_span as 0.1. Can be adjusted up to 1.</li>
+<li>Check that the vert_units are in ft.</li>
+<li>Discharge method is model_measure.</li>
+<li>Discharge_value is the 50-percent AEP flood value from the watershed discharge report.</li>
+<li>After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.</li>
+</ol>
+</section>
+<section id="join-from-csv" class="level3">
+<h3 class="anchored" data-anchor-id="join-from-csv">Join from CSV</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.</li>
+<li>Feature_dataset will be the feature dataset of the most recent gdb.</li>
+<li>Fc will be the XS channel riffles _dims_L1 line feature class.</li>
+<li>Choose Seq in the dropdown for the fc_field.</li>
+<li>The csv_file will be the .csv file created from the XS Dimensions Level 2 Tool.</li>
+<li>Csv_field will match the fc_field so it should also be Seq.</li>
+<li>Hit Run.</li>
+<li>A new line feature class ending with dims_L2 will be added to the feature dataset.</li>
+</ol>
+</section>
+<section id="generate-level-l2-estimate-bankfull-report" class="level3">
+<h3 class="anchored" data-anchor-id="generate-level-l2-estimate-bankfull-report">Generate Level L2 Estimate Bankfull Report</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open the Report – L2 Estimate Bankfull located in the Reports toolset.</li>
+<li>Stream will be the ReachName which was created when making the flowline. Copy and paste the ReachName from XS’s attribute table.</li>
+<li>Flowline_fc will be the flowline feature class from the recent survey event.</li>
+<li>Xs_dimensions_fc will be the line feature class created during the Join From CSV tool.</li>
+<li>Xs_point_ch_1 will be the flowline points from the most recent survey event.
+<ol type="i">
+<li>Xs_point_ch_2 will be the flowline points from the older survey event.</li>
+</ol></li>
+<li>Xs_points_fp_1 will be the XS points point feature class created from the XS Points tool. Use the data from the most recent survey event.
+<ol type="i">
+<li>Xs_points_fp_2 will be the XS points point feature class for the older survey event.</li>
+</ol></li>
+<li>Survey_name_1 will be the survey event of the most recent data (ex: 2022).
+<ol type="i">
+<li>Survey_name_2 will be the survey event of the older data (ex: 2012).</li>
+</ol></li>
+<li>Features_fc will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.
+<ol type="i">
+<li>Channel_fc will be the lower number bank_raw layer that represents the channel.</li>
+</ol></li>
+<li>Floodplain_fc will be the higher number bank_raw layer that represents the floodplain,</li>
+<li>Dem will need the dem_hydro.</li>
+<li>Regions will be selected based on needs for the site. They calculate an estimate of specific hydraulic dimension for a given drainage area. One to four curves can be selected for a report. Ex. IL sites normally use Southern Driftless, Lower Southern Driftless, and Eastern United States.</li>
+<li>From_elevation is the low end number from a range built around the channel bf_estimate number.
+<ol type="i">
+<li>Ex if your bankfull estimate for the reach is 104 the range could be 100-106. Making 100 the from_elevation and 106 the to_elevation. The range should be roughly 2-5 numbers below and above the bankfull estimate.</li>
+</ol></li>
+<li>To_elevation is the high end number from a range built around the channel bf_estimate number.</li>
+<li>By_elevation must a number divisible by the bf_estimate. It normally ranges from 0.1-2.</li>
+<li>Bf_estimate will be the 50-percent AEP flood from Stream Stats or other source.</li>
+<li>Check the box for: show_xs_map.</li>
+<li>Change profile_units to feet.</li>
+<li>Check boxes for aerial and elevation.</li>
+<li>Xs_label_freq and exaggeration should already be set to 10 and extent_factor is 1.2.</li>
+<li>Output_dir is where the report will be stored. Each project has a Reports folder.</li>
+<li>Output_format is word_document.</li>
+<li>Hit Run.</li>
+<li>Review report for errors and anomalies in the data.</li>
+</ol>
 
 
 </section>
@@ -893,10 +1169,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Level-1.html" class="pagination-link" aria-label="Level-1 Initial Channel Assessment">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Level-1 Initial Channel Assessment</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Level-2-2.html" class="pagination-link" aria-label="Level-2-2 Channel Bankfull Analysis">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -914,6 +1193,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

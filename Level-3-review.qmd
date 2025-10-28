@@ -1,0 +1,23 @@
+
+
+
+
+# Level-3 Planform Report {#L3_report_qa}
+
+## QA Checklist 
+
+## Longitudinal Profile
+This section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, *_dims_L3 fc. See the QA checklist items in the [Estimate Bankfull, Longitudinal Profile](#estimate_bankfull_long_profile) section. 
+
+## Cross Section Metrics
+This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L3 fc.See the QA checklist items in the [Estimate Bankfull, Cross section Metrics](#estimate_bankfull_xs_metrics) section.
+
+### Ensure metrics values are smooth
+
+### Radius of Curvature to Bankfull Width values are reasonable
+
+## Cross Section Profiles
+This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L3 and the dem_hydro raster. The cross section profile graph is drawn using the cross section "_points" fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 
+
+
+***

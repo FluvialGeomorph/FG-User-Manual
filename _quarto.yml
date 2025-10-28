@@ -1,0 +1,69 @@
+project:
+  type: book
+  output-dir: docs
+  
+book:
+  title: "FluvialGeomorph User Manual" 
+ 
+  author:
+    - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
+    - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
+    - Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District
+  
+  repo-url: https://github.com/FluvialGeomorph/FG-User-Manual
+  date: "2025-10-23"
+
+  page-navigation: true
+  search: true
+
+  chapters:
+    - index.qmd
+    - Intro.qmd
+    - part: "Foundations"
+      chapters:
+        - Concepts.qmd
+        
+    - part: "Resources"
+      chapters:
+        - SoftwareRequirements.qmd
+        - TutorialData.qmd
+        
+    - part: "Workflows"
+      chapters:
+        - Level-1.qmd
+        - Level-2.qmd
+        - Level-2-2.qmd
+        - Level-3.qmd
+   
+    - part: "Report Reviews"
+      chapters: 
+        - Level-1-review.qmd
+        - Level-2-review.qmd
+        - Level-2-2-review.qmd
+        - Level-3-review.qmd
+    - References.qmd
+
+      
+
+  sidebar:
+    style: "docked"
+    background: light
+  page-footer:
+    left: "Made with love by USACE"
+    background: light
+
+bibliography: packages.bib
+number-depth: 1
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    respect-user-color-scheme: true
+    css: styles.css
+    lightbox: true
+    number-depth: 0
+   
+editor: source
+

@@ -1,0 +1,610 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FluvialGeomorph User Manual",
+    "section": "",
+    "text": "Preface\nFunding for development and maintenance of FluvialGeomorph has been provided by the following US Army Corps of Engineers (USACE) programs:",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "FluvialGeomorph User Manual",
+    "section": "Abstract",
+    "text": "Abstract\nThe FluvialGeomorph ArcGIS toolbox provides a set of tools for conducting rapid fluvial geomorphology analysis and assessment. It allows a user to use high resolution, remotely sensed LiDAR (Light Detection and Ranging) terrain data to cost effectively extract stream channel dimensions at fine scale for large spatial extents. This document describes the methods used in the development of the FluvialGeomorph project.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#distribution-statement",
+    "href": "index.html#distribution-statement",
+    "title": "FluvialGeomorph User Manual",
+    "section": "Distribution Statement",
+    "text": "Distribution Statement\nApproved for public release; distribution is unlimited",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#notation-list",
+    "href": "index.html#notation-list",
+    "title": "FluvialGeomorph User Manual",
+    "section": "Notation List",
+    "text": "Notation List",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "Intro.html",
+    "href": "Intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Background\nThe background section defines the problem addressed by the research and its impact on the U.S. Army. It cites related previous studies and explains why the current research is necessary. It also may present other background information that provides essential context for the reader. Examples include the following:\nhi-res terrain opportunity, but not enough tools historic field survey versus geomorphometric automated methods The purpose of regional curves and why they are important for rapid watershed assessment\nvison for what the analysis can be used to accomplish",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Intro.html#background",
+    "href": "Intro.html#background",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "controlling regulations or legal requirements\nprospective users of the report or the technology.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Intro.html#objective",
+    "href": "Intro.html#objective",
+    "title": "1  Introduction",
+    "section": "Objective",
+    "text": "Objective\nThe objective is a concise statement of what the research is intended to accomplish.\nGoals\n\nProvide a USACE Planning method for rapid watershed assessments\nDevelop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles\nDevelop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits\n\nObjectives\n\nDevelop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.\nUse existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics.\nDevelop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Intro.html#approach",
+    "href": "Intro.html#approach",
+    "title": "1  Introduction",
+    "section": "Approach",
+    "text": "Approach\nThe approach section explains the research methodology. If the methodology is complex or otherwise warrants a chapter of its own, the approach section may simply cross-reference the reader to the appropriate chapter.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html",
+    "href": "Concepts.html",
+    "title": "2  Concepts",
+    "section": "",
+    "text": "Goals\nObjectives",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#goals",
+    "href": "Concepts.html#goals",
+    "title": "2  Concepts",
+    "section": "",
+    "text": "Provide a USACE Planning method for rapid watershed assessments\nDevelop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles\nDevelop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits\n\n\n\nDevelop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.\nUse existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics.\nDevelop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#approach",
+    "href": "Concepts.html#approach",
+    "title": "2  Concepts",
+    "section": "Approach",
+    "text": "Approach\nThe approach section explains the research methodology. If the methodology is complex or otherwise warrants a chapter of its own, the approach section may simply cross-reference the reader to the appropriate chapter.\nThis chapter provides an overview of some of the workflows that can be used to perform a rapid watershed assessment using FluvialGeomorph. Through analyzing a wide range of project sites, we have created a standard analysis framework. This framework defines a series of standard analysis objects that are used in a regular process to perform different types of analysis.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#units_of_analysis",
+    "href": "Concepts.html#units_of_analysis",
+    "title": "2  Concepts",
+    "section": "Units of Analysis",
+    "text": "Units of Analysis\nTo help organize the workflow process we have defined several units of analysis:\n\nStudy Area: These are the primary work units and correspond to projects that customers have requested for analysis. Customers define specific goals for each project that determine the specific workflow chosen. These goals define a project study area for each project. These project study areas typically consist of a particular watershed, a mainstem section of a named river, or a discrete stream reach.\nSite: Project areas are subdivided into “sites”. Sites are typically named tributaries and their subwatersheds within the project study area.\nReach: Sites are further subdivided into “reaches”. Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.\nYear: Since FluvialGeomorph analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods (typically separated by years) for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the base year.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#analysis-levels",
+    "href": "Concepts.html#analysis-levels",
+    "title": "2  Concepts",
+    "section": "Analysis Levels",
+    "text": "Analysis Levels\nWe have defined a standard workflow that is modular, allowing analysts to prescribe and customers to purchase progressively more detailed analysis as needed. The workflow is organized according to the following levels:\n\nLevel 1: Extract basic channel dimensions and profile.\nLevel 2: Extract bankfull channel dimensions and profile.\nLevel 3: Extract planform dimensions.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#geodatabases",
+    "href": "Concepts.html#geodatabases",
+    "title": "2  Concepts",
+    "section": "Geodatabases",
+    "text": "Geodatabases\nThe FluvialGeomorph workflow was designed around a standard set of objects organized into a standard set of geodatabases.\n\nStudy Area Geodatabase: This type of geodatabase stores feature classes (FC) that apply to the entire project study area. The workflow begins with developing FCs that define the project study area, Digital Elevation Models (DEM), derived stream network, etc. If there are multiple LiDAR surveys for the project study area, a separate study area geodatabase representing each survey is created beginning with the base year.\nSite Geodatabase:  This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific “site” unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.\nReach Geodatabase: This type of geodatabase stores FCs that apply to a specific reach. The FluvialGeomorph tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#derived-features",
+    "href": "Concepts.html#derived-features",
+    "title": "2  Concepts",
+    "section": "Derived Features",
+    "text": "Derived Features\nThe definition of a common set of derived features is an important step in standardizing any workflow. The standard FluvialGeomorph database objects form a tightly linked set of features that work together in a particular order to accomplish the analysis. See the FluvialGeomorph Tech Manual for a detailed description of each of these standard FCs.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#folder_structure",
+    "href": "Concepts.html#folder_structure",
+    "title": "2  Concepts",
+    "section": "Project Folder Structure",
+    "text": "Project Folder Structure\nEstablishing a standard storage structure for all project data is an important quality control step. A standard folder structure has the following benefits:\n\nClearly defined functional roles for each storage location reduces ambiguity and confusion.\nPredictability reduces errors.\nStandard structure allows analysts to move between projects more easily.\n\nThe following folder structure is recommended to organize all project data:\nStudy_Area_Name\n└─── Sites\n│    └─── 01_Site_Name\n│    │    └─── Data\n│    │    │        Site1_year1.gdb\n│    │    │        Site1_year2.gdb\n│    │    │        Reach1_year1.gdb\n│    │    │        Reach1_year2.gdb\n│    │    │        Reach2_year1.gdb\n│    │    │        Reach2_year2.gdb\n│    │    │        ...\n│    │    └─── Elevation\n│    │    │        year1.gdb\n│    │    │        year2.gdb\n│    │    │        ...\n│    │    └─── Exports\n│    │    └─── Maps\n│    │    └─── Reports\n│    └─── 02_Site_Name\n│         ...\n└─── Elevation\n│    └─── ProjectName_Year1\n│    │    └─── LAS\n│    │    ProjectName_Year1.gdb\n│    └─── ProjectName_Year2\n│         └─── LAS\n│         ProjectName_Year2.gdb\n│         ...\n└─── Exports\n└─── Maps\n\n\nStudy Area Folder: The project study area folder is used to store all of the files for the project.\nSite Folders: Site folders are used to store all of the files for each site. Each site in the project study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name.\nElevation Folders: The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in .las format for modern surveys) for each LiDAR survey for the project study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders.\nSite Data Folders: The site data folders are used to store all of the site site and reach geodatabases.\nReports: The Reports folders are used to store the reports created by tools for each reach.\nMaps: The Maps folders are used to store map documents for a given project or site.\nExports Folders: The Exports folders are used to store static .pdf map documents exported from map projects for a given project or site.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#workflows",
+    "href": "Concepts.html#workflows",
+    "title": "2  Concepts",
+    "section": "Workflows",
+    "text": "Workflows\nThe FluvialGeomorph workflow has been organized using the following hierarchical grouping to help analysts better understand how to perform the analysis and what is being done during each step of the process. All workflow steps are sequential and build on the outputs of previous steps.\n\nLevels: The top hierarchical grouping of the workflow. Levels are distinguished by the degree of fluvial geometric detail and metrics that will be derived. Levels 2 and 3 are optional.\nPhases: The second hierarchical grouping of the workflow. Each level is subdivided into stages. Stages are mostly a conceptual grouping of steps to accomplish a specific objective in the analysis chain.\nSteps: The third hierarchical grouping of the workflow. Stages are subdivided into steps. Steps typically involve running tools, manual editing, and performing quality assurance checks.\nTools: Tools are the lowest hierarchical grouping of the workflow. Tools perform operations that are suitable for automation.\n\n\nLevel 1\nThe purpose of this level is to extract basic channel dimensions. This section will provide a brief overview of the Level 1 (L1) workflow.\nCreate Terrain: The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys. * Acquire Point Cloud - Identify the elevation data steward and download or transfer the LiDAR point cloud data on an external drive. * Derive DEM - Assemble the .las files into a LAS Dataset, apply class filters, and export as a raster DEM. * Hydromodify DEM - Identify flow blockages along streams and burn these features into the DEM.\nDefine Stream Reaches: The purpose of this stage is to derive a synthetic stream network for the entire project study area and define their contributing watersheds.\n\nCalculate Contributing Area - Calculate the flow accumulation model for the DEM.\nDerive Stream Network - Use the flow accumulation model to derive the synthetic flow stream_network FC for the project study area.\nDefine Reaches - Subdivide the project study area stream_network FC into a set of analysis reaches.\nDelineate Watersheds - Use the flow accumulation model to delineate the watersheds for all project study area reaches.\n\nDerive Flowline: The purpose of this stage is to derive a flowline, for each reach and survey event.\n\nDerive Flowline - Develop the flowline FC for each reach and survey event.\nCreate Flowline Points - Create the flowline_points FC for each reach and survey event.\n\nDefine Initial Floodplain and Channel Extent: The purpose of this stage is to define the initial floodplain and channel extent, for each reach and survey event.\n\nDetrend DEM - Use the flowline_points FC to develop a relative elevation model for each reach and survey event.\nEstimate Initial Channel Extent - Use the REM to interactively “flood” the channel to make an initial estimate of the detrended bankfull elevation.\nEstimate Initial Floodplain Extent - Use the REM to interactively “flood” the active floodplain to make an initial estimate of the detrended floodplain elevation.\nCalculate Channel Slope Raster - Calculate the slope raster of the initial channel extent area.\n\nCreate Regular Cross Section Geometry: The purpose of this stage is to create regularly spaced cross sections and calculate dimensions, for each reach and survey event.\n\nCreate Regular Cross Sections - Create regularly spaced cross sections along each reach.\nCalculate Cross Section Watershed Area - Calculate the watershed area for each regularly spaced cross section.\nCalculate Cross Section River Position - Calculate the river position for each regularly spaced cross section.\nCalculate Cross Section Points - Convert each cross section into a set of evenly stationed points and assign DEM and detrended elevation values.\nCalculate Cross Section L1 Dimensions - Calculate the L1 dimensions for the regularly spaced cross sections.\n\nIdentify Features: The purpose of this stage is to identify salient features along each reach.\n\nCreate Features - Identify the longitudinal position of noteworthy stream features for graph and map labeling.\n\nRun Report: The purpose of this stage is to run the Level 1 report for each reach.\n\nRun the Level 1 Report - Run the L1 report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.\n\n\n\nLevel 2\nThe purpose of this level is to extract bankfull channel dimensions. This section will provide a brief overview of the Level 2 (L2) workflow.\nCreate Initial Riffle Geometry: The purpose of this stage is to identify and map riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.\n\nCreate Riffle Floodplain - Identify riffle locations and map these cross sections across the lateral extent of the floodplain for each reach.\nCalculate Cross Section Watershed Area - Calculate the watershed area for each riffle cross section.\nCalculate Cross Section River Position - Calculate the river position for each riffle cross section.\nCreate Riffle Channel - Edit the lateral extent of the riffle_channel FC to just cover the initial channel extent.\nCalculate Cross Section Points - Convert each riffle cross section into a set of evenly stationed points and assign DEM and detrended elevation values.\nCalculate Initial Cross Section L2 Dimensions - Calculate the initial L2 dimensions for the the riffle cross sections for each reach.\n\nEstimate Bankfull: The purpose of this stage is to estimate the detrended bankfull elevation for the base year for each reach.\n\nRun the Estimate Bankfull Report - Run the Estimate Bankfull report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.\nDetermine Bankfull Elevation - Interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach.\nCreate Bankfull Area - Use the final bankfull elevation determined in the previous step to derive a final bankfull_area polygon for each reach.\nCreate Banklines - Convert the bankfull_area polygon into polylines and edit into a banklines FC for each reach.\n\nCalculate Final L2 Cross Section Geometry: The purpose of this stage is to use the bankfull elevation determined in the last stage to calculate the final level 2 cross section dimensions for the base year for each reach.\n\nCalculate Final Cross Section L2 Dimensions - Calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach.\n\nRun Report: The purpose of this stage is to produce the Level 2 report for each reach.\n\nRun the L2 Report - Run the L2 report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.\n\n\n\nLevel 3\nThe purpose of this level is to extract planform dimensions. This section will provide a brief overview of the Level 3 (L3) workflow.\nDefine Valley Line: The purpose of this stage is to define the valley trend line for the base year for each reach.\n\nDetermine Final Floodplain Extent - Use the detrended bankfull elevation identified in L2 to delineate the active floodplain.\nDevelop Candidate Valleylines - Create a set of candidate valleylines through iterative smoothing of the flowline for each reach.\nChoose Final Valleyline - Choose from the candidate valleylines the one that best captures the overall valley trend line.\n\nDefine Meander Loops: The purpose of this stage is to define meander loops and bends for the base year for each reach.\n\nDefine Loop Points - Create a new FC named loop_points and use it to identify the start and end stream meander loops and bends.\nDerive Bankline Points - Convert the banklines to a set of points and assign elevations and loop and bend locations.\nAssign Cross Section Loops - Assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach.\n\nCalculate L3 Cross Section Geometry: The purpose of this stage is to calculate the Level 3 dimensions for each reach.\n\nCalculate Cross Section L3 Dimensions - Calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach.\n\nRun Report: The purpose of this stage is to run the Level 3 report for each reach.\n\nRun the L3 Report - Run the L2 report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#qa_tools",
+    "href": "Concepts.html#qa_tools",
+    "title": "2  Concepts",
+    "section": "Quality Assurance",
+    "text": "Quality Assurance\nThis workflow contains a LOT of detailed steps! If everything isn’t done just right, problems happen. So to help analysts stay on top of all of these details, we have adopted a layered approach to making sure everything gets done right. Here are the ways\n\nTask Tracking Spreadsheet: To guide analysts through this workflow, we have developed a task tracking spreadsheet to use to record progress through the analysis. This spreadsheet allows an analyst to record the completion of each of the steps outlined above, as well as key values used in the analysis. This spreadsheet can be stored in the site folder while data development progresses. Records in this spreadsheet can be periodically appended to a project or team level version to improve team communication on project progress.\nCheck Tools: The FluvialGeomorph toolbox contains the Check toolset that allows the analyst to perform checks on the standard FluvialGeomorph FCs for basic rule compliance. If analysts have questions about if a specific FC is causing problems, these check tools can be used.\nTool Error Messages: A series of low-level defensive programming checks have been implemented across all FluvialGeomorph functions and tools to help head-off problems.\nQA Checklist: The QA Checklist helps analysts review the reports created using the tools to identify and fix problems in the underlying derived data. See the QA Checklist chapter in this manual for details.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "SoftwareRequirements.html",
+    "href": "SoftwareRequirements.html",
+    "title": "3  Software Requirements",
+    "section": "",
+    "text": "Here is a summary of the software that must be installed to use the FluvialGeomorph toolbox. More information on this can be found in the FluvialGeomorph Tech Manual.\n\nWindows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.\nR Statistical Computing Language (4.x+ recommended)\nRStudio Desktop (1.3+ recommended)\nArcGIS Pro (2.6+ recommended)\nArcGIS Desktop (10.8+ recommended), optional, limited support\nFluvialGeomorph toolbox, latest version",
+    "crumbs": [
+      "Resources",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software Requirements</span>"
+    ]
+  },
+  {
+    "objectID": "TutorialData.html",
+    "href": "TutorialData.html",
+    "title": "4  Tutorial Data",
+    "section": "",
+    "text": "Map Templates\nTo standardize the maps used for this project, use these project site map templates.",
+    "crumbs": [
+      "Resources",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tutorial Data</span>"
+    ]
+  },
+  {
+    "objectID": "TutorialData.html#cole-creek",
+    "href": "TutorialData.html#cole-creek",
+    "title": "4  Tutorial Data",
+    "section": "Cole Creek",
+    "text": "Cole Creek\nIn this section we will assemble the tutorial data for the Cole Creek Site in the Papillion Creek, NE project study area.\n\nStart preparing your project working directory by creating the following folder structure. See the project folder structure section for a detailed description of the functional role of each folder.\n\nPapillion_Creek\n└─── Sites\n│    └─── 01_Cole_Creek\n│    │    └─── Data\n│    │    └─── Elevation\n│    │    └─── Exports\n│    │    └─── Maps\n│    │    └─── Reports\n└─── Elevation\n└─── Exports\n└─── Maps\n\n\nDownload the Cole Creek Site Data site data using this link.\nUnarchive this .zip file to the Cole Creek site data folder.",
+    "crumbs": [
+      "Resources",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tutorial Data</span>"
+    ]
+  },
+  {
+    "objectID": "TutorialData.html#big-blue-dam-ks",
+    "href": "TutorialData.html#big-blue-dam-ks",
+    "title": "4  Tutorial Data",
+    "section": "Big Blue Dam, KS",
+    "text": "Big Blue Dam, KS\nIn this section we will assemble the tutorial data for the Big Blue Dam sites in the Big Blue Dam, KS project study area.\n\nStart preparing your project working directory by creating the following folder structure. See the project folder structure section for a detailed description of the functional role of each folder.\n\nBig_Blue_Dam\n└─── Sites\n│    └─── 01_Horseshoe_Creek\n│    │    └─── Data\n│    │    └─── Elevation\n│    │    └─── Exports\n│    │    └─── Maps\n│    │    └─── Reports\n│    └─── 02_McIntire_Creek\n│    │    └─── Data\n│    │    └─── Elevation\n│    │    └─── Exports\n│    │    └─── Maps\n│    │    └─── Reports\n└─── Elevation\n└─── Exports\n└─── Maps\n\n\nDownload the Horseshoe Creek site data using this link.\nDownload the McIntire Creek site data using this link.\nUnarchive these .zip files to the appropriate Big Blue River site Data folder.\nDownload the Big Blue Reports using this link.\nUnarchive this .zip file to the appropriate Big Blue River site Reports folder.",
+    "crumbs": [
+      "Resources",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tutorial Data</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1.html",
+    "href": "Level-1.html",
+    "title": "5  Level-1 Initial Channel Assessment",
+    "section": "",
+    "text": "Application and Data Setup",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Level-1 Initial Channel Assessment</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1.html#application-and-data-setup",
+    "href": "Level-1.html#application-and-data-setup",
+    "title": "5  Level-1 Initial Channel Assessment",
+    "section": "",
+    "text": "Applications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\nLAStools Production toolbox from RapidLasso.\n\n\n\nRetreive the FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases. https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn Rstudio under tools install package HERE.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.\nWork on project on the local drive and when completed move to final location. Local processing in ArcGIS Pro is preferred.\n\n\n\nData\n\nAn existing stream site location, desired distance and area for stream buffer. Lidar data is also needed for 2 different years.\nAn example would be projects for Illinois_SSRP_Sites_2004_2016 use a standard 1-mile length up and down stream of the site and 100-foot buffer around the 1-mile stream length.\nThese values can be set to any desired length and area for each site. The analysis tools require a length of stream and a buffered area of elevation data to complete the analysis.\n\n\n\nGather data – A few Lidar data retrieval samples\nData will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources.\n\n\n\n\n\n\nTip\n\n\n\n\nNOAA Digital Coast Lidar Viewer\nUSGS National Map\nUSGS Lidar Explorer\nOpen Topography\nVarious state and university sites, county and local governments, and project specific Lidar collection are other possible sources for data.\n\n\n\n\n\nConvert Laz to Las (if needed)\n\nAdd LAStools toolbox to ArcGISPro. Open the LAStools toolbox and select las2lasPro (transform) tool.\nDrag the folder with the Laz files into the Input folder.\nChange the output format to Las. Click Run.\n\n\n\nTransform LAS file projections\nAll datasets need to be in the same projection for the entire Study Area.\n\nOpen LAStools las2lasPro (transform) tool\nAdd the folder for the files that need to be reprojected to the input folder.\nChosen projection for transform. Projections must be in feet or meters.\n\n\n\nChose a location to create file storage structure for data.\n\nIn a folder create a file GDB and a folder labeled LPC. Use the year as the naming convention. Ex. 2025. This is where the LAS Lidar files will go.\nCreate a feature dataset for each GDB. The projection used should be the same as the LAS files for each year. Use site, number, and year for naming convention. Ex. SiteName_120_2025.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Level-1 Initial Channel Assessment</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1.html#analysis-workflow",
+    "href": "Level-1.html#analysis-workflow",
+    "title": "5  Level-1 Initial Channel Assessment",
+    "section": "Analysis Workflow",
+    "text": "Analysis Workflow\n\nCreate a Boundary\n\n\n\n\n\nBoundary within 1 mile buffer\n\n\n\n\nRight click on feature dataset and click new Feature Class.\nName is boundary and keep feature class type as polygon.\nClick Finish.\nChange symbology to black outline.\nZoom to your site and create a polygon that surrounds the water system by roughly 100 feet. The distance should be taken from along the entire edge of the stream to account for available elevation data for later analysis.\n\n\n\nCreate a LAS Dataset\n\nIn the geoprocessing tab search Create LAS Dataset.\nIn the Input Files select the Folder where the LAS tiles were downloaded to.\nIn the Output LAS Dataset browse to the LPC folder where the two sets of LAS tiles are saved. Name it after the year.\nUnder Surface Constraints the input feature is Boundary.\nRight click on of the LAS files for the site and go to properties then coordinate system. Copy and paste the coordinate system into the geoprocessing tool.\nClick run.\n\n\n\n\n\nSee step 9\n\n\n\n\nOnce tool is finished running, Right click the dataset in the contents pane and select Properties. Under properties click LAS Filter.\nUnder Classification Codes, make sure only ground, water, and rail are checked. Uncheck all other boxes. Hit Ok.\nZoom to the site area to the extent of 1:2000. Make sure you see the classified dots labeled water and ground.\n\n\n\n\nTurn LAS Dataset to Raster\n\nIn the geoprocessing tab search LAS Dataset to Raster.\nThe Input LAS Dataset will be the one you created in the prior step. Make sure to use the dropdown arrow to select your LAS dataset. Do not drag it from the catalog pane. This will select the LAS dataset with the symbology changes you made prior.\nThe Output Raster location will be the geodatabase you created under the SSRP_Sites folder. Name it DEM_Year. Ex. DEM_2022\nValue field is Elevation.\nFor Interpolation Type select Binning.\nCell Assignment is IDW.\nVoid Fill Method is Natural Neighbor.\nOutput Data Type is Floating Point.\nFor coordinate system in state plane feet: Sampling Type is Cell Size. Change Sampling Value to 1 and Z Factor to 1.\nClick Run.\n\n\n\nChange Symbology of Raster\n\nClick on your created raster symbology.\nPrimary symbology should be stretch.\nChange the color scheme to Elevation #1.\nStretch type to Standard Deviation.\nStatistics to DRA.\n\n\n\nCheck Raster Pixel Size and columns and rows\n\nZoom into layer at the extent of 1:15.\nUse the measure tool to measure the length of pixel. Should be 1 ft.\n\nMake sure the measuring tool is set to feet or imperial.\n\nOpen properties and check that the columns have not been inflated to into the millions.\n\nIf there are number of columns in the millions re-run the Las to Raster and set the processing extent to boundary as well and then run again.\n\n\n\n\nCreate Cutlines Line Feature Class\n\nRight click your geodatabase and click new feature dataset.\nKeep Output Geodatabase\nFor the Feature Dataset Name, name is Site#_YEAR. Ex. Site263_2008.\nUse the dropdown box under coordinate system and select the corresponding LAS dataset to select the correct coordinate system.\nClick Run.\nRight click the newly created feature dataset and create new feature class.\nName it cutlines, Change feature class type to line, and finish.\nIdentify Flow Blockages\n\nGo to the edit ribbon and select create feature and select cutlines\nZoom to the start of the water system and change the extent to around 1:1000.\nFollow along the water system and look for roads or major crossings that cut off the water system. Draw a line from one end of the waterway to the other side that is cut off. Below are a few examples.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCutline example 1\n\n\n\n\n\n\n\n\n\n\n\nCutline example 2\n\n\n\n\n\nIf there are no blockages create a cutline at each end of the stream.\nWhen done, make sure to save edits before doing the next step.\n\n\n\nHydro Modify DEM\n\nIn the catalog pane, go to the FluvialGeomorph toolbox. Expand tools and select Hydro DEM.\nFor output_workspace, drag your geodatabase from the catalog pane (Created prior) into the space.\nFor cutlines, drag your cutline feature class into the space.\nFor dem, drag your raster dataset into the space.\nFor widen_cells put 4.\nClick Run.\n\nThe result is a DEM without the flow blockages and representing proper water flow across the study area.\n\n\n\n\nDerive Stream as Line Tool – Esri Spatial Analyst Toolbox\n\nOpen Derive Stream as Line tool\nSelect the dem_hydro as the input surface raster\n\n\nSet the output polyline as stream in the feature dataset.\n\n\nHit Run. Then repeat for the earlier geodatabase.\nChange color of streamlines to a bright color to see it better against the dem.\nDelete all tributaries or lines that are not the main low point flowline. Use split and edit vertices tools. Connect all lines together using the create feature tool.\n\nMake sure the streamline is going through the lowest part of the channel\n\nSave edits.\n\n\n\nSmooth Line Tool – Esri Cartography Toolbox\n\nSet smoothing between 2 and 15 depending on the size and flow of the channel.\nCheck that flowline remains in the channel. Edit flowline or rerun smooth as needed to keep line in channel.\n\n\n\nCreate Flowline\n\nIn the FluvialGeomorph toolbox, select the Flowline tool.\nFor the feature_dataset and stream_network drag and drop the corresponding data from the catalog.\nFor smooth_tolerance put 2. It can range from 2-5 based on the range of distribution of the flowline. The goal is to produce a smooth flowline without removing too much resolution from the line.\nHit Run Note: Make sure to do most recent data first. Rerun tool for older set of data once done.\nThe output is a line feature class called flowline. This tool derives the site flowline and smooths the stream_network geometry and converts the flowline into a route.\nEnsure that the flowline remains in the channel and is not simplified into the floodplain. If this occurs, rerun reducing the degree of smoothing.\n\nAlso ensure that the red endpoint (vertice) is at the upstream end of the flowline. It is critical that the flowline is digitized in the upstream direction. If this step is not performed, all subsequent tools will malfunction.\n\nOpen attribute table for each flowline and stream network.\nThe Reach Name must be the same for each flowline and stream network. The name is the Site# and survey event. Ex. Site 264 KANE-DUPAGE County SWCD\nCheck that the flowline is in and near the center of the main channel represented in the ydro_dem.\n\n\n\nCreate Flowline Points\n\nIn the FluvialGeomorph toolbox, select the Flowline Points tool.\nFor this tool make sure you do the most recent data first. Find the corresponding data for flowline in the feature dataset.\nThe dem will be the dem_hydro.\nKm_to_mouth will be 0 in most circumstances.\nFor station_distance put 1. This means there will be a station point for every foot along the flowline.\nThe calibration points, point id field, and measure field will be blank for the most recent data.\n\n\nLeave the search radius default.\nHit run.\nNote: Before you run the flowline points for the older dataset, make sure the newer flowline points tool is done running.\nFor the older dataset, fill in the information like when running the tool for the newer data.\nFor calibration points, drag the flowline points created from the newer data.\nThe point id field is ReachName.\nMeasure field is POINT_M\nHit run.\nThe result converts the flowline into a series of points along the reach. The tool converts the flowline feature class into a route, calculates the distance to the mouth of the river for all vertices, and creates a flowline_points feature class.\n\n\n\nCreate Features\n\nCreate a new point feature class in either year feature dataset.\nAdd fields for Name (text) and km_to_mouth (double).\nDrag the ‘features’ feature class into the map. Move it to first in drawing order.\nTurn off all layers except the flowline points, so you can see the basemap.\nOn the ribbon, click edit and create features.\nYou will create feature at the site # and any other major features on the basemap that the flowline points cross, likes a road, waterway with name, or lake. First, use the explore tool to click on a flowline point. Create the feature on top of the flowline point you selected.\n\nServe as reference on the profile graph in the report.\n\nIn the table find the number next to “Measure”. Take note of this number, you will add it to the table once you create the feature.\nOpen attribute table for ‘features’. Under km_to_mouth put the number that was correlated with “Measure”.\nThe name in most cases will just be the name of the street or waterway. For the Site# feature, the name will be Site# and the SSRP_Type found in the attribute table of Illinois_SSRPSites_2004_2016. Ex. Site 264 STP;RR\n\n\n\nReuse the feature layer in future sites\n\nRight click on the feature dataset for most recent data. Go to import and select Feature Class(es).\nFor the input features, go to a previous county folder and expand the feature dataset for the most recent geodatabase under any Site# and import that database layer called features.\nFor the output geodatabase, choose the corresponding feature dataset. This allows the use of a layer with existing fields.\n\n\n\nREM\n\nIn the FluvialGeomorph toolbox, select the REM tool.\nFill in the parameters with the corresponding data. Make sure for dem you choose the hydro_dem.\nBuffer distance will be 1500.\nHit run. Note: You will not be able to create features and run this tool at the same time.\n\nThe purpose of this step is to produce a REM. This DEM normalizes stream bank elevations for a specific reach.\n\nSelect the symbology for the REM.\nChange the renderer from Stretch to the Classify.\nChange number of classes to two.\nIn the first class, change the upper value to 100 and note how the REM changes.\n\nAdd onto by this upper value until the dem fills the bank and right before it starts ‘overflowing’ into the floodplain, which is 2 times the depth of the channel.\nGet an elevation at the bank and then the center of the channel and add the difference to the 100 first class value.\n\n\n\n\nFind the Channel and Floodplain\n\nHave the flowline, demhydro and REM for the newer year.\nFind the elevation in the REM for the bank and the flowline. Check multiple locations along the stream, including the site location.\nFind the average difference in elevation between the bank and the flowline.\n\nSubtract the two REM values to get the bankfull depth for the channel. Ex. bank elevation 104 and flowline elevation 100 then the channel depth is 104. This value is used in the Water Surface Extent tool as the REM_value. This will become the channel bank_raw value.\nNext Multiply the last number of the channel bank_raw value by 2 and use it as the REM_value for the floodplain bank_raw. Ex. channel bank_raw 104 make the floodplain bank_raw 108.\n\n\n\nCreate Water Surface Extent\n\nIn the FluvialGeomorph toolbox, select the Water Surface Extent tool.\nFill in the feature dataset and the REM for from the most recent year.\nEnter the depth value found for the channel\nSet smoothing to 5.\nHit Run\nRun again for the floodplain depth.\n\n\n\nEdit the Channel and Floodplain Banks_raw layers\n\n\n\n\nSample of a channel bank and floodplain layer\n\n\n\n\nOpen the attribute table for the channel banks_raw. Sort the Shape_Area column descending.\nUse the gridcode column value of 1 to find the highest row(s) that make up the stream channel around the flowline. With the channel polygons selected switch the selection and delete all other polygons leaving only the stream channel.\nThe channel banks_raw need to be trimmed of any incoming confluences. Then save the edits.\nRepeat Create Water Surface Extent for the floodplain banks_raw layer. Leave an additional area or confluences.\n\n\n\nCreate Cross Sections (only for newest dataset)\n\nIn the FluvialGeomorph toolbox, select the XS Layout tool.\nFill in the feature dataset and flowline from the most recent geodatabase.\nFor split type keep as “split at approximate distance.”\nTransect spacing is 300.\nTransect_width is determined by width of floodplain from the flowline. Find the distance of the farthest point of the floodplain from the flowline\nTransect_width_unit default is used.\nHit Run.\n\nThe result is a line feature class of regularly spaced cross sections that well represent the channel conditions found in this reach.\nMake sure none of the lines are hanging outside the raster area.\n\nSelect each cross section and make sure green box is on left side of the bank going downstream. Start at upstream going downstream. Make sure the cross sections are parallel to bank. Edit each cross section so that they are perpendicular to the flow of the stream. Adjust their location if they are too close to highways or other smaller streams. The purpose is to get a cross section that extend the full width of the floodplain.\n\nIf cross sections cannot be moved without overlapping, they can be deleted. This may occur with tight bends or some meandering of the stream.\n\n\n\n\nXS Resequence (only for the newest dataset)\n\nRun only if any cross sections were deleted in the adjustment process.\n\n\n\nCalculate Cross Section Watershed Area (only for newest dataset)\n\nIn the fluvialgeomorph folder, expand layers and add NHDPlusFac_National.tif\nRight click the layer, go to data, then export raster\nAdd the output to whatever year folder.\nClipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.\n\nOptional: Create a clip for each project site of the NHDPlusFac_National.tif with the extent zoomed out 1:50000 centered on the site.\n\nGo to FluvialGeomorph toolbox. Add Wastershed Area tool.\nSnap distance is 100.\nStart with the more recent data first.\nHit Run.\n\nIf it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime.\nThe result is a new attribute field in the XS feature class that has a calculated watershed area for each regularly spaced cross section.\n\nOnce it is done running, open attribute table and see if anything in the watershedareaSqMile is off.\n\nSome of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun Watershed Area tool and increase the snap distance.\nCheck for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.\n\nImport the finished xs_300_100 to the earlier year feature dataset.\n\n\n\nXS River Position\n\nIn the FluvialGeomorph toolbox, select XS River Position.\nEnter feature dataset for more recent geodatabase.\nInput Cross Sections.\nInput Flowline Points.\nHit Run.\nThe result adds new fields in the attribute table of the XS feature class.\nTwo temporary charts will populate the Contents tab under the Cross Section Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the XS River Position Tool to view them again.\n\nOpen both Charts and inspect for any issues in the data.\nNote: This step provides charts which help see if there are gaps in the data.\n\nRepeat XS River Position for the older gdb.\n\n\n\nXS Points\n\nIn the FluvialGeomorph toolbox, select XS Points.\nEnter feature dataset for more recent geodatabase.\nInput Cross Sections.\nInput dem_hydro.\nChange dem_units to ft.\nInput REM for the REM_dem.\nStation Distance is 1.\nHit Run.\nPoints have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.\nRepeat these steps for the older gdb.\n\n\n\nXS Point Classify\n\nIn the FluvialGeomorph toolbox, select XS Points Classify.\nEnter feature dataset for the most recent year.\nInput XS points.\nInput channel polygon.\nInput floodplain polygon.\nLeave buffer distance default.\nRepeat for earlier year XS Points.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Level-1 Initial Channel Assessment</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1.html#run-report",
+    "href": "Level-1.html#run-report",
+    "title": "5  Level-1 Initial Channel Assessment",
+    "section": "Run Report",
+    "text": "Run Report\n\nXS Dimensions Level 1\n\nIn the FluvialGeomorph toolbox, open XS Dimensions, Level 1.\nXS’s are added into xs_line fc.\nEnter 4 for the lead_n.\n\nThis sets the moving window to average 4 XS’s above and below the XS being calculated.\n\nLeave the use_smoothing box unchecked and loess_span as 0.1.\nCheck that the vert_units are in ft.\nAfter the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.\n\n\n\nJoin from CSV (Data Management toolbox)\n\nIn the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.\nFeature_dataset will be the feature dataset of the most recent gdb.\nFc will be the XS line feature class.\nChoose Seq in the dropdown for the fc_field.\nThe csv_file will be the .csv file created from the XS Dimensions Level 1 Tool.\nCsv_field will match the fc_field so it should also be Seq.\nHit Run.\nA new line feature class ending with dims_L1 will be added to the feature dataset.\n\n\n\nGenerate Level 1 Report\n\nIn the FluvialGeomorph toolbox, open the Report – L1 located in the Reports toolset.\nStream will be the ReachName which was created when making the flowline. Copy and paste the ReachName from XS’s attribute table.\nFlowline_fc will be the flowline feature class from the recent year.\nXs_dimensions_fc will be the line feature class created during the Join From CSV tool.\nFlowline_points_1 will be the flowline points from the most recent year.\n\nFlowline_points_2 will be the flowline points from the older year.\n\nXs_points_1 will be the XS points point feature class created from the XS Points tool. Use the data from the most recent year.\n\nXs_points_2 will be the XS points point feature class for the older year.\n\nSurvey_name_1 will be the year of the most recent data (ex: 2022).\n\nSurvey_name_2 will be the year of the older data (ex: 2012).\n\nFeatures_fc will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.\nChannel_fc will be the lower number bank_raw layer that represents the channel.\nFloodplain_fc will be the higher number bank_raw layer that represents the floodplain,\nDem will need the dem_hydro.\nCheck the box for: show_xs_map.\nChange profile_units to feet.\nCheck boxes for aerial and elevation.\nXs_label_freq and exaggeration should already be set to 10 and extent_factor is 1.2.\nOutput_dir is where the report will be stored. Each project has a Reports folder.\nOutput_format is word_document.\nHit Run.\nReview report for errors and anomalies in the data.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Level-1 Initial Channel Assessment</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2.html",
+    "href": "Level-2.html",
+    "title": "6  Level-2 Estimate Bankfull Analysis",
+    "section": "",
+    "text": "Estimate Bankfull Analysis",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2.html#application-and-data-setup",
+    "href": "Level-2.html#application-and-data-setup",
+    "title": "6  Level-2 Estimate Bankfull Analysis",
+    "section": "Application and Data Setup",
+    "text": "Application and Data Setup\n\nLevel-1 Data\n\nSites must have had a Level-1 analysis run. That data is essential to completing Level_2 analysis.\nLevel-1 software application and tools will be needed for Level-2 analysis.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2.html#analysis-workflow",
+    "href": "Level-2.html#analysis-workflow",
+    "title": "6  Level-2 Estimate Bankfull Analysis",
+    "section": "Analysis Workflow",
+    "text": "Analysis Workflow\n\nCreate Riffle Cross Section Layers– for Channel\n\nCopy the XS_section line layer in the most recent database and rename one XS_Layout_riffles_ch (Ex. xs_300_150_riffels_ch).\n\n\n\nSelect the XS_section that represent best represent rock riffle areas in the reach.\n\nSelect between 3 and 6 riffle location based on the length and characteristics of the reach.\nRiffle Identifying Characteristics:\n\nA straight reach between two meander bends, areas in the cross-overs between river bends\nClear indicators of the active floodplain or bankfull discharge\nPresence of one or more terraces\nChannel section and form typical of the stream\nA reasonably clear view of of geomorphic features\nAreas of high water surface slope (in the case of high gradient streams)\nAreas of minimum depth and width\nChannel width parallel and consistent\nAvoid tributary influences\nCross sections should be drawn wide enough to capture the top of bank\n\nPoints in the LAS dataset can assist in locating riffles if the stream. Use symbolized LAS point layer to identify dense clusters ground points in the reach.\nImagery can also be used to identify potential riffle areas in the reach.\nOnce XS_section have been identified delete all other XS sections that are not determined to be riffles.\n\n\n\nXS Resequence the riffle XS_sections\n\nFeature_dataset for the most recent year.\nXs_fc for the XS_Layout_riffles_ch. \n\n\n\nResize the XS_Layout_riffles_ch\n\nThe riffle cross sections need to snapped perpendicular to the channel polygon at the current riffle location.\nSave Edits\n\n\n\nCreate Floodplain riffle layer\n\nCopy the XS_Layout_riffles_ch to the current year feature dataset and rename it XS_Layout_riffles_fp.\nEdit XS_Layout_riffles_fp lines to the full width of the floodplain polygon. The XS_Layout_riffles_fp must line up with the XS_Layout_riffles_ch lines.\nSave edits.\n\n\n\nCalculate Cross Section Watershed Area – for the channel and floodplain riffles\n\nIn the fluvialgeomorph folder, expand layers and add NHDPlusFac_National.tif\nRight click the layer, go to data, then export raster\nAdd the output to whatever year folder.\nClipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.\n\nOptional: Create a clip for each project site of the NHDPlusFac_National.tif with the extent zoomed out 1:50000 centered on the site.\n\nGo to FluvialGeomorph toolbox open XS Water Area tool.\nSnap distance is 100.\nStart with the more recent data first.\nHit Run.\n\nIf it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime.\nThe result is a new attribute field in the XS feature class that has a calculated watershed area for each regularly spaced cross section.\n\nOnce it is done running, open attribute table and see if anything in the watershedareaSqMile is off.\n\nSome of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun Watershed Area TOOL and increase the snap distance.\nCheck for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.\n\n\n\n\nImport riffle cross sections into GDB feature dataset.\n\nImport the finished XS_Layout_riffles_ch and XS_Layout_riffles_fp to the earlier year feature dataset.\n\n\n\nXS River Position\n\nIn the FluvialGeomorph toolbox, select XS River Position.\nEnter feature dataset for more recent geodatabase.\nInput Riffle Cross Sections.\nInput Flowline Points.\nHit Run. Complete for both the channel and floodplain XS\nThe result adds new fields in the attribute table of the XS feature class.\nTwo temporary charts will populate the Contents tab under the Cross Section Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the XS River Position Tool to view them again.\n\nOpen both Charts and inspect for any issues in the data.\nNote: This step provides charts which help see if there are gaps in the data.\n\nRepeat XS River Position for the older gdb.\n\n\n\nXS Points\n\nIn the FluvialGeomorph toolbox, select XS Points.\nEnter feature dataset for more recent geodatabase.\nInput Cross Sections.\nInput dem_hydro.\nChange dem_units to ft.\nInput REM for the detrend_dem.\nStation Distance is 1.\nHit Run. Complete for both the channel and floodplain XS.\nPoints have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.\nRepeat these steps for the older gdb.\n\n\n\nXS Point Classify\n\nIn the FluvialGeomorph toolbox, select XS Points Classify.\nEnter feature dataset for the most recent year.\nInput XS points.\nInput channel polygon.\nInput floodplain polygon.\nLeave buffer distance default.\nRepeat for earlier year XS Points.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2.html#run-report",
+    "href": "Level-2.html#run-report",
+    "title": "6  Level-2 Estimate Bankfull Analysis",
+    "section": "Run Report",
+    "text": "Run Report\n\nXS Dimensions Level 1\n\nIn the FluvialGeomorph toolbox, open XS Dimensions, Level 1.\nXS’s for the newest year are added into xs_line fc.\nEnter 4 for the lead_n.\n\nThis sets the moving window to average 4 XS’s above and below the XS being calculated.\n\nLeave the use_smoothing box unchecked and loess_span as 0.1.\nCheck that the vert_units are in ft.\nAfter the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.\n\n\n\nJoin from CSV (Data Management toolbox)\n\nIn the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.\nFeature_dataset will be the feature dataset of the most recent gdb.\nFc will be the XS line feature class.\nChoose Seq in the dropdown for the fc_field.\nThe csv_file will be the .csv file created from the XS Dimensions Level 1 Tool.\nCsv_field will match the fc_field so it should also be Seq.\nHit Run.\nA new line feature class ending with dims_L1 will be added to the feature dataset.\n\n\n\nGo to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach .\n*Note - Other sources can be used to get the watershed discharge. \nCheck with hydrologist requesting the analysis for additional sources.*\n\n\n\n\nStep 3. i\n\n\n\n\nSelect the state of the reach on the left of the stream.\nZoom into the location for the stream reach until the stream layer shows.\nClick the delineate button.\n\nOn the map select the base of the stream reach. The watershed calculation will start. When it is complete a delineation of the reach will show.\nClick Continue.\nSelect all 4 options under Regression Based Scenarios.\nBelow expand Basin Characteristics and Select All Basin Characteristics.\nClick Continue. The calculations for the report will run.\nOnce the calculations are completed scroll to the bottom of the left panel, check all the boxes and click Open Report.\nAdd the site name to the report title. a. Ex. Site193 JODAVIESS County SWCD Stream Stats Report.\nAdd any comments need to the comment section.\nScroll to the bottom and print the report to PDF. Save to the site folder.\n\n\n\n\nOpen the PDF Stream Stats Report from the site folder.\n\n\n\n\nLocate the 50-percent AEP flood value under the Peak-Flow Statistics Flow Report section around page 8 of the report. This value will be used in the Level 2 report.\n\n\n\nL2 XS Dimensions\n\nIn the FluvialGeomorph toolbox, open XS Dimensions, Level 2.\nXS’s dimension level 1 for the riffles into xs_line fc. Ex. xs_300_150_riffels_ch_103_5_dims_L1\nXS’s_points for the channel riffles are added to the XS_point_fc. Ex. xs_300_150_riffels_ch_103_5.\nBankfull_elevation is from the channel depth of the bank_raw channel layer. Ex. 103.5\nEnter 4 for the lead_n.\n\nThis sets the moving window to average 4 XS’s above and below the XS being calculated.\n\nLeave the use_smoothing box unchecked and loess_span as 0.1. Can be adjusted up to 1.\nCheck that the vert_units are in ft.\nDischarge method is model_measure.\nDischarge_value is the 50-percent AEP flood value from the watershed discharge report.\nAfter the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.\n\n\n\nJoin from CSV\n\nIn the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.\nFeature_dataset will be the feature dataset of the most recent gdb.\nFc will be the XS channel riffles _dims_L1 line feature class.\nChoose Seq in the dropdown for the fc_field.\nThe csv_file will be the .csv file created from the XS Dimensions Level 2 Tool.\nCsv_field will match the fc_field so it should also be Seq.\nHit Run.\nA new line feature class ending with dims_L2 will be added to the feature dataset.\n\n\n\nGenerate Level L2 Estimate Bankfull Report\n\nIn the FluvialGeomorph toolbox, open the Report – L2 Estimate Bankfull located in the Reports toolset.\nStream will be the ReachName which was created when making the flowline. Copy and paste the ReachName from XS’s attribute table.\nFlowline_fc will be the flowline feature class from the recent survey event.\nXs_dimensions_fc will be the line feature class created during the Join From CSV tool.\nXs_point_ch_1 will be the flowline points from the most recent survey event.\n\nXs_point_ch_2 will be the flowline points from the older survey event.\n\nXs_points_fp_1 will be the XS points point feature class created from the XS Points tool. Use the data from the most recent survey event.\n\nXs_points_fp_2 will be the XS points point feature class for the older survey event.\n\nSurvey_name_1 will be the survey event of the most recent data (ex: 2022).\n\nSurvey_name_2 will be the survey event of the older data (ex: 2012).\n\nFeatures_fc will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.\n\nChannel_fc will be the lower number bank_raw layer that represents the channel.\n\nFloodplain_fc will be the higher number bank_raw layer that represents the floodplain,\nDem will need the dem_hydro.\nRegions will be selected based on needs for the site. They calculate an estimate of specific hydraulic dimension for a given drainage area. One to four curves can be selected for a report. Ex. IL sites normally use Southern Driftless, Lower Southern Driftless, and Eastern United States.\nFrom_elevation is the low end number from a range built around the channel bf_estimate number.\n\nEx if your bankfull estimate for the reach is 104 the range could be 100-106. Making 100 the from_elevation and 106 the to_elevation. The range should be roughly 2-5 numbers below and above the bankfull estimate.\n\nTo_elevation is the high end number from a range built around the channel bf_estimate number.\nBy_elevation must a number divisible by the bf_estimate. It normally ranges from 0.1-2.\nBf_estimate will be the 50-percent AEP flood from Stream Stats or other source.\nCheck the box for: show_xs_map.\nChange profile_units to feet.\nCheck boxes for aerial and elevation.\nXs_label_freq and exaggeration should already be set to 10 and extent_factor is 1.2.\nOutput_dir is where the report will be stored. Each project has a Reports folder.\nOutput_format is word_document.\nHit Run.\nReview report for errors and anomalies in the data.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2.html",
+    "href": "Level-2-2.html",
+    "title": "7  Level-2-2 Channel Bankfull Analysis",
+    "section": "",
+    "text": "Application and Data Setup",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2.html#application-and-data-setup",
+    "href": "Level-2-2.html#application-and-data-setup",
+    "title": "7  Level-2-2 Channel Bankfull Analysis",
+    "section": "",
+    "text": "Applications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\n\n\n\nRetreive the most current version of FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases.https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn Rstudio under tools install package HERE.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2.html#analysis-workflow",
+    "href": "Level-2-2.html#analysis-workflow",
+    "title": "7  Level-2-2 Channel Bankfull Analysis",
+    "section": "Analysis Workflow",
+    "text": "Analysis Workflow\n\nExtend original XS_layout\n\nUse the original XS lines from level1 and extend each XS line high ground to high ground of the dem_hydro outside the floodplain on each side. XS extent must be beyond the floodplain at minimum and kept perpendicular to the channel.\nSave edits.\nImport the extended XS line layer into the older geodatabase.\n\n\n\nCalculate Cross Section Watershed Area\n\nGo to FluvialGeomorph toolbox open the XS Wastershed Area tool.\nStart with the more recent data first.\nAdd the feature dataset.\nAdd the extended XS line layer.\nAdd the flowline.\nAdd the flow_accum created in level or refer to level 1 instructions.\nSnap distance is 100.\nHit Run.\n\nIf it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime.\nThe result is a new attribute field in the XS feature class that has a calculated watershed area for each regularly spaced cross section.\n\nOnce it is done running, open attribute table and see if anything in the watershedareaSqMile is off.\n\nSome of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun Tool 12 Watershed Area and increase the snap distance.\nCheck for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.\n\nRun for older geodatabase.\n\n\n\nXS River Position\n\nIn the FluvialGeomorph toolbox, select XS River Position.\nEnter feature dataset for more recent geodatabase.\nInput extended XS.\nInput Flowline Points.\nHit Run. Complete for both the channel and floodplain XS\nThe result adds new fields in the attribute table of the XS feature class.\nTwo temporary charts will populate the Contents tab under the Cross Section Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the XS River Position Tool to view them again.\n\nOpen both Charts and inspect for any issues in the data.\nNote: This step provides charts which help see if there are gaps in the data.\n\nRepeat XS River Position for the older gdb.\n\n\n\nXS Points\n\nIn the FluvialGeomorph toolbox, select XS Points.\nEnter feature dataset for more recent geodatabase.\nInput extended Cross Sections.\nInput dem_hydro.\nChange dem_units to ft.\nInput REM for the detrend_dem.\nStation Distance is 1.\nHit Run. Complete for both the channel and floodplain XS.\nPoints have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.\nRepeat these steps for the older gdb.\n\n\n\nXS Point Classify - 14a\n\nIn the FluvialGeomorph toolbox, select XS Points Classify.\nEnter feature dataset for the most recent year.\nInput extended XS points.\nInput channel polygon.\nInput floodplain polygon.\nLeave buffer distance default.\nRepeat for earlier year extended XS Points.\n\n\n\nCreate Banklines\n\nTurn channel bank_raw polygon layer into a line layer.\nUse Esri Poygon to Line tool.\nAdd the bank_raw channel polygon as the input feature.\nAdd the feature dataset for the more recent gdb.\nHit Run.\n\n\n\nEdit channel line layer\n\n\n\n\nStep 2\n\n\n\n\nSplit the line and remove all parts that are not the streambank length of the flowline.\n\nSet the flow on each streambank line to flow downstream. (Make sure the RED node is at the upstream end of the line and both ends are snapped together)\n\nSave edits.\n\n\n\n\nXS Dimensions Level 1\n\nIn the FluvialGeomorph toolbox, open XS Dimensions, Level 1.\nExtended XS’s for the newest year are added into xs_line fc.\nEnter 4 for the lead_n.\n\nThis sets the moving window to average 4 XS’s above and below the XS being calculated.\n\nLeave the use_smoothing box unchecked and loess_span as 0.1.\nCheck that the vert_units are in ft.\nAfter the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.\n\n\n\nJoin from CSV (Data Management toolbox)\n\nIn the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.\nFeature_dataset will be the feature dataset of the most recent gdb.\nFc will be the XS line feature class.\nChoose Seq in the dropdown for the fc_field.\nThe csv_file will be the .csv file created from the XS Dimensions Level 1 Tool.\nCsv_field will match the fc_field so it should also be Seq.\nHit Run.\nA new line feature class ending with dims_L1 will be added to the feature dataset.\n\n\n\nGo to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach .\n\n\n\n\n\n\nNote\n\n\n\nOther sources can be used to get the watershed discharge. \nCheck with hydrologist requesting the analysis for additional sources.\n\n\n\n\n\n\nStep 3. i\n\n\n\n\nSelect the state of the reach on the left of the stream.\nZoom into the location for the stream reach until the stream layer shows.\nClick the delineate button.\n\nOn the map select the base of the stream reach. The watershed calculation will start. When it is complete a delineation of the reach will show.\nClick Continue.\nSelect all 4 options under Regression Based Scenarios.\nBelow expand Basin Characteristics and Select All Basin Characteristics.\nClick Continue. The calculations for the report will run.\nOnce the calculations are completed scroll to the bottom of the left panel, check all the boxes and click Open Report.\nAdd the site name to the report title. a. Ex. Site193 JODAVIESS County SWCD Stream Stats Report.\nAdd any comments need to the comment section.\nScroll to the bottom and print the report to PDF. Save to the site folder.\n\n\n\n\nOpen the PDF Stream Stats Report from the site folder.\n\n\n\n\nLocate the 50-percent AEP flood value under the Peak-Flow Statistics Flow Report section around page 8 of the report. This value will be used in the Level 2 report.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2.html#run-report",
+    "href": "Level-2-2.html#run-report",
+    "title": "7  Level-2-2 Channel Bankfull Analysis",
+    "section": "Run Report",
+    "text": "Run Report\n\nL2 XS Dimensions\n\nIn the FluvialGeomorph toolbox, open XS Dimensions, Level 2.\nXS’s dimension level 1 for the riffles into extended xs_line fc.\nXS’s_points for the channel riffles are added to the extended XS_point_fc.\nBankfull_elevation is from the channel depth of the bank_raw channel layer. Ex. 103.5\nEnter 4 for the lead_n.\n\nThis sets the moving window to average 4 XS’s above and below the XS being calculated.\n\nLeave the use_smoothing box unchecked and loess_span as 0.1. Can be adjusted up to 1.\nCheck that the vert_units are in ft.\nDischarge method is model_measure.\nDischarge_value is the 50-percent AEP flood value from the watershed discharge report.\nAfter the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.\n\n\n\nJoin from CSV\n\nIn the FluvialGeomorph toolbox, open Join From CSV located in the Data Management toolset.\nFeature_dataset will be the feature dataset of the most recent gdb.\nFc will be the extended XS _layout_dims_L1 line feature class.\nChoose Seq in the dropdown for the fc_field.\nThe csv_file will be the .csv file created from the XS Dimensions Level 2 Tool.\nCsv_field will match the fc_field so it should also be Seq.\nHit Run.\nA new line feature class ending with dims_L2 will be added to the feature dataset.\n\n\n\nGenerate Level 2 Report\n\nIn the FluvialGeomorph toolbox, open the Report – L2b located in the Reports toolset.\nStream will be the ReachName which was created when making the flowline. Copy and paste the ReachName from XS’s attribute table.\nFlowline_fc will be the flowline feature class from the recent survey event.\nExtended Xs_fc will be the XS feature class for the most recent survey event.\nExtended Xs_dimensions_fc will be the line feature class created during the Join From CSV tool.\nExtended Xs_points_1 will be the XS points point feature class created from the XS Points tool. Use the data from the most recent survey event.\n\nExtended Xs_points_2 will be the XS points point feature class for the older year.\n\nSurvey_name_1 will be the survey event of the most recent data (ex: 2022).\n\nSurvey_name_2 will be the survey event of the older data (ex: 2012).\n\nFeatures_fc will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.\nChannel_fc will be the lower number bank_raw layer that represents the channel.\nFloodplain_fc will be the higher number bank_raw layer that represents the floodplain,\nDem will need the dem_hydro from the most recent survey event.\nBf_estimate will be the 50-percent AEP flood from Stream Stats or other source.\nRegions will be selected based on needs for the site. They calculate an estimate of specific hydraulic dimension for a given drainage area. One to four curves can be selected for a report. Ex. IL sites normally use Southern Driftless, Lower Southern Driftless, and Eastern United States.\nCheck the box for: show_xs_map.\nChange profile_units to feet.\nCheck boxes for aerial and elevation.\nXs_label_freq and exaggeration should already be set to 10 and extent_factor is 1.2.\nOutput_dir is where the report will be stored. Each project has a Reports folder.\nOutput_format is word_document.\nHit Run.\nReview report for errors and anomalies in the data.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-3.html",
+    "href": "Level-3.html",
+    "title": "8  Level-3 Planform Analysis",
+    "section": "",
+    "text": "This page is under construction.",
+    "crumbs": [
+      "Workflows",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Level-3 Planform Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1-review.html",
+    "href": "Level-1-review.html",
+    "title": "9  Level 1 Report",
+    "section": "",
+    "text": "QA Checklist\nThis chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Level 1 Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1-review.html#qa_checklist",
+    "href": "Level-1-review.html#qa_checklist",
+    "title": "9  Level 1 Report",
+    "section": "",
+    "text": "Check the stream name\nAll of the tools depend on consistent reach naming! Ensuring consistent naming begins with deriving the “flowline” fc. The ReachName field must contain the same value for all of the fc’s within a reach geodatabase. This is the single biggest gotcha we find running these tools. If tools aren’t working correctly and you’re sure you’ve done everything else right, consistent stream names is the first thing to check!\n\n\nCross section labels at the correct interval\nCross section labels usually cannot be placed on every cross section or the map or graph becomes unreadable due to label crowding. The xs_label_freq parameter can be adjusted to adequately space cross section labels. Typically xs_label_freq = 10 works for regularly spaced cross sections and xs_label_freq = 2 works for riffle cross sections.\n\n\nCross sections cover the full extent of the flowine\nThe flowline fc extends from the downstream end of the reach to the upstream end. Cross sections should be spaced regularly across the entire reach, without any gaps at the upper or lower end.\n\n\nMap basemap displaying correctly\nThe overview maps should contain an aerial photo or shaded relief elevation basemap.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Level 1 Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1-review.html#L1_long_profiles",
+    "href": "Level-1-review.html#L1_long_profiles",
+    "title": "9  Level 1 Report",
+    "section": "Longitudinal Profiles",
+    "text": "Longitudinal Profiles\nThis report section contains two longitudinal profile graphs, one drawn using the flowline_points fc, and the second is drawn using the cross section dimensions, *_dims_L1 fc.\n\nElevation values are reasonable\nThe elevation values displayed on the map or graph should be reasonable. Use the ESRI Explore tool to check the DEM elevation values. By convention in FluvialGeomorph, DEM values must always have vertical units = feet.\n\n\nElevation ranges are similar between surveys\nAlthough stream elevations can change over time, the elevation ranges between subsequent survey dates should be roughly similar. If the elevation ranges are drastically different, check the terrain development steps for each survey time period to ensure that the elevation data was processed correctly.\n\n\nMultiple surveys are labeled correctly\nReports that contain multiple surveys should be entered in the same way to ensure they are labeled and symbolized (e.g., each survey drawn with the same color in each report) the same way across all reports. Follow these guidelines to ensure consistency:\n\nMost recent survey listed at the top, with earlier surveys listed in reverse chronological order.\nSurvey date indicates the date flown (e.g., not the contract or delivery date).\n\n\n\nMultiple surveys are correctly calibrated to the base year\nOn the longitudinal profile graphs, each survey line should start and end at the same x-axis station value. In other words, one survey line should not end before or after another survey line. Check the far right edge of the longitudinal graph to ensure all survey’s have the same ending value.\nIf all of the surveys’ last station values do not align, it means that the previous surveys were not correctly calibrated to the base year flowline. Previous year surveys will need to have the Flowline Points tool rerun using the base year survey’s flowline_points for calibration.\n\n\nStationing in the correct units\nUnits can be chosen for the longitudinal profile stationing. Ensure that the correct units are selected.\n\n\nStream feature labels display correctly\nLongitudinal graphs are labeled using the rows in the features fc. Ensure these river features are labeled correctly and are located at the correct longitudinal position.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Level 1 Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1-review.html#L1_xs_metrics",
+    "href": "Level-1-review.html#L1_xs_metrics",
+    "title": "9  Level 1 Report",
+    "section": "Cross Section Metrics",
+    "text": "Cross Section Metrics\nThis report section contains a Level 1 cross section metrics plot drawn using the cross section dimensions fc, *_dims_L1.\n\nCross section watershed area calculated correctly\nThe watershed area metric is calculated by the XS Watershed Area tool. Given the complexities of automatically calculating watershed area for high resolution stream features, some watershed areas may not have been calculated correctly. Rerunning the Watershed Area tool or manual adjustment of the Watershed_Area_SqMile field may be required.\n\nWatershed values are reasonable.\nWatershed area must increase moving downstream.\n\n\n\nElevation smoothing is acceptable\nHigh resolution LiDAR derived stream elevations can be noisy. Smoothing the elevations longitudinally is a way reduce noise. However, too much smoothing can be applied, eliminating any of the relationships we want to observe. By visually comparing the raw elevation and the smoothed elevation graphs, verify that the amount of smoothing sufficiently reduces noise, but does not not go too far and removes substantive variation. Smoothing is controlled in the XS Dimension tools using the “loess_span” parameter.\n\n\nEnsure metrics values are smooth\nMany reach metrics are calculated using a longitudinal moving window analysis. The size of the moving window is controlled in the XS Dimensions tools using the “lead_n” parameter. A smaller value applies a narrower moving mindow and a larger value applies a wider moving window. If the moving window is too small, metric values will be highly variable along the stream. As the moving window size gets larger, metric value variation will be reduced.\n\n\nSlope values are reasonable\nSlope values should be greater than zero. If negative slopes are being recorded, it usually means that the moving window size needs to be increased.\n\n\nSinuosity values are reasonable\nSinuosity values should be greater than one.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Level 1 Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-1-review.html#L1_xs_profiles",
+    "href": "Level-1-review.html#L1_xs_profiles",
+    "title": "9  Level 1 Report",
+    "section": "Cross Section Profiles",
+    "text": "Cross Section Profiles\nThis report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions *_dims_L1 fc and the dem_hydro raster. The cross section profile graph is drawn using the cross section points fc’s for each survey.\n\nCross section must be digitized from left to right\nThe graph is being viewed from the perspective of standing in the stream, looking downstream. To ensure this orientation, cross sections must be digitized from the left descending bank to the right descending bank.\n\nCross section perpenduicular to the channel\n\n\n\nCross section covers the channel extent\n\n\nCross section extends onto floodplain\n\n\nCross section not located on built infrastructure\n\n\nCross section drawn within the DEM extent\n\n\nCross section y-axis range is not too large\n\n\nCross section x-axis range is not too large",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Level 1 Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-review.html",
+    "href": "Level-2-review.html",
+    "title": "10  Level-2 Estimate Bankfull Report",
+    "section": "",
+    "text": "QA Checklist\nThis chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-review.html#bankfull-elevation-sensitivity-analysis",
+    "href": "Level-2-review.html#bankfull-elevation-sensitivity-analysis",
+    "title": "10  Level-2 Estimate Bankfull Report",
+    "section": "Bankfull Elevation Sensitivity Analysis",
+    "text": "Bankfull Elevation Sensitivity Analysis\nThis report section contains the Bankfull Elevation sensitivity analysis Goodness of Fit graph and the Regional Hydraulic Geometry Curves graph drawn using the base year’s riffle cross section points fc.\n\nCorrect regions included\n\n\nAdequate range of bankfull elevations\n\n\nDetrended bankfull elevation set to a reasonable value\n\n\nDrainage Area values are reasonable",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-review.html#estimate_bankfull_long_profile",
+    "href": "Level-2-review.html#estimate_bankfull_long_profile",
+    "title": "10  Level-2 Estimate Bankfull Report",
+    "section": "Longitudinal Profile",
+    "text": "Longitudinal Profile\nThis section of the report contains a cross section longitudinal profile graph drawn using the riffle cross section dimensions, riffle_channel_dims_L2 fc.\n\nElevation values are reasonable\n\n\nStationing in the correct units\n\n\nStream feature labels display correctly",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-review.html#estimate_bankfull_xs_metrics",
+    "href": "Level-2-review.html#estimate_bankfull_xs_metrics",
+    "title": "10  Level-2 Estimate Bankfull Report",
+    "section": "Cross Section Metrics",
+    "text": "Cross Section Metrics\nThis report section contains a Level 2 cross section metrics plot drawn using the riffle_channel_dims_L2 fc.\n\nWidth-Depth Ratio values are reasonable\n\n\nEntrenchment Ratio values are reasonable\n\n\nSlope values are reasonable\n\n\nSinuosity values are reasonable\n\n\nShear Stress values are reasonable\n\n\nUnit Stream Power values are reasonable",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-review.html#cross-section-profiles",
+    "href": "Level-2-review.html#cross-section-profiles",
+    "title": "10  Level-2 Estimate Bankfull Report",
+    "section": "Cross Section Profiles",
+    "text": "Cross Section Profiles\nThis report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions fc riffle_channel_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the riffle_channel_points fc’s for each survey. see the QA checklist items in the Level 1 Report, Cross Section Profiles section.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-review.html#L2_report_qa",
+    "href": "Level-2-review.html#L2_report_qa",
+    "title": "10  Level-2 Estimate Bankfull Report",
+    "section": "Level 2 Report",
+    "text": "Level 2 Report\n\nStudy Area Overview\nThis report section contains a set of reach overview maps drawn using the flowline and the regularly spaced cross section dimensions, *_dims_L2, feature classes (fc). Both the aerial photo and elevation are provided by Mapbox Raster Tiles. See the QA checklist items in the Level 1 Report, Study Area Overview section.\n\n\nLongitudinal Profile\nThis section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, *_dims_L2 fc. See the QA checklist items in the Estimate Bankfull, Longitudinal Profile section.\n\n\nCross Section Metrics\nThis report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L2 fc.See the QA checklist items in the Estimate Bankfull, Cross section Metrics section.\n\nEnsure metrics values are smooth\n\n\n\nCross Section Profiles\nThis report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L2, the dem_hydro raster. The cross section profile graph is drawn using the cross section *_points fc’s for each survey. see the QA checklist items in the Level 1 Report, Cross Section Profiles section.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Estimate Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2-review.html",
+    "href": "Level-2-2-review.html",
+    "title": "11  Level-2-2 Channel Bankfull Report",
+    "section": "",
+    "text": "QA Checklist\nThis chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2-review.html#bankfull-elevation-sensitivity-analysis",
+    "href": "Level-2-2-review.html#bankfull-elevation-sensitivity-analysis",
+    "title": "11  Level-2-2 Channel Bankfull Report",
+    "section": "Bankfull Elevation Sensitivity Analysis",
+    "text": "Bankfull Elevation Sensitivity Analysis\nThis report section contains the Bankfull Elevation sensitivity analysis Goodness of Fit graph and the Regional Hydraulic Geometry Curves graph drawn using the base year’s riffle cross section points fc.\n\nCorrect regions included\n\n\nAdequate range of bankfull elevations\n\n\nDetrended bankfull elevation set to a reasonable value\n\n\nDrainage Area values are reasonable",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2-review.html#estimate_bankfull_long_profile",
+    "href": "Level-2-2-review.html#estimate_bankfull_long_profile",
+    "title": "11  Level-2-2 Channel Bankfull Report",
+    "section": "Longitudinal Profile",
+    "text": "Longitudinal Profile\nThis section of the report contains a cross section longitudinal profile graph drawn using the riffle cross section dimensions, riffle_channel_dims_L2 fc.\n\nElevation values are reasonable\n\n\nStationing in the correct units\n\n\nStream feature labels display correctly",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2-review.html#estimate_bankfull_xs_metrics",
+    "href": "Level-2-2-review.html#estimate_bankfull_xs_metrics",
+    "title": "11  Level-2-2 Channel Bankfull Report",
+    "section": "Cross Section Metrics",
+    "text": "Cross Section Metrics\nThis report section contains a Level 2 cross section metrics plot drawn using the riffle_channel_dims_L2 fc.\n\nWidth-Depth Ratio values are reasonable\n\n\nEntrenchment Ratio values are reasonable\n\n\nSlope values are reasonable\n\n\nSinuosity values are reasonable\n\n\nShear Stress values are reasonable\n\n\nUnit Stream Power values are reasonable",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2-review.html#cross-section-profiles",
+    "href": "Level-2-2-review.html#cross-section-profiles",
+    "title": "11  Level-2-2 Channel Bankfull Report",
+    "section": "Cross Section Profiles",
+    "text": "Cross Section Profiles\nThis report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions fc riffle_channel_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the riffle_channel_points fc’s for each survey. see the QA checklist items in the Level 1 Report, Cross Section Profiles section.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-2-2-review.html#L2_report_qa",
+    "href": "Level-2-2-review.html#L2_report_qa",
+    "title": "11  Level-2-2 Channel Bankfull Report",
+    "section": "Level 2 Report",
+    "text": "Level 2 Report\n\nStudy Area Overview\nThis report section contains a set of reach overview maps drawn using the flowline and the regularly spaced cross section dimensions, *_dims_L2, feature classes (fc). Both the aerial photo and elevation are provided by Mapbox Raster Tiles. See the QA checklist items in the Level 1 Report, Study Area Overview section.\n\n\nLongitudinal Profile\nThis section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, *_dims_L2 fc. See the QA checklist items in the Estimate Bankfull, Longitudinal Profile section.\n\n\nCross Section Metrics\nThis report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L2 fc.See the QA checklist items in the Estimate Bankfull, Cross section Metrics section.\n\nEnsure metrics values are smooth\n\n\n\nCross Section Profiles\nThis report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the cross section *_points fc’s for each survey. see the QA checklist items in the Level 1 Report, Cross Section Profiles section.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-2-2 Channel Bankfull Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-3-review.html",
+    "href": "Level-3-review.html",
+    "title": "12  Level-3 Planform Report",
+    "section": "",
+    "text": "QA Checklist",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Level-3 Planform Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-3-review.html#longitudinal-profile",
+    "href": "Level-3-review.html#longitudinal-profile",
+    "title": "12  Level-3 Planform Report",
+    "section": "Longitudinal Profile",
+    "text": "Longitudinal Profile\nThis section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, *_dims_L3 fc. See the QA checklist items in the Estimate Bankfull, Longitudinal Profile section.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Level-3 Planform Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-3-review.html#cross-section-metrics",
+    "href": "Level-3-review.html#cross-section-metrics",
+    "title": "12  Level-3 Planform Report",
+    "section": "Cross Section Metrics",
+    "text": "Cross Section Metrics\nThis report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L3 fc.See the QA checklist items in the Estimate Bankfull, Cross section Metrics section.\n\nEnsure metrics values are smooth\n\n\nRadius of Curvature to Bankfull Width values are reasonable",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Level-3 Planform Report</span>"
+    ]
+  },
+  {
+    "objectID": "Level-3-review.html#cross-section-profiles",
+    "href": "Level-3-review.html#cross-section-profiles",
+    "title": "12  Level-3 Planform Report",
+    "section": "Cross Section Profiles",
+    "text": "Cross Section Profiles\nThis report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L3 and the dem_hydro raster. The cross section profile graph is drawn using the cross section “_points” fc’s for each survey. see the QA checklist items in the Level 1 Report, Cross Section Profiles section.",
+    "crumbs": [
+      "Report Reviews",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Level-3 Planform Report</span>"
+    ]
+  }
+]

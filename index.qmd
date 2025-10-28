@@ -1,0 +1,49 @@
+---
+format: 
+  html:
+    lightbox:
+      match: auto
+      desc-position: top
+      loop: true
+    css: styles.css  
+---
+
+
+# Preface {.unnumbered}
+
+Funding for development and maintenance of FluvialGeomorph has been provided by the following US Army Corps of Engineers (USACE) programs:
+
+-   [Ecosystem Management and Restoration Research Program (EMRRP)](https://emrrp.el.erdc.dren.mil).
+-   [Regional Sediment Management Program (RSM)](https://rsm.usace.army.mil/)
+-   [Mississippi River Geomorphology and Potamology Program (MRG&P)](https://www.mvd.usace.army.mil/Missions/Mississippi-River-Science-Technology/MS-River-Geomorphology-Potamology/)
+-   [Flood Risk Management Program     (FRM)](https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/)
+-   [Engineering With Nature (EWN)](https://ewn.el.erdc.dren.mil/)
+
+
+![USACE](images/USACE_200.jpg){group="fig-gallery" width="100px"}
+![EMRRP](images/EMRRP_logo_200.jpg){group="fig-gallery" width="100px"}
+![Caption for image 3](images/FRMP_200.jpg){group="fig-gallery" width="100px"}
+![Silver Jackets](images/SilverJackets_200.jpg){group="fig-gallery" width="90px"}
+![EWN](images/EWN_200.jpg){group="fig-gallery" width="100px"}
+![MRG&P](images/MRG&P_300.jpg){group="fig-gallery" width="100px"}
+
+
+
+
+
+
+
+
+## Abstract
+
+The [FluvialGeomorph ArcGIS toolbox](https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox) provides a set of tools for conducting rapid fluvial geomorphology analysis and assessment. It allows a user to use high resolution, remotely sensed LiDAR (Light Detection and Ranging) terrain data to cost effectively extract stream channel dimensions at fine scale for large spatial extents. This document describes the methods used in the development of the FluvialGeomorph project.
+
+## Distribution Statement
+
+Approved for public release; distribution is unlimited
+
+
+
+## Notation List
+
+------------------------------------------------------------------------

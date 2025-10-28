@@ -6,12 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers">
-<meta name="author" content="Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District">
-<meta name="author" content="Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District">
-<meta name="dcterms.date" content="2025-10-23">
 
-<title>FluvialGeomorph User Manual</title>
+<title>11&nbsp; Level-2-2 Channel Bankfull Report – FluvialGeomorph User Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Intro.html" rel="next">
+<link href="./Level-3-review.html" rel="next">
+<link href="./Level-2-review.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Level-1-review.html">Report Reviews</a></li><li class="breadcrumb-item"><a href="./Level-2-2-review.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Report</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -118,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -226,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Level-2-2-review.html" class="sidebar-item-text sidebar-link">
+  <a href="./Level-2-2-review.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Report</span></span></a>
   </div>
 </li>
@@ -254,11 +251,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <li><a href="#qa_checklist" id="toc-qa_checklist" class="nav-link active" data-scroll-target="#qa_checklist">QA Checklist</a></li>
+  <li><a href="#bankfull-elevation-sensitivity-analysis" id="toc-bankfull-elevation-sensitivity-analysis" class="nav-link" data-scroll-target="#bankfull-elevation-sensitivity-analysis">Bankfull Elevation Sensitivity Analysis</a>
   <ul class="collapse">
-  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
-  <li><a href="#distribution-statement" id="toc-distribution-statement" class="nav-link" data-scroll-target="#distribution-statement">Distribution Statement</a></li>
-  <li><a href="#notation-list" id="toc-notation-list" class="nav-link" data-scroll-target="#notation-list">Notation List</a></li>
+  <li><a href="#correct-regions-included" id="toc-correct-regions-included" class="nav-link" data-scroll-target="#correct-regions-included">Correct regions included</a></li>
+  <li><a href="#adequate-range-of-bankfull-elevations" id="toc-adequate-range-of-bankfull-elevations" class="nav-link" data-scroll-target="#adequate-range-of-bankfull-elevations">Adequate range of bankfull elevations</a></li>
+  <li><a href="#detrended-bankfull-elevation-set-to-a-reasonable-value" id="toc-detrended-bankfull-elevation-set-to-a-reasonable-value" class="nav-link" data-scroll-target="#detrended-bankfull-elevation-set-to-a-reasonable-value">Detrended bankfull elevation set to a reasonable value</a></li>
+  <li><a href="#drainage-area-values-are-reasonable" id="toc-drainage-area-values-are-reasonable" class="nav-link" data-scroll-target="#drainage-area-values-are-reasonable">Drainage Area values are reasonable</a></li>
+  </ul></li>
+  <li><a href="#estimate_bankfull_long_profile" id="toc-estimate_bankfull_long_profile" class="nav-link" data-scroll-target="#estimate_bankfull_long_profile">Longitudinal Profile</a>
+  <ul class="collapse">
+  <li><a href="#elevation-values-are-reasonable" id="toc-elevation-values-are-reasonable" class="nav-link" data-scroll-target="#elevation-values-are-reasonable">Elevation values are reasonable</a></li>
+  <li><a href="#stationing-in-the-correct-units" id="toc-stationing-in-the-correct-units" class="nav-link" data-scroll-target="#stationing-in-the-correct-units">Stationing in the correct units</a></li>
+  <li><a href="#stream-feature-labels-display-correctly" id="toc-stream-feature-labels-display-correctly" class="nav-link" data-scroll-target="#stream-feature-labels-display-correctly">Stream feature labels display correctly</a></li>
+  </ul></li>
+  <li><a href="#estimate_bankfull_xs_metrics" id="toc-estimate_bankfull_xs_metrics" class="nav-link" data-scroll-target="#estimate_bankfull_xs_metrics">Cross Section Metrics</a>
+  <ul class="collapse">
+  <li><a href="#width-depth-ratio-values-are-reasonable" id="toc-width-depth-ratio-values-are-reasonable" class="nav-link" data-scroll-target="#width-depth-ratio-values-are-reasonable">Width-Depth Ratio values are reasonable</a></li>
+  <li><a href="#entrenchment-ratio-values-are-reasonable" id="toc-entrenchment-ratio-values-are-reasonable" class="nav-link" data-scroll-target="#entrenchment-ratio-values-are-reasonable">Entrenchment Ratio values are reasonable</a></li>
+  <li><a href="#slope-values-are-reasonable" id="toc-slope-values-are-reasonable" class="nav-link" data-scroll-target="#slope-values-are-reasonable">Slope values are reasonable</a></li>
+  <li><a href="#sinuosity-values-are-reasonable" id="toc-sinuosity-values-are-reasonable" class="nav-link" data-scroll-target="#sinuosity-values-are-reasonable">Sinuosity values are reasonable</a></li>
+  <li><a href="#shear-stress-values-are-reasonable" id="toc-shear-stress-values-are-reasonable" class="nav-link" data-scroll-target="#shear-stress-values-are-reasonable">Shear Stress values are reasonable</a></li>
+  <li><a href="#unit-stream-power-values-are-reasonable" id="toc-unit-stream-power-values-are-reasonable" class="nav-link" data-scroll-target="#unit-stream-power-values-are-reasonable">Unit Stream Power values are reasonable</a></li>
+  </ul></li>
+  <li><a href="#cross-section-profiles" id="toc-cross-section-profiles" class="nav-link" data-scroll-target="#cross-section-profiles">Cross Section Profiles</a></li>
+  <li><a href="#L2_report_qa" id="toc-L2_report_qa" class="nav-link" data-scroll-target="#L2_report_qa">Level 2 Report</a>
+  <ul class="collapse">
+  <li><a href="#study-area-overview" id="toc-study-area-overview" class="nav-link" data-scroll-target="#study-area-overview">Study Area Overview</a></li>
+  <li><a href="#longitudinal-profile" id="toc-longitudinal-profile" class="nav-link" data-scroll-target="#longitudinal-profile">Longitudinal Profile</a></li>
+  <li><a href="#cross-section-metrics" id="toc-cross-section-metrics" class="nav-link" data-scroll-target="#cross-section-metrics">Cross Section Metrics</a></li>
+  <li><a href="#cross-section-profiles-1" id="toc-cross-section-profiles-1" class="nav-link" data-scroll-target="#cross-section-profiles-1">Cross Section Profiles</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -266,30 +288,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Level-1-review.html">Report Reviews</a></li><li class="breadcrumb-item"><a href="./Level-2-2-review.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Report</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">FluvialGeomorph User Manual</h1>
+<h1 class="title"><span id="bankfull_report_qa" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Level-2-2 Channel Bankfull Report</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers </p>
-             <p>Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District </p>
-             <p>Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 23, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -299,28 +307,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Funding for development and maintenance of FluvialGeomorph has been provided by the following US Army Corps of Engineers (USACE) programs:</p>
-<ul>
-<li><a href="https://emrrp.el.erdc.dren.mil">Ecosystem Management and Restoration Research Program (EMRRP)</a>.</li>
-<li><a href="https://rsm.usace.army.mil/">Regional Sediment Management Program (RSM)</a></li>
-<li><a href="https://www.mvd.usace.army.mil/Missions/Mississippi-River-Science-Technology/MS-River-Geomorphology-Potamology/">Mississippi River Geomorphology and Potamology Program (MRG&amp;P)</a></li>
-<li><a href="https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/">Flood Risk Management Program (FRM)</a></li>
-<li><a href="https://ewn.el.erdc.dren.mil/">Engineering With Nature (EWN)</a></li>
-</ul>
-<p><img src="images/USACE_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="USACE"> <img src="images/EMRRP_logo_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="EMRRP"> <img src="images/FRMP_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="Caption for image 3"> <img src="images/SilverJackets_200.jpg" class="img-fluid" data-group="fig-gallery" width="90" alt="Silver Jackets"> <img src="images/EWN_200.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="EWN"> <img src="images/MRG&amp;P_300.jpg" class="img-fluid" data-group="fig-gallery" width="100" alt="MRG&amp;P"></p>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>The <a href="https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox">FluvialGeomorph ArcGIS toolbox</a> provides a set of tools for conducting rapid fluvial geomorphology analysis and assessment. It allows a user to use high resolution, remotely sensed LiDAR (Light Detection and Ranging) terrain data to cost effectively extract stream channel dimensions at fine scale for large spatial extents. This document describes the methods used in the development of the FluvialGeomorph project.</p>
+<section id="qa_checklist" class="level2">
+<h2 class="anchored" data-anchor-id="qa_checklist">QA Checklist</h2>
+<p>This chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.</p>
 </section>
-<section id="distribution-statement" class="level2">
-<h2 class="anchored" data-anchor-id="distribution-statement">Distribution Statement</h2>
-<p>Approved for public release; distribution is unlimited</p>
+<section id="bankfull-elevation-sensitivity-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="bankfull-elevation-sensitivity-analysis">Bankfull Elevation Sensitivity Analysis</h2>
+<p>This report section contains the Bankfull Elevation sensitivity analysis Goodness of Fit graph and the Regional Hydraulic Geometry Curves graph drawn using the base year’s riffle cross section points fc.</p>
+<section id="correct-regions-included" class="level3">
+<h3 class="anchored" data-anchor-id="correct-regions-included">Correct regions included</h3>
 </section>
-<section id="notation-list" class="level2">
-<h2 class="anchored" data-anchor-id="notation-list">Notation List</h2>
-<hr>
+<section id="adequate-range-of-bankfull-elevations" class="level3">
+<h3 class="anchored" data-anchor-id="adequate-range-of-bankfull-elevations">Adequate range of bankfull elevations</h3>
+</section>
+<section id="detrended-bankfull-elevation-set-to-a-reasonable-value" class="level3">
+<h3 class="anchored" data-anchor-id="detrended-bankfull-elevation-set-to-a-reasonable-value">Detrended bankfull elevation set to a reasonable value</h3>
+</section>
+<section id="drainage-area-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="drainage-area-values-are-reasonable">Drainage Area values are reasonable</h3>
+</section>
+</section>
+<section id="estimate_bankfull_long_profile" class="level2">
+<h2 class="anchored" data-anchor-id="estimate_bankfull_long_profile">Longitudinal Profile</h2>
+<p>This section of the report contains a cross section longitudinal profile graph drawn using the riffle cross section dimensions, riffle_channel_dims_L2 fc.</p>
+<section id="elevation-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="elevation-values-are-reasonable">Elevation values are reasonable</h3>
+</section>
+<section id="stationing-in-the-correct-units" class="level3">
+<h3 class="anchored" data-anchor-id="stationing-in-the-correct-units">Stationing in the correct units</h3>
+</section>
+<section id="stream-feature-labels-display-correctly" class="level3">
+<h3 class="anchored" data-anchor-id="stream-feature-labels-display-correctly">Stream feature labels display correctly</h3>
+</section>
+</section>
+<section id="estimate_bankfull_xs_metrics" class="level2">
+<h2 class="anchored" data-anchor-id="estimate_bankfull_xs_metrics">Cross Section Metrics</h2>
+<p>This report section contains a Level 2 cross section metrics plot drawn using the riffle_channel_dims_L2 fc.</p>
+<section id="width-depth-ratio-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="width-depth-ratio-values-are-reasonable">Width-Depth Ratio values are reasonable</h3>
+</section>
+<section id="entrenchment-ratio-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="entrenchment-ratio-values-are-reasonable">Entrenchment Ratio values are reasonable</h3>
+</section>
+<section id="slope-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="slope-values-are-reasonable">Slope values are reasonable</h3>
+</section>
+<section id="sinuosity-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="sinuosity-values-are-reasonable">Sinuosity values are reasonable</h3>
+</section>
+<section id="shear-stress-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="shear-stress-values-are-reasonable">Shear Stress values are reasonable</h3>
+</section>
+<section id="unit-stream-power-values-are-reasonable" class="level3">
+<h3 class="anchored" data-anchor-id="unit-stream-power-values-are-reasonable">Unit Stream Power values are reasonable</h3>
+</section>
+</section>
+<section id="cross-section-profiles" class="level2">
+<h2 class="anchored" data-anchor-id="cross-section-profiles">Cross Section Profiles</h2>
+<p>This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions fc riffle_channel_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the riffle_channel_points fc’s for each survey. see the QA checklist items in the <a href="Level-1-review.html#L1_xs_profiles">Level 1 Report, Cross Section Profiles</a> section.</p>
+</section>
+<section id="L2_report_qa" class="level2">
+<h2 class="anchored" data-anchor-id="L2_report_qa">Level 2 Report</h2>
+<section id="study-area-overview" class="level3">
+<h3 class="anchored" data-anchor-id="study-area-overview">Study Area Overview</h3>
+<p>This report section contains a set of reach overview maps drawn using the flowline and the regularly spaced cross section dimensions, *_dims_L2, feature classes (fc). Both the aerial photo and elevation are provided by <a href="https://docs.mapbox.com/api/maps/#raster-tiles">Mapbox Raster Tiles</a>. See the QA checklist items in the <a href="#L1_study_area_overview">Level 1 Report, Study Area Overview</a> section.</p>
+</section>
+<section id="longitudinal-profile" class="level3">
+<h3 class="anchored" data-anchor-id="longitudinal-profile">Longitudinal Profile</h3>
+<p>This section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, *_dims_L2 fc. See the QA checklist items in the <a href="#estimate_bankfull_long_profile">Estimate Bankfull, Longitudinal Profile</a> section.</p>
+</section>
+<section id="cross-section-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="cross-section-metrics">Cross Section Metrics</h3>
+<p>This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L2 fc.See the QA checklist items in the <a href="#estimate_bankfull_xs_metrics">Estimate Bankfull, Cross section Metrics</a> section.</p>
+<section id="ensure-metrics-values-are-smooth" class="level4">
+<h4 class="anchored" data-anchor-id="ensure-metrics-values-are-smooth">Ensure metrics values are smooth</h4>
+</section>
+</section>
+<section id="cross-section-profiles-1" class="level3">
+<h3 class="anchored" data-anchor-id="cross-section-profiles-1">Cross Section Profiles</h3>
+<p>This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the cross section *_points fc’s for each survey. see the QA checklist items in the <a href="Level-1-review.html#L1_xs_profiles">Level 1 Report, Cross Section Profiles</a> section.</p>
 
 
 </section>
@@ -893,10 +958,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Level-2-review.html" class="pagination-link" aria-label="Level-2 Estimate Bankfull Report">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Level-2 Estimate Bankfull Report</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Level-3-review.html" class="pagination-link" aria-label="Level-3 Planform Report">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Level-3 Planform Report</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

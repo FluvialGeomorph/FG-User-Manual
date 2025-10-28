@@ -1,0 +1,21 @@
+---
+title: "Resources"
+format: html
+---
+
+
+
+
+
+Unit Conversion Factors
+
+| Multiply     | By      | To Obtain         |
+|--------------|---------|-------------------|
+| feet         | 0.3048  | meters            |
+| miles        | 1.60934 | kilometers        |
+| square miles | 2.58999 | square kilometers |
+
+
+
+
+
