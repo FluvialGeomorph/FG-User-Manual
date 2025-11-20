@@ -15,7 +15,7 @@ Level 1 is to extract basic channel dimensions. This stage develops terrain, def
 ## Application and Data Setup
 
 ### 	Applications
-1.	 ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro 
+1.   ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro 
       w/Admin Privileges to install and update toolsets.
 2.	 R, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro. 
 3.	 LAStools Production toolbox from RapidLasso.
@@ -72,7 +72,7 @@ Data will need to be gathered from the most appropriate source for each reach lo
 
 ### 	Create a Boundary 
 
-<!--Left align need additional margin space to sreate space for theoutline  numbers -->
+<!--Left align need additional margin space to sreate space for the outline  numbers -->
 ::: {style="float: left; margin:1px 20px; /* 1px top/bottom, 20px left/right */;"}
 
 ![Boundary within 1 mile buffer](images/study_area.jpg){width="2.5in"}
@@ -152,7 +152,7 @@ Data will need to be gathered from the most appropriate source for each reach lo
     #| fig-cap: 
     #|   - Cutline example 1
     #|   - Cutline example 2
-    #| fig-align: center
+    #| fig-align: left
     knitr::include_graphics("images/cutline1.jpg")
     knitr::include_graphics("images/cutline2.jpg")
     ```

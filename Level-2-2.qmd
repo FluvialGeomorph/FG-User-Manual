@@ -42,7 +42,7 @@ The data from level 1 will be needed to start the level 2 process. This analysis
     i.	If it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime. 
     ii.	The result is a new attribute field in the XS feature class that has a calculated watershed area for each regularly spaced cross        section.
  9.	Once it is done running, open attribute table and see if anything in the watershedareaSqMile is off.
-    i.	Some of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to     fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun Tool 12 Watershed Area and         increase the snap distance.
+    i.	Some of the cross sections Watershed_Area_SqMile may not follow the trend. If this is the case, manually enter in the values to     fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun the Watershed area tool and increase the snap distance.
     ii.	Check for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.
  10.	Run for older geodatabase.
 

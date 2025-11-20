@@ -251,7 +251,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#this-page-is-under-construction." id="toc-this-page-is-under-construction." class="nav-link active" data-scroll-target="#this-page-is-under-construction.">This page is under construction.</a></li>
+  <li><a href="#define-valley-line" id="toc-define-valley-line" class="nav-link active" data-scroll-target="#define-valley-line">Define Valley Line</a>
+  <ul class="collapse">
+  <li><a href="#develop-candidate-valleylines" id="toc-develop-candidate-valleylines" class="nav-link" data-scroll-target="#develop-candidate-valleylines">Develop Candidate Valleylines</a></li>
+  </ul></li>
+  <li><a href="#buffer-valleyline" id="toc-buffer-valleyline" class="nav-link" data-scroll-target="#buffer-valleyline">Buffer Valleyline</a></li>
+  <li><a href="#define-meander-loops" id="toc-define-meander-loops" class="nav-link" data-scroll-target="#define-meander-loops">Define Meander Loops</a>
+  <ul class="collapse">
+  <li><a href="#define-loop-points" id="toc-define-loop-points" class="nav-link" data-scroll-target="#define-loop-points">Define Loop Points</a></li>
+  <li><a href="#create-loop-points" id="toc-create-loop-points" class="nav-link" data-scroll-target="#create-loop-points">Create Loop Points</a></li>
+  <li><a href="#check-loop-points" id="toc-check-loop-points" class="nav-link" data-scroll-target="#check-loop-points">Check Loop Points:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -277,10 +287,153 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="this-page-is-under-construction." class="level2">
-<h2 class="anchored" data-anchor-id="this-page-is-under-construction.">This page is under construction.</h2>
+<p>The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 1 is to extract basic channel dimensions. This stage develops terrain, defines the stream reach, creates cross sections and identifies features along the reach. The output is a report of the dimensions for each cross section on a reach.</p>
+<section id="define-valley-line" class="level2">
+<h2 class="anchored" data-anchor-id="define-valley-line">Define Valley Line</h2>
+<!-- The next text is steps completed in level-2 -->
+<!-- ### Determine Final Floodplain Extent
+The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain.
+
+1. Using the detrended bankfull elevation identified in level-2, ex.- 104 Ft, 
 
 
+
+Determine the bankfull depth: The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore, a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach:
+104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth
+
+Determine flood prone height: Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:
+2 * 4 ft bankfull depth = 8 ft flood prone height
+
+Therefore, the flood prone detrended elevation would be 108 ft:
+100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height
+
+With the detrended flood prone elevation for your reach determined in the last step, use the 08 - Water Surface Extent tool to extract a flood prone area polygon. This tool creates a new polygon feature class named banks_raw_xxx, where xxx is the detrended elevation selected.
+
+This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the banks_raw_xxx feature class and use advanced sorting to sort first by gridcode and then by Shape_Area. Polygons with gridcode = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting gridcode = 1 polygons with the largest area until the entire flood prone area is selected.
+
+Export these selected features to a new feature class named flood_prone.
+
+Delete the banks_raw_xxx feature class created in this section. -->
+<section id="develop-candidate-valleylines" class="level3">
+<h3 class="anchored" data-anchor-id="develop-candidate-valleylines">Develop Candidate Valleylines</h3>
+<!-- The purpose of this step is to create a set of candidate valleyline feature classes through iterative smoothing of the flowline for each reach.-->
+<p>The following steps are performed in the site geodatabase for the base year. This is done to ensure that a valleyline feature class is created smoothly through all of the reaches in a site.</p>
+<ol type="1">
+<li>Use the flowline to determine the valley line for the reach.</li>
+<li>Open the ESRI Smooth Line tool to smooth the reach flowline feature class from the most recent year as the input feature.</li>
+<li>For the first candidate valleyline, use a Smoothing Tolarance value of 200 meters. In this case you would name the output feature class valleyline_200 and put in the same feature dataset..</li>
+<li>Choose the PAEK smoothing algorithm.</li>
+<li>Set the smooth tolerance to 200</li>
+<li>Click Run.
+<ol type="i">
+<li>Repeat the previous step using the Smoothing Tolerance values such as 400, 800, and 1000.</li>
+<li>Depending on the detail of the flowline feature class geometry, you may need to select a different range or set of step values of the Smoothing Tolerance parameter values to evaluate.</li>
+</ol></li>
+<li>The goal is to create a wide degree of flowline smoothing in the candidate valleyline feature classes to select from in the next step.</li>
+<li>Choose Final Valleyline</li>
+<li>Add the floodplain polygon (higher bank_raw_###) and all of the candidate valleyline feature classes to the current map.</li>
+<li>Identify the valleyline feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the flood_prone polygon.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What Smoothing Tolerance Value?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It depends! See Tech Manual for discussion on determining planform scale.</p>
+</div>
+</div>
+<ol start="11" type="1">
+<li>In the site geodatabase of the base year, rename the selected valley line to valleyline.</li>
+<li>Delete the unused candidate valleyline feature classes from the site geodatabase of the base year.</li>
+<li>Copy the valleyline feature class you just created from the site geodatabase to each of the base year reach geodatabases.</li>
+</ol>
+</section>
+</section>
+<section id="buffer-valleyline" class="level2">
+<h2 class="anchored" data-anchor-id="buffer-valleyline">Buffer Valleyline</h2>
+<p>The valleyline should be considered a fuzzy area representing the center of the valley.</p>
+<ol type="1">
+<li></li>
+</ol>
+</section>
+<section id="define-meander-loops" class="level2">
+<h2 class="anchored" data-anchor-id="define-meander-loops">Define Meander Loops</h2>
+<p>The stage defines meander loops and bends for the base year for each reach.</p>
+<section id="define-loop-points" class="level3">
+<h3 class="anchored" data-anchor-id="define-loop-points">Define Loop Points</h3>
+<!-- This step creates a new feature class named loop_points and use it to identify the start and end stream meander loops and bends. -->
+<ol type="1">
+<li>Create a new point feature class named loop_points. Enable z and m values. The feature class should contain the following fields:
+<ol type="i">
+<li>ReachName: Text (50) - The purpose of this field is to store the reach name.</li>
+<li>loop: Long Integer - The purpose of this field is to store the loop unique identifier for the point.</li>
+<li>bend: Long Integer - The purpose of the field is to store the bend identifier for the point. position: Text (10) - The purpose of this field is to store position identifier for the point. This field must have one three values: “start”, “end”, or “apex”.</li>
+</ol></li>
+</ol>
+</section>
+<section id="create-loop-points" class="level3">
+<h3 class="anchored" data-anchor-id="create-loop-points">Create Loop Points</h3>
+<ol type="1">
+<li>Begin numbering loops starting at the downstream end of the reach and increment the loop integer values moving upstream. <!-- In FluvialGeomorph, the valleyline is used segment the flowline into loops. --></li>
+<li>Beginning and end of loops are delineated where the valleyline definitively crosses the flowline.</li>
+<li>If the flowline crosses the valleyline and then crosses back over in a short distance, this is not considered a definitive crossing. A definitive crossing is one where the flowline approaches the valleyline, crosses it, and then continues to move away from the valleyline for a significant longitudinal distance.</li>
+<li>Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank, then loop 2 is delineated along the left descending bank.</li>
+<li>Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3).</li>
+<li>Bend numbering restarts within each loop. The first bend value within a loop always begins with the value 1.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to Identify Loops.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Loop_points features are used to define the start and end location of loop bends and the location of a loop’s apex.</li>
+<li>Loop_points features are always placed along (i.e., snapped to) a bankline feature. <!-- How to identify a loop --></li>
+</ol>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Create start, end, and apex points (complete all attribute information).</li>
+<li>Save Edits.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Multiple Reaches:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>For a site with multiple reaches, loops must be uniquely numbered across all reaches. The loop field values of loop_points should not repeat within the reaches of a site.</li>
+<li>The downstream-most loop in the site should be numbered starting with the loop field value of 1 and increase moving upstream.</li>
+<li>Set the loop field value for each upstream reach to the upstream-most value (i.e., the highest loop value of the downstream reach’s loop_points feature class) of the downstream reach. For example, set the value of the field loop of the first Reach-2 loop_points feature to 8 if the maximum value of Reach-1’s loop_points feature class loop field is 7.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="check-loop-points" class="level3">
+<h3 class="anchored" data-anchor-id="check-loop-points">Check Loop Points:</h3>
+<ul>
+<li>Use the Check Loop Points tool in the Check toolset to verify that loops and bends are defined correctly.</li>
+<li>Review the messages produced by this tool to identify and correct problems with loop and bend delineation.</li>
+</ul>
+<p>]</p>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
