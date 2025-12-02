@@ -3,30 +3,6 @@ title: "Concepts"
 format: html
 ---
 
-
-
-
-
-## Goals  
-
-*	Provide a USACE Planning method for rapid watershed assessments
-*	Develop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles
-*	Develop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits
-
-Objectives  
-
-*	Develop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. 
-*	Use existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics. 
-*	Develop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits. 
-
-
-## Approach
-The approach section explains the research methodology. If the methodology
-is complex or otherwise warrants a chapter of its own, the approach
-section may simply cross-reference the reader to the appropriate chapter.
-
-
-
 This chapter provides an overview of some of the workflows that can be used to perform a rapid watershed assessment using `FluvialGeomorph`. Through analyzing a wide range of project sites, we have created a standard analysis framework. This framework defines a series of standard analysis objects that are used in a regular process to perform different types of analysis. 
 
 
