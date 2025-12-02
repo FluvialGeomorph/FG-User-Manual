@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -251,16 +254,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#define-valley-line" id="toc-define-valley-line" class="nav-link active" data-scroll-target="#define-valley-line">Define Valley Line</a>
+  <li><a href="#application-and-data-setup" id="toc-application-and-data-setup" class="nav-link active" data-scroll-target="#application-and-data-setup">Application and Data Setup</a>
   <ul class="collapse">
-  <li><a href="#develop-candidate-valleylines" id="toc-develop-candidate-valleylines" class="nav-link" data-scroll-target="#develop-candidate-valleylines">Develop Candidate Valleylines</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#level-2-data" id="toc-level-2-data" class="nav-link" data-scroll-target="#level-2-data">Level-2 Data</a></li>
+  <li><a href="#data-access-in-arcgis-pro" id="toc-data-access-in-arcgis-pro" class="nav-link" data-scroll-target="#data-access-in-arcgis-pro">Data access in ArcGIS Pro</a></li>
   </ul></li>
-  <li><a href="#buffer-valleyline" id="toc-buffer-valleyline" class="nav-link" data-scroll-target="#buffer-valleyline">Buffer Valleyline</a></li>
-  <li><a href="#define-meander-loops" id="toc-define-meander-loops" class="nav-link" data-scroll-target="#define-meander-loops">Define Meander Loops</a>
+  <li><a href="#analysis-workflow" id="toc-analysis-workflow" class="nav-link" data-scroll-target="#analysis-workflow">Analysis Workflow</a>
   <ul class="collapse">
-  <li><a href="#define-loop-points" id="toc-define-loop-points" class="nav-link" data-scroll-target="#define-loop-points">Define Loop Points</a></li>
+  <li><a href="#define-valley-line" id="toc-define-valley-line" class="nav-link" data-scroll-target="#define-valley-line">Define Valley Line</a></li>
+  <li><a href="#valleyline-buffer" id="toc-valleyline-buffer" class="nav-link" data-scroll-target="#valleyline-buffer">Valleyline Buffer</a></li>
+  <li><a href="#define-meander-loops" id="toc-define-meander-loops" class="nav-link" data-scroll-target="#define-meander-loops">Define Meander Loops</a></li>
   <li><a href="#create-loop-points" id="toc-create-loop-points" class="nav-link" data-scroll-target="#create-loop-points">Create Loop Points</a></li>
   <li><a href="#check-loop-points" id="toc-check-loop-points" class="nav-link" data-scroll-target="#check-loop-points">Check Loop Points:</a></li>
+  <li><a href="#derive-bankline-points" id="toc-derive-bankline-points" class="nav-link" data-scroll-target="#derive-bankline-points">Derive Bankline Points</a></li>
+  <li><a href="#assign-cross-section-loops" id="toc-assign-cross-section-loops" class="nav-link" data-scroll-target="#assign-cross-section-loops">Assign Cross Section Loops</a></li>
+  </ul></li>
+  <li><a href="#run-report" id="toc-run-report" class="nav-link" data-scroll-target="#run-report">Run Report</a>
+  <ul class="collapse">
+  <li><a href="#xs-dimensions-level-3" id="toc-xs-dimensions-level-3" class="nav-link" data-scroll-target="#xs-dimensions-level-3">XS Dimensions Level 3</a></li>
+  <li><a href="#calculate-cross-section-l3-dimensions" id="toc-calculate-cross-section-l3-dimensions" class="nav-link" data-scroll-target="#calculate-cross-section-l3-dimensions">Calculate Cross Section L3 Dimensions</a></li>
+  <li><a href="#join-from-csv-data-management-toolbox" id="toc-join-from-csv-data-management-toolbox" class="nav-link" data-scroll-target="#join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</a></li>
+  <li><a href="#add-modeled-water-surface-elevation-optional" id="toc-add-modeled-water-surface-elevation-optional" class="nav-link" data-scroll-target="#add-modeled-water-surface-elevation-optional">Add Modeled Water Surface Elevation <strong>(Optional)</strong></a></li>
+  <li><a href="#generate-level-3-report" id="toc-generate-level-3-report" class="nav-link" data-scroll-target="#generate-level-3-report">Generate Level 3 Report</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -288,51 +304,38 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 1 is to extract basic channel dimensions. This stage develops terrain, defines the stream reach, creates cross sections and identifies features along the reach. The output is a report of the dimensions for each cross section on a reach.</p>
-<section id="define-valley-line" class="level2">
-<h2 class="anchored" data-anchor-id="define-valley-line">Define Valley Line</h2>
-<!-- The next text is steps completed in level-2 -->
-<!-- ### Determine Final Floodplain Extent
-The purpose of this step is to use the detrended bankfull elevation identified in L2 to delineate the active floodplain.
-
-1. Using the detrended bankfull elevation identified in level-2, ex.- 104 Ft, 
-
-
-
-Determine the bankfull depth: The detrending process used in FluvialGeomorph expresses stream elevations using a base index value of 100 ft. Therefore, a detrended bankfull elevation estimated to be 104 ft. means that at bankfull discharge, the water surface elevation is 4 ft. above the detrended stream base index value of 100 ft. for this reach:
-104 ft detrended bankfull elevation - 100 ft detrended stream base index = 4 ft bankfull depth
-
-Determine flood prone height: Flood prone has been determined through empirical studies to be approximately two times the bankfull depth. For example, using the bankfull depth calculated in the last step, calculate the flood prone depth using the following formula:
-2 * 4 ft bankfull depth = 8 ft flood prone height
-
-Therefore, the flood prone detrended elevation would be 108 ft:
-100 ft detrended stream base index + 8 ft flood prone height = 108 ft detrended flood prone height
-
-With the detrended flood prone elevation for your reach determined in the last step, use the 08 - Water Surface Extent tool to extract a flood prone area polygon. This tool creates a new polygon feature class named banks_raw_xxx, where xxx is the detrended elevation selected.
-
-This feature class must be edited to select the flood prone area polygon(s). Open the attribute table for the banks_raw_xxx feature class and use advanced sorting to sort first by gridcode and then by Shape_Area. Polygons with gridcode = 1 are polygons inundated at the detrended elevation. Typically, the polygons with the largest area represent the channel. Begin selecting gridcode = 1 polygons with the largest area until the entire flood prone area is selected.
-
-Export these selected features to a new feature class named flood_prone.
-
-Delete the banks_raw_xxx feature class created in this section. -->
-<section id="develop-candidate-valleylines" class="level3">
-<h3 class="anchored" data-anchor-id="develop-candidate-valleylines">Develop Candidate Valleylines</h3>
+<section id="application-and-data-setup" class="level2">
+<h2 class="anchored" data-anchor-id="application-and-data-setup">Application and Data Setup</h2>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">Applications</h3>
+</section>
+<section id="level-2-data" class="level3">
+<h3 class="anchored" data-anchor-id="level-2-data">Level-2 Data</h3>
+<ol type="1">
+<li>Sites must have had up through Level-2 analysis run. That data is essential to completing Level_3 analysis.</li>
+<li>Software application and tools from Level-1 will be needed for Level-3 analysis.</li>
+</ol>
+</section>
+<section id="data-access-in-arcgis-pro" class="level3">
+<h3 class="anchored" data-anchor-id="data-access-in-arcgis-pro">Data access in ArcGIS Pro</h3>
+<ol type="1">
+<li>Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.</li>
+<li>Create a mapped drive and use that connection in ArcCatalog.</li>
+</ol>
+</section>
+</section>
+<section id="analysis-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-workflow">Analysis Workflow</h2>
+<section id="define-valley-line" class="level3">
+<h3 class="anchored" data-anchor-id="define-valley-line">Define Valley Line</h3>
+<section id="develop-candidate-valleylines" class="level4">
+<h4 class="anchored" data-anchor-id="develop-candidate-valleylines">Develop Candidate Valleylines</h4>
 <!-- The purpose of this step is to create a set of candidate valleyline feature classes through iterative smoothing of the flowline for each reach.-->
 <p>The following steps are performed in the site geodatabase for the base year. This is done to ensure that a valleyline feature class is created smoothly through all of the reaches in a site.</p>
 <ol type="1">
 <li>Use the flowline to determine the valley line for the reach.</li>
 <li>Open the ESRI Smooth Line tool to smooth the reach flowline feature class from the most recent year as the input feature.</li>
-<li>For the first candidate valleyline, use a Smoothing Tolarance value of 200 meters. In this case you would name the output feature class valleyline_200 and put in the same feature dataset..</li>
-<li>Choose the PAEK smoothing algorithm.</li>
-<li>Set the smooth tolerance to 200</li>
-<li>Click Run.
-<ol type="i">
-<li>Repeat the previous step using the Smoothing Tolerance values such as 400, 800, and 1000.</li>
-<li>Depending on the detail of the flowline feature class geometry, you may need to select a different range or set of step values of the Smoothing Tolerance parameter values to evaluate.</li>
-</ol></li>
-<li>The goal is to create a wide degree of flowline smoothing in the candidate valleyline feature classes to select from in the next step.</li>
-<li>Choose Final Valleyline</li>
-<li>Add the floodplain polygon (higher bank_raw_###) and all of the candidate valleyline feature classes to the current map.</li>
-<li>Identify the valleyline feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the flood_prone polygon.</li>
+<li>For the first candidate valleyline, use a Smoothing Tolarance value of 200 meters. In this case you would name the output feature class valleyline_200 and put in the same feature dataset.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -347,25 +350,58 @@ What Smoothing Tolerance Value?
 <p>It depends! See Tech Manual for discussion on determining planform scale.</p>
 </div>
 </div>
-<ol start="11" type="1">
-<li>In the site geodatabase of the base year, rename the selected valley line to valleyline.</li>
-<li>Delete the unused candidate valleyline feature classes from the site geodatabase of the base year.</li>
-<li>Copy the valleyline feature class you just created from the site geodatabase to each of the base year reach geodatabases.</li>
+<ol start="4" type="1">
+<li>Choose the PAEK smoothing algorithm.</li>
+<li>Set the smooth tolerance to 200</li>
+<li>Click Run.
+<ol type="i">
+<li>Repeat the previous step using the Smoothing Tolerance values such as 400, 800, and 1000.</li>
+<li>Depending on the detail of the flowline feature class geometry, you may need to select a different range or set of step values of the Smoothing Tolerance parameter values to evaluate.</li>
+</ol></li>
+<li>The goal is to create a wide degree of flowline smoothing in the candidate valleyline feature classes to select from in the next step.</li>
+<li>Choose Final Valleyline</li>
+<li>Add the floodplain polygon (higher bank_raw_###) and all of the candidate valleyline feature classes to the current map.</li>
+<li>Identify the valleyline feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the flood_prone polygon.</li>
 </ol>
 </section>
 </section>
-<section id="buffer-valleyline" class="level2">
-<h2 class="anchored" data-anchor-id="buffer-valleyline">Buffer Valleyline</h2>
+<section id="valleyline-buffer" class="level3">
+<h3 class="anchored" data-anchor-id="valleyline-buffer">Valleyline Buffer</h3>
 <p>The valleyline should be considered a fuzzy area representing the center of the valley.</p>
 <ol type="1">
-<li></li>
+<li>Add the valleyline layer as the input.</li>
+<li>Add the output multi-ring buffer to the newest year gdb.Name it multiring_buffer.</li>
+<li>Use the identifies valleyline to create a multi-ring buffer. Use the the distance at a narrow part of the reach as the first buffer distance. The following increments can be set 5, 10, or desired distances. Create 3 to 5 rings.</li>
+<li>Leave the remaining settings as the defaults.</li>
+<li>Hit Run.</li>
+<li>Add the bankline layer to the map.</li>
+<li>Identify the buffer ring that best shows the baklines looping out of the buffer ring from side to side. The chosen ring should show the loops at a smaller scale.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Scale and distance to use to define valleyline buffers!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It depends on your reach! See Tech Manual for discussion on determining planform scale.</p>
+</div>
+</div>
+<ol start="8" type="1">
+<li>Select and export the chosen buffer ring as new layer in the gdb.</li>
+<li>In the site geodatabase of the base year, rename the selected buffer ring to distance_buffer_year. Ex. 20ft_buffer_2012</li>
+<li>Delete the multi-ring buffer feature classes from the site geodatabase of the base year.</li>
+<li>Copy the selected distance buffer feature class you just created from the site geodatabase to each of the base year reach geodatabases.</li>
 </ol>
 </section>
-<section id="define-meander-loops" class="level2">
-<h2 class="anchored" data-anchor-id="define-meander-loops">Define Meander Loops</h2>
+<section id="define-meander-loops" class="level3">
+<h3 class="anchored" data-anchor-id="define-meander-loops">Define Meander Loops</h3>
 <p>The stage defines meander loops and bends for the base year for each reach.</p>
-<section id="define-loop-points" class="level3">
-<h3 class="anchored" data-anchor-id="define-loop-points">Define Loop Points</h3>
+<section id="define-loop-points-layer" class="level4">
+<h4 class="anchored" data-anchor-id="define-loop-points-layer">Define Loop Points Layer</h4>
 <!-- This step creates a new feature class named loop_points and use it to identify the start and end stream meander loops and bends. -->
 <ol type="1">
 <li>Create a new point feature class named loop_points. Enable z and m values. The feature class should contain the following fields:
@@ -376,16 +412,9 @@ What Smoothing Tolerance Value?
 </ol></li>
 </ol>
 </section>
+</section>
 <section id="create-loop-points" class="level3">
 <h3 class="anchored" data-anchor-id="create-loop-points">Create Loop Points</h3>
-<ol type="1">
-<li>Begin numbering loops starting at the downstream end of the reach and increment the loop integer values moving upstream. <!-- In FluvialGeomorph, the valleyline is used segment the flowline into loops. --></li>
-<li>Beginning and end of loops are delineated where the valleyline definitively crosses the flowline.</li>
-<li>If the flowline crosses the valleyline and then crosses back over in a short distance, this is not considered a definitive crossing. A definitive crossing is one where the flowline approaches the valleyline, crosses it, and then continues to move away from the valleyline for a significant longitudinal distance.</li>
-<li>Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank, then loop 2 is delineated along the left descending bank.</li>
-<li>Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3).</li>
-<li>Bend numbering restarts within each loop. The first bend value within a loop always begins with the value 1.</li>
-</ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -398,11 +427,27 @@ How to Identify Loops.
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>Loop_points features are used to define the start and end location of loop bends and the location of a loop’s apex.</li>
-<li>Loop_points features are always placed along (i.e., snapped to) a bankline feature. <!-- How to identify a loop --></li>
+<li>Loop_points features are always placed along (i.e., snapped to) an outer bankline of the feature. <!-- How to identify a loop --></li>
 </ol>
 </div>
 </div>
-<ol start="7" type="1">
+<ol type="1">
+<li>Begin numbering loops starting at the downstream end of the reach and increment the loop integer values moving upstream. <!-- In FluvialGeomorph, the valleyline is used segment the flowline into loops. --></li>
+<li>Beginning and end of loops are delineated where the valleyline definitively crosses the flowline.</li>
+</ol>
+<div style="float: center; margin:1px 10px;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/CopperasCk_R11_LoopPts_14_15.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Step 2"><img src="images/CopperasCk_R11_LoopPts_14_15.jpg" class="img-fluid figure-img" style="width:6in" alt="Step 2"></a></p>
+<figcaption>Step 2</figcaption>
+</figure>
+</div>
+</div>
+<ol start="3" type="1">
+<li>If the flowline crosses the valleyline and then crosses back over in a short distance, this is not considered a definitive crossing. A definitive crossing is one where the flowline approaches the valleyline, crosses it, and then continues to move away from the valleyline for a significant longitudinal distance.</li>
+<li>Loops must alternate from one bank to the opposite bank. For example, if loop 1 is delineated along the right descending bank, then loop 2 is delineated along the left descending bank.</li>
+<li>Loops are composed of one or more bends (bends nest inside of loops). For example, loop 1 can have bends 1, 2, and 3 (i.e., loop 1, bend 1; loop 1, bend 2; loop 1, bend 3).</li>
+<li>Bend numbering restarts within each loop. The first bend value within a loop always begins with the value 1.</li>
 <li>Create start, end, and apex points (complete all attribute information).</li>
 <li>Save Edits.</li>
 </ol>
@@ -430,7 +475,114 @@ Multiple Reaches:
 <li>Use the Check Loop Points tool in the Check toolset to verify that loops and bends are defined correctly.</li>
 <li>Review the messages produced by this tool to identify and correct problems with loop and bend delineation.</li>
 </ul>
-<p>]</p>
+</section>
+<section id="derive-bankline-points" class="level3">
+<h3 class="anchored" data-anchor-id="derive-bankline-points">Derive Bankline Points</h3>
+<p>The purpose of this step is to convert the banklines to a set of bankline_points and assign elevations and loop and bend locations to these features.</p>
+<ol type="1">
+<li>Open the Bankline Points tool to assign loops, bends, elevations and valley line positions to the bankline_points.</li>
+<li>Add the feature dataset for the most recent year.</li>
+<li>Add the loop point, banklines, and valleyline layers from the most recent year.</li>
+<li>Add the demhydro for the mosts recent year.</li>
+<li>Set the station_distance at 1.</li>
+<li>Hit Run.</li>
+<li>In the Check toolset run the Check Bankline Points tool.
+<ol type="i">
+<li>The check tool ensures that the loop, bend, position, valley_POINT_X, valley_POINT_Y, and valley_POINT_M fields are populated. Only bankline_points features within loops and bends will have values in the loop, bend, and position fields.</li>
+<li>All records should have values in the valley_POINT_X, valley_POINT_Y, and valley_POINT_M fields.</li>
+</ol></li>
+<li>Apply the following definition query to the bankline_points feature class: “loop IS NOT NULL”. Only bankline_points features between loop_points features should be visible.</li>
+</ol>
+</section>
+<section id="assign-cross-section-loops" class="level3">
+<h3 class="anchored" data-anchor-id="assign-cross-section-loops">Assign Cross Section Loops</h3>
+<p>The purpose of this step is to assign loop and bend identifiers to regularly spaced and riffle cross section feature classes for each reach.</p>
+<ol type="1">
+<li>Open the Assign Loops tool to assign loops and bends to a cross section feature class.</li>
+<li>Add the cross_section feature class from the the most recent survey event dataset.</li>
+<li>Add the bankline_points to the most recent survey event dataset</li>
+<li>Once the tool completes check the regular cross section feature class attribute table correctly assigned the loop and bend field values.</li>
+<li><strong>Repeat</strong> this step for both the riffle_channel and riffle_floodplain feature classes.</li>
+</ol>
+</section>
+</section>
+<section id="run-report" class="level2">
+<h2 class="anchored" data-anchor-id="run-report">Run Report</h2>
+<section id="xs-dimensions-level-3" class="level3">
+<h3 class="anchored" data-anchor-id="xs-dimensions-level-3">XS Dimensions Level 3</h3>
+<p>The purpose of this stage is to calculate the Level 3 dimensions for each reach.</p>
+</section>
+<section id="calculate-cross-section-l3-dimensions" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-cross-section-l3-dimensions">Calculate Cross Section L3 Dimensions</h3>
+<p>The purpose of this step is to calculate the L3 dimensions for the regularly spaced and riffle cross section feature classes for each reach.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If any *_dims_L3 feature classes exist in the reach geodatabase (created during a previous run), delete these feature classes.</p>
+</div>
+</div>
+<ol type="1">
+<li>Open the XS Planform, Level 3 tool to calculate the L3 dimensions.</li>
+<li>Add the level 2 XS_Dimensions from the same survey event to xs_dimesions.</li>
+<li>Add the bankline_points from the same survey event to bankline_points.</li>
+<li>Refresh the Survey event year folder to update with the XS-Planfoem Level 3 csv.</li>
+<li>Verify in the attribute table that the L3 dimensions have been calculated</li>
+</ol>
+</section>
+<section id="join-from-csv-data-management-toolbox" class="level3">
+<h3 class="anchored" data-anchor-id="join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</h3>
+<ol type="1">
+<li>Open the Join from CSV in the Data Management toolbox.</li>
+<li>Add the feature dataset for the current survey event.</li>
+<li>Add the level 2 XS_Dimensions from the same survey event to fc.</li>
+<li>Seclet the Seq in the dropdown for the fc_field.</li>
+<li>Add the level 3 dimension csv to the csv_file.</li>
+<li>Type Seq into the csv_field.</li>
+<li>Hit Run.</li>
+<li>Verify in the attribute table joined of the L3 dimensions csv have been added.</li>
+</ol>
+</section>
+<section id="add-modeled-water-surface-elevation-optional" class="level3">
+<h3 class="anchored" data-anchor-id="add-modeled-water-surface-elevation-optional">Add Modeled Water Surface Elevation <strong>(Optional)</strong></h3>
+<ol type="1">
+<li>Open the RAS Watersurface tool.</li>
+<li>Add the feature dataset for the current survey event.</li>
+<li>Add the xs_dimensions_l3 to xs_dims.</li>
+<li>Add a ras HEC model raster containing water surface elevation field.</li>
+<li>Name the model ouput (Use the RAS_model_name parameter to distinguish between multiple RAS model scenarios)</li>
+</ol>
+</section>
+<section id="generate-level-3-report" class="level3">
+<h3 class="anchored" data-anchor-id="generate-level-3-report">Generate Level 3 Report</h3>
+<p>The purpose of this stage is to run the Level 3 report for each reach.</p>
+<ol type="1">
+<li>Open the Level 3 Report tool to produce the Level 3 Report.</li>
+<li>Add the value of the ReachName field used in the flowline feature class to stream.</li>
+<li>Add the flowline feature class for the base year survey to flowline_fc.</li>
+<li>Add the cross section feature class to xs_fc.</li>
+<li>Add the *_dims_L3 feature class calculated for the regular cross sections of the most recent survey event.</li>
+<li>Add the xs_points_* feature class for the most recent survey event first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
+<li>Enter the most recent survey event first and then the the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
+<li>Add the DEM raster for the most recent survey event.</li>
+<li>Add the banklines_fc feature class created for the most recent survey event.</li>
+<li>Add the features featrue class for the site to the features_fc.</li>
+<li>Enter the same bf_estimate fromm level 2 report into the bf_estimate box.</li>
+<li>Enter the same regions used in level 2 report or as others as needed.</li>
+<li>Check show map box.</li>
+<li>Set the profile units to the units of the surface raster.</li>
+<li>Leave aerial and elevation boxes checked.</li>
+<li>Leave the defaults for xs_label_freq, exaggeration, and extent_factor.</li>
+<li>Select the folder that the report should be written to.</li>
+<li>Select word as the output format for the report.</li>
+<li>Hit Run.</li>
+</ol>
 
 
 </section>
@@ -1027,6 +1179,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

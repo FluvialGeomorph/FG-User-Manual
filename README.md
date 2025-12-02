@@ -31,12 +31,12 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 <p float="left">
 <img src="images/chl.png" height=75 />
-<img src="images/EMRRP_logo_200.png" height=75 />
+<img src="images/EMRRP_logo_200.jpg" height=75 />
 <img src="images/RSM_200.png" height=75 />
-<img src="images/MRG&P_300.png" height=75 />
-<img src="images/FRMP_200.png" height=75 />
-<img src="images/SilverJackets_200.png" height=75 />
-<img src="images/EWN_200.png" height=75 />
+<img src="images/MRG&P_300.jpg" height=75 />
+<img src="images/FRMP_200.jpg" height=75 />
+<img src="images/SilverJackets_200.jpg" height=75 />
+<img src="images/EWN_200.jpg" height=75 />
 </p>
 
 

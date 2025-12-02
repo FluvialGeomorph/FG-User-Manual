@@ -5,13 +5,14 @@ project:
 book:
   title: "FluvialGeomorph User Manual" 
  
-  author:
-    - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
-    - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
-    - Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District
+ # author:
+ #    - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
+ #    - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
+ #   - Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District
   
+  date: "2025-10-23" 
   repo-url: https://github.com/FluvialGeomorph/FG-User-Manual
-  date: "2025-10-23"
+
 
   page-navigation: true
   search: true
