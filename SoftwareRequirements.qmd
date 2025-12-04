@@ -1,10 +1,10 @@
 ---
-title: "Software Requirements"
+title: "Software & Data Requirements"
 format: html
 ---
 
 
-
+## Software
 
 Here is a summary of the software that must be installed to use the FluvialGeomorph toolbox. More information on this can be found in the [FluvialGeomorph Tech Manual](https://github.com/FluvialGeomorph/FG-Tech-Manual/blob/main/2-1-Install.qmd).
 
@@ -14,3 +14,8 @@ Here is a summary of the software that must be installed to use the FluvialGeomo
 * ArcGIS Pro (2.6+ recommended) 
 * ArcGIS Desktop (10.8+ recommended), optional, limited support
 * FluvialGeomorph toolbox, latest version
+
+
+## Data
+
+More information coming.

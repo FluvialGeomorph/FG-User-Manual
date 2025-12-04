@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./SoftwareRequirements.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software Requirements</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software &amp; Data Requirements</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -251,19 +251,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a></li>
-  <li><a href="#units_of_analysis" id="toc-units_of_analysis" class="nav-link" data-scroll-target="#units_of_analysis">Units of Analysis</a></li>
+  <li><a href="#units_of_analysis" id="toc-units_of_analysis" class="nav-link active" data-scroll-target="#units_of_analysis">Units of Analysis</a></li>
   <li><a href="#analysis-levels" id="toc-analysis-levels" class="nav-link" data-scroll-target="#analysis-levels">Analysis Levels</a></li>
-  <li><a href="#geodatabases" id="toc-geodatabases" class="nav-link" data-scroll-target="#geodatabases">Geodatabases</a></li>
-  <li><a href="#derived-features" id="toc-derived-features" class="nav-link" data-scroll-target="#derived-features">Derived Features</a></li>
+  <li><a href="#workflows" id="toc-workflows" class="nav-link" data-scroll-target="#workflows">Workflows</a></li>
   <li><a href="#folder_structure" id="toc-folder_structure" class="nav-link" data-scroll-target="#folder_structure">Project Folder Structure</a></li>
-  <li><a href="#workflows" id="toc-workflows" class="nav-link" data-scroll-target="#workflows">Workflows</a>
-  <ul class="collapse">
-  <li><a href="#L1_summary" id="toc-L1_summary" class="nav-link" data-scroll-target="#L1_summary">Level 1</a></li>
-  <li><a href="#L2_summary" id="toc-L2_summary" class="nav-link" data-scroll-target="#L2_summary">Level 2</a></li>
-  <li><a href="#L3_summary" id="toc-L3_summary" class="nav-link" data-scroll-target="#L3_summary">Level 3</a></li>
-  </ul></li>
+  <li><a href="#geodatabases" id="toc-geodatabases" class="nav-link" data-scroll-target="#geodatabases">Geodatabases</a></li>
+  <li><a href="#fluvialgeomorph-toolbox" id="toc-fluvialgeomorph-toolbox" class="nav-link" data-scroll-target="#fluvialgeomorph-toolbox">FluvialGeomorph Toolbox</a></li>
+  <li><a href="#derived-features" id="toc-derived-features" class="nav-link" data-scroll-target="#derived-features">Derived Features</a></li>
+  <li><a href="#reports" id="toc-reports" class="nav-link" data-scroll-target="#reports">Reports</a></li>
   <li><a href="#qa_tools" id="toc-qa_tools" class="nav-link" data-scroll-target="#qa_tools">Quality Assurance</a></li>
   </ul>
 </nav>
@@ -290,33 +285,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="goals" class="level2">
-<h2 class="anchored" data-anchor-id="goals">Goals</h2>
-<ul>
-<li>Provide a USACE Planning method for rapid watershed assessments</li>
-<li>Develop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles</li>
-<li>Develop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits</li>
-</ul>
-<p>Objectives</p>
-<ul>
-<li>Develop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.</li>
-<li>Use existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics.</li>
-<li>Develop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits.</li>
-</ul>
-</section>
-<section id="approach" class="level2">
-<h2 class="anchored" data-anchor-id="approach">Approach</h2>
-<p>The approach section explains the research methodology. If the methodology is complex or otherwise warrants a chapter of its own, the approach section may simply cross-reference the reader to the appropriate chapter.</p>
-<p>This chapter provides an overview of some of the workflows that can be used to perform a rapid watershed assessment using <code>FluvialGeomorph</code>. Through analyzing a wide range of project sites, we have created a standard analysis framework. This framework defines a series of standard analysis objects that are used in a regular process to perform different types of analysis.</p>
-</section>
+<p>This chapter provides an overview of some of the workflows that can be used to perform a rapid watershed assessment using <code>FluvialGeomorph</code>. Through analyzing a wide range of study areas, we have created a standard analysis framework. This framework defines a series of standard analysis objects that are used in a regular process to perform different types of analysis.</p>
 <section id="units_of_analysis" class="level2">
 <h2 class="anchored" data-anchor-id="units_of_analysis">Units of Analysis</h2>
 <p>To help organize the workflow process we have defined several units of analysis:</p>
 <ul>
 <li><p><strong>Study Area:</strong> These are the primary work units and correspond to projects that customers have requested for analysis. Customers define specific goals for each project that determine the specific workflow chosen. These goals define a project study area for each project. These project study areas typically consist of a particular watershed, a mainstem section of a named river, or a discrete stream reach.</p></li>
-<li><p><strong>Site:</strong> Project areas are subdivided into “sites”. Sites are typically named tributaries and their subwatersheds within the project study area.</p></li>
+<li><p><strong>Site:</strong> Study areas are subdivided into “sites”. Sites are typically named tributaries and their subwatersheds within the project study area.</p></li>
 <li><p><strong>Reach:</strong> Sites are further subdivided into “reaches”. Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.</p></li>
-<li><p><strong>Year:</strong> Since <code>FluvialGeomorph</code> analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods (typically separated by years) for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the <em>base year</em>.</p></li>
+<li><p><strong>Survey Event:</strong> Since <code>FluvialGeomorph</code> analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods (typically separated by years) for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the <em>base year</em>.</p></li>
 </ul>
 </section>
 <section id="analysis-levels" class="level2">
@@ -328,18 +305,15 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Level 3:</strong> Extract planform dimensions.</li>
 </ul>
 </section>
-<section id="geodatabases" class="level2">
-<h2 class="anchored" data-anchor-id="geodatabases">Geodatabases</h2>
-<p>The <code>FluvialGeomorph</code> workflow was designed around a standard set of objects organized into a standard set of geodatabases.</p>
+<section id="workflows" class="level2">
+<h2 class="anchored" data-anchor-id="workflows">Workflows</h2>
+<p>The <code>FluvialGeomorph</code> workflow has been organized using the following hierarchical grouping to help analysts better understand how to perform the analysis and what is being done during each step of the process. All workflow steps are sequential and build on the outputs of previous steps.</p>
 <ul>
-<li><p><strong>Study Area Geodatabase:</strong> This type of geodatabase stores feature classes (FC) that apply to the entire project study area. The workflow begins with developing FCs that define the project study area, Digital Elevation Models (DEM), derived stream network, etc. If there are multiple LiDAR surveys for the project study area, a separate study area geodatabase representing each survey is created beginning with the base year.</p></li>
-<li><p><strong>Site Geodatabase: </strong> This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific “site” unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.</p></li>
-<li><p><strong>Reach Geodatabase:</strong> This type of geodatabase stores FCs that apply to a specific reach. The <code>FluvialGeomorph</code> tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.</p></li>
+<li><p><strong>Levels:</strong> The top hierarchical grouping of the workflow. Levels are distinguished by the degree of fluvial geometric detail and metrics that will be derived. Levels 2 and 3 are optional.</p></li>
+<li><p><strong>Phases:</strong> The second hierarchical grouping of the workflow. Each level is subdivided into phases. Phases are mostly a conceptual grouping of steps to accomplish a specific objective in the analysis chain.</p></li>
+<li><p><strong>Steps:</strong> The third hierarchical grouping of the workflow. Phases are subdivided into steps. Steps typically involve running tools, manual editing, and performing quality assurance checks.</p></li>
+<li><p><strong>Tools:</strong> Tools are the lowest hierarchical grouping of the workflow. Tools perform operations that are suitable for automation.</p></li>
 </ul>
-</section>
-<section id="derived-features" class="level2">
-<h2 class="anchored" data-anchor-id="derived-features">Derived Features</h2>
-<p>The definition of a common set of derived features is an important step in standardizing any workflow. The standard <code>FluvialGeomorph</code> database objects form a tightly linked set of features that work together in a particular order to accomplish the analysis. See the <a href="https://techmanual.fluvialgeomorph.org">FluvialGeomorph Tech Manual</a> for a detailed description of each of these standard FCs.</p>
 </section>
 <section id="folder_structure" class="level2">
 <h2 class="anchored" data-anchor-id="folder_structure">Project Folder Structure</h2>
@@ -361,10 +335,6 @@ ul.task-list li input[type="checkbox"] {
 │    │    │        Reach2_year1.gdb
 │    │    │        Reach2_year2.gdb
 │    │    │        ...
-│    │    └─── Elevation
-│    │    │        year1.gdb
-│    │    │        year2.gdb
-│    │    │        ...
 │    │    └─── Exports
 │    │    └─── Maps
 │    │    └─── Reports
@@ -373,129 +343,56 @@ ul.task-list li input[type="checkbox"] {
 └─── Elevation
 │    └─── ProjectName_Year1
 │    │    └─── LAS
-│    │    ProjectName_Year1.gdb
 │    └─── ProjectName_Year2
 │         └─── LAS
-│         ProjectName_Year2.gdb
 │         ...
 └─── Exports
 └─── Maps
 </code></pre>
 <ul>
-<li><strong>Study Area Folder:</strong> The project study area folder is used to store all of the files for the project.</li>
-<li><strong>Site Folders:</strong> Site folders are used to store all of the files for each site. Each site in the project study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name.</li>
-<li><strong>Elevation Folders:</strong> The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in <code>.las</code> format for modern surveys) for each LiDAR survey for the project study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders.</li>
+<li><strong>Study Area Folder:</strong> The study area folder is used to store all of the files for the study area.</li>
+<li><strong>Site Folders:</strong> Site folders are used to store all of the files for each site. Each site in the study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name.</li>
+<li><strong>Elevation Folders:</strong> The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in <code>.las</code> format for modern surveys) for each LiDAR survey for the study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders.</li>
 <li><strong>Site Data Folders:</strong> The site data folders are used to store all of the site site and reach geodatabases.</li>
 <li><strong>Reports:</strong> The Reports folders are used to store the reports created by tools for each reach.</li>
-<li><strong>Maps:</strong> The Maps folders are used to store map documents for a given project or site.</li>
-<li><strong>Exports Folders:</strong> The Exports folders are used to store static <code>.pdf</code> map documents exported from map projects for a given project or site.</li>
+<li><strong>Maps:</strong> The Maps folders are used to store map documents for a given study area or site.</li>
+<li><strong>Exports Folders:</strong> The Exports folders are used to store static <code>.pdf</code> map documents exported from map projects for a given study area or site.</li>
 </ul>
 </section>
-<section id="workflows" class="level2">
-<h2 class="anchored" data-anchor-id="workflows">Workflows</h2>
-<p>The <code>FluvialGeomorph</code> workflow has been organized using the following hierarchical grouping to help analysts better understand how to perform the analysis and what is being done during each step of the process. All workflow steps are sequential and build on the outputs of previous steps.</p>
+<section id="geodatabases" class="level2">
+<h2 class="anchored" data-anchor-id="geodatabases">Geodatabases</h2>
+<p>The <code>FluvialGeomorph</code> workflow was designed around a standard set of objects organized into a standard set of geodatabases.</p>
 <ul>
-<li><p><strong>Levels:</strong> The top hierarchical grouping of the workflow. Levels are distinguished by the degree of fluvial geometric detail and metrics that will be derived. Levels 2 and 3 are optional.</p></li>
-<li><p><strong>Phases:</strong> The second hierarchical grouping of the workflow. Each level is subdivided into stages. Stages are mostly a conceptual grouping of steps to accomplish a specific objective in the analysis chain.</p></li>
-<li><p><strong>Steps:</strong> The third hierarchical grouping of the workflow. Stages are subdivided into steps. Steps typically involve running tools, manual editing, and performing quality assurance checks.</p></li>
-<li><p><strong>Tools:</strong> Tools are the lowest hierarchical grouping of the workflow. Tools perform operations that are suitable for automation.</p></li>
-</ul>
-<section id="L1_summary" class="level3">
-<h3 class="anchored" data-anchor-id="L1_summary">Level 1</h3>
-<p>The purpose of this level is to extract basic channel dimensions. This section will provide a brief overview of the Level 1 (L1) workflow.</p>
-<p><strong>Create Terrain:</strong> The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys. * <em>Acquire Point Cloud</em> - Identify the elevation data steward and download or transfer the LiDAR point cloud data on an external drive. * <em>Derive DEM</em> - Assemble the <code>.las</code> files into a LAS Dataset, apply class filters, and export as a raster DEM. * <em>Hydromodify DEM</em> - Identify flow blockages along streams and burn these features into the DEM.</p>
-<p><strong>Define Stream Reaches:</strong> The purpose of this stage is to derive a synthetic stream network for the entire project study area and define their contributing watersheds.</p>
-<ul>
-<li><em>Calculate Contributing Area</em> - Calculate the flow accumulation model for the DEM.</li>
-<li><em>Derive Stream Network</em> - Use the flow accumulation model to derive the synthetic flow <code>stream_network</code> FC for the project study area.</li>
-<li><em>Define Reaches</em> - Subdivide the project study area <code>stream_network</code> FC into a set of analysis reaches.</li>
-<li><em>Delineate Watersheds</em> - Use the flow accumulation model to delineate the watersheds for all project study area reaches.</li>
-</ul>
-<p><strong>Derive Flowline:</strong> The purpose of this stage is to derive a flowline, for each reach and survey event.</p>
-<ul>
-<li><em>Derive Flowline</em> - Develop the <code>flowline</code> FC for each reach and survey event.</li>
-<li><em>Create Flowline Points</em> - Create the <code>flowline_points</code> FC for each reach and survey event.</li>
-</ul>
-<p><strong>Define Initial Floodplain and Channel Extent:</strong> The purpose of this stage is to define the initial floodplain and channel extent, for each reach and survey event.</p>
-<ul>
-<li><em>Detrend DEM</em> - Use the <code>flowline_points</code> FC to develop a relative elevation model for each reach and survey event.</li>
-<li><em>Estimate Initial Channel Extent</em> - Use the <code>REM</code> to interactively “flood” the channel to make an initial estimate of the detrended bankfull elevation.</li>
-<li><em>Estimate Initial Floodplain Extent</em> - Use the <code>REM</code> to interactively “flood” the active floodplain to make an initial estimate of the detrended floodplain elevation.</li>
-<li><em>Calculate Channel Slope Raster</em> - Calculate the slope raster of the initial channel extent area.</li>
-</ul>
-<p><strong>Create Regular Cross Section Geometry:</strong> The purpose of this stage is to create regularly spaced cross sections and calculate dimensions, for each reach and survey event.</p>
-<ul>
-<li><em>Create Regular Cross Sections</em> - Create regularly spaced cross sections along each reach.</li>
-<li><em>Calculate Cross Section Watershed Area</em> - Calculate the watershed area for each regularly spaced cross section.</li>
-<li><em>Calculate Cross Section River Position</em> - Calculate the river position for each regularly spaced cross section.</li>
-<li><em>Calculate Cross Section Points</em> - Convert each cross section into a set of evenly stationed points and assign DEM and detrended elevation values.</li>
-<li><em>Calculate Cross Section L1 Dimensions</em> - Calculate the L1 dimensions for the regularly spaced cross sections.</li>
-</ul>
-<p><strong>Identify Features:</strong> The purpose of this stage is to identify salient features along each reach.</p>
-<ul>
-<li><em>Create Features</em> - Identify the longitudinal position of noteworthy stream features for graph and map labeling.</li>
-</ul>
-<p><strong>Run Report:</strong> The purpose of this stage is to run the Level 1 report for each reach.</p>
-<ul>
-<li><em>Run the Level 1 Report</em> - Run the L1 report for each reach.</li>
-<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
+<li><p><strong>Site Geodatabase: </strong> This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific “site” unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.</p></li>
+<li><p><strong>Reach Geodatabase:</strong> This type of geodatabase stores FCs that apply to a specific reach. The <code>FluvialGeomorph</code> tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.</p></li>
 </ul>
 </section>
-<section id="L2_summary" class="level3">
-<h3 class="anchored" data-anchor-id="L2_summary">Level 2</h3>
-<p>The purpose of this level is to extract bankfull channel dimensions. This section will provide a brief overview of the Level 2 (L2) workflow.</p>
-<p><strong>Create Initial Riffle Geometry:</strong> The purpose of this stage is to identify and map riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.</p>
+<section id="fluvialgeomorph-toolbox" class="level2">
+<h2 class="anchored" data-anchor-id="fluvialgeomorph-toolbox">FluvialGeomorph Toolbox</h2>
+<p>Fluvialgeomorp toolbox creates a method for analyzing streams using Lidar Survey data, remote sensing practices to extract fluvial features. This toolbox has seven toolsets that structure the tasks of deriving features for analysis and reporting rapid watershed assessment.</p>
 <ul>
-<li><em>Create Riffle Floodplain</em> - Identify riffle locations and map these cross sections across the lateral extent of the floodplain for each reach.</li>
-<li><em>Calculate Cross Section Watershed Area</em> - Calculate the watershed area for each riffle cross section.</li>
-<li><em>Calculate Cross Section River Position</em> - Calculate the river position for each riffle cross section.</li>
-<li><em>Create Riffle Channel</em> - Edit the lateral extent of the <code>riffle_channel</code> FC to just cover the initial channel extent.</li>
-<li><em>Calculate Cross Section Points</em> - Convert each riffle cross section into a set of evenly stationed points and assign DEM and detrended elevation values.</li>
-<li><em>Calculate Initial Cross Section L2 Dimensions</em> - Calculate the initial L2 dimensions for the the riffle cross sections for each reach.</li>
-</ul>
-<p><strong>Estimate Bankfull:</strong> The purpose of this stage is to estimate the detrended bankfull elevation for the base year for each reach.</p>
-<ul>
-<li><em>Run the Estimate Bankfull Report</em> - Run the Estimate Bankfull report for each reach.</li>
-<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
-<li><em>Determine Bankfull Elevation</em> - Interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach.</li>
-<li><em>Create Bankfull Area</em> - Use the final bankfull elevation determined in the previous step to derive a final <code>bankfull_area</code> polygon for each reach.</li>
-<li><em>Create Banklines</em> - Convert the <code>bankfull_area</code> polygon into polylines and edit into a <code>banklines</code> FC for each reach.</li>
-</ul>
-<p><strong>Calculate Final L2 Cross Section Geometry:</strong> The purpose of this stage is to use the bankfull elevation determined in the last stage to calculate the final level 2 cross section dimensions for the base year for each reach.</p>
-<ul>
-<li><em>Calculate Final Cross Section L2 Dimensions</em> - Calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach.</li>
-</ul>
-<p><strong>Run Report:</strong> The purpose of this stage is to produce the Level 2 report for each reach.</p>
-<ul>
-<li><em>Run the L2 Report</em> - Run the L2 report for each reach.</li>
-<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
+<li><p><strong>Install:</strong> This toolset contains the install for the R package need in ArcGIS Pro, sessions and testing for the R code used in the toolbox.</p></li>
+<li><p><strong>Tools:</strong> This toolset contations all the feature extraction tools needed for the rapid assessment process.</p></li>
+<li><p><strong>Data Management:</strong> This toolset contains a tool to joins tabular data to spatial datasets.</p></li>
+<li><p><strong>Reports:</strong> This toolset contains all reporting options from the analysis and externatl data sources.</p></li>
+<li><p><strong>Symbology:</strong> This toolset contains the default symbology for the feature extracted from each tool that creates an output.</p></li>
+<li><p><strong>Check:</strong> This toolset contains tools to run checks on some of the outputs from the feature extraction tools.</p></li>
+<li><p><strong>Export:</strong> This toolset contains a tool to export the attribute tables from the level 1 feature classes.</p></li>
 </ul>
 </section>
-<section id="L3_summary" class="level3">
-<h3 class="anchored" data-anchor-id="L3_summary">Level 3</h3>
-<p>The purpose of this level is to extract planform dimensions. This section will provide a brief overview of the Level 3 (L3) workflow.</p>
-<p><strong>Define Valley Line:</strong> The purpose of this stage is to define the valley trend line for the base year for each reach.</p>
-<ul>
-<li><em>Determine Final Floodplain Extent</em> - Use the detrended bankfull elevation identified in L2 to delineate the active floodplain.</li>
-<li><em>Develop Candidate Valleylines</em> - Create a set of candidate valleylines through iterative smoothing of the flowline for each reach.</li>
-<li><em>Choose Final Valleyline</em> - Choose from the candidate valleylines the one that best captures the overall valley trend line.</li>
-</ul>
-<p><strong>Define Meander Loops:</strong> The purpose of this stage is to define meander loops and bends for the base year for each reach.</p>
-<ul>
-<li><em>Define Loop Points</em> - Create a new FC named <code>loop_points</code> and use it to identify the start and end stream meander loops and bends.</li>
-<li><em>Derive Bankline Points</em> - Convert the banklines to a set of points and assign elevations and loop and bend locations.</li>
-<li><em>Assign Cross Section Loops</em> - Assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach.</li>
-</ul>
-<p><strong>Calculate L3 Cross Section Geometry:</strong> The purpose of this stage is to calculate the Level 3 dimensions for each reach.</p>
-<ul>
-<li><em>Calculate Cross Section L3 Dimensions</em> - Calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach.</li>
-</ul>
-<p><strong>Run Report:</strong> The purpose of this stage is to run the Level 3 report for each reach.</p>
-<ul>
-<li><em>Run the L3 Report</em> - Run the L2 report for each reach.</li>
-<li><em>Perform QA</em> - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.</li>
-</ul>
+<section id="derived-features" class="level2">
+<h2 class="anchored" data-anchor-id="derived-features">Derived Features</h2>
+<p>The definition of a common set of derived features is an important step in standardizing any workflow. The standard <code>FluvialGeomorph</code> database objects form a tightly linked set of features that work together in a particular order to accomplish the analysis. See the <a href="https://techmanual.fluvialgeomorph.org">FluvialGeomorph Tech Manual</a> for a detailed description of each of these standard FCs.</p>
 </section>
+<section id="reports" class="level2">
+<h2 class="anchored" data-anchor-id="reports">Reports</h2>
+<p>FluvialGeomorph produces a series of reports that help to define stream conditions. Each report is created by the R Markdown parameterized report in the R package.</p>
+<ul>
+<li><p><strong>Level 1 Report:</strong> This report contains a set of maps and graphs that describe the channel as measured from the LiDAR derived DEM.</p></li>
+<li><p><strong>Estimate Bankfull Report:</strong> This report contains assists to estimate the bankfull water surface elevation for an ungaged stream with the assistance of regional curves and visual observation of geomorphic indicators from LiDAR surveys.</p></li>
+<li><p><strong>Level 2 Report:</strong> This report contains a set of maps and graphs that describe the Level 2 channel dimensions calculated at the specified bankfull elevation.</p></li>
+<li><p><strong>Level 3 Report:</strong> This report contains a set of maps and graphs that describe the Level 3 channel dimensions calculated at the specified bankfull elevation.</p></li>
+</ul>
 </section>
 <section id="qa_tools" class="level2">
 <h2 class="anchored" data-anchor-id="qa_tools">Quality Assurance</h2>
@@ -506,7 +403,6 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Tool Error Messages:</strong> A series of low-level defensive programming checks have been implemented across all FluvialGeomorph functions and tools to help head-off problems.</p></li>
 <li><p><strong>QA Checklist:</strong> The <a href="Level-1-review.html#qa_checklist">QA Checklist</a> helps analysts review the reports created using the tools to identify and fix problems in the underlying derived data. See the <a href="Level-1-review.html#qa_checklist">QA Checklist</a> chapter in this manual for details.</p></li>
 </ul>
-<hr>
 
 
 </section>
@@ -1083,8 +979,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./SoftwareRequirements.html" class="pagination-link" aria-label="Software Requirements">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software Requirements</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./SoftwareRequirements.html" class="pagination-link" aria-label="Software &amp; Data Requirements">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software &amp; Data Requirements</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

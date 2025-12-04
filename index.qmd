@@ -23,7 +23,7 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
 
 ![USACE](images/USACE_200.jpg){group="fig-gallery" width="100px"}
 ![EMRRP](images/EMRRP_logo_200.jpg){group="fig-gallery" width="100px"}
-![Caption for image 3](images/FRMP_200.jpg){group="fig-gallery" width="100px"}
+![NFRMP](images/FRMP_200.jpg){group="fig-gallery" width="100px"}
 ![Silver Jackets](images/SilverJackets_200.jpg){group="fig-gallery" width="90px"}
 ![EWN](images/EWN_200.jpg){group="fig-gallery" width="100px"}
 ![MRG&P](images/MRG&P_300.jpg){group="fig-gallery" width="100px"}

@@ -54,7 +54,7 @@
     "href": "Intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "Background\nThe background section defines the problem addressed by the research and its impact on the U.S. Army. It cites related previous studies and explains why the current research is necessary. It also may present other background information that provides essential context for the reader. Examples include the following:\nhi-res terrain opportunity, but not enough tools historic field survey versus geomorphometric automated methods The purpose of regional curves and why they are important for rapid watershed assessment\nvison for what the analysis can be used to accomplish",
+    "text": "Background\nThe background section defines the problem addressed by the research and its impact on the U.S. Army. It cites related previous studies and explains why the current research is necessary. It also may present other background information that provides essential context for the reader. Examples include the following:\nhi-res terrain opportunity, but not enough tools historic field survey versus geomorphometric automated methods The purpose of regional curves and why they are important for rapid watershed assessment vison for what the analysis can be used to accomplish",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -70,11 +70,21 @@
     ]
   },
   {
-    "objectID": "Intro.html#objective",
-    "href": "Intro.html#objective",
+    "objectID": "Intro.html#goals",
+    "href": "Intro.html#goals",
     "title": "1  Introduction",
-    "section": "Objective",
-    "text": "Objective\nThe objective is a concise statement of what the research is intended to accomplish.\nGoals\n\nProvide a USACE Planning method for rapid watershed assessments\nDevelop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles\nDevelop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits\n\nObjectives\n\nDevelop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.\nUse existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics.\nDevelop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits.",
+    "section": "Goals",
+    "text": "Goals\n\nProvide a USACE Planning method for rapid watershed assessments\nDevelop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles\nDevelop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Intro.html#objectives",
+    "href": "Intro.html#objectives",
+    "title": "1  Introduction",
+    "section": "Objectives",
+    "text": "Objectives\n\nDevelop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.\nUse existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics.\nDevelop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -94,29 +104,7 @@
     "href": "Concepts.html",
     "title": "2  Concepts",
     "section": "",
-    "text": "Goals\nObjectives",
-    "crumbs": [
-      "Foundations",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
-    ]
-  },
-  {
-    "objectID": "Concepts.html#goals",
-    "href": "Concepts.html#goals",
-    "title": "2  Concepts",
-    "section": "",
-    "text": "Provide a USACE Planning method for rapid watershed assessments\nDevelop rapid watershed assessment tools using high resolution terrain data and existing fluvial geomorphic principles\nDevelop a USACE Ecological Planning model based on rapid watershed assessment metrics to define restoration and mitigation benefits\n\n\n\nDevelop a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.\nUse existing geomorphic principles to develop metrics for analyzing LiDAR-derived channel, floodplain, valley, and watershed characteristics.\nDevelop an approach to relate channel, floodplain, valley, and watershed characteristics to Ecosystem Restoration (ER) habitat evaluation and benefits.",
-    "crumbs": [
-      "Foundations",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
-    ]
-  },
-  {
-    "objectID": "Concepts.html#approach",
-    "href": "Concepts.html#approach",
-    "title": "2  Concepts",
-    "section": "Approach",
-    "text": "Approach\nThe approach section explains the research methodology. If the methodology is complex or otherwise warrants a chapter of its own, the approach section may simply cross-reference the reader to the appropriate chapter.\nThis chapter provides an overview of some of the workflows that can be used to perform a rapid watershed assessment using FluvialGeomorph. Through analyzing a wide range of project sites, we have created a standard analysis framework. This framework defines a series of standard analysis objects that are used in a regular process to perform different types of analysis.",
+    "text": "Units of Analysis\nTo help organize the workflow process we have defined several units of analysis:",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
@@ -126,8 +114,8 @@
     "objectID": "Concepts.html#units_of_analysis",
     "href": "Concepts.html#units_of_analysis",
     "title": "2  Concepts",
-    "section": "Units of Analysis",
-    "text": "Units of Analysis\nTo help organize the workflow process we have defined several units of analysis:\n\nStudy Area: These are the primary work units and correspond to projects that customers have requested for analysis. Customers define specific goals for each project that determine the specific workflow chosen. These goals define a project study area for each project. These project study areas typically consist of a particular watershed, a mainstem section of a named river, or a discrete stream reach.\nSite: Project areas are subdivided into “sites”. Sites are typically named tributaries and their subwatersheds within the project study area.\nReach: Sites are further subdivided into “reaches”. Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.\nYear: Since FluvialGeomorph analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods (typically separated by years) for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the base year.",
+    "section": "",
+    "text": "Study Area: These are the primary work units and correspond to projects that customers have requested for analysis. Customers define specific goals for each project that determine the specific workflow chosen. These goals define a project study area for each project. These project study areas typically consist of a particular watershed, a mainstem section of a named river, or a discrete stream reach.\nSite: Study areas are subdivided into “sites”. Sites are typically named tributaries and their subwatersheds within the project study area.\nReach: Sites are further subdivided into “reaches”. Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.\nSurvey Event: Since FluvialGeomorph analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods (typically separated by years) for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the base year.",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
@@ -145,11 +133,44 @@
     ]
   },
   {
+    "objectID": "Concepts.html#workflows",
+    "href": "Concepts.html#workflows",
+    "title": "2  Concepts",
+    "section": "Workflows",
+    "text": "Workflows\nThe FluvialGeomorph workflow has been organized using the following hierarchical grouping to help analysts better understand how to perform the analysis and what is being done during each step of the process. All workflow steps are sequential and build on the outputs of previous steps.\n\nLevels: The top hierarchical grouping of the workflow. Levels are distinguished by the degree of fluvial geometric detail and metrics that will be derived. Levels 2 and 3 are optional.\nPhases: The second hierarchical grouping of the workflow. Each level is subdivided into phases. Phases are mostly a conceptual grouping of steps to accomplish a specific objective in the analysis chain.\nSteps: The third hierarchical grouping of the workflow. Phases are subdivided into steps. Steps typically involve running tools, manual editing, and performing quality assurance checks.\nTools: Tools are the lowest hierarchical grouping of the workflow. Tools perform operations that are suitable for automation.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#folder_structure",
+    "href": "Concepts.html#folder_structure",
+    "title": "2  Concepts",
+    "section": "Project Folder Structure",
+    "text": "Project Folder Structure\nEstablishing a standard storage structure for all project data is an important quality control step. A standard folder structure has the following benefits:\n\nClearly defined functional roles for each storage location reduces ambiguity and confusion.\nPredictability reduces errors.\nStandard structure allows analysts to move between projects more easily.\n\nThe following folder structure is recommended to organize all project data:\nStudy_Area_Name\n└─── Sites\n│    └─── 01_Site_Name\n│    │    └─── Data\n│    │    │        Site1_year1.gdb\n│    │    │        Site1_year2.gdb\n│    │    │        Reach1_year1.gdb\n│    │    │        Reach1_year2.gdb\n│    │    │        Reach2_year1.gdb\n│    │    │        Reach2_year2.gdb\n│    │    │        ...\n│    │    └─── Exports\n│    │    └─── Maps\n│    │    └─── Reports\n│    └─── 02_Site_Name\n│         ...\n└─── Elevation\n│    └─── ProjectName_Year1\n│    │    └─── LAS\n│    └─── ProjectName_Year2\n│         └─── LAS\n│         ...\n└─── Exports\n└─── Maps\n\n\nStudy Area Folder: The study area folder is used to store all of the files for the study area.\nSite Folders: Site folders are used to store all of the files for each site. Each site in the study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name.\nElevation Folders: The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in .las format for modern surveys) for each LiDAR survey for the study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders.\nSite Data Folders: The site data folders are used to store all of the site site and reach geodatabases.\nReports: The Reports folders are used to store the reports created by tools for each reach.\nMaps: The Maps folders are used to store map documents for a given study area or site.\nExports Folders: The Exports folders are used to store static .pdf map documents exported from map projects for a given study area or site.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
     "objectID": "Concepts.html#geodatabases",
     "href": "Concepts.html#geodatabases",
     "title": "2  Concepts",
     "section": "Geodatabases",
-    "text": "Geodatabases\nThe FluvialGeomorph workflow was designed around a standard set of objects organized into a standard set of geodatabases.\n\nStudy Area Geodatabase: This type of geodatabase stores feature classes (FC) that apply to the entire project study area. The workflow begins with developing FCs that define the project study area, Digital Elevation Models (DEM), derived stream network, etc. If there are multiple LiDAR surveys for the project study area, a separate study area geodatabase representing each survey is created beginning with the base year.\nSite Geodatabase:  This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific “site” unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.\nReach Geodatabase: This type of geodatabase stores FCs that apply to a specific reach. The FluvialGeomorph tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.",
+    "text": "Geodatabases\nThe FluvialGeomorph workflow was designed around a standard set of objects organized into a standard set of geodatabases.\n\nSite Geodatabase:  This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific “site” unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.\nReach Geodatabase: This type of geodatabase stores FCs that apply to a specific reach. The FluvialGeomorph tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "Concepts.html#fluvialgeomorph-toolbox",
+    "href": "Concepts.html#fluvialgeomorph-toolbox",
+    "title": "2  Concepts",
+    "section": "FluvialGeomorph Toolbox",
+    "text": "FluvialGeomorph Toolbox\nFluvialgeomorp toolbox creates a method for analyzing streams using Lidar Survey data, remote sensing practices to extract fluvial features. This toolbox has seven toolsets that structure the tasks of deriving features for analysis and reporting rapid watershed assessment.\n\nInstall: This toolset contains the install for the R package need in ArcGIS Pro, sessions and testing for the R code used in the toolbox.\nTools: This toolset contations all the feature extraction tools needed for the rapid assessment process.\nData Management: This toolset contains a tool to joins tabular data to spatial datasets.\nReports: This toolset contains all reporting options from the analysis and externatl data sources.\nSymbology: This toolset contains the default symbology for the feature extracted from each tool that creates an output.\nCheck: This toolset contains tools to run checks on some of the outputs from the feature extraction tools.\nExport: This toolset contains a tool to export the attribute tables from the level 1 feature classes.",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
@@ -167,22 +188,11 @@
     ]
   },
   {
-    "objectID": "Concepts.html#folder_structure",
-    "href": "Concepts.html#folder_structure",
+    "objectID": "Concepts.html#reports",
+    "href": "Concepts.html#reports",
     "title": "2  Concepts",
-    "section": "Project Folder Structure",
-    "text": "Project Folder Structure\nEstablishing a standard storage structure for all project data is an important quality control step. A standard folder structure has the following benefits:\n\nClearly defined functional roles for each storage location reduces ambiguity and confusion.\nPredictability reduces errors.\nStandard structure allows analysts to move between projects more easily.\n\nThe following folder structure is recommended to organize all project data:\nStudy_Area_Name\n└─── Sites\n│    └─── 01_Site_Name\n│    │    └─── Data\n│    │    │        Site1_year1.gdb\n│    │    │        Site1_year2.gdb\n│    │    │        Reach1_year1.gdb\n│    │    │        Reach1_year2.gdb\n│    │    │        Reach2_year1.gdb\n│    │    │        Reach2_year2.gdb\n│    │    │        ...\n│    │    └─── Elevation\n│    │    │        year1.gdb\n│    │    │        year2.gdb\n│    │    │        ...\n│    │    └─── Exports\n│    │    └─── Maps\n│    │    └─── Reports\n│    └─── 02_Site_Name\n│         ...\n└─── Elevation\n│    └─── ProjectName_Year1\n│    │    └─── LAS\n│    │    ProjectName_Year1.gdb\n│    └─── ProjectName_Year2\n│         └─── LAS\n│         ProjectName_Year2.gdb\n│         ...\n└─── Exports\n└─── Maps\n\n\nStudy Area Folder: The project study area folder is used to store all of the files for the project.\nSite Folders: Site folders are used to store all of the files for each site. Each site in the project study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name.\nElevation Folders: The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in .las format for modern surveys) for each LiDAR survey for the project study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders.\nSite Data Folders: The site data folders are used to store all of the site site and reach geodatabases.\nReports: The Reports folders are used to store the reports created by tools for each reach.\nMaps: The Maps folders are used to store map documents for a given project or site.\nExports Folders: The Exports folders are used to store static .pdf map documents exported from map projects for a given project or site.",
-    "crumbs": [
-      "Foundations",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
-    ]
-  },
-  {
-    "objectID": "Concepts.html#workflows",
-    "href": "Concepts.html#workflows",
-    "title": "2  Concepts",
-    "section": "Workflows",
-    "text": "Workflows\nThe FluvialGeomorph workflow has been organized using the following hierarchical grouping to help analysts better understand how to perform the analysis and what is being done during each step of the process. All workflow steps are sequential and build on the outputs of previous steps.\n\nLevels: The top hierarchical grouping of the workflow. Levels are distinguished by the degree of fluvial geometric detail and metrics that will be derived. Levels 2 and 3 are optional.\nPhases: The second hierarchical grouping of the workflow. Each level is subdivided into stages. Stages are mostly a conceptual grouping of steps to accomplish a specific objective in the analysis chain.\nSteps: The third hierarchical grouping of the workflow. Stages are subdivided into steps. Steps typically involve running tools, manual editing, and performing quality assurance checks.\nTools: Tools are the lowest hierarchical grouping of the workflow. Tools perform operations that are suitable for automation.\n\n\nLevel 1\nThe purpose of this level is to extract basic channel dimensions. This section will provide a brief overview of the Level 1 (L1) workflow.\nCreate Terrain: The purpose of this stage is to develop the terrain models for the project study area for all available LiDAR surveys. * Acquire Point Cloud - Identify the elevation data steward and download or transfer the LiDAR point cloud data on an external drive. * Derive DEM - Assemble the .las files into a LAS Dataset, apply class filters, and export as a raster DEM. * Hydromodify DEM - Identify flow blockages along streams and burn these features into the DEM.\nDefine Stream Reaches: The purpose of this stage is to derive a synthetic stream network for the entire project study area and define their contributing watersheds.\n\nCalculate Contributing Area - Calculate the flow accumulation model for the DEM.\nDerive Stream Network - Use the flow accumulation model to derive the synthetic flow stream_network FC for the project study area.\nDefine Reaches - Subdivide the project study area stream_network FC into a set of analysis reaches.\nDelineate Watersheds - Use the flow accumulation model to delineate the watersheds for all project study area reaches.\n\nDerive Flowline: The purpose of this stage is to derive a flowline, for each reach and survey event.\n\nDerive Flowline - Develop the flowline FC for each reach and survey event.\nCreate Flowline Points - Create the flowline_points FC for each reach and survey event.\n\nDefine Initial Floodplain and Channel Extent: The purpose of this stage is to define the initial floodplain and channel extent, for each reach and survey event.\n\nDetrend DEM - Use the flowline_points FC to develop a relative elevation model for each reach and survey event.\nEstimate Initial Channel Extent - Use the REM to interactively “flood” the channel to make an initial estimate of the detrended bankfull elevation.\nEstimate Initial Floodplain Extent - Use the REM to interactively “flood” the active floodplain to make an initial estimate of the detrended floodplain elevation.\nCalculate Channel Slope Raster - Calculate the slope raster of the initial channel extent area.\n\nCreate Regular Cross Section Geometry: The purpose of this stage is to create regularly spaced cross sections and calculate dimensions, for each reach and survey event.\n\nCreate Regular Cross Sections - Create regularly spaced cross sections along each reach.\nCalculate Cross Section Watershed Area - Calculate the watershed area for each regularly spaced cross section.\nCalculate Cross Section River Position - Calculate the river position for each regularly spaced cross section.\nCalculate Cross Section Points - Convert each cross section into a set of evenly stationed points and assign DEM and detrended elevation values.\nCalculate Cross Section L1 Dimensions - Calculate the L1 dimensions for the regularly spaced cross sections.\n\nIdentify Features: The purpose of this stage is to identify salient features along each reach.\n\nCreate Features - Identify the longitudinal position of noteworthy stream features for graph and map labeling.\n\nRun Report: The purpose of this stage is to run the Level 1 report for each reach.\n\nRun the Level 1 Report - Run the L1 report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.\n\n\n\nLevel 2\nThe purpose of this level is to extract bankfull channel dimensions. This section will provide a brief overview of the Level 2 (L2) workflow.\nCreate Initial Riffle Geometry: The purpose of this stage is to identify and map riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.\n\nCreate Riffle Floodplain - Identify riffle locations and map these cross sections across the lateral extent of the floodplain for each reach.\nCalculate Cross Section Watershed Area - Calculate the watershed area for each riffle cross section.\nCalculate Cross Section River Position - Calculate the river position for each riffle cross section.\nCreate Riffle Channel - Edit the lateral extent of the riffle_channel FC to just cover the initial channel extent.\nCalculate Cross Section Points - Convert each riffle cross section into a set of evenly stationed points and assign DEM and detrended elevation values.\nCalculate Initial Cross Section L2 Dimensions - Calculate the initial L2 dimensions for the the riffle cross sections for each reach.\n\nEstimate Bankfull: The purpose of this stage is to estimate the detrended bankfull elevation for the base year for each reach.\n\nRun the Estimate Bankfull Report - Run the Estimate Bankfull report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.\nDetermine Bankfull Elevation - Interpret the Estimate Bankfull Report to determine the final detrended bankfull elevation to be used for the rest of the analysis for each reach.\nCreate Bankfull Area - Use the final bankfull elevation determined in the previous step to derive a final bankfull_area polygon for each reach.\nCreate Banklines - Convert the bankfull_area polygon into polylines and edit into a banklines FC for each reach.\n\nCalculate Final L2 Cross Section Geometry: The purpose of this stage is to use the bankfull elevation determined in the last stage to calculate the final level 2 cross section dimensions for the base year for each reach.\n\nCalculate Final Cross Section L2 Dimensions - Calculate the final L2 dimensions for the regularly spaced and riffle cross section FCs for each reach.\n\nRun Report: The purpose of this stage is to produce the Level 2 report for each reach.\n\nRun the L2 Report - Run the L2 report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.\n\n\n\nLevel 3\nThe purpose of this level is to extract planform dimensions. This section will provide a brief overview of the Level 3 (L3) workflow.\nDefine Valley Line: The purpose of this stage is to define the valley trend line for the base year for each reach.\n\nDetermine Final Floodplain Extent - Use the detrended bankfull elevation identified in L2 to delineate the active floodplain.\nDevelop Candidate Valleylines - Create a set of candidate valleylines through iterative smoothing of the flowline for each reach.\nChoose Final Valleyline - Choose from the candidate valleylines the one that best captures the overall valley trend line.\n\nDefine Meander Loops: The purpose of this stage is to define meander loops and bends for the base year for each reach.\n\nDefine Loop Points - Create a new FC named loop_points and use it to identify the start and end stream meander loops and bends.\nDerive Bankline Points - Convert the banklines to a set of points and assign elevations and loop and bend locations.\nAssign Cross Section Loops - Assign loop and bend identifiers to regularly spaced and riffle cross section FCs for each reach.\n\nCalculate L3 Cross Section Geometry: The purpose of this stage is to calculate the Level 3 dimensions for each reach.\n\nCalculate Cross Section L3 Dimensions - Calculate the L3 dimensions for the regularly spaced and riffle cross section FCs for each reach.\n\nRun Report: The purpose of this stage is to run the Level 3 report for each reach.\n\nRun the L3 Report - Run the L2 report for each reach.\nPerform QA - Use the QA Checklist to verify the reports have run correctly and identify any data mistakes that need to be corrected.",
+    "section": "Reports",
+    "text": "Reports\nFluvialGeomorph produces a series of reports that help to define stream conditions. Each report is created by the R Markdown parameterized report in the R package.\n\nLevel 1 Report: This report contains a set of maps and graphs that describe the channel as measured from the LiDAR derived DEM.\nEstimate Bankfull Report: This report contains assists to estimate the bankfull water surface elevation for an ungaged stream with the assistance of regional curves and visual observation of geomorphic indicators from LiDAR surveys.\nLevel 2 Report: This report contains a set of maps and graphs that describe the Level 2 channel dimensions calculated at the specified bankfull elevation.\nLevel 3 Report: This report contains a set of maps and graphs that describe the Level 3 channel dimensions calculated at the specified bankfull elevation.",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Concepts</span>"
@@ -202,12 +212,34 @@
   {
     "objectID": "SoftwareRequirements.html",
     "href": "SoftwareRequirements.html",
-    "title": "3  Software Requirements",
+    "title": "3  Software & Data Requirements",
     "section": "",
-    "text": "Here is a summary of the software that must be installed to use the FluvialGeomorph toolbox. More information on this can be found in the FluvialGeomorph Tech Manual.\n\nWindows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.\nR Statistical Computing Language (4.x+ recommended)\nRStudio Desktop (1.3+ recommended)\nArcGIS Pro (2.6+ recommended)\nArcGIS Desktop (10.8+ recommended), optional, limited support\nFluvialGeomorph toolbox, latest version",
+    "text": "Software\nHere is a summary of the software that must be installed to use the FluvialGeomorph toolbox. More information on this can be found in the FluvialGeomorph Tech Manual.",
     "crumbs": [
       "Resources",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software Requirements</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software & Data Requirements</span>"
+    ]
+  },
+  {
+    "objectID": "SoftwareRequirements.html#software",
+    "href": "SoftwareRequirements.html#software",
+    "title": "3  Software & Data Requirements",
+    "section": "",
+    "text": "Windows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.\nR Statistical Computing Language (4.x+ recommended)\nRStudio Desktop (1.3+ recommended)\nArcGIS Pro (2.6+ recommended)\nArcGIS Desktop (10.8+ recommended), optional, limited support\nFluvialGeomorph toolbox, latest version",
+    "crumbs": [
+      "Resources",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software & Data Requirements</span>"
+    ]
+  },
+  {
+    "objectID": "SoftwareRequirements.html#data",
+    "href": "SoftwareRequirements.html#data",
+    "title": "3  Software & Data Requirements",
+    "section": "Data",
+    "text": "Data\nMore information coming.",
+    "crumbs": [
+      "Resources",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software & Data Requirements</span>"
     ]
   },
   {
