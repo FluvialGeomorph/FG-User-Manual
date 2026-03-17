@@ -24,11 +24,12 @@ Level 1 is to extract basic channel dimensions. This stage develops terrain, def
 1.	Get the latest version of the toolbox from this page under Releases. 
       <https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox>
 2.	Place the install in a location that all required applications can access.
-3.	In ArcCatalog open the Fluvgeo toolbox and under install 
-      **click Install R Package box and Hit run**.
+3.	In Rstudio under tools install package HERE. 
+4.	In ArcCatalog open the Fluvgeo toolbox and under install 
+      click Install R Package box and Hit run.
 
 ### 	Data access in ArcGIS Pro
-1.	Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.
+1.	Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.
 2.	Work on project on the local drive and when completed move to final location. Local processing in ArcGIS Pro is preferred. 
 
 ### 	Data
@@ -39,12 +40,7 @@ Level 1 is to extract basic channel dimensions. This stage develops terrain, def
 ###	Gather data – A few Lidar data retrieval samples 
 
 
-Data will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources. Make sure you gather data well beyond the site. 
-
-::: {.callout-note}
-The lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.
-:::
-
+Data will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would   know potential sources.
 
 ::: {.callout-tip}
 
@@ -76,7 +72,7 @@ The lidar data will need to cover the entire floodplain. Ideally gather data to 
 
 ### 	Create a Boundary 
 
-<!--Left align need additional margin space to create space for the outline  numbers -->
+<!--Left align need additional margin space to sreate space for the outline  numbers -->
 ::: {style="float: left; margin:1px 20px; /* 1px top/bottom, 20px left/right */;"}
 
 ![Boundary within 1 mile buffer](images/study_area.jpg){width="2.5in"}
@@ -182,19 +178,9 @@ c.	Set the output polyline as stream in the feature dataset.
     i. Make sure the streamline is going through the lowest part of the channel
 7.	Save edits.
 
-::: {.callout-note}
-
-The derive stream as line tool could produce disconnected stream lines that need to be snapped together after all lies outside the mainstem are removed.  
-:::
-
-### 	Smooth Line Tool – *Esri Cartography Toolbox*  
+### 	Smooth Line Tool – Esri Cartography Toolbox  
 1.	Set smoothing between 2 and 15 depending on the size and flow of the channel.
 2.	Check that flowline remains in the channel. Edit flowline or rerun smooth as needed to keep line in channel. 
-
-::: {.callout-note}
-
-The line can be smoothed as much as desired as long as the line remains in the channel. Having the line to detailed makes extraneous flowline points.  
-:::
 
 ### 	Create Flowline 
 1.	In the FluvialGeomorph toolbox, select the Flowline tool.
@@ -204,11 +190,11 @@ The line can be smoothed as much as desired as long as the line remains in the c
 Note: Make sure to do most recent data first. Rerun tool for older set of data once done.
 5.	The output is a line feature class called flowline. This tool derives the site flowline and smooths the stream_network geometry and converts the flowline into a route.
 6.	Ensure that the flowline remains in the channel and is not simplified into the floodplain. If this occurs, rerun reducing the degree of smoothing.
-    i.	Also ensure that the red endpoint (vertice) is at the upstream end of the flowline. The end points for each survey must also be snapped together so the calibrations done in the flowline points works correctly. It is critical that the flowline is digitized in the upstream direction and that all survey event years are snapped. If this step is not performed, all subsequent tools will malfunction.
+    i.	Also ensure that the red endpoint (vertice) is at the upstream end of the flowline. It is critical that the flowline is digitized in the upstream direction. If this step is not performed, all subsequent tools will malfunction.
 7.	Open attribute table for each flowline and stream network.
 8.	The Reach Name must be the same for each flowline and stream network. The name is the Site# and survey event. 
     Ex. Site 264 KANE-DUPAGE County SWCD
-9.	Check that the flowline is in and near the center of the main channel represented in the hydro_dem.
+9.	Check that the flowline is in and near the center of the main channel represented in the ydro_dem.
 
 ### 	Create Flowline Points 
 1.	In the FluvialGeomorph toolbox, select the Flowline Points tool.
@@ -222,10 +208,6 @@ h.	Hit run.
 i.	Note: Before you run the flowline points for the older dataset, make sure the newer flowline points tool is done running. 
 i.	For the older dataset, fill in the information like when running the tool for the newer data. 
 j.	For calibration points, drag the flowline points created from the newer data.
-::: {.callout-note}
-If the flowline end nodes are not snapped it could cause the layer to be empty.
-
-:::
 k.	The point id field is ReachName.
 l.	Measure field is POINT_M
 m.	Hit run. 
@@ -304,13 +286,7 @@ i.	For the output geodatabase, choose the corresponding feature dataset. This al
 1.	Run only if any cross sections were deleted in the adjustment process.
 
 ### 	Calculate Cross Section Watershed Area (only for newest dataset)
-1.	In the fluvialgeomorph folder, expand layers and add a clip of the needed county from the NHDPlusFac_National.tif.This dataset can be found at [EPA](https://www.epa.gov/waterdata/get-nhdplus-national-hydrography-dataset-plus-data#DownloadHR)
-
-::: {.callout-tip}
-  Having countywide NHD layer improves processing time if there is more than one site in a county.
-  
-:::
-
+1.	In the fluvialgeomorph folder, expand layers and add NHDPlusFac_National.tif
 2.	Right click the layer, go to data, then export raster
 3.	Add the output to whatever year folder.
 4.	Clipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.

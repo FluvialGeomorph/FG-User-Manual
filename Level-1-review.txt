@@ -1,0 +1,87 @@
+# Level 1 Report {#L1_report_qa}
+
+## QA Checklist {#qa_checklist}
+This chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you'll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren't discovered until you run the reports. 
+
+### Check the stream name
+All of the tools depend on consistent reach naming! Ensuring consistent naming begins with deriving the "flowline" fc. The ReachName field must contain the same value for all of the fc's within a reach geodatabase. This is the single biggest gotcha we find running these tools. If tools aren't working correctly and you're sure you've done everything else right, consistent stream names is the first thing to check!  
+
+### Cross section labels at the correct interval
+Cross section labels usually cannot be placed on every cross section or the map or graph becomes unreadable due to label crowding. The xs_label_freq parameter can be adjusted to adequately space cross section labels. Typically xs_label_freq = 10 works for regularly spaced cross sections and xs_label_freq = 2 works for riffle cross sections.  
+
+### Cross sections cover the full extent of the flowine
+The flowline fc extends from the downstream end of the reach to the upstream end. Cross sections should be spaced regularly across the entire reach, without any gaps at the upper or lower end.  
+
+### Map basemap displaying correctly
+The overview maps should contain an aerial photo or shaded relief elevation basemap.  
+
+## Longitudinal Profiles {#L1_long_profiles}
+This report section contains two longitudinal profile graphs, one drawn using the flowline_points fc, and the second is drawn using the cross section dimensions,  *_dims_L1 fc.  
+
+### Elevation values are reasonable
+The elevation values displayed on the map or graph should be reasonable. Use the ESRI Explore tool to check the DEM elevation values. By convention in FluvialGeomorph, DEM values must always have vertical units = feet. 
+
+### Elevation ranges are similar between surveys
+Although stream elevations can change over time, the elevation ranges between subsequent survey dates should be roughly similar. If the elevation ranges are drastically different, check the terrain development steps for each survey time period to ensure that the elevation data was processed correctly.  
+
+### Multiple surveys are labeled correctly
+Reports that contain multiple surveys should be entered in the same way to ensure they are labeled and symbolized (e.g., each survey drawn with the same color in each report) the same way across all reports. Follow these guidelines to ensure consistency:
+
+* Most recent survey listed at the top, with earlier surveys listed in reverse chronological order. 
+* Survey date indicates the date flown (e.g., not the contract or delivery date).  
+
+### Multiple surveys are correctly calibrated to the base year
+On the longitudinal profile graphs, each survey line should start and end at the same x-axis station value. In other words, one survey line should not end before or after another survey line. Check the far right edge of the longitudinal graph to ensure all survey's have the same ending value. 
+
+If all of the surveys' last station values do not align, it means that the previous surveys were not correctly calibrated to the base year flowline. Previous year surveys will need to have the Flowline Points tool rerun using the base year survey's flowline_points for calibration. 
+
+### Stationing in the correct units
+Units can be chosen for the longitudinal profile stationing. Ensure that the correct units are selected.  
+
+### Stream feature labels display correctly
+Longitudinal graphs are labeled using the rows in the features fc. Ensure these river features are labeled correctly and are located at the correct longitudinal position. 
+
+
+## Cross Section Metrics {#L1_xs_metrics}
+This report section contains a Level 1 cross section metrics plot drawn using the cross section dimensions fc, *_dims_L1. 
+
+### Cross section watershed area calculated correctly
+The watershed area metric is calculated by the XS Watershed Area tool. Given the complexities of automatically calculating watershed area for high resolution stream features, some watershed areas may not have been calculated correctly. Rerunning the Watershed Area tool or manual adjustment of the Watershed_Area_SqMile field may be required.  
+
+* Watershed values are reasonable. 
+* Watershed area must increase moving downstream. 
+
+### Elevation smoothing is acceptable
+High resolution LiDAR derived stream elevations can be noisy. Smoothing the elevations longitudinally is a way reduce noise. However, too much smoothing can be applied, eliminating any of the relationships we want to observe. By visually comparing the raw elevation and the smoothed elevation graphs, verify that the amount of smoothing sufficiently reduces noise, but does not not go too far and removes substantive variation. Smoothing is controlled in the XS Dimension tools using the "loess_span" parameter. 
+
+### Ensure metrics values are smooth
+Many reach metrics are calculated using a longitudinal moving window analysis. The size of the moving window is controlled in the XS Dimensions tools using the "lead_n" parameter. A smaller value applies a narrower moving mindow and a larger value applies a wider moving window. If the moving window is too small, metric values will be highly variable along the stream. As the moving window size gets larger, metric value variation will be reduced. 
+
+### Slope values are reasonable
+Slope values should be greater than zero. If negative slopes are being recorded, it usually means that the moving window size needs to be increased. 
+
+### Sinuosity values are reasonable
+Sinuosity values should be greater than one. 
+
+
+## Cross Section Profiles {#L1_xs_profiles}
+This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions *_dims_L1 fc and the dem_hydro raster. The cross section profile graph is drawn using the cross section points fc's for each survey.  
+
+### Cross section must be digitized from left to right
+The graph is being viewed from the perspective of standing in the stream, looking downstream. To ensure this orientation, cross sections must be digitized from the left descending bank to the right descending bank. 
+
+
+#### Cross section perpenduicular to the channel
+
+### Cross section covers the channel extent
+
+### Cross section extends onto floodplain
+
+### Cross section not located on built infrastructure
+
+### Cross section drawn within the DEM extent
+
+### Cross section y-axis range is not too large
+
+### Cross section x-axis range is not too large
+

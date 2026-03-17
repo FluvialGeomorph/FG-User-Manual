@@ -275,7 +275,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#create-cutlines-line-feature-class" id="toc-create-cutlines-line-feature-class" class="nav-link" data-scroll-target="#create-cutlines-line-feature-class">Create Cutlines Line Feature Class</a></li>
   <li><a href="#hydro-modify-dem" id="toc-hydro-modify-dem" class="nav-link" data-scroll-target="#hydro-modify-dem">Hydro Modify DEM</a></li>
   <li><a href="#derive-stream-as-line-tool-esri-spatial-analyst-toolbox" id="toc-derive-stream-as-line-tool-esri-spatial-analyst-toolbox" class="nav-link" data-scroll-target="#derive-stream-as-line-tool-esri-spatial-analyst-toolbox">Derive Stream as Line Tool – <em>Esri Spatial Analyst Toolbox</em></a></li>
-  <li><a href="#smooth-line-tool-esri-cartography-toolbox" id="toc-smooth-line-tool-esri-cartography-toolbox" class="nav-link" data-scroll-target="#smooth-line-tool-esri-cartography-toolbox">Smooth Line Tool – Esri Cartography Toolbox</a></li>
+  <li><a href="#smooth-line-tool-esri-cartography-toolbox" id="toc-smooth-line-tool-esri-cartography-toolbox" class="nav-link" data-scroll-target="#smooth-line-tool-esri-cartography-toolbox">Smooth Line Tool – <em>Esri Cartography Toolbox</em></a></li>
   <li><a href="#create-flowline" id="toc-create-flowline" class="nav-link" data-scroll-target="#create-flowline">Create Flowline</a></li>
   <li><a href="#create-flowline-points" id="toc-create-flowline-points" class="nav-link" data-scroll-target="#create-flowline-points">Create Flowline Points</a></li>
   <li><a href="#create-features" id="toc-create-features" class="nav-link" data-scroll-target="#create-features">Create Features</a></li>
@@ -338,14 +338,13 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Get the latest version of the toolbox from this page under Releases. <a href="https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox" class="uri">https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox</a></li>
 <li>Place the install in a location that all required applications can access.</li>
-<li>In Rstudio under tools install package HERE.</li>
-<li>In ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.</li>
+<li>In ArcCatalog open the Fluvgeo toolbox and under install <strong>click Install R Package box and Hit run</strong>.</li>
 </ol>
 </section>
 <section id="data-access-in-arcgis-pro" class="level3">
 <h3 class="anchored" data-anchor-id="data-access-in-arcgis-pro">Data access in ArcGIS Pro</h3>
 <ol type="1">
-<li>Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.</li>
+<li>Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.</li>
 <li>Work on project on the local drive and when completed move to final location. Local processing in ArcGIS Pro is preferred.</li>
 </ol>
 </section>
@@ -359,7 +358,20 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="gather-data-a-few-lidar-data-retrieval-samples" class="level3">
 <h3 class="anchored" data-anchor-id="gather-data-a-few-lidar-data-retrieval-samples">Gather data – A few Lidar data retrieval samples</h3>
-<p>Data will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources.</p>
+<p>Data will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources. Make sure you gather data well beyond the site.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -409,7 +421,7 @@ Tip
 <h2 class="anchored" data-anchor-id="analysis-workflow">Analysis Workflow</h2>
 <section id="create-a-boundary" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-boundary">Create a Boundary</h3>
-<!--Left align need additional margin space to sreate space for the outline  numbers -->
+<!--Left align need additional margin space to create space for the outline  numbers -->
 <div style="float: left; margin:1px 20px; /* 1px top/bottom, 20px left/right */;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -509,7 +521,7 @@ Tip
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="left">
+<div class="cell quarto-layout-panel" data-layout-align="left" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-left">
@@ -573,13 +585,39 @@ Tip
 </ol></li>
 <li>Save edits.</li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The derive stream as line tool could produce disconnected stream lines that need to be snapped together after all lies outside the mainstem are removed.</p>
+</div>
+</div>
 </section>
 <section id="smooth-line-tool-esri-cartography-toolbox" class="level3">
-<h3 class="anchored" data-anchor-id="smooth-line-tool-esri-cartography-toolbox">Smooth Line Tool – Esri Cartography Toolbox</h3>
+<h3 class="anchored" data-anchor-id="smooth-line-tool-esri-cartography-toolbox">Smooth Line Tool – <em>Esri Cartography Toolbox</em></h3>
 <ol type="1">
 <li>Set smoothing between 2 and 15 depending on the size and flow of the channel.</li>
 <li>Check that flowline remains in the channel. Edit flowline or rerun smooth as needed to keep line in channel.</li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The line can be smoothed as much as desired as long as the line remains in the channel. Having the line to detailed makes extraneous flowline points.</p>
+</div>
+</div>
 </section>
 <section id="create-flowline" class="level3">
 <h3 class="anchored" data-anchor-id="create-flowline">Create Flowline</h3>
@@ -591,11 +629,11 @@ Tip
 <li>The output is a line feature class called flowline. This tool derives the site flowline and smooths the stream_network geometry and converts the flowline into a route.</li>
 <li>Ensure that the flowline remains in the channel and is not simplified into the floodplain. If this occurs, rerun reducing the degree of smoothing.
 <ol type="i">
-<li>Also ensure that the red endpoint (vertice) is at the upstream end of the flowline. It is critical that the flowline is digitized in the upstream direction. If this step is not performed, all subsequent tools will malfunction.</li>
+<li>Also ensure that the red endpoint (vertice) is at the upstream end of the flowline. The end points for each survey must also be snapped together so the calibrations done in the flowline points works correctly. It is critical that the flowline is digitized in the upstream direction and that all survey event years are snapped. If this step is not performed, all subsequent tools will malfunction.</li>
 </ol></li>
 <li>Open attribute table for each flowline and stream network.</li>
 <li>The Reach Name must be the same for each flowline and stream network. The name is the Site# and survey event. Ex. Site 264 KANE-DUPAGE County SWCD</li>
-<li>Check that the flowline is in and near the center of the main channel represented in the ydro_dem.</li>
+<li>Check that the flowline is in and near the center of the main channel represented in the hydro_dem.</li>
 </ol>
 </section>
 <section id="create-flowline-points" class="level3">
@@ -613,12 +651,9 @@ Tip
 <li>Hit run.</li>
 <li>Note: Before you run the flowline points for the older dataset, make sure the newer flowline points tool is done running.</li>
 <li>For the older dataset, fill in the information like when running the tool for the newer data.</li>
-<li>For calibration points, drag the flowline points created from the newer data.</li>
-<li>The point id field is ReachName.</li>
-<li>Measure field is POINT_M</li>
-<li>Hit run.</li>
-<li>The result converts the flowline into a series of points along the reach. The tool converts the flowline feature class into a route, calculates the distance to the mouth of the river for all vertices, and creates a flowline_points feature class.</li>
+<li>For calibration points, drag the flowline points created from the newer data. ::: {.callout-note} If the flowline end nodes are not snapped it could cause the layer to be empty.</li>
 </ol>
+<p>::: k. The point id field is ReachName. l. Measure field is POINT_M m. Hit run. i. The result converts the flowline into a series of points along the reach. The tool converts the flowline feature class into a route, calculates the distance to the mouth of the river for all vertices, and creates a flowline_points feature class.</p>
 </section>
 <section id="create-features" class="level3">
 <h3 class="anchored" data-anchor-id="create-features">Create Features</h3>
@@ -733,7 +768,22 @@ Tip
 <section id="calculate-cross-section-watershed-area-only-for-newest-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="calculate-cross-section-watershed-area-only-for-newest-dataset">Calculate Cross Section Watershed Area (only for newest dataset)</h3>
 <ol type="1">
-<li>In the fluvialgeomorph folder, expand layers and add NHDPlusFac_National.tif</li>
+<li>In the fluvialgeomorph folder, expand layers and add a clip of the needed county from the NHDPlusFac_National.tif.This dataset can be found at <a href="https://www.epa.gov/waterdata/get-nhdplus-national-hydrography-dataset-plus-data#DownloadHR">EPA</a></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Having countywide NHD layer improves processing time if there is more than one site in a county.</p>
+</div>
+</div>
+<ol start="2" type="1">
 <li>Right click the layer, go to data, then export raster</li>
 <li>Add the output to whatever year folder.</li>
 <li>Clipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.
@@ -1458,7 +1508,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":true,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":true,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

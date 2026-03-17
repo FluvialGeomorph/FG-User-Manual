@@ -10,6 +10,11 @@ include the following:
 * controlling regulations or legal requirements
 * prospective users of the report or the technology. 
 
+hi-res terrain opportunity, but not enough tools
+historic field survey versus geomorphometric automated methods
+The purpose of regional curves and why they are important for rapid  watershed assessment vison for what the analysis can be used to accomplish
+
+
 ## Goals  
 
 *	Provide a USACE Planning method for rapid watershed assessments
