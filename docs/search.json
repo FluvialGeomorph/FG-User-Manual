@@ -212,34 +212,23 @@
   {
     "objectID": "SoftwareRequirements.html",
     "href": "SoftwareRequirements.html",
-    "title": "3  Software & Data Requirements",
+    "title": "3  Software Requirements",
     "section": "",
-    "text": "Software\nHere is a summary of the software that must be installed to use the FluvialGeomorph toolbox. More information on this can be found in the FluvialGeomorph Tech Manual.",
+    "text": "Software\nHere is a summary of the software that must be installed to use the FluvialGeomorph toolbox.",
     "crumbs": [
       "Resources",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software & Data Requirements</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software Requirements</span>"
     ]
   },
   {
     "objectID": "SoftwareRequirements.html#software",
     "href": "SoftwareRequirements.html#software",
-    "title": "3  Software & Data Requirements",
+    "title": "3  Software Requirements",
     "section": "",
-    "text": "Windows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.\nR Statistical Computing Language (4.x+ recommended)\nRStudio Desktop (1.3+ recommended)\nArcGIS Pro (2.6+ recommended)\nArcGIS Desktop (10.8+ recommended), optional, limited support\nFluvialGeomorph toolbox, latest version",
+    "text": "Windows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.\nR Statistical Computing Language (4.x+ recommended)\nRStudio Desktop (2024.12.1+ recommended)\nArcGIS Pro (3.2+ recommended)\nFluvialGeomorph toolbox, latest version",
     "crumbs": [
       "Resources",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software & Data Requirements</span>"
-    ]
-  },
-  {
-    "objectID": "SoftwareRequirements.html#data",
-    "href": "SoftwareRequirements.html#data",
-    "title": "3  Software & Data Requirements",
-    "section": "Data",
-    "text": "Data\nMore information coming.",
-    "crumbs": [
-      "Resources",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software & Data Requirements</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software Requirements</span>"
     ]
   },
   {
@@ -291,7 +280,7 @@
     "href": "Level-1.html#application-and-data-setup",
     "title": "5  Level-1 Initial Channel Assessment",
     "section": "",
-    "text": "Applications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\nLAStools Production toolbox from RapidLasso.\n\n\n\nRetreive the FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases. https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nWork on project on the local drive and when completed move to final location. Local processing in ArcGIS Pro is preferred.\n\n\n\nData\n\nAn existing stream site location, desired distance and area for stream buffer. Lidar data is also needed for 2 different years.\nAn example would be projects for Illinois_SSRP_Sites_2004_2016 use a standard 1-mile length up and down stream of the site and 100-foot buffer around the 1-mile stream length.\nThese values can be set to any desired length and area for each site. The analysis tools require a length of stream and a buffered area of elevation data to complete the analysis.\n\n\n\nGather data – A few Lidar data retrieval samples\nData will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources. Make sure you gather data well beyond the site.\n\n\n\n\n\n\nNote\n\n\n\nThe lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nNOAA Digital Coast Lidar Viewer\nUSGS National Map\nUSGS Lidar Explorer\nOpen Topography\nVarious state and university sites, county and local governments, and project specific Lidar collection are other possible sources for data.\n\n\n\n\n\nConvert Laz to Las (if needed)\n\nAdd LAStools toolbox to ArcGISPro. Open the LAStools toolbox and select las2lasPro (transform) tool.\nDrag the folder with the Laz files into the Input folder.\nChange the output format to Las. Click Run.\n\n\n\nTransform LAS file projections\nAll datasets need to be in the same projection for the entire Study Area.\n\nOpen LAStools las2lasPro (transform) tool\nAdd the folder for the files that need to be reprojected to the input folder.\nChosen projection for transform. Projections must be in feet or meters.\n\n\n\nChose a location to create file storage structure for data.\n\nIn a folder create a file GDB and a folder labeled LPC. Use the year as the naming convention. Ex. 2025. This is where the LAS Lidar files will go.\nCreate a feature dataset for each GDB. The projection used should be the same as the LAS files for each year. Use site, number, and year for naming convention. Ex. SiteName_120_2025.",
+    "text": "Applications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\nLAStools Production toolbox from RapidLasso.\n\n\n\nRetreive the FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases. https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\n\n\n\n\nNote\n\n\n\nFor more detailed installation information refer to FluvialGeomorph Tech Manual\n\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nWork on project on the local drive and when completed move to final location. Local processing in ArcGIS Pro is preferred.\n\n\n\nData\n\nAn existing stream site location, desired distance and area for stream buffer. Lidar data is also needed for 2 different years.\nAn example would be projects for Illinois_SSRP_Sites_2004_2016 use a standard 1-mile length up and down stream of the site and 100-foot buffer around the 1-mile stream length.\nThese values can be set to any desired length and area for each site. The analysis tools require a length of stream and a buffered area of elevation data to complete the analysis.\n\n\n\nGather data – A few Lidar data retrieval samples\nData will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources. Make sure you gather data well beyond the site.\n\n\n\n\n\n\nNote\n\n\n\nThe lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nNOAA Digital Coast Lidar Viewer\nUSGS National Map\nUSGS Lidar Explorer\nOpen Topography\nVarious state and university sites, county and local governments, and project specific Lidar collection are other possible sources for data.\n\n\n\n\n\nConvert Laz to Las (if needed)\n\nAdd LAStools toolbox to ArcGISPro. Open the LAStools toolbox and select las2lasPro (transform) tool.\nDrag the folder with the Laz files into the Input folder.\nChange the output format to Las. Click Run.\n\n\n\nTransform LAS file projections\nAll datasets need to be in the same projection for the entire Study Area.\n\nOpen LAStools las2lasPro (transform) tool\nAdd the folder for the files that need to be reprojected to the input folder.\nChosen projection for transform. Projections must be in feet or meters.\n\n\n\nChose a location to create file storage structure for data.\n\nIn a folder create a file GDB and a folder labeled LPC. Use the year as the naming convention. Ex. 2025. This is where the LAS Lidar files will go.\nCreate a feature dataset for each GDB. The projection used should be the same as the LAS files for each year. Use site, number, and year for naming convention. Ex. SiteName_120_2025.",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Level-1 Initial Channel Assessment</span>"

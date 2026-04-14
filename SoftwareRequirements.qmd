@@ -14,5 +14,3 @@ Here is a summary of the software that must be installed to use the FluvialGeomo
 * ArcGIS Pro (3.2+ recommended) 
 * FluvialGeomorph toolbox, latest version
 
-
-## For more information on softwares and installations refer to the FluvialGeomorph [Tech Manual](https://fluvialgeomorph.github.io/FG-Tech-Manual/2-1-Install.html)
