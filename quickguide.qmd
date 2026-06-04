@@ -1,0 +1,304 @@
+---
+title: "Quick Guide"
+format: html
+---
+
+{{< badge reference >}}
+
+# Quick Guide: How the Manuals Work Together
+
+## Overview
+
+The **Fluvial Geomorphology Technical Manual** and **User Manual** are companion documents designed to work together. Think of them as the "why" and "how" of fluvial geomorphic assessment.
+
+---
+
+## The Two-Manual System
+
+### 📐 Technical Manual: The Science
+**Purpose:** Explains the scientific methods, theories, and calculations
+
+**Use this when you need to:**
+- Understand the underlying science
+- Learn calculation methodologies
+- Validate your approach
+- Explain methods to reviewers
+- Understand why certain procedures are used
+
+**Contains:**
+- Theoretical foundations
+- Mathematical equations
+- Classification systems (e.g., Rosgen)
+- Method validation and limitations
+- Scientific references
+
+### 🔧 User Manual: The Practice
+**Purpose:** Shows you how to use the tools and execute workflows
+
+**Use this when you need to:**
+- Perform actual analyses
+- Follow step-by-step procedures
+- Use ArcGIS Pro and R tools
+- Process field data
+- Generate reports and outputs
+
+**Contains:**
+- Software tutorials
+- Workflow procedures
+- Tool-specific instructions
+- Example datasets
+- Troubleshooting tips
+
+---
+
+{{< badge reference >}}
+This is a test of a coding book icon: {{< fa book-code >}}
+
+
+## How They Connect
+
+```{=html}
+<div style="text-align: center; max-width: 800px; margin: 0 auto;">
+  <div style="display: flex; gap: 40px; justify-content: center; margin-bottom: 30px;">
+    <div style="flex: 1; background: #e8f4f8; padding: 20px; border-radius: 10px; border: 3px solid #17a2b8;">
+      <h4 style="margin-top: 0;">📐 Technical Manual</h4>
+      <p><strong>WHY & WHAT</strong></p>
+      <ul style="text-align: left; line-height: 1.8;">
+        <li>Theory</li>
+        <li>Equations</li>
+        <li>Methods</li>
+        <li>Validation</li>
+      </ul>
+    </div>
+    <div style="flex: 1; background: #fff4e6; padding: 20px; border-radius: 10px; border: 3px solid #fd7e14;">
+      <h4 style="margin-top: 0;">🔧 User Manual</h4>
+      <p><strong>HOW & WHEN</strong></p>
+      <ul style="text-align: left; line-height: 1.8;">
+        <li>Workflows</li>
+        <li>Software steps</li>
+        <li>Examples</li>
+        <li>Troubleshooting</li>
+      </ul>
+    </div>
+  </div>
+  <div style="font-size: 2em; margin: 20px 0;">↓</div>
+  <div style="background: #d4edda; padding: 20px; border-radius: 10px; border: 3px solid #28a745; max-width: 400px; margin: 0 auto;">
+    <h4 style="margin: 0;">✅ Your Successful Analysis</h4>
+  </div>
+</div>
+```
+
+---
+
+## Typical Workflow
+
+### 1. **Planning Phase**
+- 📐 **Technical Manual:** Review methods for your stream type
+- 🔧 **User Manual:** Check data requirements and tool setup
+
+### 2. **Field Work**
+- 📐 **Technical Manual:** Understand what measurements are needed and why
+- 🔧 **User Manual:** Follow field data collection protocols
+
+### 3. **Data Processing**
+- 🔧 **User Manual:** Execute workflows in ArcGIS Pro and R
+- 📐 **Technical Manual:** Reference when you need to understand a calculation
+
+### 4. **Analysis**
+- 🔧 **User Manual:** Run analysis tools
+- 📐 **Technical Manual:** Interpret results using scientific context
+
+### 5. **Quality Control**
+- 📐 **Technical Manual:** Validate results against expected ranges
+- 🔧 **User Manual:** Use QC checklists
+
+### 6. **Reporting**
+- 📐 **Technical Manual:** Cite methods and equations
+- 🔧 **User Manual:** Generate standard outputs
+
+---
+
+## Example: Calculating Bankfull Discharge
+
+### Technical Manual Shows:
+- **Why:** Manning's equation is appropriate for uniform flow
+- **What:** Q = (1/n)AR^(2/3)S^(1/2)
+- **Theory:** Relationship between flow, roughness, and geometry
+- **Limitations:** Assumes uniform flow conditions
+- **Validation:** Typical ranges for different stream types
+
+### User Manual Shows:
+- **How:** Step-by-step in ArcGIS Pro and R
+- **Where:** Which tools to click
+- **When:** At what stage in the workflow
+- **Troubleshooting:** Common errors and solutions
+- **Output:** What the final report looks like
+
+### Using Both Together:
+1. 📐 Read Technical Manual to understand Manning's equation
+2. 🔧 Follow User Manual to input your cross-section data
+3. 🔧 Run the FluvialGeomorph tool
+4. 📐 Check Technical Manual to verify results are reasonable
+5. 🔧 Use User Manual to generate final report
+
+---
+
+## Quick Reference Table
+
+| I Need To... | Use This Manual | Section |
+|-------------|----------------|---------|
+| Understand Rosgen classification | 📐 Technical | Stream Classification |
+| Run classification in ArcGIS | 🔧 User | Workflow Chapter |
+| Learn about hydraulic geometry | 📐 Technical | Hydraulic Geometry |
+| Calculate width/depth ratios | 🔧 User | Analysis Tools |
+| Understand sediment transport equations | 📐 Technical | Sediment Transport |
+| Process LiDAR data | 🔧 User | Data Preparation |
+| Validate my discharge calculation | 📐 Technical | Quality Control |
+| Troubleshoot an error message | 🔧 User | Troubleshooting |
+| Cite methods in a report | 📐 Technical | References |
+| Generate cross-section plots | 🔧 User | Visualization Tools |
+
+---
+
+## User Pathways
+
+### 🟢 Beginner Path
+1. **Start:** 🔧 User Manual - Getting Started
+2. **Learn:** 📐 Technical Manual - Basic Concepts
+3. **Practice:** 🔧 User Manual - Tutorial with example data
+4. **Understand:** 📐 Technical Manual - Method details
+5. **Apply:** 🔧 User Manual - Your own project
+
+### 🟡 Intermediate Path
+1. **Review:** 📐 Technical Manual - Specific method
+2. **Execute:** 🔧 User Manual - Corresponding workflow
+3. **Validate:** 📐 Technical Manual - Expected results
+4. **Refine:** 🔧 User Manual - Advanced options
+
+### 🔴 Advanced Path
+1. **Deep dive:** 📐 Technical Manual - Theory and equations
+2. **Customize:** 🔧 User Manual - Advanced workflows
+3. **Validate:** 📐 Technical Manual - Sensitivity analysis
+4. **Innovate:** Adapt methods for unique situations
+
+---
+
+## When to Use Which Manual
+
+### Use Technical Manual When:
+- ✅ Writing a methods section for a report
+- ✅ Explaining your approach to reviewers
+- ✅ Understanding why a method works
+- ✅ Determining if a method is appropriate
+- ✅ Validating results
+- ✅ Teaching concepts to others
+- ✅ Researching alternative approaches
+
+### Use User Manual When:
+- ✅ Setting up software for the first time
+- ✅ Following a step-by-step workflow
+- ✅ Troubleshooting an error
+- ✅ Learning tool-specific procedures
+- ✅ Processing data
+- ✅ Generating outputs
+- ✅ Finding example datasets
+
+### Use Both When:
+- ✅ Starting a new project
+- ✅ Learning a new analysis method
+- ✅ Quality checking your work
+- ✅ Training team members
+- ✅ Developing standard operating procedures
+
+---
+
+## Cross-References
+
+Both manuals include cross-references to help you navigate:
+
+**In Technical Manual:**
+> "For step-by-step instructions on running this analysis, see User Manual Chapter 5: Hydraulic Geometry Analysis"
+
+**In User Manual:**
+> "For the theoretical basis of this calculation, see Technical Manual Section 3.2: Manning's Equation"
+
+---
+
+## Tips for Success
+
+### 📚 First Time Users
+1. Skim both manuals to understand the structure
+2. Start with User Manual tutorials using example data
+3. Reference Technical Manual when you want deeper understanding
+4. Bookmark frequently used sections in both
+
+### 🎯 Experienced Users
+1. Use Technical Manual as a reference guide
+2. Use User Manual for workflow reminders
+3. Contribute feedback to improve both manuals
+
+### 👥 Team Leaders
+1. Assign Technical Manual reading for conceptual training
+2. Use User Manual for hands-on training sessions
+3. Create project-specific SOPs combining both manuals
+
+---
+
+## Getting Help
+
+### If You're Stuck:
+
+1. **Check User Manual** troubleshooting section
+2. **Review Technical Manual** to ensure method is appropriate
+3. **Verify** you're using the right tool for your stream type
+4. **Consult** example datasets to compare
+5. **Contact** support with specific questions
+
+### When Reporting Issues:
+
+Include information from both manuals:
+- **Method used** (from Technical Manual)
+- **Tool/workflow** (from User Manual)
+- **Expected vs. actual results**
+- **Error messages**
+
+---
+
+## Document Versions
+
+Always ensure both manuals are from the **same version release**:
+- Technical Manual v1.2.0 ↔ User Manual v1.2.0 ✅
+- Technical Manual v1.2.0 ↔ User Manual v1.0.0 ⚠️ (may have inconsistencies)
+
+Check the version number on the title page of each manual.
+
+---
+
+## Summary
+
+| Manual | Focus | When to Use | Key Content |
+|--------|-------|-------------|-------------|
+| 📐 **Technical** | Science & Theory | Understanding WHY | Methods, equations, validation |
+| 🔧 **User** | Practice & Application | Doing the work | Workflows, tools, examples |
+| 🤝 **Together** | Complete Solution | Best results | Informed analysis with proper execution |
+
+**Remember:** The Technical Manual gives you the knowledge; the User Manual gives you the skills. Together, they give you expertise.
+
+---
+
+## Quick Start Checklist
+
+- [ ] Download both manuals
+- [ ] Verify versions match
+- [ ] Review this guide
+- [ ] Identify your user level (Beginner/Intermediate/Advanced)
+- [ ] Follow your pathway
+- [ ] Bookmark key sections in both manuals
+- [ ] Download example datasets from User Manual
+- [ ] Review relevant methods in Technical Manual
+- [ ] Execute first workflow from User Manual
+- [ ] Validate results using Technical Manual
+
+---
+
+**Ready to begin?** Start with the User Manual's "Getting Started" chapter, and keep the Technical Manual open for reference!

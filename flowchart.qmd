@@ -1,0 +1,328 @@
+---
+title: "Manual Flowchart"
+format: html
+---
+
+{{< badge resource >}}
+
+# Which Manual Do I Need?
+The FluvialGeomorph 
+## Quick Decision Flowchart
+
+```{mermaid}
+flowchart LR
+    Start([I need to work with<br/>fluvial geomorphology]) --> Question1{What do I<br/>need to do?}
+    
+    Question1 -->|Learn the science| Tech[Technical Manual]
+    Question1 -->|Do the work| User[User Manual]
+    Question1 -->|Both| Both[Use Both Manuals]
+    
+    Tech --> TechQ{What specifically?}
+    TechQ -->|Understand methods| TechMethods[Technical Manual:<br/>Methods & Theory]
+    TechQ -->|Learn equations| TechEq[Technical Manual:<br/>Calculations]
+    TechQ -->|Validate approach| TechVal[Technical Manual:<br/>Quality Control]
+    TechQ -->|Write report| TechReport[Technical Manual:<br/>References & Citations]
+    
+    User --> UserQ{What specifically?}
+    UserQ -->|Install software| UserSetup[User Manual:<br/>Setup & Installation]
+    UserQ -->|Process data| UserData[User Manual:<br/>Data Processing]
+    UserQ -->|Run analysis| UserAnalysis[User Manual:<br/>Workflows]
+    UserQ -->|Fix errors| UserTrouble[User Manual:<br/>Troubleshooting]
+    
+    Both --> BothQ{Starting point?}
+    BothQ -->|New project| BothNew[Start: User Manual Setup<br/>Reference: Technical Manual Methods]
+    BothQ -->|Learning| BothLearn[Start: Technical Manual Concepts<br/>Practice: User Manual Tutorials]
+    BothQ -->|Quality check| BothQC[Execute: User Manual<br/>Validate: Technical Manual]
+
+    style Tech fill:#e8f4f8
+    style User fill:#fff4e6
+    style Both fill:#f0e6ff
+```
+
+---
+
+## Interactive Crosswalk Table
+
+### 👤 I am a...
+
+| User Type | Primary Manual | Secondary Manual | Start Here |
+|-----------|---------------|------------------|------------|
+| **Student/Beginner** | 🔧 User Manual | 📐 Technical Manual | User Manual: Getting Started |
+| **Field Technician** | 🔧 User Manual | 📐 Technical Manual | User Manual: Field Data Collection |
+| **GIS Analyst** | 🔧 User Manual | 📐 Technical Manual | User Manual: ArcGIS Workflows |
+| **Hydrologist/Scientist** | 📐 Technical Manual | 🔧 User Manual | Technical Manual: Methods |
+| **Project Manager** | 📐 Technical Manual | 🔧 User Manual | Technical Manual: Overview |
+| **Reviewer/Regulator** | 📐 Technical Manual | 🔧 User Manual | Technical Manual: Validation |
+
+---
+
+## 🎯 I Need To...
+
+### Planning & Understanding
+
+| Task | Manual | Chapter/Section |
+|------|--------|----------------|
+| Understand stream classification systems | 📐 Technical | Stream Classification |
+| Learn about hydraulic geometry | 📐 Technical | Hydraulic Geometry |
+| Understand sediment transport | 📐 Technical | Sediment Transport Theory |
+| Determine appropriate methods | 📐 Technical | Method Selection |
+| Review scientific basis | 📐 Technical | Theoretical Foundations |
+| Plan data collection | 🔧 User | Data Requirements |
+| Estimate project timeline | 🔧 User | Workflow Overview |
+
+### Setup & Installation
+
+| Task | Manual | Chapter/Section |
+|------|--------|----------------|
+| Install ArcGIS Pro tools | 🔧 User | Application Setup |
+| Install R and RStudio | 🔧 User | R Installation |
+| Set up FluvialGeomorph package | 🔧 User | Package Installation |
+| Configure LAStools | 🔧 User | LiDAR Tools Setup |
+| Prepare workspace | 🔧 User | Project Setup |
+| Download example data | 🔧 User | Getting Started |
+
+### Field Work
+
+| Task | Manual | Chapter/Section |
+|------|--------|----------------|
+| Understand what to measure | 📐 Technical | Field Methods Theory |
+| Learn survey techniques | 📐 Technical | Survey Protocols |
+| Follow field protocols | 🔧 User | Field Data Collection |
+| Use survey equipment | 🔧 User | Equipment Guide |
+| Record data properly | 🔧 User | Data Forms |
+| Identify bankfull indicators | 📐 Technical + 🔧 User | Both: Bankfull Identification |
+
+### Data Processing
+
+| Task | Manual | Chapter/Section |
+|------|--------|----------------|
+| Import survey data | 🔧 User | Data Import |
+| Process LiDAR | 🔧 User | LiDAR Processing |
+| Create DEMs | 🔧 User | Terrain Development |
+| Delineate reaches | 🔧 User | Reach Delineation |
+| Generate cross-sections | 🔧 User | Cross-Section Tools |
+| Clean/QC data | 🔧 User | Data Quality Control |
+
+### Analysis
+
+| Task | Manual | Chapter/Section |
+|------|--------|----------------|
+| Understand calculation methods | 📐 Technical | Calculation Methods |
+| Calculate bankfull dimensions | 🔧 User | Bankfull Analysis Workflow |
+| Perform hydraulic geometry analysis | 🔧 User | Hydraulic Geometry Tools |
+| Classify stream type | 🔧 User | Classification Workflow |
+| Assess channel stability | 🔧 User | Stability Analysis |
+| Run sediment transport calculations | 🔧 User | Sediment Tools |
+
+### Validation & QC
+
+| Task | Manual | Chapter/Section |
+|------|--------|----------------|
+| Understand expected ranges | 📐 Technical | Validation Criteria |
+| Check calculation accuracy | 📐 Technical | Quality Control |
+| Verify results make sense | 📐 Technical | Result Interpretation |
+| Run QC procedures | 🔧 User | QC Checklists |
+| Compare with regional data | 📐 Technical | Regional Curves |
+| Troubleshoot errors | 🔧 User | Troubleshooting |
+
+### Reporting & Documentation
+
+| Task | Manual | Chapter/Section |
+|------|--------|----------------|
+| Write methods section | 📐 Technical | Method Descriptions |
+| Cite equations | 📐 Technical | References |
+| Explain scientific basis | 📐 Technical | Theory Sections |
+| Generate standard outputs | 🔧 User | Report Generation |
+| Create visualizations | 🔧 User | Visualization Tools |
+| Export results | 🔧 User | Data Export |
+
+---
+
+## 🔄 Common Workflows
+
+### Workflow 1: Complete Stream Assessment
+
+```
+1. 📐 Technical Manual → Review appropriate methods for your stream type
+2. 🔧 User Manual → Set up project and tools
+3. 🔧 User Manual → Collect field data following protocols
+4. 🔧 User Manual → Process data in ArcGIS Pro
+5. 🔧 User Manual → Run analysis workflows
+6. 📐 Technical Manual → Validate results against expected ranges
+7. 🔧 User Manual → Generate reports
+8. 📐 Technical Manual → Write methods section for deliverable
+```
+
+### Workflow 2: Learning a New Method
+
+```
+1. 📐 Technical Manual → Read theory and equations
+2. 🔧 User Manual → Download example dataset
+3. 🔧 User Manual → Follow tutorial step-by-step
+4. 📐 Technical Manual → Understand why results look the way they do
+5. 🔧 User Manual → Apply to your own data
+6. 📐 Technical Manual → Validate your results
+```
+
+### Workflow 3: Troubleshooting an Issue
+
+```
+1. 🔧 User Manual → Check troubleshooting section
+2. 🔧 User Manual → Verify workflow steps
+3. 📐 Technical Manual → Confirm method is appropriate
+4. 📐 Technical Manual → Check if results are within expected ranges
+5. 🔧 User Manual → Review example to compare
+```
+
+---
+
+## 📊 Quick Reference Matrix
+
+|  | Learn Concepts | Execute Tasks | Validate Results | Write Reports |
+|---|:---:|:---:|:---:|:---:|
+| **Technical Manual** | ✅✅✅ | ⚠️ | ✅✅✅ | ✅✅✅ |
+| **User Manual** | ⚠️ | ✅✅✅ | ⚠️ | ✅ |
+| **Both Together** | ✅✅ | ✅✅ | ✅✅✅ | ✅✅ |
+
+✅✅✅ = Primary resource  
+✅✅ = Very helpful  
+✅ = Helpful  
+⚠️ = Limited coverage
+
+---
+
+## 🎓 Learning Paths by Experience Level
+
+### 🟢 Beginner (New to Fluvial Geomorphology)
+
+**Week 1-2: Foundations**
+- 📐 Technical Manual: Introduction & Basic Concepts
+- 🔧 User Manual: Getting Started & Setup
+
+**Week 3-4: First Analysis**
+- 🔧 User Manual: Tutorial with example data
+- 📐 Technical Manual: Reference as needed
+
+**Week 5+: Apply to Real Data**
+- 🔧 User Manual: Your project workflow
+- 📐 Technical Manual: Validation & QC
+
+### 🟡 Intermediate (Some Experience)
+
+**Quick Review**
+- 📐 Technical Manual: Skim relevant methods
+- 🔧 User Manual: Review workflow overview
+
+**Execute**
+- 🔧 User Manual: Follow specific workflows
+- 📐 Technical Manual: Reference for validation
+
+**Refine**
+- 📐 Technical Manual: Advanced topics
+- 🔧 User Manual: Advanced features
+
+### 🔴 Advanced (Experienced Practitioner)
+
+**Reference**
+- 📐 Technical Manual: Deep dive into theory
+- 🔧 User Manual: Quick workflow reminders
+
+**Customize**
+- 📐 Technical Manual: Adapt methods
+- 🔧 User Manual: Advanced customization
+
+**Innovate**
+- 📐 Technical Manual: Understand limitations
+- 🔧 User Manual: Extend capabilities
+
+---
+
+## 🔍 Search Guide
+
+### If You're Looking For...
+
+| Keyword | Check This Manual First |
+|---------|------------------------|
+| "How to..." | 🔧 User Manual |
+| "Why..." | 📐 Technical Manual |
+| "What is..." | 📐 Technical Manual |
+| "Step-by-step..." | 🔧 User Manual |
+| "Theory..." | 📐 Technical Manual |
+| "Equation..." | 📐 Technical Manual |
+| "Workflow..." | 🔧 User Manual |
+| "Error..." | 🔧 User Manual |
+| "Install..." | 🔧 User Manual |
+| "Calculate..." | 🔧 User Manual (how) + 📐 Technical (why) |
+| "Validate..." | 📐 Technical Manual |
+| "Example..." | 🔧 User Manual |
+
+---
+
+## 📱 Quick Access Links
+
+### Technical Manual - Most Used Sections
+- [Stream Classification Methods](#)
+- [Hydraulic Geometry Equations](#)
+- [Bankfull Identification Criteria](#)
+- [Validation & Expected Ranges](#)
+- [References & Citations](#)
+
+### User Manual - Most Used Sections
+- [Getting Started & Setup](#)
+- [Field Data Collection](#)
+- [ArcGIS Pro Workflows](#)
+- [R/FluvialGeomorph Tools](#)
+- [Troubleshooting](#)
+
+---
+
+## 💡 Pro Tips
+
+### For Best Results:
+
+1. **Start with the right manual** for your immediate need
+2. **Cross-reference** when you need deeper understanding
+3. **Bookmark** frequently used sections in both
+4. **Keep both open** when doing analysis
+5. **Verify versions match** (e.g., both v1.2.0)
+
+### Red Flags:
+
+- ❌ Using only one manual for everything
+- ❌ Skipping validation steps
+- ❌ Not understanding the "why" behind methods
+- ❌ Following workflows without checking appropriateness
+
+### Green Flags:
+
+- ✅ Consulting Technical Manual before starting
+- ✅ Following User Manual workflows step-by-step
+- ✅ Validating results with Technical Manual
+- ✅ Understanding both theory and practice
+
+---
+
+## 📥 Download Both Manuals
+
+| Manual | Best For | Download |
+|--------|----------|----------|
+| 📐 **Technical Manual** | Understanding methods & theory | [Download PDF](#) \| [View Online](#) |
+| 🔧 **User Manual** | Step-by-step workflows | [Download PDF](#) \| [View Online](#) |
+| 📦 **Example Data** | Practice and learning | [Download ZIP](#) |
+
+---
+
+## ❓ Still Not Sure?
+
+**Contact us with your specific question, and we'll point you to the right manual and section!**
+
+- 📧 Email: support@example.com
+- 💬 Discussion Forum: [link]
+- 📚 FAQ: [link]
+
+---
+
+**Remember: The manuals work best together!**  
+📐 Technical Manual = The Science  
+🔧 User Manual = The Practice  
+🤝 Both Together = Success

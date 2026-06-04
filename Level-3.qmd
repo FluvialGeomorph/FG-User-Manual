@@ -1,13 +1,14 @@
-# Level-3 Planform Analysis
+# Level-3 Planform Analysis 
+
+{{< badge advanced >}}
 
 
 The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.
 Level 1 is to extract basic channel dimensions. This stage develops terrain, defines the stream reach, creates cross sections and identifies features along the reach. The output is a report of the dimensions for each cross section on a reach.
 
 ## Application and Data Setup
-
+{{< badge practical >}}
 ### Applications
-
 
 ### 	Level-2 Data
 
@@ -21,7 +22,7 @@ Level 1 is to extract basic channel dimensions. This stage develops terrain, def
 2.	Create a mapped drive and use that connection in ArcCatalog. 
 
 ## Analysis Workflow 
-
+{{< badge practical >}}
 ### Define Valley Line
 
 #### Develop Candidate Valleylines
@@ -160,7 +161,7 @@ The purpose of this step is to assign loop and bend identifiers to regularly spa
 4. __Repeat__ this step for both the riffle_channel and riffle_floodplain feature classes.  
 
 ## Run Report
-
+{{< badge practical >}}
 ### XS Dimensions Level 3
 
 The purpose of this stage is to calculate the Level 3 dimensions for each reach.
@@ -226,6 +227,11 @@ The purpose of this stage is to run the Level 3 report for each reach.
 18. Select word as the output format for the report. 
 19. Hit Run.
 
-
+## Next Steps
+{{< badge evaluate >}}
+### Review the report. 
+1. Go to chapter Level 3 Planform Report under Report Reviews.
+2. Refer to the FG technical manual as need for more detailed information.
+3. Revise and/or rerun as needed.
 
 

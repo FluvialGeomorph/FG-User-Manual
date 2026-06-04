@@ -6,11 +6,12 @@ function badge(args, kwargs)
     intermediate = {text = "Intermediate", class = "badge-intermediate", icon = "🟡"},
     advanced = {text = "Advanced", class = "badge-advanced", icon = "🔴"},
     reference = {text = "Quick Reference", class = "badge-reference", icon = "⚡"},
-    field = {text = "Field Work", class = "badge-field", icon = "🏞️"},
+    resource = {text = "Resource", class = "badge-resource", icon = "📚️"},
     theory = {text = "Theory", class = "badge-theory", icon = "📐"},
     practical = {text = "Practical", class = "badge-practical", icon = "🔧"},
-    caution = {text = "Caution", class = "badge-caution", icon = "⚠️"}
-  }
+    caution = {text = "Caution", class = "badge-caution", icon = "⚠️"},
+    evaluate = {text = "Evaluate", class = "badge-evaluate", icon = "☑️"}
+ }
   
   local badge_info = badges[level]
   if badge_info then

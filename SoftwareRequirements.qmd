@@ -5,7 +5,7 @@ format: html
 
 
 ## Software
-
+{{< badge intermediate >}} {{< badge practical >}} {{< badge reference >}}
 Here is a summary of the software that must be installed to use the FluvialGeomorph toolbox. 
 
 * Windows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.

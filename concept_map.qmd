@@ -1,0 +1,417 @@
+---
+title: "Manual Crosswalk"
+format: html
+---
+
+{{< badge resource >}}
+
+# Concept Map: Technical Manual ↔ User Manual
+
+## Visual Concept Map
+
+```{mermaid}
+graph LR
+    subgraph TM["📐 Technical Manual"]
+        TM1[1. Introduction & Overview]
+        TM2[2. Stream Classification]
+        TM3[3. Hydraulic Geometry]
+        TM4[4. Bankfull Identification]
+        TM5[5. Cross-Section Analysis]
+        TM6[6. Longitudinal Profile]
+        TM7[7. Sediment Transport]
+        TM8[8. Channel Stability]
+        TM9[9. Validation & QC]
+        TM10[10. Regional Curves]
+    end
+    
+    subgraph UM["🔧 User Manual"]
+        UM1[1. Getting Started]
+        UM2[2. Data Requirements]
+        UM3[3. Field Data Collection]
+        UM4[4. Data Processing]
+        UM5[5. Terrain Development]
+        UM6[6. Reach Delineation]
+        UM7[7. Cross-Section Tools]
+        UM8[8. Bankfull Analysis]
+        UM9[9. Classification Workflow]
+        UM10[10. Hydraulic Geometry]
+        UM11[11. Sediment Analysis]
+        UM12[12. Report Generation]
+        UM13[13. Quality Control]
+        UM14[14. Troubleshooting]
+    end
+    
+    TM1 -.->|Context| UM1
+    TM1 -.->|Overview| UM2
+    
+    TM2 -->|Methods| UM9
+    TM2 -.->|Field ID| UM3
+    
+    TM3 -->|Equations| UM10
+    TM3 -.->|Theory| UM7
+    
+    TM4 -->|Criteria| UM8
+    TM4 -->|Indicators| UM3
+    
+    TM5 -->|Analysis Methods| UM7
+    TM5 -.->|Processing| UM4
+    
+    TM6 -->|Profile Analysis| UM6
+    TM6 -.->|Slope Calc| UM5
+    
+    TM7 -->|Transport Equations| UM11
+    TM7 -.->|Substrate| UM3
+    
+    TM8 -.->|Assessment| UM9
+    TM8 -.->|Indicators| UM3
+    
+    TM9 -->|Validation| UM13
+    TM9 -->|Expected Ranges| UM12
+    
+    TM10 -.->|Regional Data| UM10
+    TM10 -.->|Comparison| UM13
+    
+    style TM fill:#e8f4f8
+    style UM fill:#fff4e6
+```
+
+**Legend:**
+- **Solid arrows (→)**: Primary/direct correspondence
+- **Dashed arrows (-.->)**: Supporting/reference relationship
+
+---
+
+## Detailed Chapter Correspondence Table
+
+### Level 1: Introduction & Setup
+
+| 📐 Technical Manual | 🔧 User Manual | Relationship | Use Together For |
+|---------------------|----------------|--------------|------------------|
+| **Ch 1: Introduction & Overview** | **Ch 1: Getting Started** | Foundation | Understanding project scope |
+| • Purpose & scope<br>• Fluvial concepts<br>• Assessment framework | • Software installation<br>• Project setup<br>• Interface overview | Technical provides context;<br>User provides implementation | • Initial project planning<br>• Team orientation<br>• Scope definition |
+| **Ch 1: Introduction** | **Ch 2: Data Requirements** | Planning | Determining data needs |
+| • Assessment levels<br>• Method selection | • Required datasets<br>• Data formats<br>• Minimum requirements | Technical explains why;<br>User specifies what | • Project scoping<br>• Budget planning<br>• Timeline estimation |
+
+---
+
+### Level 2: Field Methods
+
+| 📐 Technical Manual | 🔧 User Manual | Relationship | Use Together For |
+|---------------------|----------------|--------------|------------------|
+| **Ch 4: Bankfull Identification** | **Ch 3: Field Data Collection** | Direct Application | Field surveys |
+| • Bankfull indicators<br>• Field identification<br>• Validation criteria | • Survey protocols<br>• Equipment use<br>• Data recording forms | Technical defines indicators;<br>User shows how to measure | • Training field crews<br>• Conducting surveys<br>• Documenting features |
+| **Ch 2: Stream Classification** | **Ch 3: Field Data Collection** | Supporting | Stream characterization |
+| • Rosgen classification<br>• Stream types<br>• Morphological features | • Feature identification<br>• Photo documentation<br>• Field forms | Technical explains features;<br>User shows how to document | • Stream reconnaissance<br>• Feature identification<br>• Classification prep |
+| **Ch 7: Sediment Transport** | **Ch 3: Field Data Collection** | Supporting | Substrate assessment |
+| • Particle size theory<br>• Substrate classification | • Pebble count procedures<br>• Substrate sampling<br>• Data recording | Technical explains importance;<br>User provides protocols | • Substrate characterization<br>• Roughness estimation<br>• Transport potential |
+
+---
+
+### Level 3: Data Processing
+
+| 📐 Technical Manual | 🔧 User Manual | Relationship | Use Together For |
+|---------------------|----------------|--------------|------------------|
+| **Ch 5: Cross-Section Analysis** | **Ch 4: Data Processing** | Foundation | Data preparation |
+| • Cross-section theory<br>• Spacing requirements<br>• Orientation standards | • Data import<br>• Format conversion<br>• Data cleaning | Technical sets standards;<br>User implements processing | • Importing survey data<br>• Quality checking<br>• Format standardization |
+| **Ch 6: Longitudinal Profile** | **Ch 5: Terrain Development** | Direct Application | DEM creation |
+| • Profile analysis theory<br>• Slope calculation methods<br>• Elevation requirements | • LiDAR processing<br>• DEM generation<br>• Terrain tools | Technical explains methods;<br>User executes workflows | • Creating terrain models<br>• Extracting profiles<br>• Calculating slopes |
+| **Ch 6: Longitudinal Profile** | **Ch 6: Reach Delineation** | Direct Application | Defining reaches |
+| • Reach definition criteria<br>• Homogeneity requirements<br>• Break point identification | • Reach delineation tools<br>• Breakpoint selection<br>• Reach segmentation | Technical defines criteria;<br>User applies tools | • Segmenting streams<br>• Identifying breaks<br>• Creating reach boundaries |
+
+---
+
+### Level 4: Analysis & Calculations
+
+| 📐 Technical Manual | 🔧 User Manual | Relationship | Use Together For |
+|---------------------|----------------|--------------|------------------|
+| **Ch 5: Cross-Section Analysis** | **Ch 7: Cross-Section Tools** | Direct Application | Cross-section analysis |
+| • Geometric calculations<br>• Area, width, depth<br>• Hydraulic radius | • Cross-section generation<br>• Dimension extraction<br>• Visualization tools | Technical provides equations;<br>User executes calculations | • Generating cross-sections<br>• Extracting dimensions<br>• Creating plots |
+| **Ch 4: Bankfull Identification** | **Ch 8: Bankfull Analysis** | Direct Application | Bankfull determination |
+| • Bankfull stage theory<br>• Discharge calculations<br>• Manning's equation | • Bankfull tools workflow<br>• Stage identification<br>• Discharge computation | Technical explains methods;<br>User runs analysis | • Identifying bankfull stage<br>• Calculating discharge<br>• Validating results |
+| **Ch 2: Stream Classification** | **Ch 9: Classification Workflow** | Direct Application | Stream typing |
+| • Rosgen classification system<br>• Entrenchment ratio<br>• Width/depth ratio<br>• Sinuosity<br>• Slope categories | • Classification tool<br>• Parameter calculation<br>• Type assignment<br>• Classification reports | Technical defines system;<br>User implements workflow | • Classifying streams<br>• Calculating parameters<br>• Assigning stream types<br>• Generating classification reports |
+| **Ch 3: Hydraulic Geometry** | **Ch 10: Hydraulic Geometry** | Direct Application | Dimensional analysis |
+| • Power law relationships<br>• Regional curves theory<br>• Drainage area relationships<br>• Exponent interpretation | • Hydraulic geometry tools<br>• Curve fitting<br>• Relationship plotting<br>• Prediction tools | Technical explains relationships;<br>User generates curves | • Creating regional curves<br>• Predicting dimensions<br>• Comparing relationships<br>• Validating predictions |
+| **Ch 7: Sediment Transport** | **Ch 11: Sediment Analysis** | Direct Application | Transport calculations |
+| • Transport equations<br>• Shields parameter<br>• Critical shear stress<br>• Capacity calculations | • Sediment transport tools<br>• Shear stress calculation<br>• Capacity estimation<br>• Mobility analysis | Technical provides equations;<br>User runs calculations | • Calculating transport capacity<br>• Assessing mobility<br>• Estimating sediment loads<br>• Stability assessment |
+
+---
+
+### Level 5: Validation & Reporting
+
+| 📐 Technical Manual | 🔧 User Manual | Relationship | Use Together For |
+|---------------------|----------------|--------------|------------------|
+| **Ch 9: Validation & QC** | **Ch 13: Quality Control** | Direct Application | Quality assurance |
+| • Expected value ranges<br>• Validation criteria<br>• Error sources<br>• Uncertainty analysis | • QC checklists<br>• Validation procedures<br>• Error checking<br>• Data review | Technical sets standards;<br>User implements checks | • Validating results<br>• Checking calculations<br>• Identifying errors<br>• Ensuring quality |
+| **Ch 10: Regional Curves** | **Ch 13: Quality Control** | Supporting | Result comparison |
+| • Regional relationships<br>• Comparison methods<br>• Acceptable ranges | • Comparison tools<br>• Outlier identification<br>• Regional data plots | Technical provides context;<br>User compares data | • Comparing to regional data<br>• Identifying outliers<br>• Validating predictions |
+| **Ch 9: Validation & QC** | **Ch 12: Report Generation** | Supporting | Documentation |
+| • Reporting standards<br>• Required documentation<br>• Method citations | • Report templates<br>• Output generation<br>• Visualization tools<br>• Export formats | Technical defines requirements;<br>User creates outputs | • Generating reports<br>• Creating figures<br>• Documenting methods<br>• Exporting results |
+| **Ch 8: Channel Stability** | **Ch 12: Report Generation** | Supporting | Stability reporting |
+| • Stability indicators<br>• Assessment criteria<br>• Interpretation guidance | • Stability outputs<br>• Summary tables<br>• Condition reports | Technical interprets results;<br>User formats outputs | • Assessing stability<br>• Reporting conditions<br>• Summarizing findings |
+
+---
+
+### Level 6: Troubleshooting & Support
+
+| 📐 Technical Manual | 🔧 User Manual | Relationship | Use Together For |
+|---------------------|----------------|--------------|------------------|
+| **Ch 9: Validation & QC** | **Ch 14: Troubleshooting** | Supporting | Problem solving |
+| • Common issues<br>• Method limitations<br>• When methods fail | • Error messages<br>• Common problems<br>• Solutions<br>• Workarounds | Technical explains why problems occur;<br>User provides solutions | • Diagnosing issues<br>• Understanding errors<br>• Finding solutions<br>• Determining alternatives |
+| **All Chapters** | **Ch 14: Troubleshooting** | Reference | Error resolution |
+| • Method-specific limitations<br>• Assumptions<br>• Applicability | • Tool-specific errors<br>• Workflow issues<br>• Data problems | Technical clarifies appropriateness;<br>User fixes technical issues | • Resolving errors<br>• Checking assumptions<br>• Verifying applicability |
+
+---
+
+## Cross-Reference Quick Guide
+
+### By Analysis Type
+
+#### Stream Classification Analysis
+
+**Read in this order:**
+
+1. 📐 **Technical Ch 2: Stream Classification** (30 min)
+   - Understand Rosgen system
+   - Learn classification parameters
+   - Review stream types
+
+2. 🔧 **User Ch 3: Field Data Collection** (15 min)
+   - Field identification procedures
+   - Photo documentation
+
+3. 🔧 **User Ch 9: Classification Workflow** (45 min)
+   - Run classification tools
+   - Calculate parameters
+   - Assign stream type
+
+4. 📐 **Technical Ch 9: Validation** (15 min)
+   - Verify classification makes sense
+   - Check against regional data
+
+---
+
+#### Bankfull Discharge Calculation
+
+**Read in this order:**
+
+1. 📐 **Technical Ch 4: Bankfull Identification** (20 min)
+   - Learn bankfull indicators
+   - Understand discharge theory
+   - Review Manning's equation
+
+2. 🔧 **User Ch 3: Field Data Collection** (20 min)
+   - Survey bankfull features
+   - Measure slope
+   - Document indicators
+
+3. 🔧 **User Ch 7: Cross-Section Tools** (30 min)
+   - Generate cross-sections
+   - Extract dimensions
+
+4. 🔧 **User Ch 8: Bankfull Analysis** (30 min)
+   - Run bankfull tools
+   - Calculate discharge
+   - Generate outputs
+
+5. 📐 **Technical Ch 9: Validation** (15 min)
+   - Check results against expected ranges
+   - Validate discharge values
+
+---
+
+#### Hydraulic Geometry Analysis
+
+**Read in this order:**
+
+1. 📐 **Technical Ch 3: Hydraulic Geometry** (30 min)
+   - Understand power law relationships
+   - Learn about regional curves
+   - Review exponents
+
+2. 🔧 **User Ch 2: Data Requirements** (10 min)
+   - Determine data needs
+   - Check minimum requirements
+
+3. 🔧 **User Ch 10: Hydraulic Geometry** (45 min)
+   - Run hydraulic geometry tools
+   - Generate regional curves
+   - Create predictions
+
+4. 📐 **Technical Ch 10: Regional Curves** (20 min)
+   - Compare to published curves
+   - Interpret relationships
+
+5. 🔧 **User Ch 13: Quality Control** (15 min)
+   - Validate curve fits
+   - Check outliers
+
+---
+
+#### Sediment Transport Assessment
+
+**Read in this order:**
+
+1. 📐 **Technical Ch 7: Sediment Transport** (40 min)
+   - Learn transport equations
+   - Understand critical shear stress
+   - Review Shields parameter
+
+2. 🔧 **User Ch 3: Field Data Collection** (20 min)
+   - Conduct pebble counts
+   - Sample substrate
+   - Document bed material
+
+3. 🔧 **User Ch 11: Sediment Analysis** (30 min)
+   - Run transport calculations
+   - Calculate shear stress
+   - Assess mobility
+
+4. 📐 **Technical Ch 8: Channel Stability** (20 min)
+   - Interpret results
+   - Assess stability implications
+
+---
+
+## Integrated Workflow Maps
+
+### Complete Level-1 Assessment Workflow
+
+```
+Planning Phase:
+├─ 📐 TM Ch 1: Introduction → Understand assessment approach
+├─ 🔧 UM Ch 1: Getting Started → Set up software
+└─ 🔧 UM Ch 2: Data Requirements → Identify needed data
+
+Field Phase:
+├─ 📐 TM Ch 4: Bankfull ID → Learn indicators
+├─ 📐 TM Ch 2: Classification → Understand features
+├─ 🔧 UM Ch 3: Field Collection → Conduct surveys
+└─ 📐 TM Ch 7: Sediment → Substrate theory
+
+Processing Phase:
+├─ 🔧 UM Ch 4: Data Processing → Import data
+├─ 🔧 UM Ch 5: Terrain Development → Create DEM
+├─ 🔧 UM Ch 6: Reach Delineation → Define reaches
+└─ 🔧 UM Ch 7: Cross-Sections → Generate XS
+
+Analysis Phase:
+├─ 🔧 UM Ch 8: Bankfull Analysis → Calculate dimensions
+├─ 🔧 UM Ch 9: Classification → Assign stream type
+├─ 🔧 UM Ch 10: Hydraulic Geometry → Analyze relationships
+└─ 🔧 UM Ch 11: Sediment Analysis → Assess transport
+
+Validation Phase:
+├─ 📐 TM Ch 9: Validation → Check results
+├─ 📐 TM Ch 10: Regional Curves → Compare data
+└─ 🔧 UM Ch 13: Quality Control → Run QC checks
+
+Reporting Phase:
+├─ 🔧 UM Ch 12: Report Generation → Create outputs
+└─ 📐 TM Ch 1-10: All → Cite methods
+```
+
+---
+
+## Topic-Based Cross-Reference
+
+### Bankfull Stage & Discharge
+
+| Topic | Technical Manual | User Manual |
+|-------|-----------------|-------------|
+| **Theory** | Ch 4: Bankfull theory, return interval | — |
+| **Field Indicators** | Ch 4: Indicator descriptions | Ch 3: Field identification |
+| **Survey Methods** | Ch 4: Survey requirements | Ch 3: Survey protocols |
+| **Calculations** | Ch 4: Manning's equation, roughness | Ch 8: Calculation workflow |
+| **Tools** | — | Ch 8: Bankfull tools |
+| **Validation** | Ch 9: Expected ranges | Ch 13: QC procedures |
+| **Reporting** | Ch 4: Documentation standards | Ch 12: Output generation |
+
+### Stream Classification
+
+| Topic | Technical Manual | User Manual |
+|-------|-----------------|-------------|
+| **Classification System** | Ch 2: Rosgen system details | — |
+| **Parameters** | Ch 2: Definitions, calculations | Ch 9: Parameter extraction |
+| **Stream Types** | Ch 2: Type descriptions | Ch 9: Type assignment |
+| **Field Assessment** | Ch 2: Visual identification | Ch 3: Field procedures |
+| **Tools** | — | Ch 9: Classification tools |
+| **Validation** | Ch 2: Typical ranges by type | Ch 13: Classification QC |
+| **Reporting** | Ch 2: Classification reporting | Ch 12: Classification outputs |
+
+### Cross-Section Analysis
+
+| Topic | Technical Manual | User Manual |
+|-------|-----------------|-------------|
+| **Theory** | Ch 5: Geometric principles | — |
+| **Spacing** | Ch 5: Spacing requirements | Ch 7: XS placement |
+| **Orientation** | Ch 5: Perpendicular requirements | Ch 7: XS orientation |
+| **Dimensions** | Ch 5: Calculation methods | Ch 7: Dimension extraction |
+| **Tools** | — | Ch 7: Cross-section tools |
+| **Visualization** | Ch 5: Standard plots | Ch 7: Plotting tools |
+| **QC** | Ch 9: XS validation | Ch 13: XS quality checks |
+
+---
+
+## Study Guide: Using Both Manuals Together
+
+### For Each New Topic:
+
+**Step 1: Foundation (Technical Manual)**
+- Read relevant theory chapter
+- Understand equations and methods
+- Note key concepts and limitations
+
+**Step 2: Application (User Manual)**
+- Review data requirements
+- Follow workflow step-by-step
+- Use example data first
+
+**Step 3: Practice (User Manual)**
+- Apply to your own data
+- Follow procedures exactly
+- Document any issues
+
+**Step 4: Validation (Technical Manual)**
+- Check results against expected ranges
+- Verify assumptions are met
+- Interpret findings
+
+**Step 5: Refinement (Both)**
+- Troubleshoot issues (User Manual)
+- Understand why issues occur (Technical Manual)
+- Adjust approach as needed
+
+---
+
+## Bookmark These Page Combinations
+
+### Most Frequently Used Together:
+
+1. **📐 TM Ch 4 + 🔧 UM Ch 8**: Bankfull analysis
+2. **📐 TM Ch 2 + 🔧 UM Ch 9**: Stream classification
+3. **📐 TM Ch 3 + 🔧 UM Ch 10**: Hydraulic geometry
+4. **📐 TM Ch 9 + 🔧 UM Ch 13**: Validation & QC
+5. **📐 TM Ch 5 + 🔧 UM Ch 7**: Cross-section analysis
+
+---
+
+## Quick Reference Card
+
+**Print this and keep it handy:**
+
+| I Need To... | Start Here | Then Go Here |
+|-------------|------------|--------------|
+| Understand WHY | 📐 Technical | 🔧 User (to apply) |
+| Learn HOW | 🔧 User | 📐 Technical (to validate) |
+| Plan project | 📐 TM Ch 1 | 🔧 UM Ch 2 |
+| Collect data | 📐 TM Ch 4 | 🔧 UM Ch 3 |
+| Process data | 🔧 UM Ch 4-7 | 📐 TM Ch 5-6 (reference) |
+| Run analysis | 🔧 UM Ch 8-11 | 📐 TM Ch 2-7 (understand) |
+| Check results | 📐 TM Ch 9 | 🔧 UM Ch 13 |
+| Create reports | 🔧 UM Ch 12 | 📐 TM (cite methods) |
+| Fix problems | 🔧 UM Ch 14 | 📐 TM (understand why) |
+
+---
+
+**💡 Pro Tip:** Keep both manuals open in separate browser tabs or windows. As you work through User Manual workflows, reference the corresponding Technical Manual sections to deepen your understanding!

@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: docs
+
   
 book:
   title: "FluvialGeomorph User Manual" 
@@ -22,8 +23,11 @@ book:
     - Intro.qmd
     - part: "Foundations"
       chapters:
+        - quickguide.qmd
         - Concepts.qmd
-        
+        - flowchart.qmd
+        - concept_map.qmd
+
     - part: "Resources"
       chapters:
         - SoftwareRequirements.qmd
@@ -46,7 +50,7 @@ book:
     - References.qmd
     - Glossary.qmd
 
-      
+     
 
   sidebar:
     style: "docked"
@@ -58,11 +62,18 @@ book:
 bibliography: packages.bib
 number-depth: 1
 
+
+  
 format:
   html:
+    mermaid: 
+      theme: default
     theme:
       light: flatly
       dark: darkly
+    filters: 
+      - quarto
+      - fontawesome
     respect-user-color-scheme: true
     css: styles.css
     lightbox: true

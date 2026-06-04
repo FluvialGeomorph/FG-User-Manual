@@ -7,15 +7,16 @@ format:
       loop: true
     css: styles.css  
 ---
+{{< badge beginner >}}
 
 # Level-1 Initial Channel Assessment
 
 The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.
 Level 1 is to extract basic channel dimensions. This stage develops terrain, defines the stream reach, creates cross sections and identifies features along the reach. The output is a report of the dimensions for each cross section on a reach. 
 
-## Application and Data Setup {.unnumbered}
 
-{{< badge beginner >}}
+## Application and Data Setup 
+{{< badge practical >}}
 
 ### 	Applications
 1.   ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro 
@@ -48,8 +49,10 @@ For more detailed installation information refer to FluvialGeomorph [Tech Manual
 
 Data will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources. Make sure you gather data well beyond the site. 
 
-::: {.callout-note}
-The lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.
+
+
+::: {.callout-note} 
+ The lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.
 :::
 
 
@@ -79,7 +82,9 @@ The lidar data will need to cover the entire floodplain. Ideally gather data to 
 1.	In a folder create a file GDB and a folder labeled LPC. Use the year as the naming convention. Ex. 2025. This is where the LAS Lidar files will go. 
 2.	Create a feature dataset for each GDB.  The projection used should be the same as the LAS files for each year. Use site, number, and year for naming convention. Ex. SiteName_120_2025.
 
-## Analysis Workflow 
+## Analysis Workflow  
+
+{{< badge practical >}}
 
 ### 	Create a Boundary 
 
@@ -155,6 +160,18 @@ The lidar data will need to cover the entire floodplain. Ideally gather data to 
     i.	Go to the edit ribbon and select create feature and select cutlines
     ii.	Zoom to the start of the water system and change the extent to around 1:1000. 
     iii.	Follow along the water system and look for roads or major crossings that cut off the water system. Draw a line from one end of the waterway to the other side that is cut off. Below are a few examples. 
+    
+    ```{css}
+    /*| echo: false */
+
+    /* Reduce space between image and caption inside columns */
+    .quarto-layout-cell figcaption {
+      margin-top: 2px !important;
+    }
+    .quarto-layout-cell img {
+      margin-bottom: 2px !important;
+    }
+    ```
 
     ```{r}
     #| echo: false
@@ -229,10 +246,12 @@ h.	Hit run.
 i.	Note: Before you run the flowline points for the older dataset, make sure the newer flowline points tool is done running. 
 i.	For the older dataset, fill in the information like when running the tool for the newer data. 
 j.	For calibration points, drag the flowline points created from the newer data.
+
 ::: {.callout-note}
 If the flowline end nodes are not snapped it could cause the layer to be empty.
 
 :::
+
 k.	The point id field is ReachName.
 l.	Measure field is POINT_M
 m.	Hit run. 
@@ -248,7 +267,7 @@ i.	The result converts the flowline into a series of points along the reach. The
     i.	Serve as reference on the profile graph in the report. 
 7.	In the table find the number next to “Measure”. Take note of this number, you will add it to the table once you create the feature. 
 8.	Open attribute table for ‘features’. Under km_to_mouth put the number that was correlated with “Measure”. 
-9.	The name in most cases will just be the name of the street or waterway. For the Site# feature, the name will be Site# and the SSRP_Type found in the attribute table of Illinois_SSRPSites_2004_2016. Ex. Site 264 STP;RR
+9.	The name in most cases will just be the name of the street or waterway. For the Site# feature, the name will be Site# and the SSRP_Type found in the attribute table of Illinois_SSRPSites_2004_2016. Ex. Site 264.
 
 ### 	Reuse the feature layer in future sites
 a.	Right click on the feature dataset for most recent data. Go to import and select Feature Class(es).
@@ -285,7 +304,7 @@ i.	For the output geodatabase, choose the corresponding feature dataset. This al
 
 ### 	Edit the Channel and Floodplain Banks_raw layers
 
-::: {style="float:right; margin: 4px"}
+::: {style="float:right; margin: 5px; width: 230px;"}
 ![Sample of a channel bank and floodplain layer](images/channel.jpg){height="2.3in"}
 :::
 
@@ -367,7 +386,7 @@ i.	For the output geodatabase, choose the corresponding feature dataset. This al
 7.	Repeat for earlier year XS Points.
     
 ## Run Report
-
+{{< badge practical >}}
 ### 	XS Dimensions Level 1 
 1.	In the FluvialGeomorph toolbox, open XS Dimensions, Level 1.
 2.	XS’s are added into xs_line fc.
@@ -410,3 +429,10 @@ h.	A new line feature class ending with dims_L1 will be added to the feature dat
 17.	Output_format is word_document.
 18.	Hit Run.
 19.	Review report for errors and anomalies in the data. 
+
+## Next Steps
+{{< badge evaluate >}}
+### Review the report. 
+1. Go to chapter Level 1 Report under Report Reviews.
+2. Refer to the FG technical manual as need for more detailed information.
+3. Revise and/or rerun as needed.

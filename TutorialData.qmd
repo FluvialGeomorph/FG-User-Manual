@@ -2,7 +2,7 @@
 title: "Tutorial Data"
 format: html
 ---
-
+{{< badge beginner >}} {{< badge practical >}} {{< badge reference >}}
 
 This chapter describes how to download the tutorial data and configure your workspace. 
 

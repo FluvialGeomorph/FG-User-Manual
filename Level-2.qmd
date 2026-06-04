@@ -1,5 +1,7 @@
 # Level-2 Estimate Bankfull Analysis
 
+{{< badge intermediate >}}
+
 The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.
 Level 2 Estimate Bankfull is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.
 The data from level 1 will be needed to start this estimate bankfull process. 
@@ -7,7 +9,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 ## Estimate Bankfull Analysis
 
 ## Application and Data Setup
-
+{{< badge practical >}}
 ### 	Level-1 Data
 
 1.	Sites must have had a Level-1 analysis run. That data is essential to completing Level_2 analysis.
@@ -20,7 +22,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 2.	Create a mapped drive and use that connection in ArcCatalog. 
 
 ## Analysis Workflow 
-
+{{< badge practical >}}
 ### 	Create Riffle Cross Section Layers– for Channel 
 1.	Copy the XS_section line layer in the most recent database and rename one XS_Layout_riffles_ch (Ex. xs_300_150_riffels_ch).
 
@@ -109,7 +111,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 8.	Repeat for earlier year XS Points.
 
 ## Run Report
-                                                              
+{{< badge practical >}}                                                             
 ### 	XS Dimensions Level 1
 1.	In the FluvialGeomorph toolbox, open XS Dimensions, Level 1.
 2.	XS’s for the newest year are added into xs_line fc.
@@ -220,3 +222,10 @@ The data from level 1 will be needed to start this estimate bankfull process.
 21.	Output_format is word_document.
 22.	Hit Run.
 23.	Review report for errors and anomalies in the data. 
+
+## Next Steps
+{{< badge evaluate >}}
+### Review the report. 
+1. Go to chapter Level 2 Bankfull Report under Report Reviews.
+2. Refer to the FG technical manual as need for more detailed information.
+3. Revise and/or rerun as needed.

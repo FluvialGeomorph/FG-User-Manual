@@ -1,5 +1,7 @@
 # Level-2-2 Channel Bankfull Analysis
 
+{{< badge intermediate >}}
+
 The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.
 Level 2 is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping of all cross sections and roughly estimate channel bankfull dimensions and profile for each reach.
 The data from level 1 will be needed to start the level 2 process. This analysis begins with modifications to the cross sections.
@@ -7,7 +9,7 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 
 
 ## Application and Data Setup
-
+{{< badge practical >}}
 ### 	Applications
  1.	ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.
  2.	R, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro. 
@@ -23,7 +25,7 @@ The data from level 1 will be needed to start the level 2 process. This analysis
  2.	Create a mapped drive and use that connection in ArcCatalog. 
 
 ## Analysis Workflow 
-
+{{< badge practical >}}
 ###	Extend original XS_layout
  1.	Use the original XS lines from level1 and extend each XS line high ground to high ground of the dem_hydro outside the floodplain on     each side. XS extent must be beyond the floodplain at minimum and kept perpendicular to the channel. 
  2.	Save edits.
@@ -123,18 +125,18 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 
 ###	Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach . 
 
-:::{.callout-note}
+    :::{.callout-note}
 
     Other sources can be used to get the watershed discharge. 
-    Check with hydrologist requesting the analysis for additional sources.
+    Check with hydrologist requesting the analysis for additional      sources.
 
-:::
+    :::
     
-::: {style="float: right; margin:1px 20px;"}
+    ::: {style="float: right; margin:1px 20px;"}
 
 ![Step 3. i](images/sswatershed.jpg){width="2in"}
 
-:::
+    :::
 
 1.	Select the state of the reach on the left of the stream.
 2.	Zoom into the location for the stream reach until the stream layer shows.
@@ -153,18 +155,18 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 
 ###	Open the PDF Stream Stats Report from the site folder. 
 
-::: {style="float: none; margin:1px 30px;"}
+    ::: {style="float: none; margin:1px 30px; width: 230px;"}
 
 ![](images/stats.jpg){width="6in"}
 
-:::
+    :::
 
 1.	Locate the 50-percent AEP flood value under the Peak-Flow Statistics Flow Report section around page 8 of the report. This value will be used in the Level 2 report.
 
 
 
 ## Run Report
-
+{{< badge practical >}}
 
 ### 	L2 XS Dimensions 
 1.	In the FluvialGeomorph toolbox, open XS Dimensions, Level 2.
@@ -214,4 +216,9 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 20.	Hit Run.
 21.	Review report for errors and anomalies in the data. 
 
-
+## Next Steps
+{{< badge evaluate >}}
+### Review the report. 
+1. Go to chapter Level 2 Estimate Bankfull Report under Report Reviews.
+2. Refer to the FG technical manual as need for more detailed information.
+3. Revise and/or rerun as needed.

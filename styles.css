@@ -56,9 +56,9 @@ figcaption {
 /* Difficulty badges */
 .badge {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 4px 6px;
   margin-right: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
   border-radius: 4px;
   font-size: 0.85em;
   font-weight: 600;
@@ -72,7 +72,7 @@ figcaption {
 }
 
 .badge-intermediate {
-  background-color: #ffc107;
+  background-color: #FAF8D4;
   color: #000;
 }
 
@@ -84,7 +84,7 @@ figcaption {
   background-color: #17a2b8;
 }
 
-.badge-field {
+.badge-resource {
   background-color: #6f42c1;
 }
 
@@ -93,10 +93,15 @@ figcaption {
 }
 
 .badge-practical {
-  background-color: #20c997;
+  background-color: #0A2F80;
 }
 
 .badge-caution {
   background-color: #ffc107;
+  color: #000;
+}
+
+.badge-evaluate {
+  background-color: #FFD9F5;
   color: #000;
 }
