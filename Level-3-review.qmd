@@ -1,9 +1,5 @@
-
-
-
-
 # Level-3 Planform Report {#L3_report_qa}
-
+{{< badge advanced >}} {{< badge evaluate >}}
 ## QA Checklist 
 
 ## Longitudinal Profile
@@ -21,3 +17,10 @@ This report section contains a cross section map and a cross section profile gra
 
 
 ***
+## Next Steps
+{{< badge reference >}}
+### Report 
+1. Rerun  Level 3 Report as needed.
+2. Re-review the rerun of Level 3 Report.
+3. Revise and/or rerun as needed.
+4. Move on to next analysis.

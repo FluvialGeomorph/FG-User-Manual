@@ -36,15 +36,15 @@ book:
     - part: "Workflows"
       chapters:
         - Level-1.qmd
-        - Level-2.qmd
         - Level-2-2.qmd
+        - Level-2.qmd
         - Level-3.qmd
    
     - part: "Report Reviews"
       chapters: 
         - Level-1-review.qmd
-        - Level-2-review.qmd
         - Level-2-2-review.qmd
+        - Level-2-review.qmd
         - Level-3-review.qmd
  
     - References.qmd

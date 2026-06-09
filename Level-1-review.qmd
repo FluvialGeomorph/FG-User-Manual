@@ -1,5 +1,5 @@
 # Level 1 Report {#L1_report_qa}
-
+{{< badge beginner >}} {{< badge evaluate >}}
 ## QA Checklist {#qa_checklist}
 This chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you'll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren't discovered until you run the reports. 
 
@@ -71,17 +71,31 @@ This report section contains a cross section map and a cross section profile gra
 The graph is being viewed from the perspective of standing in the stream, looking downstream. To ensure this orientation, cross sections must be digitized from the left descending bank to the right descending bank. 
 
 
-#### Cross section perpenduicular to the channel
+### Cross section perpenduicular to the channel
+XSs are generated based on the flowline which may zigzag within the channel causing the XS to be angled across the banklines. Edit the XS to be perpendicular across both banklines.
 
 ### Cross section covers the channel extent
+Viewing the XS with the HydroDEM displayed with DRA at about 1:1000 scale shows a clear picture of the channel. Using the Detrend raster use the banks raw feature to extend the XS across the determined banklines. Be sure the XS covers both banks.
 
 ### Cross section extends onto floodplain
+Using the Detrend determined floodplain feature, extend the XS to cover the entire floodplain at its location.
 
 ### Cross section not located on built infrastructure
+Using the HydroDEM and aerial imagery place the XS away from bridges and river crossing that have artificial heights. Place the XS where it will determine the bank elevations.
 
 ### Cross section drawn within the DEM extent
+The HydroDEM and Detrend rasters should be built at the floodplain extent. Edit the XS to cover the floodplain and remain within the limits of the raster to extract the elevation and avoid Null values.
 
 ### Cross section y-axis range is not too large
+Edit the XS just beyond the floodplain extent, but not too far up the cliff or hill to create a major change in elevation. Allow the XS to display the bank elevation data clearly.
 
 ### Cross section x-axis range is not too large
+Where possible keep a consistent XS length to allow the viewer to see multiple XSs of similar size in order to see channel and bank changes.
 
+## Next Steps
+{{< badge reference >}}
+### Report 
+1. Rerun  Level 1 Report as needed.
+2. Re-review the rerun of Level 1 Report.
+3. Revise and/or rerun as needed.
+4. Move on to next analysis.

@@ -1,9 +1,5 @@
-
-
-
-
 # Level-2 Estimate Bankfull Report {#estimate_bankfull_report_qa}
-
+{{< badge intermediate >}} {{< badge evaluate >}}
 ## QA Checklist {#qa_checklist}
 This chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you'll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren't discovered until you run the reports.   
 
@@ -65,3 +61,11 @@ This report section contains a Level 2 cross section metrics plot drawn using th
 
 ### Cross Section Profiles
 This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L2,  the dem_hydro raster. The cross section profile graph is drawn using the cross section *_points fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 
+
+## Next Steps
+{{< badge reference >}}
+### Report 
+1. Rerun  Level 2 Report as needed.
+2. Re-review the rerun of Level 2 Report.
+3. Revise and/or rerun as needed.
+4. Move on to next analysis.
