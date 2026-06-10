@@ -24,7 +24,7 @@ book:
     - part: "Foundations"
       chapters:
         - quickguide.qmd
-        - Concepts.qmd
+        - concepts.qmd
         - flowchart.qmd
         - concept_map.qmd
 

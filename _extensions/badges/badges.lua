@@ -10,7 +10,8 @@ function badge(args, kwargs)
     theory = {text = "Theory", class = "badge-theory", icon = "📐"},
     practical = {text = "Practical", class = "badge-practical", icon = "🔧"},
     caution = {text = "Caution", class = "badge-caution", icon = "⚠️"},
-    evaluate = {text = "Evaluate", class = "badge-evaluate", icon = "☑️"}
+    evaluate = {text = "Evaluate", class = "badge-evaluate", icon = "☑️"},
+    code = {text = "Code", class = "badge-code", icon = "📜"}
  }
   
   local badge_info = badges[level]

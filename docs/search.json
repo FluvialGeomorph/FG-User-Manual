@@ -14,7 +14,7 @@
     "href": "index.html#authors",
     "title": "FluvialGeomorph User Manual",
     "section": "Authors",
-    "text": "Authors\n\nChristopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers\nMichael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District\nBobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District",
+    "text": "Authors\n\nChristopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers\nMichael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District\nBobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District\nMichael Mankowski, Geographer, US Army Corps of Engineers, Rock Island District",
     "crumbs": [
       "Preface"
     ]
@@ -265,8 +265,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html",
-    "href": "Concepts.html",
+    "objectID": "concepts.html",
+    "href": "concepts.html",
     "title": "3  Concepts",
     "section": "",
     "text": "Units of Analysis\nTo help organize the workflow process we have defined several units of analysis:",
@@ -276,8 +276,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#units_of_analysis",
-    "href": "Concepts.html#units_of_analysis",
+    "objectID": "concepts.html#units_of_analysis",
+    "href": "concepts.html#units_of_analysis",
     "title": "3  Concepts",
     "section": "",
     "text": "Study Area: These are the primary work units and correspond to projects that customers have requested for analysis. Customers define specific goals for each project that determine the specific workflow chosen. These goals define a project study area for each project. These project study areas typically consist of a particular watershed, a mainstem section of a named river, or a discrete stream reach.\nSite: Study areas are subdivided into “sites”. Sites are typically named tributaries and their subwatersheds within the project study area.\nReach: Sites are further subdivided into “reaches”. Reaches are defined according to project goals and use conventional rules for specifying reaches (i.e., tributary confluence to confluence), significant infrastructure, changes in surficial geology, etc.\nSurvey Event: Since FluvialGeomorph analysis is based on LiDAR terrain surveys, the timing of the survey is a critical factor in the analysis. LiDAR is a single point-in-time dataset. Since LiDAR can be collected periodically, our data structure must accommodate multiple distinct time periods (typically separated by years) for which channel dimensions are extracted. If there are multiple LiDAR surveys available for the project study area, the most recent survey is referred to as the base year.",
@@ -287,8 +287,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#analysis-levels",
-    "href": "Concepts.html#analysis-levels",
+    "objectID": "concepts.html#analysis-levels",
+    "href": "concepts.html#analysis-levels",
     "title": "3  Concepts",
     "section": "Analysis Levels",
     "text": "Analysis Levels\nWe have defined a standard workflow that is modular, allowing analysts to prescribe and customers to purchase progressively more detailed analysis as needed. The workflow is organized according to the following levels:\n\nLevel 1: Extract basic channel dimensions and profile.\nLevel 2: Extract bankfull channel dimensions and profile.\nLevel 3: Extract planform dimensions.",
@@ -298,8 +298,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#workflows",
-    "href": "Concepts.html#workflows",
+    "objectID": "concepts.html#workflows",
+    "href": "concepts.html#workflows",
     "title": "3  Concepts",
     "section": "Workflows",
     "text": "Workflows\nThe FluvialGeomorph workflow has been organized using the following hierarchical grouping to help analysts better understand how to perform the analysis and what is being done during each step of the process. All workflow steps are sequential and build on the outputs of previous steps.\n\nLevels: The top hierarchical grouping of the workflow. Levels are distinguished by the degree of fluvial geometric detail and metrics that will be derived. Levels 2 and 3 are optional.\nPhases: The second hierarchical grouping of the workflow. Each level is subdivided into phases. Phases are mostly a conceptual grouping of steps to accomplish a specific objective in the analysis chain.\nSteps: The third hierarchical grouping of the workflow. Phases are subdivided into steps. Steps typically involve running tools, manual editing, and performing quality assurance checks.\nTools: Tools are the lowest hierarchical grouping of the workflow. Tools perform operations that are suitable for automation.",
@@ -309,8 +309,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#folder_structure",
-    "href": "Concepts.html#folder_structure",
+    "objectID": "concepts.html#folder_structure",
+    "href": "concepts.html#folder_structure",
     "title": "3  Concepts",
     "section": "Project Folder Structure",
     "text": "Project Folder Structure\nEstablishing a standard storage structure for all project data is an important quality control step. A standard folder structure has the following benefits:\n\nClearly defined functional roles for each storage location reduces ambiguity and confusion.\nPredictability reduces errors.\nStandard structure allows analysts to move between projects more easily.\n\nThe following folder structure is recommended to organize all project data:\nStudy_Area_Name\n└─── Sites\n│    └─── 01_Site_Name\n│    │    └─── Data\n│    │    │        Site1_year1.gdb\n│    │    │        Site1_year2.gdb\n│    │    │        Reach1_year1.gdb\n│    │    │        Reach1_year2.gdb\n│    │    │        Reach2_year1.gdb\n│    │    │        Reach2_year2.gdb\n│    │    │        ...\n│    │    └─── Exports\n│    │    └─── Maps\n│    │    └─── Reports\n│    └─── 02_Site_Name\n│         ...\n└─── Elevation\n│    └─── ProjectName_Year1\n│    │    └─── LAS\n│    └─── ProjectName_Year2\n│         └─── LAS\n│         ...\n└─── Exports\n└─── Maps\n\n\nStudy Area Folder: The study area folder is used to store all of the files for the study area.\nSite Folders: Site folders are used to store all of the files for each site. Each site in the study area gets its own folder. Site folder order can be controlled by prefixing a number to each site name.\nElevation Folders: The elevation folders are used to store all of the data required to create a DEM for each LiDAR survey event. A LAS subfolder at the project level is used to hold all of the point cloud data (typically delivered in .las format for modern surveys) for each LiDAR survey for the study area. Since these datasets can be massive, the idea is to separate these data into their own folder to streamline data management. Once the terrain data are processed at the project study area level, only derived DEMs are then copied to the site and reach geodatabases in the site data folders.\nSite Data Folders: The site data folders are used to store all of the site site and reach geodatabases.\nReports: The Reports folders are used to store the reports created by tools for each reach.\nMaps: The Maps folders are used to store map documents for a given study area or site.\nExports Folders: The Exports folders are used to store static .pdf map documents exported from map projects for a given study area or site.",
@@ -320,8 +320,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#geodatabases",
-    "href": "Concepts.html#geodatabases",
+    "objectID": "concepts.html#geodatabases",
+    "href": "concepts.html#geodatabases",
     "title": "3  Concepts",
     "section": "Geodatabases",
     "text": "Geodatabases\nThe FluvialGeomorph workflow was designed around a standard set of objects organized into a standard set of geodatabases.\n\nSite Geodatabase:  This type of geodatabase stores FCs that apply to a specific site. Datasets developed for the entire study area are clipped to the specific “site” unit of analysis and stored in the site geodatabase. If there are multiple LiDAR surveys for the project study area, a separate site geodatabase representing each survey is created beginning with the base year.\nReach Geodatabase: This type of geodatabase stores FCs that apply to a specific reach. The FluvialGeomorph tools create a standard set of FCs. Creating a separate geodatabase for each reach allows these standard FCs to be created for each “reach” unit of analysis. If there are multiple LiDAR surveys for the project study area, a separate reach geodatabase representing each survey is created beginning with the base year.",
@@ -331,8 +331,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#fluvialgeomorph-toolbox",
-    "href": "Concepts.html#fluvialgeomorph-toolbox",
+    "objectID": "concepts.html#fluvialgeomorph-toolbox",
+    "href": "concepts.html#fluvialgeomorph-toolbox",
     "title": "3  Concepts",
     "section": "FluvialGeomorph Toolbox",
     "text": "FluvialGeomorph Toolbox\nFluvialgeomorp toolbox creates a method for analyzing streams using Lidar Survey data, remote sensing practices to extract fluvial features. This toolbox has seven toolsets that structure the tasks of deriving features for analysis and reporting rapid watershed assessment.\n\nInstall: This toolset contains the install for the R package need in ArcGIS Pro, sessions and testing for the R code used in the toolbox.\nTools: This toolset contations all the feature extraction tools needed for the rapid assessment process.\nData Management: This toolset contains a tool to joins tabular data to spatial datasets.\nReports: This toolset contains all reporting options from the analysis and externatl data sources.\nSymbology: This toolset contains the default symbology for the feature extracted from each tool that creates an output.\nCheck: This toolset contains tools to run checks on some of the outputs from the feature extraction tools.\nExport: This toolset contains a tool to export the attribute tables from the level 1 feature classes.",
@@ -342,8 +342,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#derived-features",
-    "href": "Concepts.html#derived-features",
+    "objectID": "concepts.html#derived-features",
+    "href": "concepts.html#derived-features",
     "title": "3  Concepts",
     "section": "Derived Features",
     "text": "Derived Features\nThe definition of a common set of derived features is an important step in standardizing any workflow. The standard FluvialGeomorph database objects form a tightly linked set of features that work together in a particular order to accomplish the analysis. See the FluvialGeomorph Tech Manual for a detailed description of each of these standard FCs.",
@@ -353,8 +353,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#reports",
-    "href": "Concepts.html#reports",
+    "objectID": "concepts.html#reports",
+    "href": "concepts.html#reports",
     "title": "3  Concepts",
     "section": "Reports",
     "text": "Reports\nFluvialGeomorph produces a series of reports that help to define stream conditions. Each report is created by the R Markdown parameterized report in the R package.\n\nLevel 1 Report: This report contains a set of maps and graphs that describe the channel as measured from the LiDAR derived DEM.\nEstimate Bankfull Report: This report contains assists to estimate the bankfull water surface elevation for an ungaged stream with the assistance of regional curves and visual observation of geomorphic indicators from LiDAR surveys.\nLevel 2 Report: This report contains a set of maps and graphs that describe the Level 2 channel dimensions calculated at the specified bankfull elevation.\nLevel 3 Report: This report contains a set of maps and graphs that describe the Level 3 channel dimensions calculated at the specified bankfull elevation.",
@@ -364,8 +364,8 @@
     ]
   },
   {
-    "objectID": "Concepts.html#qa_tools",
-    "href": "Concepts.html#qa_tools",
+    "objectID": "concepts.html#qa_tools",
+    "href": "concepts.html#qa_tools",
     "title": "3  Concepts",
     "section": "Quality Assurance",
     "text": "Quality Assurance\nThis workflow contains a LOT of detailed steps! If everything isn’t done just right, problems happen. So to help analysts stay on top of all of these details, we have adopted a layered approach to making sure everything gets done right. Here are the ways\n\nTask Tracking Spreadsheet: To guide analysts through this workflow, we have developed a task tracking spreadsheet to use to record progress through the analysis. This spreadsheet allows an analyst to record the completion of each of the steps outlined above, as well as key values used in the analysis. This spreadsheet can be stored in the site folder while data development progresses. Records in this spreadsheet can be periodically appended to a project or team level version to improve team communication on project progress.\nCheck Tools: The FluvialGeomorph toolbox contains the Check toolset that allows the analyst to perform checks on the standard FluvialGeomorph FCs for basic rule compliance. If analysts have questions about if a specific FC is causing problems, these check tools can be used.\nTool Error Messages: A series of low-level defensive programming checks have been implemented across all FluvialGeomorph functions and tools to help head-off problems.\nQA Checklist: The QA Checklist helps analysts review the reports created using the tools to identify and fix problems in the underlying derived data. See the QA Checklist chapter in this manual for details.",

@@ -32,7 +32,7 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
   - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
   - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
   - Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District
-
+  - Michael Mankowski, Geographer, US Army Corps of Engineers, Rock Island District
 
 
 ## Abstract
