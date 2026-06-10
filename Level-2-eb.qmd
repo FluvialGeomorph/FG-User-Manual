@@ -1,4 +1,9 @@
-# Level-2-2 Channel Bankfull Analysis
+---
+title: "Level-2-EB Estimate Bankfull Analysis"
+format: html
+---
+
+# Level-2-EB Estimate Bankfull Analysis
 
 {{< badge intermediate >}}
 

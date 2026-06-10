@@ -11,7 +11,7 @@ book:
  #    - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
  #   - Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District
   
-  date: "2025-10-23" 
+  date: "20256-06-10" 
   repo-url: https://github.com/FluvialGeomorph/FG-User-Manual
 
 
@@ -36,14 +36,14 @@ book:
     - part: "Workflows"
       chapters:
         - Level-1.qmd
-        - Level-2-2.qmd
+        - Level-2-eb.qmd
         - Level-2.qmd
         - Level-3.qmd
    
     - part: "Report Reviews"
       chapters: 
         - Level-1-review.qmd
-        - Level-2-2-review.qmd
+        - Level-2-eb-review.qmd
         - Level-2-review.qmd
         - Level-3-review.qmd
  
