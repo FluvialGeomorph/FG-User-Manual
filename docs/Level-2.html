@@ -278,10 +278,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#level-2-bankfull-analysis" id="toc-level-2-bankfull-analysis" class="nav-link active" data-scroll-target="#level-2-bankfull-analysis">Level-2 Bankfull Analysis</a>
-  <ul class="collapse">
-  <li><a href="#estimate-bankfull-analysis" id="toc-estimate-bankfull-analysis" class="nav-link" data-scroll-target="#estimate-bankfull-analysis">Estimate Bankfull Analysis</a></li>
-  <li><a href="#application-and-data-setup" id="toc-application-and-data-setup" class="nav-link" data-scroll-target="#application-and-data-setup">Application and Data Setup</a>
+  <li><a href="#application-and-data-setup" id="toc-application-and-data-setup" class="nav-link active" data-scroll-target="#application-and-data-setup">Application and Data Setup</a>
   <ul class="collapse">
   <li><a href="#level-1-data" id="toc-level-1-data" class="nav-link" data-scroll-target="#level-1-data">Level-1 Data</a></li>
   <li><a href="#data-access-in-arcgis-pro" id="toc-data-access-in-arcgis-pro" class="nav-link" data-scroll-target="#data-access-in-arcgis-pro">Data access in ArcGIS Pro</a></li>
@@ -313,7 +310,6 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#review-the-report." id="toc-review-the-report." class="nav-link" data-scroll-target="#review-the-report.">Review the report.</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -339,13 +335,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="level-2-bankfull-analysis" class="level1">
-<h1>Level-2 Bankfull Analysis</h1>
 <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
 <p>The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 2 Estimate Bankfull is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach. The data from level 1 will be needed to start this estimate bankfull process.</p>
-<section id="estimate-bankfull-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="estimate-bankfull-analysis">Estimate Bankfull Analysis</h2>
-</section>
 <section id="application-and-data-setup" class="level2">
 <h2 class="anchored" data-anchor-id="application-and-data-setup">Application and Data Setup</h2>
 <p><span class="badge badge-practical">🔧 Practical</span></p>
@@ -648,7 +639,6 @@ Check with hydrologist requesting the analysis for additional sources.*</code></
 </ol>
 
 
-</section>
 </section>
 </section>
 
@@ -1243,7 +1233,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

@@ -4,8 +4,6 @@ format: html
 ---
 
 
-# Level-3 Planform Analysis 
-
 {{< badge advanced >}}
 
 

@@ -14,7 +14,7 @@
     "href": "index.html#authors",
     "title": "FluvialGeomorph User Manual",
     "section": "Authors",
-    "text": "Authors\n\nChristopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers\nMichael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District\nBobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District\nMichael Mankowski, Geographer, US Army Corps of Engineers, Rock Island District",
+    "text": "Authors\n\nChristopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers\nMichael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District\nBobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District\nMichael Mankowski, Geographer, US Army Corps of Engineers, Rock Island District\nTom Darby, Geographer, US Army Corps of Engineers, Rock Island District",
     "crumbs": [
       "Preface"
     ]
@@ -126,18 +126,7 @@
     "href": "quickguide.html#the-two-manual-system",
     "title": "2  Quick Guide",
     "section": "The Two-Manual System",
-    "text": "The Two-Manual System\n\n📐 Technical Manual: The Science\nPurpose: Explains the scientific methods, theories, and calculations\nUse this when you need to: - Understand the underlying science - Learn calculation methodologies - Validate your approach - Explain methods to reviewers - Understand why certain procedures are used\nContains: - Theoretical foundations - Mathematical equations - Classification systems (e.g., Rosgen) - Method validation and limitations - Scientific references\n\n\n🔧 User Manual: The Practice\nPurpose: Shows you how to use the tools and execute workflows\nUse this when you need to: - Perform actual analyses - Follow step-by-step procedures - Use ArcGIS Pro and R tools - Process field data - Generate reports and outputs\nContains: - Software tutorials - Workflow procedures - Tool-specific instructions - Example datasets - Troubleshooting tips\n\n\n🏷 Content Breakdown\nPurpose: Shows you what the badges/tags mean and how they are used in both manuals.\nLegend:\nSkill Levels:\n\n🟢 Beginner\n🟡 Intermediate\n🔴 Advanced\n\nTopic Classifications:\n\n⚡ Quick Reference\n📚️ Resource\n📐 Theory\n🔧 Practical\n⚠️ Caution\n☑️ Evaluate\n\nUses:\n\nSkill levels are set by proficiency level of GIS skills and concept understanding.\nTopic classifications are based on the following:\n\nReferences provide extensive information and explanation of the material in the manuals.\nResources provides a breakdown of icons, classifications, and how the 2 manuals work together.\nTheory provides background on the sources and methods used in the tools and process.\nPractical labels the application based portions of the manuals\nCaution marks contents to pay special attention to based on need or common errors.\nEvaluate notes parts that cover evaluating application inputs and outputs.\n\n\n\n⚡ Quick Reference\nThis is a test of a coding book icon:",
-    "crumbs": [
-      "Foundations",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Guide</span>"
-    ]
-  },
-  {
-    "objectID": "quickguide.html#how-they-connect",
-    "href": "quickguide.html#how-they-connect",
-    "title": "2  Quick Guide",
-    "section": "How They Connect",
-    "text": "How They Connect\n\n  \n    \n      📐 Technical Manual\n      WHY & WHAT\n      \n        Theory\n        Equations\n        Methods\n        Validation\n      \n    \n    \n      🔧 User Manual\n      HOW & WHEN\n      \n        Workflows\n        Software steps\n        Examples\n        Troubleshooting\n      \n    \n  \n  ↓\n  \n    ✅ Your Successful Analysis",
+    "text": "The Two-Manual System\n\n📐 Technical Manual: The Science\nPurpose: Explains the scientific methods, theories, and calculations\nUse this when you need to: - Understand the underlying science - Learn calculation methodologies - Validate your approach - Explain methods to reviewers - Understand why certain procedures are used\nContains: - Theoretical foundations - Mathematical equations - Classification systems (e.g., Rosgen) - Method validation and limitations - Scientific references\n\n\n🔧 User Manual: The Practice\nPurpose: Shows you how to use the tools and execute workflows\nUse this when you need to: - Perform actual analyses - Follow step-by-step procedures - Use ArcGIS Pro and R tools - Process field data - Generate reports and outputs\nContains: - Software tutorials - Workflow procedures - Tool-specific instructions - Example datasets - Troubleshooting tips\n\n\n🏷 Content Breakdown\nPurpose: Shows you what the badges/tags mean and how they are used in both manuals.\n\n\nLegend:\nSkill Levels:\n\n🟢 Beginner\n🟡 Intermediate\n🔴 Advanced\n\nTopic Classifications:\n\n⚡ Quick Reference\n📚️ Resource\n📐 Theory\n🔧 Practical\n⚠️ Caution\n☑️ Evaluate\n\n\nUses:\n\nSkill levels are set by proficiency level of GIS skills and concept understanding.\nTopic classifications are based on the following:\n\nReferences provide extensive information and explanation of the material in the manuals.\nResources provides a breakdown of icons, classifications, and how the 2 manuals work together.\nTheory provides background on the sources and methods used in the tools and process.\nPractical labels the application based portions of the manuals\nCaution marks contents to pay special attention to based on need or common errors.\nEvaluate notes parts that cover evaluating application inputs and outputs.\n\n\n\n\n\n\n  \n  \n  How the Manuals Work Together\n  Two complementary resources for complete understanding and implementation\n  \n  \n  \n    \n    \n    \n      📐\n      Technical Manual\n      \n      \n        WHY & WHAT\n        The scientific foundation\n      \n      \n      \n        \n          📚 Theory & Concepts\n          Fluvial geomorphology principles, regional curves, hydraulic geometry\n        \n        \n        \n          🔢 Equations & Algorithms\n          Mathematical formulations, statistical methods, calculation procedures\n        \n        \n        \n          🔬 Methods & Approaches\n          Data collection standards, analysis techniques, quality control\n        \n        \n        \n          ✓ Validation & Accuracy\n          Uncertainty analysis, error assessment, confidence intervals\n        \n      \n      \n      \n        \n          Use when you need to:\n          • Understand the science\n          • Justify your approach\n          • Interpret results\n          • Explain to stakeholders\n        \n      \n      \n      \n        📖 Open Technical Manual →\n      \n    \n    \n    \n    \n      🔧\n      User Manual\n      \n      \n        HOW & WHEN\n        Practical implementation\n      \n      \n      \n        \n          📋 Step-by-Step Workflows\n          Detailed procedures, decision trees, process flowcharts\n        \n        \n        \n          💻 Software Instructions\n          R package functions, parameter settings, code examples\n        \n        \n        \n          📊 Practical Examples\n          Real-world case studies, sample datasets, expected outputs\n        \n        \n        \n          🔧 Troubleshooting Tips\n          Common errors, solutions, FAQs, best practices\n        \n      \n      \n      \n        \n          Use when you need to:\n          • Run an analysis\n          • Follow a workflow\n          • Solve a problem\n          • Learn the software\n        \n      \n      \n      \n        📖 Open User Manual →\n      \n    \n  \n  \n  \n  \n    \n      \n      ↓\n      \n    \n    \n    \n      When used together, they provide complete understanding and capability\n    \n  \n  \n  \n  \n    ✅\n    Your Successful Analysis\n    \n      Understanding why + Knowing how\n      = Confident, Defensible Results\n    \n  \n  \n  \n  \n    💡 Recommended Workflow\n    \n      \n        1️⃣\n        Start with Technical Manual\n        Understand the concepts, theory, and scientific basis for your analysis\n      \n      →\n      \n        2️⃣\n        Apply with User Manual\n        Follow step-by-step instructions to implement the methods in your project\n      \n      →\n      \n        3️⃣\n        Reference Both\n        Switch between manuals as needed for interpretation and troubleshooting",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Guide</span>"
@@ -654,7 +643,7 @@
     "href": "Level-1.html",
     "title": "8  Level-1 Initial Channel Analysis",
     "section": "",
-    "text": "Level-1 Initial Channel Assessment\nThe purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 1 is to extract basic channel dimensions. This stage develops terrain, defines the stream reach, creates cross sections and identifies features along the reach. The output is a report of the dimensions for each cross section on a reach.",
+    "text": "Application and Data Setup\n🔧 Practical",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Level-1 Initial Channel Analysis</span>"
@@ -664,8 +653,8 @@
     "objectID": "Level-1.html#application-and-data-setup",
     "href": "Level-1.html#application-and-data-setup",
     "title": "8  Level-1 Initial Channel Analysis",
-    "section": "Application and Data Setup",
-    "text": "Application and Data Setup\n🔧 Practical\n\nApplications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\nLAStools Production toolbox from RapidLasso.\n\n\n\nRetreive the FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases. https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\n\n\n\n\nNote\n\n\n\nFor more detailed installation information refer to FluvialGeomorph Tech Manual\n\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nWork on project on the local drive and when completed move to final location. Local processing in ArcGIS Pro is preferred.\n\n\n\nData\n\nAn existing stream site location, desired distance and area for stream buffer. Lidar data is also needed for 2 different years.\nAn example would be projects for Illinois_SSRP_Sites_2004_2016 use a standard 1-mile length up and down stream of the site and 100-foot buffer around the 1-mile stream length.\nThese values can be set to any desired length and area for each site. The analysis tools require a length of stream and a buffered area of elevation data to complete the analysis.\n\n\n\nGather data – A few Lidar data retrieval samples\nData will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources. Make sure you gather data well beyond the site.\n\n\n\n\n\n\nNote\n\n\n\nThe lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nNOAA Digital Coast Lidar Viewer\nUSGS National Map\nUSGS Lidar Explorer\nOpen Topography\nVarious state and university sites, county and local governments, and project specific Lidar collection are other possible sources for data.\n\n\n\n\n\nConvert Laz to Las (if needed)\n\nAdd LAStools toolbox to ArcGISPro. Open the LAStools toolbox and select las2lasPro (transform) tool.\nDrag the folder with the Laz files into the Input folder.\nChange the output format to Las. Click Run.\n\n\n\nTransform LAS file projections\nAll datasets need to be in the same projection for the entire Study Area.\n\nOpen LAStools las2lasPro (transform) tool\nAdd the folder for the files that need to be reprojected to the input folder.\nChosen projection for transform. Projections must be in feet or meters.\n\n\n\nChose a location to create file storage structure for data.\n\nIn a folder create a file GDB and a folder labeled LPC. Use the year as the naming convention. Ex. 2025. This is where the LAS Lidar files will go.\nCreate a feature dataset for each GDB. The projection used should be the same as the LAS files for each year. Use site, number, and year for naming convention. Ex. SiteName_120_2025.",
+    "section": "",
+    "text": "Applications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\nLAStools Production toolbox from RapidLasso.\n\n\n\nRetreive the FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases. https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\n\n\n\n\nNote\n\n\n\nFor more detailed installation information refer to FluvialGeomorph Tech Manual\n\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nWork on project on the local drive and when completed move to final location. Local processing in ArcGIS Pro is preferred.\n\n\n\nData\n\nAn existing stream site location, desired distance and area for stream buffer. Lidar data is also needed for 2 different years.\nAn example would be projects for Illinois_SSRP_Sites_2004_2016 use a standard 1-mile length up and down stream of the site and 100-foot buffer around the 1-mile stream length.\nThese values can be set to any desired length and area for each site. The analysis tools require a length of stream and a buffered area of elevation data to complete the analysis.\n\n\n\nGather data – A few Lidar data retrieval samples\nData will need to be gathered from the most appropriate source for each reach location. The hydrologist requesting the analysis would know potential sources. Make sure you gather data well beyond the site.\n\n\n\n\n\n\nNote\n\n\n\nThe lidar data will need to cover the entire floodplain. Ideally gather data to the upward slope on the outer edge of the floodplain. More is better than less. The boundary of the study area should have additional data beyond both ends of the channel.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nNOAA Digital Coast Lidar Viewer\nUSGS National Map\nUSGS Lidar Explorer\nOpen Topography\nVarious state and university sites, county and local governments, and project specific Lidar collection are other possible sources for data.\n\n\n\n\n\nConvert Laz to Las (if needed)\n\nAdd LAStools toolbox to ArcGISPro. Open the LAStools toolbox and select las2lasPro (transform) tool.\nDrag the folder with the Laz files into the Input folder.\nChange the output format to Las. Click Run.\n\n\n\nTransform LAS file projections\nAll datasets need to be in the same projection for the entire Study Area.\n\nOpen LAStools las2lasPro (transform) tool\nAdd the folder for the files that need to be reprojected to the input folder.\nChosen projection for transform. Projections must be in feet or meters.\n\n\n\nChose a location to create file storage structure for data.\n\nIn a folder create a file GDB and a folder labeled LPC. Use the year as the naming convention. Ex. 2025. This is where the LAS Lidar files will go.\nCreate a feature dataset for each GDB. The projection used should be the same as the LAS files for each year. Use site, number, and year for naming convention. Ex. SiteName_120_2025.",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Level-1 Initial Channel Analysis</span>"
@@ -709,7 +698,7 @@
     "href": "Level-2-eb.html",
     "title": "9  Level-2-EB Estimate Bankfull Analysis",
     "section": "",
-    "text": "Level-2-EB Estimate Bankfull Analysis\n🟡 Intermediate\nThe purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 2 is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping of all cross sections and roughly estimate channel bankfull dimensions and profile for each reach. The data from level 1 will be needed to start the level 2 process. This analysis begins with modifications to the cross sections.",
+    "text": "Application and Data Setup\n🔧 Practical",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Level-2-EB Estimate Bankfull Analysis</span>"
@@ -719,8 +708,8 @@
     "objectID": "Level-2-eb.html#application-and-data-setup",
     "href": "Level-2-eb.html#application-and-data-setup",
     "title": "9  Level-2-EB Estimate Bankfull Analysis",
-    "section": "Application and Data Setup",
-    "text": "Application and Data Setup\n🔧 Practical\n\nApplications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\n\n\n\nRetreive the most current version of FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases.https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn Rstudio under tools install package HERE.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
+    "section": "",
+    "text": "Applications\n\nArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.\nR, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.\n\n\n\nRetreive the most current version of FluvGeo Toolbox from GITHUB\n\nGet the latest version of the toolbox from this page under Releases.https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox\nPlace the install in a location that all required applications can access.\nIn Rstudio under tools install package HERE.\nIn ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Level-2-EB Estimate Bankfull Analysis</span>"
@@ -764,18 +753,7 @@
     "href": "Level-2.html",
     "title": "10  Level-2 Bankfull Analysis",
     "section": "",
-    "text": "Level-2 Bankfull Analysis\n🟡 Intermediate\nThe purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 2 Estimate Bankfull is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach. The data from level 1 will be needed to start this estimate bankfull process.",
-    "crumbs": [
-      "Workflows",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Bankfull Analysis</span>"
-    ]
-  },
-  {
-    "objectID": "Level-2.html#estimate-bankfull-analysis",
-    "href": "Level-2.html#estimate-bankfull-analysis",
-    "title": "10  Level-2 Bankfull Analysis",
-    "section": "Estimate Bankfull Analysis",
-    "text": "Estimate Bankfull Analysis",
+    "text": "Application and Data Setup\n🔧 Practical",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Bankfull Analysis</span>"
@@ -785,8 +763,8 @@
     "objectID": "Level-2.html#application-and-data-setup",
     "href": "Level-2.html#application-and-data-setup",
     "title": "10  Level-2 Bankfull Analysis",
-    "section": "Application and Data Setup",
-    "text": "Application and Data Setup\n🔧 Practical\n\nLevel-1 Data\n\nSites must have had a Level-1 analysis run. That data is essential to completing Level_2 analysis.\nLevel-1 software application and tools will be needed for Level-2 analysis.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
+    "section": "",
+    "text": "Level-1 Data\n\nSites must have had a Level-1 analysis run. That data is essential to completing Level_2 analysis.\nLevel-1 software application and tools will be needed for Level-2 analysis.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Level-2 Bankfull Analysis</span>"
@@ -830,7 +808,7 @@
     "href": "Level-3.html",
     "title": "11  Level-3 Planform Analysis",
     "section": "",
-    "text": "Level-3 Planform Analysis\n🔴 Advanced\nThe purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 1 is to extract basic channel dimensions. This stage develops terrain, defines the stream reach, creates cross sections and identifies features along the reach. The output is a report of the dimensions for each cross section on a reach.",
+    "text": "Application and Data Setup\n🔧 Practical",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-3 Planform Analysis</span>"
@@ -840,8 +818,8 @@
     "objectID": "Level-3.html#application-and-data-setup",
     "href": "Level-3.html#application-and-data-setup",
     "title": "11  Level-3 Planform Analysis",
-    "section": "Application and Data Setup",
-    "text": "Application and Data Setup\n🔧 Practical\n\nApplications\n\n\nLevel-2 Data\n\nSites must have had up through Level-2 analysis run. That data is essential to completing Level_3 analysis.\nSoftware application and tools from Level-1 will be needed for Level-3 analysis.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
+    "section": "",
+    "text": "Applications\n\n\nLevel-2 Data\n\nSites must have had up through Level-2 analysis run. That data is essential to completing Level_3 analysis.\nSoftware application and tools from Level-1 will be needed for Level-3 analysis.\n\n\n\nData access in ArcGIS Pro\n\nFluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. UNC connection will create errors with some of the Fluvgeo tools.\nCreate a mapped drive and use that connection in ArcCatalog.",
     "crumbs": [
       "Workflows",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Level-3 Planform Analysis</span>"
@@ -885,7 +863,7 @@
     "href": "Level-1-review.html",
     "title": "12  Level-1 Initial Channel Report",
     "section": "",
-    "text": "Level 1 Report\n🟢 Beginner ☑️ Evaluate",
+    "text": "QA Checklist\nThis chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.",
     "crumbs": [
       "Report Reviews",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Level-1 Initial Channel Report</span>"
@@ -895,8 +873,8 @@
     "objectID": "Level-1-review.html#qa_checklist",
     "href": "Level-1-review.html#qa_checklist",
     "title": "12  Level-1 Initial Channel Report",
-    "section": "QA Checklist",
-    "text": "QA Checklist\nThis chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.\n\nCheck the stream name\nAll of the tools depend on consistent reach naming! Ensuring consistent naming begins with deriving the “flowline” fc. The ReachName field must contain the same value for all of the fc’s within a reach geodatabase. This is the single biggest gotcha we find running these tools. If tools aren’t working correctly and you’re sure you’ve done everything else right, consistent stream names is the first thing to check!\n\n\nCross section labels at the correct interval\nCross section labels usually cannot be placed on every cross section or the map or graph becomes unreadable due to label crowding. The xs_label_freq parameter can be adjusted to adequately space cross section labels. Typically xs_label_freq = 10 works for regularly spaced cross sections and xs_label_freq = 2 works for riffle cross sections.\n\n\nCross sections cover the full extent of the flowine\nThe flowline fc extends from the downstream end of the reach to the upstream end. Cross sections should be spaced regularly across the entire reach, without any gaps at the upper or lower end.\n\n\nMap basemap displaying correctly\nThe overview maps should contain an aerial photo or shaded relief elevation basemap.",
+    "section": "",
+    "text": "Check the stream name\nAll of the tools depend on consistent reach naming! Ensuring consistent naming begins with deriving the “flowline” fc. The ReachName field must contain the same value for all of the fc’s within a reach geodatabase. This is the single biggest gotcha we find running these tools. If tools aren’t working correctly and you’re sure you’ve done everything else right, consistent stream names is the first thing to check!\n\n\nCross section labels at the correct interval\nCross section labels usually cannot be placed on every cross section or the map or graph becomes unreadable due to label crowding. The xs_label_freq parameter can be adjusted to adequately space cross section labels. Typically xs_label_freq = 10 works for regularly spaced cross sections and xs_label_freq = 2 works for riffle cross sections.\n\n\nCross sections cover the full extent of the flowine\nThe flowline fc extends from the downstream end of the reach to the upstream end. Cross sections should be spaced regularly across the entire reach, without any gaps at the upper or lower end.\n\n\nMap basemap displaying correctly\nThe overview maps should contain an aerial photo or shaded relief elevation basemap.",
     "crumbs": [
       "Report Reviews",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Level-1 Initial Channel Report</span>"
@@ -951,17 +929,6 @@
     "href": "Level-2-eb-review.html",
     "title": "13  Level-2-EB Estimate Bankfull Report",
     "section": "",
-    "text": "Level-2-2 Channel Bankfull Report\n🟡 Intermediate ☑️ Evaluate",
-    "crumbs": [
-      "Report Reviews",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Level-2-EB Estimate Bankfull Report</span>"
-    ]
-  },
-  {
-    "objectID": "Level-2-eb-review.html#qa_checklist",
-    "href": "Level-2-eb-review.html#qa_checklist",
-    "title": "13  Level-2-EB Estimate Bankfull Report",
-    "section": "QA Checklist",
     "text": "QA Checklist\nThis chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.",
     "crumbs": [
       "Report Reviews",
@@ -1039,17 +1006,6 @@
     "href": "Level-2-review.html",
     "title": "14  Level-2 Bankfull Report",
     "section": "",
-    "text": "Level-2 Estimate Bankfull Report\n🟡 Intermediate ☑️ Evaluate",
-    "crumbs": [
-      "Report Reviews",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Level-2 Bankfull Report</span>"
-    ]
-  },
-  {
-    "objectID": "Level-2-review.html#qa_checklist",
-    "href": "Level-2-review.html#qa_checklist",
-    "title": "14  Level-2 Bankfull Report",
-    "section": "QA Checklist",
     "text": "QA Checklist\nThis chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you’ll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren’t discovered until you run the reports.",
     "crumbs": [
       "Report Reviews",
@@ -1127,17 +1083,6 @@
     "href": "Level-3-review.html",
     "title": "15  Level-3 Planform Report",
     "section": "",
-    "text": "Level-3 Planform Report\n🔴 Advanced ☑️ Evaluate",
-    "crumbs": [
-      "Report Reviews",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Level-3 Planform Report</span>"
-    ]
-  },
-  {
-    "objectID": "Level-3-review.html#qa-checklist",
-    "href": "Level-3-review.html#qa-checklist",
-    "title": "15  Level-3 Planform Report",
-    "section": "QA Checklist",
     "text": "QA Checklist",
     "crumbs": [
       "Report Reviews",

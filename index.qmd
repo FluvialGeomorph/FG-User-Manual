@@ -33,7 +33,7 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
   - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
   - Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District
   - Michael Mankowski, Geographer, US Army Corps of Engineers, Rock Island District
-
+  - Tom Darby, Geographer, US Army Corps of Engineers, Rock Island District
 
 ## Abstract
 

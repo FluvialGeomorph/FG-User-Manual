@@ -50,9 +50,13 @@ The **Fluvial Geomorphology Technical Manual** and **User Manual** are companion
 - Troubleshooting tips
 
 
+
 ### 🏷 Content Breakdown
 **Purpose:** Shows you what the badges/tags mean and how they are used in both manuals.
 
+:::: {.columns}
+
+::: {.column width="30%"}
 **Legend:**
 
 Skill Levels:
@@ -69,7 +73,9 @@ Topic Classifications:
 - {{< badge practical >}}
 - {{< badge caution >}}
 - {{< badge evaluate >}}
+:::
 
+::: {.column width="70%"}
 **Uses:**
 
 - Skill levels are set by proficiency level of GIS skills and concept understanding. 
@@ -80,43 +86,166 @@ Topic Classifications:
   - **Practical** labels the application based portions of the manuals
   - **Caution marks** contents to pay special attention to based on need or common errors.
   - **Evaluate** notes parts that cover evaluating application inputs and outputs.
+:::
+
+::::
+
 ---
 
-{{< badge reference >}}
-This is a test of a coding book icon: {{< fa book-code >}}
-
-
-## How They Connect
-
 ```{=html}
-<div style="text-align: center; max-width: 800px; margin: 0 auto;">
-  <div style="display: flex; gap: 40px; justify-content: center; margin-bottom: 30px;">
-    <div style="flex: 1; background: #e8f4f8; padding: 20px; border-radius: 10px; border: 3px solid #17a2b8;">
-      <h4 style="margin-top: 0;">📐 Technical Manual</h4>
-      <p><strong>WHY & WHAT</strong></p>
-      <ul style="text-align: left; line-height: 1.8;">
-        <li>Theory</li>
-        <li>Equations</li>
-        <li>Methods</li>
-        <li>Validation</li>
-      </ul>
+<div style="text-align: center; max-width: 1200px; margin: 40px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  
+  <!-- Header -->
+  <h3 style="margin-bottom: 15px; color: #333; font-size: 1.8em;">How the Manuals Work Together</h3>
+  <p style="color: #666; margin-bottom: 40px; font-size: 1.1em;">Two complementary resources for complete understanding and implementation</p>
+  
+  <!-- Two Manuals Side by Side -->
+  <div style="display: flex; gap: 40px; justify-content: center; margin-bottom: 30px; align-items: stretch;">
+    
+    <!-- Technical Manual -->
+    <div style="flex: 1; background: linear-gradient(135deg, #e8f4f8 0%, #d1e7f0 100%); padding: 35px; border-radius: 15px; border: 4px solid #17a2b8; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+      <div style="font-size: 3em; margin-bottom: 15px;">📐</div>
+      <h4 style="margin: 10px 0; color: #0c5460; font-size: 1.5em; border-bottom: 2px solid #17a2b8; padding-bottom: 10px;">Technical Manual</h4>
+      
+      <div style="background: white; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #17a2b8;">
+        <p style="margin: 0; font-weight: 700; color: #17a2b8; font-size: 1.2em;">WHY & WHAT</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #555;">The scientific foundation</p>
+      </div>
+      
+      <div style="text-align: left; margin: 20px 0;">
+        <div style="margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #0c5460;">📚 Theory & Concepts</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">Fluvial geomorphology principles, regional curves, hydraulic geometry</p>
+        </div>
+        
+        <div style="margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #0c5460;">🔢 Equations & Algorithms</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">Mathematical formulations, statistical methods, calculation procedures</p>
+        </div>
+        
+        <div style="margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #0c5460;">🔬 Methods & Approaches</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">Data collection standards, analysis techniques, quality control</p>
+        </div>
+        
+        <div style="margin-bottom: 0; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #0c5460;">✓ Validation & Accuracy</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">Uncertainty analysis, error assessment, confidence intervals</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 25px; padding: 15px; background: rgba(23, 162, 184, 0.1); border-radius: 8px; border: 2px dashed #17a2b8;">
+        <p style="margin: 0; font-size: 0.95em; color: #0c5460; line-height: 1.6;">
+          <strong>Use when you need to:</strong><br/>
+          • Understand the science<br/>
+          • Justify your approach<br/>
+          • Interpret results<br/>
+          • Explain to stakeholders
+        </p>
+      </div>
+      
+      <a href="https://fluvialgeomorph.github.io/FG-Tech-Manual/" target="_blank" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #17a2b8; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.3s;">
+        📖 Open Technical Manual →
+      </a>
     </div>
-    <div style="flex: 1; background: #fff4e6; padding: 20px; border-radius: 10px; border: 3px solid #fd7e14;">
-      <h4 style="margin-top: 0;">🔧 User Manual</h4>
-      <p><strong>HOW & WHEN</strong></p>
-      <ul style="text-align: left; line-height: 1.8;">
-        <li>Workflows</li>
-        <li>Software steps</li>
-        <li>Examples</li>
-        <li>Troubleshooting</li>
-      </ul>
+    
+    <!-- User Manual -->
+    <div style="flex: 1; background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%); padding: 35px; border-radius: 15px; border: 4px solid #fd7e14; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+      <div style="font-size: 3em; margin-bottom: 15px;">🔧</div>
+      <h4 style="margin: 10px 0; color: #7a4419; font-size: 1.5em; border-bottom: 2px solid #fd7e14; padding-bottom: 10px;">User Manual</h4>
+      
+      <div style="background: white; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #fd7e14;">
+        <p style="margin: 0; font-weight: 700; color: #fd7e14; font-size: 1.2em;">HOW & WHEN</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #555;">Practical implementation</p>
+      </div>
+      
+      <div style="text-align: left; margin: 20px 0;">
+        <div style="margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #7a4419;">📋 Step-by-Step Workflows</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">Detailed procedures, decision trees, process flowcharts</p>
+        </div>
+        
+        <div style="margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #7a4419;">💻 Software Instructions</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">R package functions, parameter settings, code examples</p>
+        </div>
+        
+        <div style="margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #7a4419;">📊 Practical Examples</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">Real-world case studies, sample datasets, expected outputs</p>
+        </div>
+        
+        <div style="margin-bottom: 0; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 6px;">
+          <strong style="color: #7a4419;">🔧 Troubleshooting Tips</strong>
+          <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">Common errors, solutions, FAQs, best practices</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 25px; padding: 15px; background: rgba(253, 126, 20, 0.1); border-radius: 8px; border: 2px dashed #fd7e14;">
+        <p style="margin: 0; font-size: 0.95em; color: #7a4419; line-height: 1.6;">
+          <strong>Use when you need to:</strong><br/>
+          • Run an analysis<br/>
+          • Follow a workflow<br/>
+          • Solve a problem<br/>
+          • Learn the software
+        </p>
+      </div>
+      
+      <a href="https://fluvialgeomorph.github.io/FG-User-Manual/" target="_blank" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #fd7e14; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.3s;">
+        📖 Open User Manual →
+      </a>
     </div>
   </div>
-  <div style="font-size: 2em; margin: 20px 0;">↓</div>
-  <div style="background: #d4edda; padding: 20px; border-radius: 10px; border: 3px solid #28a745; max-width: 400px; margin: 0 auto;">
-    <h4 style="margin: 0;">✅ Your Successful Analysis</h4>
+  
+  <!-- Connecting Section -->
+  <div style="margin: 40px 0;">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0;">
+      <div style="flex: 1; height: 4px; background: linear-gradient(to right, #17a2b8, #28a745); border-radius: 2px;"></div>
+      <div style="font-size: 2.5em; color: #28a745; animation: bounce 2s infinite;">↓</div>
+      <div style="flex: 1; height: 4px; background: linear-gradient(to left, #fd7e14, #28a745); border-radius: 2px;"></div>
+    </div>
+    
+    <p style="color: #666; font-size: 1.1em; margin: 20px 0; font-style: italic;">
+      When used together, they provide complete understanding and capability
+    </p>
   </div>
+  
+  <!-- Result Box - SMALLER VERSION -->
+  <div style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); padding: 25px 30px; border-radius: 12px; border: 4px solid #28a745; max-width: 450px; margin: 0 auto; box-shadow: 0 6px 12px rgba(0,0,0,0.12);">
+    <div style="font-size: 2.5em; margin-bottom: 10px;">✅</div>
+    <h4 style="margin: 5px 0 15px 0; color: #155724; font-size: 1.4em;">Your Successful Analysis</h4>
+    <p style="margin: 0; color: #155724; line-height: 1.6; font-size: 0.95em;">
+      <strong>Understanding <em>why</em></strong> + <strong>Knowing <em>how</em></strong><br/>
+      = <strong style="font-size: 1.1em; color: #0f4d1a;">Confident, Defensible Results</strong>
+    </p>
+  </div>
+  
+  <!-- Workflow Recommendation -->
+  <div style="margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; border-left: 6px solid #6c757d; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h4 style="margin-top: 0; color: #495057; font-size: 1.3em;">💡 Recommended Workflow</h4>
+    <div style="display: flex; gap: 20px; align-items: center; text-align: left;">
+      <div style="flex: 1; padding: 20px; background: white; border-radius: 8px; border: 2px solid #17a2b8;">
+        <div style="font-size: 1.5em; margin-bottom: 10px;">1️⃣</div>
+        <strong style="color: #17a2b8;">Start with Technical Manual</strong>
+        <p style="margin: 8px 0 0 0; font-size: 0.95em; color: #555;">Understand the concepts, theory, and scientific basis for your analysis</p>
+      </div>
+      <div style="font-size: 2em; color: #6c757d;">→</div>
+      <div style="flex: 1; padding: 20px; background: white; border-radius: 8px; border: 2px solid #fd7e14;">
+        <div style="font-size: 1.5em; margin-bottom: 10px;">2️⃣</div>
+        <strong style="color: #fd7e14;">Apply with User Manual</strong>
+        <p style="margin: 8px 0 0 0; font-size: 0.95em; color: #555;">Follow step-by-step instructions to implement the methods in your project</p>
+      </div>
+      <div style="font-size: 2em; color: #6c757d;">→</div>
+      <div style="flex: 1; padding: 20px; background: white; border-radius: 8px; border: 2px solid #28a745;">
+        <div style="font-size: 1.5em; margin-bottom: 10px;">3️⃣</div>
+        <strong style="color: #28a745;">Reference Both</strong>
+        <p style="margin: 8px 0 0 0; font-size: 0.95em; color: #555;">Switch between manuals as needed for interpretation and troubleshooting</p>
+      </div>
+    </div>
+  </div>
+  
 </div>
+
 ```
 
 ---
