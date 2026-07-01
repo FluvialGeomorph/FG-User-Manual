@@ -3,15 +3,13 @@ title: "Level-2 Bankfull Analysis"
 format: html
 ---
 
-# Level-2 Bankfull Analysis
-
 {{< badge intermediate >}}
 
 The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.
 Level 2 Estimate Bankfull is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping riffle cross sections and roughly estimate an initial bankfull elevation for the base year for each reach.
 The data from level 1 will be needed to start this estimate bankfull process. 
 
-## Estimate Bankfull Analysis
+
 
 ## Application and Data Setup
 {{< badge practical >}}

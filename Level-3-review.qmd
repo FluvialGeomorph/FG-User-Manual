@@ -3,7 +3,7 @@ title: "Level-3 Planform Report"
 format: html
 ---
 
-# Level-3 Planform Report {#L3_report_qa}
+
 {{< badge advanced >}} {{< badge evaluate >}}
 ## QA Checklist 
 

@@ -1,6 +1,13 @@
 function badge(args, kwargs)
   local level = pandoc.utils.stringify(args[1])
   
+  
+  
+--[[
+Bages are defined and categorized in the quick start page of the manual.
+Further information can be added.
+]]
+  
   local badges = {
     beginner = {text = "Beginner", class = "badge-beginner", icon = "🟢"},
     intermediate = {text = "Intermediate", class = "badge-intermediate", icon = "🟡"},
