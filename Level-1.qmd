@@ -72,6 +72,8 @@ Data will need to be gathered from the most appropriate source for each reach lo
 2.	Drag the folder with the Laz files into the Input folder. 
 3.	Change the output format to Las. Click Run.
 
+{{< badge caution >}}
+
 ### 	Transform LAS file projections 
   *All datasets need to be in the same projection for the entire Study Area.*
   

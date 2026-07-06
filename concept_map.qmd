@@ -5,7 +5,7 @@ format: html
 
 {{< badge resource >}}
 
-# Concept Map: Technical Manual ↔ User Manual
+## Concept Map: Technical Manual ↔ User Manual
 
 ## Visual Concept Map
 

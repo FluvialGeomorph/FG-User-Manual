@@ -31,10 +31,41 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 
 ## Analysis Workflow 
 {{< badge practical >}}
-###	Extend original XS_layout
- 1.	Use the original XS lines from level1 and extend each XS line high ground to high ground of the dem_hydro outside the floodplain on     each side. XS extent must be beyond the floodplain at minimum and kept perpendicular to the channel. 
- 2.	Save edits.
- 3.	Import the extended XS line layer into the older geodatabase.
+
+### Create Feature Class
+1. Copy the most recent years cross section (XS) as feature class named riffle_floodplain. 
+    i. You'll use the original XS lines that represent the rock riffles and delete all others.
+    ii. extend each XS line high ground to high ground of the dem_hydro outside the floodplain on each side. XS extent must be beyond the floodplain at minimum and kept perpendicular to the channel.
+    iii. This provides a feature class already with correct projection and attribute fields.
+
+### Identify Rock Riffles
+**Riffle Identifying Characteristics:**  
+
+* A straight reach between two meander bends, areas in the cross-overs between river bends
+* Clear indicators of the active floodplain or bankfull discharge
+* Presence of one or more terraces
+* Channel section and form typical of the stream
+* A reasonably clear view of of geomorphic features
+* Areas of high water surface slope (in the case of high gradient streams)
+* Areas of minimum depth and width
+* Channel width parallel and consistent 
+* Avoid tributary influences
+* Cross sections should be drawn wide enough to capture the top of bank
+
+### Digitize Riffles
+
+1. Digitize riffle cross sections beginning with the left descending bank. While editing, use the "Reverse Direction" command (aka flip) to ensure riffles are digitized in the correct direction. 
+   i. A red vertex denotes the end of a line segment. Therefore, the red end vertex should be on the right descending bank. 
+   ii. Check that each cross section is digitized in the correct direction (start at the left descending bank and end on the right descending bank) before going on to the next step. 
+   iii. Ensure that riffle cross sections are digitized to the full width of the active floodplain. Edit each feature to ensure that it extends at least to the edge of the floodplain boundary layer, but no further. 
+ 
+
+::: {.callout-note} 
+For a site with multiple reaches, riffle cross sections must be uniquely numbered across all reaches. The Seq field values of riffle cross sections should not repeat within the reaches of a site. 
+:::
+
+2. The downstream-most cross section in the site should be numbered starting with the Seq field value of 1 and increase moving upstream. 
+    i. If necessary, use the tool to set the starting Seq value for each reach. 
 
 
 ### 	Calculate Cross Section Watershed Area 
@@ -128,20 +159,21 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 7.	Hit Run.
 8.	A new line feature class ending with dims_L1 will be added to the feature dataset.
 
-###	Go to the USGS StreamStats website to get the 50-percent AEP flood value for the stream reach . 
+###	Go to the USGS StreamStats website
+#### Get the 50-percent AEP flood value for the stream reach.
 
-    :::{.callout-note}
+:::{.callout-note}
 
     Other sources can be used to get the watershed discharge. 
     Check with hydrologist requesting the analysis for additional      sources.
 
-    :::
+:::
     
-    ::: {style="float: right; margin:1px 20px;"}
+::: {style="float: right; margin:1px 20px;"}
 
 ![Step 3. i](images/sswatershed.jpg){width="2in"}
 
-    :::
+:::
 
 1.	Select the state of the reach on the left of the stream.
 2.	Zoom into the location for the stream reach until the stream layer shows.
@@ -157,14 +189,13 @@ The data from level 1 will be needed to start the level 2 process. This analysis
     viii.	Add any comments need to the comment section.
     ix.	Scroll to the bottom and print the report to PDF. Save to the site folder.
 
+###	Open the PDF Stream Stats Report 
 
-###	Open the PDF Stream Stats Report from the site folder. 
-
-    ::: {style="float: none; margin:1px 30px; width: 230px;"}
+::: {style="float: none; margin:1px 30px; width: 230px;"}
 
 ![](images/stats.jpg){width="6in"}
 
-    :::
+:::
 
 1.	Locate the 50-percent AEP flood value under the Peak-Flow Statistics Flow Report section around page 8 of the report. This value will be used in the Level 2 report.
 
