@@ -11,39 +11,49 @@ This chapter describes the items an analyst needs to check to ensure that the Fl
 This report section contains the Bankfull Elevation sensitivity analysis Goodness of Fit graph and the Regional Hydraulic Geometry Curves graph drawn using the base year's riffle cross section points fc. 
 
 ### Correct regions included
+Region correction is a critical step in the Bankfull Elevation Sensitivity Analysis. The regions included in the analysis must be appropriate for the study area. Ensure that the regions used in the analysis are relevant and representative of the stream's characteristics.
 
 ### Adequate range of bankfull elevations
+Evaluate the range of bankfull elevations used in the sensitivity analysis. The range should be sufficient to capture the variability in bankfull conditions across the study area. If the range is too narrow, it may not provide a comprehensive understanding of the stream's behavior.
 
 ### Detrended bankfull elevation set to a reasonable value
+Reasonable detrending of bankfull elevation is essential for accurate analysis. Check that the detrended bankfull elevation values are set appropriately, reflecting the natural variability of the stream's morphology.
 
 ### Drainage Area values are reasonable
-
+Values for drainage area should be consistent with the physical characteristics of the watershed. Ensure that the drainage area values used in the analysis are reasonable and align with the expected hydrological conditions of the study area.
 
 ## Longitudinal Profile {#estimate_bankfull_long_profile}
 This section of the report contains a cross section longitudinal profile graph drawn using the riffle cross section dimensions, riffle_channel_dims_L2 fc. 
 
 ### Elevation values are reasonable
+Elevations displayed in the longitudinal profile should be within expected ranges based on the topography and hydrology of the study area. Verify that the elevation values are consistent with known benchmarks or reference points.
 
 ### Stationing in the correct units
+Station units should be consistent throughout the analysis. Ensure that the stationing is presented in the correct units (e.g., feet or meters) and that it aligns with the project's specifications.
 
 ### Stream feature labels display correctly
-
+Labels for stream features should be accurate and clearly visible on the longitudinal profile. Check that all labels are correctly placed and correspond to the appropriate features in the study area.
 
 ## Cross Section Metrics {#estimate_bankfull_xs_metrics}
 This report section contains a Level 2 cross section metrics plot drawn using the riffle_channel_dims_L2 fc.  
 
 ### Width-Depth Ratio values are reasonable
+Values for the width-depth ratio should fall within expected ranges based on the stream's morphology. Verify that the calculated ratios are consistent with known characteristics of similar streams.
 
 ### Entrenchment Ratio values are reasonable
+Entrenchment ratio values should reflect the degree of channel confinement. Ensure that the values are reasonable and indicative of the stream's geomorphic condition.
 
 ### Slope values are reasonable
+Slope values should be consistent with the stream's gradient and topography. Check that the calculated slopes are within expected ranges for the study area.
 
 ### Sinuosity values are reasonable
+Values for sinuosity should accurately represent the meandering nature of the stream. Ensure that the calculated sinuosity values are reasonable and align with the observed channel pattern.
 
 ### Shear Stress values are reasonable
+Shear stress values should be evaluated to ensure they are within expected ranges for the stream's flow conditions. Verify that the calculated shear stress values are reasonable and reflect the hydraulic characteristics of the channel.
 
 ### Unit Stream Power values are reasonable
-
+Stream power values should be assessed to ensure they are consistent with the stream's energy and flow dynamics. Check that the calculated unit stream power values are reasonable and align with the expected hydraulic behavior of the channel.
 
 ## Cross Section Profiles
 This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions fc riffle_channel_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the riffle_channel_points fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section.  
@@ -62,6 +72,7 @@ This section of the report contains a cross section longitudinal profile graph d
 This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L2 fc.See the QA checklist items in the [Estimate Bankfull, Cross section Metrics](#estimate_bankfull_xs_metrics) section.
 
 #### Ensure metrics values are smooth
+Metric values should exhibit smooth transitions along the stream reach. Check that the calculated metrics do not show abrupt changes or inconsistencies that could indicate errors in data processing or analysis.
 
 ### Cross Section Profiles
 This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the cross section *_points fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 

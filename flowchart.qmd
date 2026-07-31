@@ -177,7 +177,7 @@ flowchart LR
 
 ---
 
-## 📊 Quick Reference Matrix
+## ⚡ Quick Reference Matrix
 
 |  | Learn Concepts | Execute Tasks | Validate Results | Write Reports |
 |---|:---:|:---:|:---:|:---:|
