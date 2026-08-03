@@ -520,13 +520,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Get the latest version of the toolbox from this page under Releases.<a href="https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox" class="uri">https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox</a></li>
 <li>Place the install in a location that all required applications can access.</li>
 <li>In Rstudio under tools install package HERE.</li>
-<li>In ArcCatalog open the Fluvgeo toolbox and under install click Install R Package box and Hit run.</li>
+<li>In ArcCatalog open the <code>🧰 Fluvgeo toolbox</code> and under install click Install R Package box and Hit run.</li>
 </ol>
 </section>
 <section id="data-access-in-arcgis-pro" class="level3">
 <h3 class="anchored" data-anchor-id="data-access-in-arcgis-pro">Data access in ArcGIS Pro</h3>
 <ol type="1">
-<li>Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.</li>
+<li><code>🧰 Fluvgeo toolbox</code> requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.</li>
 <li>Create a mapped drive and use that connection in ArcCatalog.</li>
 </ol>
 </section>
@@ -623,7 +623,7 @@ Note
 <li>Input <code>🗺️ Flowline Points</code>.</li>
 <li>Hit Run. Complete for both the <code>🗺️ channel_XS</code> and <code>🗺️ floodplain_XS</code></li>
 <li>The result adds new fields in the attribute table of the <code>🗺️ XS</code> feature class.</li>
-<li>Two temporary charts will populate the Contents tab under the <code>🗺️ Cross Section</code> Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the <code>🛠️ XS River Position</code> Tool to view them again.
+<li>Two temporary charts will populate the Contents tab under the <code>🗺️ Cross Section</code> Line Feature Class (<code>📊 XS Seq by 📊 km_to_mouth, 📊 XS Seq by 📊 Watershed Area sq mile</code>). If the charts are removed from the contents pane, you will need to run the <code>🛠️ XS River Position</code> Tool to view them again.
 <ol type="i">
 <li>Open both Charts and inspect for any issues in the data.</li>
 <li>Note: This step provides charts which help see if there are gaps in the data.</li>
@@ -711,7 +711,7 @@ Note
 <li>The csv_file will be the .csv file created from the <code>🛠️ XS Dimensions Level 1</code> Tool.</li>
 <li><code>📊 Csv_field</code> will match the <code>📊 fc_field</code> so it should also be <code>🧮 Seq</code>.</li>
 <li>Hit Run.</li>
-<li>A new line feature class ending with dims_L1 will be added to the feature dataset.</li>
+<li>A new line feature class ending with <code>🗺️ *dims_L1</code> will be added to the feature dataset.</li>
 </ol>
 </section>
 <section id="go-to-the-usgs-streamstats-website" class="level3">
@@ -753,7 +753,7 @@ Check with hydrologist requesting the analysis for additional sources.</code></p
 <li>Once the calculations are completed scroll to the bottom of the left panel, check all the boxes and click Open Report.</li>
 <li>Add the site name to the report title. a. Ex. Site193 JODAVIESS County SWCD Stream Stats Report.</li>
 <li>Add any comments need to the comment section.</li>
-<li>Scroll to the bottom and print the report to PDF. Save to the site folder.</li>
+<li>Scroll to the bottom and print the report to PDF. Save to the <code>📁 site folder</code>.</li>
 </ol></li>
 </ol>
 </section>
@@ -812,13 +812,13 @@ Check with hydrologist requesting the analysis for additional sources.</code></p
 <li><code>📊 Extended Xs_dimensions_fc</code> will be the line feature class created during the <code>🛠️ Join From CSV</code> tool.</li>
 <li><code>📊 Extended Xs_points_1</code> will be the <code>🗺️ XS</code> points point feature class created from the XS Points tool. Use the data from the most recent survey event.
 <ol type="i">
-<li>Extended Xs_points_2 will be the <code>🗺️ XS</code> points point feature class for the older year.</li>
+<li>Extended Xs_points_2 will be the <code>🗺️ XS</code> points point feature class for the older event.</li>
 </ol></li>
 <li><code>📊 Survey_name_1</code> will be the survey event of the most recent data (ex: 2022).
 <ol type="i">
 <li><code>📊 Survey_name_2</code> will be the survey event of the older data (ex: 2012).</li>
 </ol></li>
-<li><code>📊 Features_fc</code> will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.</li>
+<li><code>📊 Features_fc</code> will need the <code>🗺️ features</code> point feature class that was created to indicate roadways, site improvements, or other bodies of water.</li>
 <li><code>📊 Channel_fc</code> will be the lower number bank_raw layer that represents the channel.</li>
 <li><code>📊 Floodplain_fc</code> will be the higher number bank_raw layer that represents the floodplain,</li>
 <li><code>📊 Dem</code> will need the <code>🗺️ dem_hydro</code> from the most recent survey event.</li>

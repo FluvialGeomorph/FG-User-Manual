@@ -26,7 +26,7 @@ The data from level 1 will be needed to start the level 2 process. This analysis
  4.	In ArcCatalog open the `🧰 Fluvgeo toolbox` and under install click Install R Package box and Hit run.
 
 ### 	Data access in ArcGIS Pro
- 1.	Fluvgeo toolbox requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.
+ 1.	`🧰 Fluvgeo toolbox` requires the use of a mapped drive for accessing the data in ArcGIS Pro. CNC connection will create errors with some of the Fluvgeo tools.
  2.	Create a mapped drive and use that connection in ArcCatalog. 
 
 ## Analysis Workflow 
@@ -91,7 +91,7 @@ For a site with multiple reaches, riffle cross sections must be uniquely numbere
  4.	Input `🗺️ Flowline Points`.
  5.	Hit Run. Complete for both the `🗺️ channel_XS` and `🗺️ floodplain_XS` 
  6.	The result adds new fields in the attribute table of the `🗺️ XS` feature class. 
- 7.	Two temporary charts will populate the Contents tab under the `🗺️ Cross Section` Line Feature Class (XS Seq by km_to_mouth, XS Seq by Watershed Area sq mile). If the charts are removed from the contents pane, you will need to run the `🛠️ XS River Position` Tool to view them again.
+ 7.	Two temporary charts will populate the Contents tab under the `🗺️ Cross Section` Line Feature Class (`📊 XS Seq by 📊 km_to_mouth, 📊 XS Seq by 📊 Watershed Area sq mile`). If the charts are removed from the contents pane, you will need to run the `🛠️ XS River Position` Tool to view them again.
     i.	Open both Charts and inspect for any issues in the data.
     ii.	Note: This step provides charts which help see if there are gaps in the data.
  8.	Repeat `🛠️ XS River Position` for the older gdb.
@@ -157,7 +157,7 @@ For a site with multiple reaches, riffle cross sections must be uniquely numbere
 5.	The csv_file will be the .csv file created from the `🛠️ XS Dimensions Level 1` Tool.
 6.	`📊 Csv_field` will match the `📊 fc_field` so it should also be `🧮 Seq`.
 7.	Hit Run.
-8.	A new line feature class ending with dims_L1 will be added to the feature dataset.
+8.	A new line feature class ending with `🗺️ *dims_L1` will be added to the feature dataset.
 
 ###	Go to the USGS StreamStats website
 #### Get the 50-percent AEP flood value for the stream reach.
@@ -187,7 +187,7 @@ For a site with multiple reaches, riffle cross sections must be uniquely numbere
     vii.	Add the site name to the report title.
         a.	Ex. Site193 JODAVIESS County SWCD Stream Stats Report.
     viii.	Add any comments need to the comment section.
-    ix.	Scroll to the bottom and print the report to PDF. Save to the site folder.
+    ix.	Scroll to the bottom and print the report to PDF. Save to the `📁 site folder`.
 
 ###	Open the PDF Stream Stats Report 
 
@@ -234,10 +234,10 @@ For a site with multiple reaches, riffle cross sections must be uniquely numbere
 4.	`📊 Extended Xs_fc` will be the `🗺️ XS` feature class for the most recent survey event.
 5.	`📊 Extended Xs_dimensions_fc` will be the line feature class created during the `🛠️ Join From CSV` tool.
 6.	`📊 Extended Xs_points_1` will be the `🗺️ XS` points point feature class created from the XS Points tool. Use the data from the most recent survey event.
-    i.	Extended Xs_points_2 will be the `🗺️ XS` points point feature class for the older year.
+    i.	Extended Xs_points_2 will be the `🗺️ XS` points point feature class for the older event.
 7.	`📊 Survey_name_1` will be the survey event of the most recent data (ex: 2022).
     i.	`📊 Survey_name_2` will be the survey event of the older data (ex: 2012).
-8.	`📊 Features_fc` will need the features point feature class that was created to indicate roadways, site improvements, or other bodies of water.
+8.	`📊 Features_fc` will need the `🗺️ features` point feature class that was created to indicate roadways, site improvements, or other bodies of water.
 9.	`📊 Channel_fc` will be the lower number bank_raw layer that represents the channel.
 10.	`📊 Floodplain_fc` will be the higher number bank_raw layer that represents the floodplain,
 11.	`📊 Dem` will need the `🗺️ dem_hydro` from the most recent survey event.
