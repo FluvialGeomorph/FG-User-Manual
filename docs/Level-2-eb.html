@@ -457,6 +457,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#application-and-data-setup" id="toc-application-and-data-setup" class="nav-link active" data-scroll-target="#application-and-data-setup">Application and Data Setup</a>
   <ul class="collapse">
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
   <li><a href="#retreive-the-most-current-version-of-fluvgeo-toolbox-from-github" id="toc-retreive-the-most-current-version-of-fluvgeo-toolbox-from-github" class="nav-link" data-scroll-target="#retreive-the-most-current-version-of-fluvgeo-toolbox-from-github">Retreive the most current version of FluvGeo Toolbox from GITHUB</a></li>
   <li><a href="#data-access-in-arcgis-pro" id="toc-data-access-in-arcgis-pro" class="nav-link" data-scroll-target="#data-access-in-arcgis-pro">Data access in ArcGIS Pro</a></li>
   </ul></li>
@@ -482,7 +483,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#join-from-csv" id="toc-join-from-csv" class="nav-link" data-scroll-target="#join-from-csv">Join from CSV</a></li>
   <li><a href="#generate-level-2-report" id="toc-generate-level-2-report" class="nav-link" data-scroll-target="#generate-level-2-report">Generate Level 2 Report</a></li>
   </ul></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a>
+  <ul class="collapse">
+  <li><a href="#review-the-report." id="toc-review-the-report." class="nav-link" data-scroll-target="#review-the-report.">Review the report.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -513,7 +517,14 @@ ul.task-list li input[type="checkbox"] {
 <p>The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 2 is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping of all cross sections and roughly estimate channel bankfull dimensions and profile for each reach. The data from level 1 will be needed to start the level 2 process. This analysis begins with modifications to the cross sections.</p>
 <section id="application-and-data-setup" class="level2">
 <h2 class="anchored" data-anchor-id="application-and-data-setup">Application and Data Setup</h2>
-<p><span class="badge badge-practical">🔧 Practical</span> ### Applications 1. ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets. 2. R, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.</p>
+<p><span class="badge badge-practical">🔧 Practical</span></p>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">Applications</h3>
+<ol type="1">
+<li>ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.</li>
+<li>R, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro.</li>
+</ol>
+</section>
 <section id="retreive-the-most-current-version-of-fluvgeo-toolbox-from-github" class="level3">
 <h3 class="anchored" data-anchor-id="retreive-the-most-current-version-of-fluvgeo-toolbox-from-github">Retreive the most current version of FluvGeo Toolbox from GITHUB</h3>
 <ol type="1">
@@ -837,9 +848,17 @@ Check with hydrologist requesting the analysis for additional sources.</code></p
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
-<p><span class="badge badge-evaluate">☑️ Evaluate</span> ### Review the report. 1. Go to chapter Level 2 Estimate Bankfull Report under Report Reviews. 2. Refer to the FG technical manual as need for more detailed information. 3. Revise and/or rerun as needed.</p>
+<p><span class="badge badge-evaluate">☑️ Evaluate</span></p>
+<section id="review-the-report." class="level3">
+<h3 class="anchored" data-anchor-id="review-the-report.">Review the report.</h3>
+<ol type="1">
+<li>Go to chapter Level 2 Estimate Bankfull Report under Report Reviews.</li>
+<li>Refer to the FG technical manual as need for more detailed information.</li>
+<li>Revise and/or rerun as needed.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

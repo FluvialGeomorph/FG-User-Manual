@@ -494,10 +494,14 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#run-report" id="toc-run-report" class="nav-link" data-scroll-target="#run-report">Run Report</a>
   <ul class="collapse">
+  <li><a href="#xs-dimensions-level-1" id="toc-xs-dimensions-level-1" class="nav-link" data-scroll-target="#xs-dimensions-level-1">XS Dimensions Level 1</a></li>
   <li><a href="#join-from-csv-data-management-toolbox" id="toc-join-from-csv-data-management-toolbox" class="nav-link" data-scroll-target="#join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</a></li>
   <li><a href="#generate-level-1-report" id="toc-generate-level-1-report" class="nav-link" data-scroll-target="#generate-level-1-report">Generate Level 1 Report</a></li>
   </ul></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a>
+  <ul class="collapse">
+  <li><a href="#review-the-report." id="toc-review-the-report." class="nav-link" data-scroll-target="#review-the-report.">Review the report.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -748,7 +752,7 @@ Tip
 }
 </style>
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="left">
+<div class="cell quarto-layout-panel" data-layout-align="left" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-left">
@@ -852,7 +856,7 @@ Note
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, select the <code>🛠️ Flowline</code> tool.</li>
 <li>For the feature_dataset and stream_network drag and drop the corresponding data from the catalog.</li>
-<li>For <code>📊smooth_tolerance</code> put <code>🧮 2</code>. It can range from 2-5 based on the range of distribution of the flowline. The goal is to produce a smooth flowline without removing too much resolution from the line.</li>
+<li>For <code>📊 smooth_tolerance</code> put <code>🧮 2</code>. It can range from 2-5 based on the range of distribution of the flowline. The goal is to produce a smooth flowline without removing too much resolution from the line.</li>
 <li>Hit Run Note: Make sure to do most recent data first. Rerun tool for older set of data once done.</li>
 <li>The output is a line feature class called <code>🗺️ flowline</code>. This tool derives the site flowline and smooths the stream_network geometry and converts the flowline into a route.</li>
 <li>Ensure that the flowline remains in the channel and is not simplified into the floodplain. If this occurs, rerun reducing the degree of smoothing.
@@ -914,7 +918,7 @@ Note
 <li>Serve as reference on the profile graph in the report.</li>
 </ol></li>
 <li>In the table find the number next to “Measure”. Take note of this number, you will add it to the table once you create the feature.</li>
-<li>Open attribute table for <code>🗺️features</code>. Under km_to_mouth put the number that was correlated with “Measure”.</li>
+<li>Open attribute table for <code>🗺️ features</code>. Under km_to_mouth put the number that was correlated with “Measure”.</li>
 <li>The name in most cases will just be the name of the street or waterway. For the Site# feature, the name will be Site# and the SSRP_Type found in the attribute table of Illinois_SSRPSites_2004_2016. Ex. Site 264.</li>
 </ol>
 </section>
@@ -953,8 +957,8 @@ Note
 <li>Find the elevation in the <code>🗺️ REM</code> for the bank and the <code>🗺️ flowline</code>. Check multiple locations along the stream, including the site location.</li>
 <li>Find the average difference in elevation between the bank and the flowline.<br>
 </li>
-<li>Subtract the two REM values to get the bankfull depth for the channel. Ex. bank elevation 104 and flowline elevation 100 then the channel depth is 104. This value is used in the <code>🛠️ Water Surface Extent</code> tool as the <code>📊REM_value</code>. This will become the channel bank_raw value.</li>
-<li>Next Multiply the last number of the channel bank_raw value by 2 and use it as the <code>📊REM_value</code> for the <code>🗺️ floodplain bank_raw</code>. Ex. channel bank_raw 104 make the floodplain bank_raw 108.</li>
+<li>Subtract the two REM values to get the bankfull depth for the channel. Ex. bank elevation 104 and flowline elevation 100 then the channel depth is 104. This value is used in the <code>🛠️ Water Surface Extent</code> tool as the <code>📊 REM_value</code>. This will become the channel bank_raw value.</li>
+<li>Next Multiply the last number of the channel bank_raw value by 2 and use it as the <code>📊 REM_value</code> for the <code>🗺️ floodplain bank_raw</code>. Ex. channel bank_raw 104 make the floodplain bank_raw 108.</li>
 </ol>
 </section>
 <section id="create-water-surface-extent" class="level3">
@@ -990,7 +994,7 @@ Note
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, select the <code>🛠️ XS Layout</code> tool.</li>
 <li>Fill in the <code>🗺️ feature</code> dataset and <code>🗺️ flowline</code> from the most recent geodatabase.</li>
-<li>For <code>📊 split type</code> keep as <code>🧮split at approximate distance</code>.`</li>
+<li>For <code>📊 split type</code> keep as <code>🧮 split at approximate distance</code>.`</li>
 <li><code>📊 Transect spacing</code> is <code>🧮 300</code>.</li>
 <li><code>📊 Transect_width</code> is determined by width of floodplain from the flowline. Find the distance of the farthest point of the floodplain from the flowline</li>
 <li><code>📊 Transect_width_unit</code> <code>🧮 default</code> is used.</li>
@@ -1099,7 +1103,21 @@ Tip
 </section>
 <section id="run-report" class="level2">
 <h2 class="anchored" data-anchor-id="run-report">Run Report</h2>
-<p><span class="badge badge-practical">🔧 Practical</span> ### XS Dimensions Level 1 1. In the FluvialGeomorph toolbox, open <code>🛠️ XS Dimensions, Level 1</code>. 2. <code>🗺️ XS’s</code> are added into <code>📊 xs_line fc</code>. 3. Enter <code>🧮 4</code> for the <code>📊 lead_n</code>. i. This sets the moving window to average 4 XS’s above and below the XS being calculated. 4. Leave the <code>📊 use_smoothing</code> box <code>🧮 unchecked</code> and <code>📊 loess_span</code> as <code>🧮 0.1</code>. 5. Check that the vert_units are in ft. 6. After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.</p>
+<p><span class="badge badge-practical">🔧 Practical</span></p>
+<section id="xs-dimensions-level-1" class="level3">
+<h3 class="anchored" data-anchor-id="xs-dimensions-level-1">XS Dimensions Level 1</h3>
+<ol type="1">
+<li>In the FluvialGeomorph toolbox, open <code>🛠️ XS Dimensions, Level 1</code>.</li>
+<li><code>🗺️ XS’s</code> are added into <code>📊 xs_line fc</code>.</li>
+<li>Enter <code>🧮 4</code> for the <code>📊 lead_n</code>.
+<ol type="i">
+<li>This sets the moving window to average 4 XS’s above and below the XS being calculated.</li>
+</ol></li>
+<li>Leave the <code>📊 use_smoothing</code> box <code>🧮 unchecked</code> and <code>📊 loess_span</code> as <code>🧮 0.1</code>.</li>
+<li>Check that the vert_units are in ft.</li>
+<li>After the tool completes, refresh the folder the gdb is in and you should find a .csv file in there.</li>
+</ol>
+</section>
 <section id="join-from-csv-data-management-toolbox" class="level3">
 <h3 class="anchored" data-anchor-id="join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</h3>
 <ol type="a">
@@ -1149,9 +1167,17 @@ Tip
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
-<p><span class="badge badge-evaluate">☑️ Evaluate</span> ### Review the report. 1. Go to chapter Level 1 Report under Report Reviews. 2. Refer to the FG technical manual as need for more detailed information. 3. Revise and/or rerun as needed.</p>
+<p><span class="badge badge-evaluate">☑️ Evaluate</span></p>
+<section id="review-the-report." class="level3">
+<h3 class="anchored" data-anchor-id="review-the-report.">Review the report.</h3>
+<ol type="1">
+<li>Go to chapter Level 1 Report under Report Reviews.</li>
+<li>Refer to the FG technical manual as need for more detailed information.</li>
+<li>Revise and/or rerun as needed.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -457,11 +457,13 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#application-and-data-setup" id="toc-application-and-data-setup" class="nav-link active" data-scroll-target="#application-and-data-setup">Application and Data Setup</a>
   <ul class="collapse">
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
   <li><a href="#level-2-data" id="toc-level-2-data" class="nav-link" data-scroll-target="#level-2-data">Level-2 Data</a></li>
   <li><a href="#data-access-in-arcgis-pro" id="toc-data-access-in-arcgis-pro" class="nav-link" data-scroll-target="#data-access-in-arcgis-pro">Data access in ArcGIS Pro</a></li>
   </ul></li>
   <li><a href="#analysis-workflow" id="toc-analysis-workflow" class="nav-link" data-scroll-target="#analysis-workflow">Analysis Workflow</a>
   <ul class="collapse">
+  <li><a href="#define-valley-line" id="toc-define-valley-line" class="nav-link" data-scroll-target="#define-valley-line">Define Valley Line</a></li>
   <li><a href="#valleyline-buffer" id="toc-valleyline-buffer" class="nav-link" data-scroll-target="#valleyline-buffer">Valleyline Buffer</a></li>
   <li><a href="#define-meander-loops" id="toc-define-meander-loops" class="nav-link" data-scroll-target="#define-meander-loops">Define Meander Loops</a></li>
   <li><a href="#create-loop-points" id="toc-create-loop-points" class="nav-link" data-scroll-target="#create-loop-points">Create Loop Points</a></li>
@@ -471,12 +473,16 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#run-report" id="toc-run-report" class="nav-link" data-scroll-target="#run-report">Run Report</a>
   <ul class="collapse">
+  <li><a href="#xs-dimensions-level-3" id="toc-xs-dimensions-level-3" class="nav-link" data-scroll-target="#xs-dimensions-level-3">XS Dimensions Level 3</a></li>
   <li><a href="#calculate-cross-section-l3-dimensions" id="toc-calculate-cross-section-l3-dimensions" class="nav-link" data-scroll-target="#calculate-cross-section-l3-dimensions">Calculate Cross Section L3 Dimensions</a></li>
   <li><a href="#join-from-csv-data-management-toolbox" id="toc-join-from-csv-data-management-toolbox" class="nav-link" data-scroll-target="#join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</a></li>
   <li><a href="#add-modeled-water-surface-elevation-optional" id="toc-add-modeled-water-surface-elevation-optional" class="nav-link" data-scroll-target="#add-modeled-water-surface-elevation-optional">Add Modeled Water Surface Elevation <strong>(Optional)</strong></a></li>
   <li><a href="#generate-level-3-report" id="toc-generate-level-3-report" class="nav-link" data-scroll-target="#generate-level-3-report">Generate Level 3 Report</a></li>
   </ul></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a>
+  <ul class="collapse">
+  <li><a href="#review-the-report." id="toc-review-the-report." class="nav-link" data-scroll-target="#review-the-report.">Review the report.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -507,7 +513,10 @@ ul.task-list li input[type="checkbox"] {
 <p>The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis. Level 1 is to extract basic channel dimensions. This stage develops terrain, defines the stream reach, creates cross sections and identifies features along the reach. The output is a report of the dimensions for each cross section on a reach.</p>
 <section id="application-and-data-setup" class="level2">
 <h2 class="anchored" data-anchor-id="application-and-data-setup">Application and Data Setup</h2>
-<p><span class="badge badge-practical">🔧 Practical</span> ### Applications</p>
+<p><span class="badge badge-practical">🔧 Practical</span></p>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">Applications</h3>
+</section>
 <section id="level-2-data" class="level3">
 <h3 class="anchored" data-anchor-id="level-2-data">Level-2 Data</h3>
 <ol type="1">
@@ -525,15 +534,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="analysis-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-workflow">Analysis Workflow</h2>
-<p><span class="badge badge-practical">🔧 Practical</span> ### Define Valley Line</p>
+<p><span class="badge badge-practical">🔧 Practical</span></p>
+<section id="define-valley-line" class="level3">
+<h3 class="anchored" data-anchor-id="define-valley-line">Define Valley Line</h3>
 <section id="develop-candidate-valleylines" class="level4">
 <h4 class="anchored" data-anchor-id="develop-candidate-valleylines">Develop Candidate Valleylines</h4>
 <!-- The purpose of this step is to create a set of candidate valleyline feature classes through iterative smoothing of the flowline for each reach.-->
 <p>The following steps are performed in the site geodatabase for the base year. This is done to ensure that a valleyline feature class is created smoothly through all of the reaches in a site.</p>
 <ol type="1">
 <li>Use the flowline to determine the valley line for the reach.</li>
-<li>Open the ESRI Smooth Line tool to smooth the reach flowline feature class from the most recent year as the input feature.</li>
-<li>For the first candidate valleyline, use a Smoothing Tolarance value of 200 meters. In this case you would name the output feature class valleyline_200 and put in the same feature dataset.</li>
+<li>Open the ESRI <code>🛠️ Smooth Line tool</code> to smooth the reach flowline feature class from the most recent year as the input feature.</li>
+<li>For the first candidate valleyline, use a <code>📊 Smoothing Tolarance</code> value of <code>🧮 200 meters</code>. In this case you would name the output feature class valleyline_200 and put in the same feature dataset.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -549,25 +560,26 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <ol start="4" type="1">
-<li>Choose the PAEK smoothing algorithm.</li>
-<li>Set the smooth tolerance to 200</li>
+<li>Choose the <code>🧮 PAEK smoothing algorithm</code>.</li>
+<li>Set the <code>📊 smooth tolerance</code> to <code>🧮 200</code></li>
 <li>Click Run.
 <ol type="i">
-<li>Repeat the previous step using the Smoothing Tolerance values such as 400, 800, and 1000.</li>
-<li>Depending on the detail of the flowline feature class geometry, you may need to select a different range or set of step values of the Smoothing Tolerance parameter values to evaluate.</li>
+<li>Repeat the previous step using the <code>📊 Smoothing Tolerance</code> values such as <code>🧮 400, 🧮 800, and 🧮 1000</code>.</li>
+<li>Depending on the detail of the <code>🗺️ flowline</code> feature class geometry, you may need to select a different range or set of step values of the <code>📊 Smoothing Tolerance</code> parameter values to evaluate.</li>
 </ol></li>
 <li>The goal is to create a wide degree of flowline smoothing in the candidate valleyline feature classes to select from in the next step.</li>
-<li>Choose Final Valleyline</li>
-<li>Add the floodplain polygon (higher bank_raw_###) and all of the candidate valleyline feature classes to the current map.</li>
-<li>Identify the valleyline feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the flood_prone polygon.</li>
+<li>Choose Final <code>🗺️ Valleyline</code></li>
+<li>Add the <code>🗺️ floodplain polygon</code> (higher bank_raw_###) and all of the candidate <code>🗺️ valleyline</code> feature classes to the current map.</li>
+<li>Identify the <code>🗺️ valleyline</code> feature class that has the highest smoothing tolerance value that also is mostly contained within the extent of the <code>🗺️ floodplain polygon</code>.</li>
 </ol>
+</section>
 </section>
 <section id="valleyline-buffer" class="level3">
 <h3 class="anchored" data-anchor-id="valleyline-buffer">Valleyline Buffer</h3>
 <p>The valleyline should be considered a fuzzy area representing the center of the valley.</p>
 <ol type="1">
-<li>Add the valleyline layer as the input.</li>
-<li>Add the output multi-ring buffer to the newest year gdb.Name it multiring_buffer.</li>
+<li>Add the <code>🗺️ valleyline</code> layer as the input.</li>
+<li>Add the output multi-ring buffer to the newest year gdb. Name it <code>🗺️ multiring_buffer</code>.</li>
 <li>Use the identifies valleyline to create a multi-ring buffer. Use the the distance at a narrow part of the reach as the first buffer distance. The following increments can be set 5, 10, or desired distances. Create 3 to 5 rings.</li>
 <li>Leave the remaining settings as the defaults.</li>
 <li>Hit Run.</li>
@@ -601,11 +613,12 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="define-loop-points-layer">Define Loop Points Layer</h4>
 <!-- This step creates a new feature class named loop_points and use it to identify the start and end stream meander loops and bends. -->
 <ol type="1">
-<li>Create a new point feature class named loop_points. Enable z and m values. The feature class should contain the following fields:
+<li>Create a new point feature class named <code>🗺️ loop_points</code>. <code>📊 Enable</code> <code>🧮 z and m</code> values. The feature class should contain the following fields:
 <ol type="i">
-<li>ReachName: Text (50) - The purpose of this field is to store the reach name.</li>
-<li>loop: Long Integer - The purpose of this field is to store the loop unique identifier for the point.</li>
-<li>bend: Long Integer - The purpose of the field is to store the bend identifier for the point. position: Text (10) - The purpose of this field is to store position identifier for the point. This field must have one three values: “start”, “end”, or “apex”.</li>
+<li><code>📊 ReachName</code>: <code>🧮 Text (50)</code> - The purpose of this field is to store the reach name.</li>
+<li><code>📊 loop</code>: <code>🧮 Long Integer</code> - The purpose of this field is to store the loop unique identifier for the point.</li>
+<li><code>📊 bend</code>: <code>🧮 Long Integer</code> - The purpose of the field is to store the bend identifier for the point.</li>
+<li><code>📊 position</code>: <code>🧮 Text (10)</code> - The purpose of this field is to store position identifier for the point. This field must have one three values: <code>🧮start</code>, <code>🧮end</code>, or <code>🧮apex</code>.</li>
 </ol></li>
 </ol>
 </section>
@@ -623,8 +636,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Loop_points features are used to define the start and end location of loop bends and the location of a loop’s apex.</li>
-<li>Loop_points features are always placed along (i.e., snapped to) an outer bankline of the feature. <!-- How to identify a loop --></li>
+<li><code>🗺️ Loop_points</code> features are used to define the start and end location of loop bends and the location of a loop’s apex.</li>
+<li><code>🗺️ Loop_points</code> features are always placed along (i.e., snapped to) an outer bankline of the feature. <!-- How to identify a loop --></li>
 </ol>
 </div>
 </div>
@@ -661,7 +674,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>For a site with multiple reaches, loops must be uniquely numbered across all reaches. The loop field values of loop_points should not repeat within the reaches of a site.</li>
 <li>The downstream-most loop in the site should be numbered starting with the loop field value of 1 and increase moving upstream.</li>
-<li>Set the loop field value for each upstream reach to the upstream-most value (i.e., the highest loop value of the downstream reach’s loop_points feature class) of the downstream reach. For example, set the value of the field loop of the first Reach-2 loop_points feature to 8 if the maximum value of Reach-1’s loop_points feature class loop field is 7.</li>
+<li>Set the loop field value for each upstream reach to the upstream-most value (i.e., the highest loop value of the downstream reach’s <code>🗺️ loop_points</code> feature class) of the downstream reach. For example, set the value of the field loop of the first Reach-2 loop_points feature to 8 if the maximum value of Reach-1’s loop_points feature class loop field is 7.</li>
 </ul>
 </div>
 </div>
@@ -669,7 +682,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="check-loop-points" class="level3">
 <h3 class="anchored" data-anchor-id="check-loop-points">Check Loop Points:</h3>
 <ul>
-<li>Use the Check Loop Points tool in the Check toolset to verify that loops and bends are defined correctly.</li>
+<li>Use the <code>🛠️ Check Loop Points tool</code> in the <code>🧰 Check toolset</code> to verify that loops and bends are defined correctly.</li>
 <li>Review the messages produced by this tool to identify and correct problems with loop and bend delineation.</li>
 </ul>
 </section>
@@ -677,39 +690,42 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="derive-bankline-points">Derive Bankline Points</h3>
 <p>The purpose of this step is to convert the banklines to a set of bankline_points and assign elevations and loop and bend locations to these features.</p>
 <ol type="1">
-<li>Open the Bankline Points tool to assign loops, bends, elevations and valley line positions to the bankline_points.</li>
+<li>Open the <code>🛠️ Bankline Points tool</code> to assign loops, bends, elevations and valley line positions to the <code>🗺️ bankline_points</code>.</li>
 <li>Add the feature dataset for the most recent year.</li>
-<li>Add the loop point, banklines, and valleyline layers from the most recent year.</li>
-<li>Add the demhydro for the mosts recent year.</li>
-<li>Set the station_distance at 1.</li>
+<li>Add the <code>🗺️ loop point</code>, <code>🗺️ banklines</code>, and <code>🗺️ valleyline</code> layers from the most recent year.</li>
+<li>Add the <code>🗺️ demhydro</code> for the mosts recent year.</li>
+<li>Set the <code>📊 station_distance</code> at <code>🧮 1</code>.</li>
 <li>Hit Run.</li>
-<li>In the Check toolset run the Check Bankline Points tool.
+<li>In the <code>🧰 Check toolset</code> run the <code>🛠️ Check Bankline Points tool</code>.
 <ol type="i">
-<li>The check tool ensures that the loop, bend, position, valley_POINT_X, valley_POINT_Y, and valley_POINT_M fields are populated. Only bankline_points features within loops and bends will have values in the loop, bend, and position fields.</li>
-<li>All records should have values in the valley_POINT_X, valley_POINT_Y, and valley_POINT_M fields.</li>
+<li>The check tool ensures that the <code>📊 loop</code>, <code>📊 bend</code>, <code>📊 position</code>, <code>📊 valley_POINT_X</code>, <code>📊 valley_POINT_Y</code>, and <code>📊 valley_POINT_M</code> fields are populated. Only bankline_points features within loops and bends will have values in the <code>📊 loop</code>, <code>📊 bend, and</code>📊 position` fields.</li>
+<li>All records should have values in the <code>📊 valley_POINT_X</code>, <code>📊 valley_POINT_Y</code>, and <code>📊 valley_POINT_M</code> fields.</li>
 </ol></li>
-<li>Apply the following definition query to the bankline_points feature class: “loop IS NOT NULL”. Only bankline_points features between loop_points features should be visible.</li>
+<li>Apply the following definition query to the <code>🗺️ bankline_points</code> feature class: “loop IS NOT NULL”. Only bankline_points features between loop_points features should be visible.</li>
 </ol>
 </section>
 <section id="assign-cross-section-loops" class="level3">
 <h3 class="anchored" data-anchor-id="assign-cross-section-loops">Assign Cross Section Loops</h3>
 <p>The purpose of this step is to assign loop and bend identifiers to regularly spaced and riffle cross section feature classes for each reach.</p>
 <ol type="1">
-<li>Open the Assign Loops tool to assign loops and bends to a cross section feature class.</li>
-<li>Add the cross_section feature class from the the most recent survey event dataset.</li>
-<li>Add the bankline_points to the most recent survey event dataset</li>
+<li>Open the <code>🛠️ Assign Loops tool</code> to assign loops and bends to a <code>🗺️ cross_section</code> feature class.</li>
+<li>Add the <code>🗺️ cross_section</code> feature class from the the most recent survey event dataset.</li>
+<li>Add the <code>🗺️ bankline_points</code> to the most recent survey event dataset</li>
 <li>Once the tool completes check the regular cross section feature class attribute table correctly assigned the loop and bend field values.</li>
-<li><strong>Repeat</strong> this step for both the riffle_channel and riffle_floodplain feature classes.</li>
+<li><strong>Repeat</strong> this step for both the <code>🗺️ riffle_channel</code> and <code>🗺️riffle_floodplain</code> feature classes.</li>
 </ol>
 </section>
 </section>
 <section id="run-report" class="level2">
 <h2 class="anchored" data-anchor-id="run-report">Run Report</h2>
-<p><span class="badge badge-practical">🔧 Practical</span> ### XS Dimensions Level 3</p>
+<p><span class="badge badge-practical">🔧 Practical</span></p>
+<section id="xs-dimensions-level-3" class="level3">
+<h3 class="anchored" data-anchor-id="xs-dimensions-level-3">XS Dimensions Level 3</h3>
 <p>The purpose of this stage is to calculate the Level 3 dimensions for each reach.</p>
+</section>
 <section id="calculate-cross-section-l3-dimensions" class="level3">
 <h3 class="anchored" data-anchor-id="calculate-cross-section-l3-dimensions">Calculate Cross Section L3 Dimensions</h3>
-<p>The purpose of this step is to calculate the L3 dimensions for the regularly spaced and riffle cross section feature classes for each reach.</p>
+<p>The purpose of this step is to calculate the L3 dimensions for the regularly spaced and <code>🗺️ riffle cross_section</code> feature classes for each reach.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -720,26 +736,26 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If any *_dims_L3 feature classes exist in the reach geodatabase (created during a previous run), delete these feature classes.</p>
+<p>If any <code>🗺️ *_dims_L3</code> feature classes exist in the reach geodatabase (created during a previous run), delete these feature classes.</p>
 </div>
 </div>
 <ol type="1">
-<li>Open the XS Planform, Level 3 tool to calculate the L3 dimensions.</li>
-<li>Add the level 2 XS_Dimensions from the same survey event to xs_dimesions.</li>
-<li>Add the bankline_points from the same survey event to bankline_points.</li>
-<li>Refresh the Survey event year folder to update with the XS-Planfoem Level 3 csv.</li>
+<li>Open the <code>🛠️ XS Planform, Level 3</code> tool to calculate the L3 dimensions.</li>
+<li>Add the <code>🗺️ level 2 XS_Dimensions</code> from the same survey event to <code>🗺️ xs_dimesions</code>.</li>
+<li>Add the <code>🗺️ bankline_points</code> from the same survey event to <code>🗺️ bankline_points</code>.</li>
+<li>Refresh the Survey event year folder to update with the <code>XS-Planform Level 3 csv</code>.</li>
 <li>Verify in the attribute table that the L3 dimensions have been calculated</li>
 </ol>
 </section>
 <section id="join-from-csv-data-management-toolbox" class="level3">
 <h3 class="anchored" data-anchor-id="join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</h3>
 <ol type="1">
-<li>Open the Join from CSV in the Data Management toolbox.</li>
+<li>Open the <code>🛠️ Join from CSV</code> tool in the <code>🧰 Data Management</code> toolbox.</li>
 <li>Add the feature dataset for the current survey event.</li>
-<li>Add the level 2 XS_Dimensions from the same survey event to fc.</li>
-<li>Seclet the Seq in the dropdown for the fc_field.</li>
-<li>Add the level 3 dimension csv to the csv_file.</li>
-<li>Type Seq into the csv_field.</li>
+<li>Add the <code>🗺️ level 2 XS_Dimensions</code> from the same survey event to <code>📊 fc</code>.</li>
+<li>Seclet the <code>🧮 Seq</code> in the dropdown for the <code>📊 fc_field</code>.</li>
+<li>Add the <code>🗺️ level 3 dimension csv</code> to the <code>📊 csv_file</code>.</li>
+<li>Type <code>🧮 Seq</code> into the <code>📊 csv_field</code>.</li>
 <li>Hit Run.</li>
 <li>Verify in the attribute table joined of the L3 dimensions csv have been added.</li>
 </ol>
@@ -747,10 +763,10 @@ Note
 <section id="add-modeled-water-surface-elevation-optional" class="level3">
 <h3 class="anchored" data-anchor-id="add-modeled-water-surface-elevation-optional">Add Modeled Water Surface Elevation <strong>(Optional)</strong></h3>
 <ol type="1">
-<li>Open the RAS Watersurface tool.</li>
+<li>Open the <code>🛠️ RAS Watersurface tool</code>.</li>
 <li>Add the feature dataset for the current survey event.</li>
-<li>Add the xs_dimensions_l3 to xs_dims.</li>
-<li>Add a ras HEC model raster containing water surface elevation field.</li>
+<li>Add the <code>🗺️ xs_dimensions_l3</code> to <code>📊 xs_dims</code>.</li>
+<li>Add a <code>🗺️ ras HEC model raster</code> containing water surface elevation field.</li>
 <li>Name the model ouput (Use the RAS_model_name parameter to distinguish between multiple RAS model scenarios)</li>
 </ol>
 </section>
@@ -758,33 +774,41 @@ Note
 <h3 class="anchored" data-anchor-id="generate-level-3-report">Generate Level 3 Report</h3>
 <p>The purpose of this stage is to run the Level 3 report for each reach.</p>
 <ol type="1">
-<li>Open the Level 3 Report tool to produce the Level 3 Report.</li>
-<li>Add the value of the ReachName field used in the flowline feature class to stream.</li>
-<li>Add the flowline feature class for the base year survey to flowline_fc.</li>
-<li>Add the cross section feature class to xs_fc.</li>
-<li>Add the *_dims_L3 feature class calculated for the regular cross sections of the most recent survey event.</li>
-<li>Add the xs_points_* feature class for the most recent survey event first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
+<li>Open the <code>🛠️ Level 3 Report tool</code> to produce the Level 3 Report.</li>
+<li>Add the value of the <code>📊 ReachName</code> field used in the <code>🗺️ flowline</code> feature class to <code>📊 stream</code>.</li>
+<li>Add the <code>🗺️ flowline</code> feature class for the base year survey to <code>📊 flowline_fc</code>.</li>
+<li>Add the <code>🗺️ cross_section</code> feature class to <code>📊 xs_fc</code>.</li>
+<li>Add the <code>🗺️ *_dims_L3</code> feature class calculated for the regular cross sections of the most recent survey event.</li>
+<li>Add the <code>🗺️ xs_points_*</code> feature class for the most recent survey event first (i.e., the base year) and then the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
 <li>Enter the most recent survey event first and then the the previous surveys in reverse chronological order (e.g., 2016, 2010, 2006).</li>
-<li>Add the DEM raster for the most recent survey event.</li>
-<li>Add the banklines_fc feature class created for the most recent survey event.</li>
-<li>Add the features featrue class for the site to the features_fc.</li>
-<li>Enter the same bf_estimate fromm level 2 report into the bf_estimate box.</li>
+<li>Add the <code>🗺️ DEM raster</code> for the most recent survey event.</li>
+<li>Add the <code>🗺️ banklines</code> feature class created for the most recent survey event.</li>
+<li>Add the <code>🗺️ features</code> feature class for the site to the <code>📊 features_fc</code>.</li>
+<li>Enter the same <code>🧮 bf_estimate</code> from level 2 report into the <code>📊 bf_estimate</code> box.</li>
 <li>Enter the same regions used in level 2 report or as others as needed.</li>
 <li>Check show map box.</li>
 <li>Set the profile units to the units of the surface raster.</li>
-<li>Leave aerial and elevation boxes checked.</li>
-<li>Leave the defaults for xs_label_freq, exaggeration, and extent_factor.</li>
+<li>Leave <code>🧮 aerial</code> and <code>🧮 elevation</code> boxes <code>📊 checked</code>.</li>
+<li>Leave the <code>🧮 defaults</code> for <code>📊 xs_label_freq</code>, <code>📊 exaggeration</code>, and <code>📊 extent_factor</code>.</li>
 <li>Select the folder that the report should be written to.</li>
-<li>Select word as the output format for the report.</li>
+<li>Select <code>🧮 word</code> as the <code>📊 output format</code> for the report.</li>
 <li>Hit Run.</li>
 </ol>
 </section>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
-<p><span class="badge badge-evaluate">☑️ Evaluate</span> ### Review the report. 1. Go to chapter Level 3 Planform Report under Report Reviews. 2. Refer to the FG technical manual as need for more detailed information. 3. Revise and/or rerun as needed.</p>
+<p><span class="badge badge-evaluate">☑️ Evaluate</span></p>
+<section id="review-the-report." class="level3">
+<h3 class="anchored" data-anchor-id="review-the-report.">Review the report.</h3>
+<ol type="1">
+<li>Go to chapter Level 3 Planform Report under Report Reviews.</li>
+<li>Refer to the FG technical manual as need for more detailed information.</li>
+<li>Revise and/or rerun as needed.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

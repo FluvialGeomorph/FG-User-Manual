@@ -15,6 +15,7 @@ The data from level 1 will be needed to start the level 2 process. This analysis
 
 ## Application and Data Setup
 {{< badge practical >}}
+
 ### 	Applications
  1.	ArcGIS Pro mapping application with adequate system privileges ArcGIS Pro w/Admin Privileges to install and update toolsets.
  2.	R, Rstudio and Rtools to run the Fluvgeo tools in ArcGIS Pro. 
@@ -253,8 +254,11 @@ For a site with multiple reaches, riffle cross sections must be uniquely numbere
 21.	Review report for errors and anomalies in the data. 
 
 ## Next Steps
+
 {{< badge evaluate >}}
+
 ### Review the report. 
+
 1. Go to chapter Level 2 Estimate Bankfull Report under Report Reviews.
 2. Refer to the FG technical manual as need for more detailed information.
 3. Revise and/or rerun as needed.

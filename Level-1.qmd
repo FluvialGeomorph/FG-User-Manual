@@ -227,7 +227,7 @@ The line can be smoothed as much as desired as long as the line remains in the c
 ### 	Create Flowline 
 1.	In the FluvialGeomorph toolbox, select the `🛠️ Flowline` tool.
 2.	For the feature_dataset and stream_network drag and drop the corresponding data from the catalog. 
-3.	For `📊smooth_tolerance` put `🧮 2`. It can range from 2-5 based on the range of distribution of the flowline. The goal is to produce a smooth flowline without removing too much resolution from the line.
+3.	For `📊 smooth_tolerance` put `🧮 2`. It can range from 2-5 based on the range of distribution of the flowline. The goal is to produce a smooth flowline without removing too much resolution from the line.
 4.	Hit Run
 Note: Make sure to do most recent data first. Rerun tool for older set of data once done.
 5.	The output is a line feature class called `🗺️ flowline`. This tool derives the site flowline and smooths the stream_network geometry and converts the flowline into a route.
@@ -270,7 +270,7 @@ i.	The result converts the flowline into a series of points along the reach. The
 6.	You will create feature at the site # and any other major features on the basemap that the flowline points cross, likes a road, waterway with name, or lake. First, use the explore tool to click on a flowline point. Create the feature on top of the flowline point you selected.
     i.	Serve as reference on the profile graph in the report. 
 7.	In the table find the number next to “Measure”. Take note of this number, you will add it to the table once you create the feature. 
-8.	Open attribute table for `🗺️features`. Under km_to_mouth put the number that was correlated with “Measure”. 
+8.	Open attribute table for `🗺️ features`. Under km_to_mouth put the number that was correlated with “Measure”. 
 9.	The name in most cases will just be the name of the street or waterway. For the Site# feature, the name will be Site# and the SSRP_Type found in the attribute table of Illinois_SSRPSites_2004_2016. Ex. Site 264.
 
 ### 	Reuse the feature layer in future sites
@@ -295,8 +295,8 @@ i.	For the output geodatabase, choose the corresponding feature dataset. This al
 1.	Have the `🗺️ flowline`, `🗺️ demhydro` and `🗺️ REM` for the newer year. 
 2.	Find the elevation in the `🗺️ REM` for the bank and the `🗺️ flowline`. Check multiple locations along the stream, including the site location. 
 3.	Find the average difference in elevation between the bank and the flowline.  
-4.	Subtract the two REM values to get the bankfull depth for the channel. Ex. bank elevation 104 and flowline elevation 100 then the channel depth is 104. This value is used in the `🛠️ Water Surface Extent` tool as the `📊REM_value`. This will become the channel bank_raw value.
-5.	Next Multiply the last number of the channel bank_raw value by 2 and use it as the `📊REM_value` for the `🗺️ floodplain bank_raw`. Ex. channel bank_raw 104 make the floodplain bank_raw 108. 
+4.	Subtract the two REM values to get the bankfull depth for the channel. Ex. bank elevation 104 and flowline elevation 100 then the channel depth is 104. This value is used in the `🛠️ Water Surface Extent` tool as the `📊 REM_value`. This will become the channel bank_raw value.
+5.	Next Multiply the last number of the channel bank_raw value by 2 and use it as the `📊 REM_value` for the `🗺️ floodplain bank_raw`. Ex. channel bank_raw 104 make the floodplain bank_raw 108. 
 
 ### 	Create Water Surface Extent  
 1.	In the FluvialGeomorph toolbox, select the `🛠️ Water Surface Extent` tool. 
@@ -320,7 +320,7 @@ i.	For the output geodatabase, choose the corresponding feature dataset. This al
 ### 	Create Cross Sections (only for newest dataset) 
 1.	In the FluvialGeomorph toolbox, select the `🛠️ XS Layout` tool. 
 2.	Fill in the `🗺️ feature` dataset and `🗺️ flowline` from the most recent geodatabase.
-3.	For `📊 split type` keep as `🧮split at approximate distance`.`
+3.	For `📊 split type` keep as `🧮 split at approximate distance`.`
 4.	`📊 Transect spacing` is `🧮 300`.
 5.	`📊 Transect_width` is determined by width of floodplain from the flowline. Find the distance of the farthest point of the floodplain from the flowline
 6.	`📊 Transect_width_unit` `🧮 default` is used.
@@ -391,6 +391,7 @@ i.	For the output geodatabase, choose the corresponding feature dataset. This al
     
 ## Run Report
 {{< badge practical >}}
+
 ### 	XS Dimensions Level 1 
 1.	In the FluvialGeomorph toolbox, open `🛠️ XS Dimensions, Level 1`.
 2.	`🗺️ XS’s` are added into `📊 xs_line fc`.
@@ -436,6 +437,7 @@ h.	A new line feature class ending with dims_L1 will be added to the feature dat
 
 ## Next Steps
 {{< badge evaluate >}}
+
 ### Review the report. 
 1. Go to chapter Level 1 Report under Report Reviews.
 2. Refer to the FG technical manual as need for more detailed information.
