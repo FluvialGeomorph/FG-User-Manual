@@ -4,6 +4,7 @@ format: html
 ---
 
 {{< badge intermediate >}} {{< badge evaluate >}}
+
 ## QA Checklist {#qa_checklist}
 This chapter describes the items an analyst needs to check to ensure that the FluvialGeomorph tools have run correctly to produce clean reports. In addition to following the guidance in the previous chapters when preparing the data and running each tool, this chapter will provide a checklist of items you'll need to verify after each report completes. Reports are the place where all your hard work comes together! Your work is not complete just because the tools run without any errors. A lot of datasets must work together to make these reports come out cleanly. Because these reports integrate so many individual datasets, many issues aren't discovered until you run the reports. 
 
@@ -23,7 +24,7 @@ Reasonable detrending of bankfull elevation is essential for accurate analysis. 
 Values for drainage area should be consistent with the physical characteristics of the watershed. Ensure that the drainage area values used in the analysis are reasonable and align with the expected hydrological conditions of the study area.
 
 ## Longitudinal Profile {#estimate_bankfull_long_profile}
-This section of the report contains a cross section longitudinal profile graph drawn using the riffle cross section dimensions, riffle_channel_dims_L2 fc. 
+This section of the report contains a cross section longitudinal profile graph drawn using the riffle cross section dimensions, `🗺️ riffle_channel_dims_L2` feature class. 
 
 ### Elevation values are reasonable
 Elevations displayed in the longitudinal profile should be within expected ranges based on the topography and hydrology of the study area. Verify that the elevation values are consistent with known benchmarks or reference points.
@@ -35,7 +36,7 @@ Station units should be consistent throughout the analysis. Ensure that the stat
 Labels for stream features should be accurate and clearly visible on the longitudinal profile. Check that all labels are correctly placed and correspond to the appropriate features in the study area.
 
 ## Cross Section Metrics {#estimate_bankfull_xs_metrics}
-This report section contains a Level 2 cross section metrics plot drawn using the riffle_channel_dims_L2 fc.  
+This report section contains a Level 2 cross section metrics plot drawn using the `🗺️ riffle_channel_dims_L2` feature class.  
 
 ### Width-Depth Ratio values are reasonable
 Values for the width-depth ratio should fall within expected ranges based on the stream's morphology. Verify that the calculated ratios are consistent with known characteristics of similar streams.
@@ -56,29 +57,30 @@ Shear stress values should be evaluated to ensure they are within expected range
 Stream power values should be assessed to ensure they are consistent with the stream's energy and flow dynamics. Check that the calculated unit stream power values are reasonable and align with the expected hydraulic behavior of the channel.
 
 ## Cross Section Profiles
-This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions fc riffle_channel_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the riffle_channel_points fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section.  
+This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the cross section dimensions fc `🗺️ riffle_channel_dims_L2` and the `🗺️ dem_hydro` raster. The cross section profile graph is drawn using the `🗺️ riffle_channel_points` feature class's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section.  
 
 
 
 ## Level 2 Report {#L2_report_qa}
 
 ### Study Area Overview
-This report section contains a set of reach overview maps drawn using the flowline and the regularly spaced cross section dimensions, *_dims_L2, feature classes (fc). Both the aerial photo and elevation are provided by [Mapbox Raster Tiles](https://docs.mapbox.com/api/maps/#raster-tiles). See the QA checklist items in the [Level 1 Report, Study Area Overview](#L1_study_area_overview) section.  
+This report section contains a set of reach overview maps drawn using the `🗺️ flowline` and the regularly spaced cross section dimensions, `🗺️ *_dims_L2`, feature classes (fc). Both the aerial photo and elevation are provided by [Mapbox Raster Tiles](https://docs.mapbox.com/api/maps/#raster-tiles). See the QA checklist items in the [Level 1 Report, Study Area Overview](#L1_study_area_overview) section.  
 
 ### Longitudinal Profile
 This section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, *_dims_L2 fc. See the QA checklist items in the [Estimate Bankfull, Longitudinal Profile](#estimate_bankfull_long_profile) section. 
 
 ### Cross Section Metrics
-This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L2 fc.See the QA checklist items in the [Estimate Bankfull, Cross section Metrics](#estimate_bankfull_xs_metrics) section.
+This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, `🗺️ *_dims_L2` feature class. See the QA checklist items in the [Estimate Bankfull, Cross section Metrics](#estimate_bankfull_xs_metrics) section.
 
 #### Ensure metrics values are smooth
 Metric values should exhibit smooth transitions along the stream reach. Check that the calculated metrics do not show abrupt changes or inconsistencies that could indicate errors in data processing or analysis.
 
 ### Cross Section Profiles
-This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L2 and the dem_hydro raster. The cross section profile graph is drawn using the cross section *_points fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 
+This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions feature class `🗺️ *_dims_L2` and the `🗺️ dem_hydro` raster. The cross section profile graph is drawn using the cross section `🗺️ *_points` feature class's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 
 
 ## Next Steps
 {{< badge reference >}}
+
 ### Report 
 1. Rerun  Level 2-2 Report as needed.
 2. Re-review the rerun of Level 2-2 Report.
