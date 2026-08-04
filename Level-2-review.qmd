@@ -82,7 +82,7 @@ This report section contains a cross section map and a cross section profile gra
 {{< badge reference >}}
 
 ### Report 
-1. Rerun  Level 2 Report as needed.
+1. Rerun Level 2 Report as needed.
 2. Re-review the rerun of Level 2 Report.
 3. Revise and/or rerun as needed.
 4. Move on to next analysis.
