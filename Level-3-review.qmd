@@ -9,10 +9,10 @@ format: html
 ## QA Checklist 
 
 ## Longitudinal Profile
-This section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, *_dims_L3 fc. See the QA checklist items in the [Estimate Bankfull, Longitudinal Profile](#estimate_bankfull_long_profile) section. 
+This section of the report contains a cross section longitudinal profile graph drawn using the regularly spaced cross section dimensions, `🗺️ *_dims_L3` feature class. See the QA checklist items in the [Estimate Bankfull, Longitudinal Profile](#estimate_bankfull_long_profile) section. 
 
 ## Cross Section Metrics
-This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, *_dims_L3 fc.See the QA checklist items in the [Estimate Bankfull, Cross section Metrics](#estimate_bankfull_xs_metrics) section.
+This report section contains a Level 2 cross section metrics plot drawn using the regularly spaced cross section dimensions, `🗺️ *_dims_L3` feature class. See the QA checklist items in the [Estimate Bankfull, Cross section Metrics](#estimate_bankfull_xs_metrics) section.
 
 ### Ensure metrics values are smooth
 Smooothing of metric values is important for accurate analysis. Check that the calculated metrics exhibit smooth transitions along the stream reach and do not show abrupt changes or inconsistencies that could indicate errors in data processing or analysis.
@@ -21,7 +21,7 @@ Smooothing of metric values is important for accurate analysis. Check that the c
 Radius of curvature to bankfull width values should be assessed to ensure they are consistent with the stream's planform characteristics. Check that the calculated values are reasonable and align with the expected geomorphic behavior of the channel.
 
 ## Cross Section Profiles
-This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions fc *_dims_L3 and the dem_hydro raster. The cross section profile graph is drawn using the cross section "_points" fc's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 
+This report section contains a cross section map and a cross section profile graph for each cross section in the reach. The map is drawn from the regularly spaced cross section dimensions feature class `🗺️ *_dims_L3` and the `🗺️ dem_hydro` raster. The cross section profile graph is drawn using the cross section `🗺️ *_points` feature class's for each survey. see the QA checklist items in the [Level 1 Report, Cross Section Profiles](#L1_xs_profiles) section. 
 
 
 ***
