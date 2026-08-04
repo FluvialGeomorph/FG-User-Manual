@@ -90,6 +90,7 @@ Icon Types:
 - 📑 **Reports**
 - 📄 **File**
 - 📜 **Script**
+- 📈 **Spreadsheet**
 
 :::
 

@@ -29,7 +29,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 {{< badge practical >}}
 
 ### 	Create Riffle Cross Section Layers– for Channel 
-1.	Copy the `🗺️ XS_section` line layer in the most recent database and rename one `🗺️ XS_Layout_riffles_ch` (Ex. xs_300_150_riffels_ch).
+1.	Copy the `🗺️ XS` line feature class in the most recent database and rename one `🗺️ XS_Layout_riffles_ch` feature class (Ex. xs_300_150_riffels_ch).
 
 ### 	Select the XS_section that represent best represent rock riffle areas in the reach.
 1.	Select between 3 and 6 riffle location based on the length and characteristics of 
@@ -53,44 +53,44 @@ The data from level 1 will be needed to start this estimate bankfull process.
 ### 	XS Resequence the riffle XS_sections 
 1.	In the catalog pane, go to the `🧰 FluvialGeomorph toolbox`. Expand tools and select `🛠️ XS Resequence`.
 2.  Feature_dataset for the most recent year.
-3.	Xs_fc for the `🗺️ XS_Layout_riffles_ch`. 
+3.	Xs_fc for the `🗺️ XS_Layout_riffles_ch`  feature class. 
 
 ### 	Resize the XS_Layout_riffles_ch
 1.	The riffle cross sections need to snapped perpendicular to the channel polygon at the current riffle location.
 2.	Save Edits
 
 ### 	Create Floodplain riffle layer
-1.	Copy the `🗺️ XS_Layout_riffles_ch` to the current year feature dataset and rename it `🗺️ XS_Layout_riffles_fp`.
-2.	Edit the `🗺️ XS_Layout_riffles_fp` lines to the full width of the floodplain polygon. The `🗺️ XS_Layout_riffles_fp` must line up with the `🗺️ XS_Layout_riffles_ch` lines. 
+1.	Copy the `🗺️ XS_Layout_riffles_ch` line feature class to the current year feature dataset and rename it `🗺️ XS_Layout_riffles_fp`.
+2.	Edit the `🗺️ XS_Layout_riffles_fp` line  feature class to the full width of the floodplain polygon. The `🗺️ XS_Layout_riffles_fp` line feature class must line up with the `🗺️ XS_Layout_riffles_ch` line feature class. 
 3.	Save edits.
  
 ### 	Calculate Cross Section Watershed Area – for the channel and floodplain riffles
-1.	In the fluvialgeomorph folder, expand layers and add `🗺️ NHDPlusFac_National.tif`
+1.	In the fluvialgeomorph folder, expand layers and add `🗺️ NHDPlusFac_National.tif` raster.
 2.	Right click the layer, go to data, then export raster
 3.	Add the output to the event folder.
 4.	Clipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.
-    i.	Optional: Create a clip for each project site of the `🗺️ NHDPlusFac_National.tif` with the extent zoomed out 1:50000 centered on the site.
+    i.	Optional: Create a clip for each project site of the `🗺️ NHDPlusFac_National.tif` raster with the extent zoomed out 1:50000 centered on the site.
 5.	Go to FluvialGeomorph toolbox open `🛠️ XS Water Area tool`.
 6.	`📊 Snap distance` is `🧮 100`.
 7.	Start with the more recent data first.
 8.	Hit Run.
     i.	If it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime. 
-    ii.	The result is a new attribute field in the `🗺️ XS` feature class that has a calculated watershed area for each regularly spaced cross section.
+    ii.	The result is a new attribute field in the `🗺️ XS` line feature class that has a calculated watershed area for each regularly spaced cross section.
 9.	Once it is done running, open attribute table and see if anything in the `📊 watershedareaSqMile` is off.
     i.	Some of the cross sections `📊 Watershed_Area_SqMile` may not follow the trend. If this is the case, manually enter in the values to fill in the gaps. If most of the cross sections are missing these or display incorrect values, rerun `🛠️ Watershed Area Tool` and increase the `📊 snap distance`.
     ii.	Check for other streams and bodies of water feeding into the stream that would validate the abrupt changes in the watershed area.
 
 ### 	Import riffle cross sections into GDB feature dataset.
-1.	Import the finished `🗺️ XS_Layout_riffles_ch` and `🗺️ XS_Layout_riffles_fp` to the earlier year feature dataset. 
+1.	Import the finished `🗺️ XS_Layout_riffles_ch` and `🗺️ XS_Layout_riffles_fp` feature classes to the earlier year feature dataset. 
 
 ### 	XS River Position 
 1.	In the FluvialGeomorph toolbox, select `🛠️ XS River Position`.
 2.	Enter feature dataset for more recent geodatabase.
-3.	Input `🗺️ Riffle Cross Sections`.
-4.	Input `🗺️ Flowline Points`.
-5.	Hit Run. Complete for both the `🗺️ channel_XS` and `🗺️floodplain_XS`
-6.	The result adds new fields in the attribute table of the `🗺️ XS` feature class. 
-7.	Two temporary charts will populate the Contents tab under the `🗺️ Cross Section` Line Feature Class (XS `📊 Seq by 📊 km_to_mouth, 📊 XS Seq by Watershed Area sq mile`). If the charts are removed from the contents pane, you will need to run the `🛠️ XS River Position Tool` to view them again.
+3.	Input `🗺️ Riffle_XS` line feature class.
+4.	Input `🗺️ Flowlinepoints` feature class.
+5.	Hit Run. Complete for both the `🗺️ channel_XS` and `🗺️floodplain_XS`  feature classes.
+6.	The result adds new fields in the attribute table of the `🗺️ XS` line feature class. 
+7.	Two temporary charts will populate the Contents tab under the `🗺️ XS` line feature class (XS `📊 Seq by 📊 km_to_mouth, 📊 XS Seq by Watershed Area sq mile`). If the charts are removed from the contents pane, you will need to run the `🛠️ XS River Position Tool` to view them again.
     i.	Open both Charts and inspect for any issues in the data.
     ii.	Note: This step provides charts which help see if there are gaps in the data.
 8.	Repeat `🛠️ XS River Position Tool` for the older gdb.
@@ -98,23 +98,23 @@ The data from level 1 will be needed to start this estimate bankfull process.
 ### XS Points 
 1.	In the FluvialGeomorph toolbox, select `🛠️ XS Points`.
 2.	Enter feature dataset for more recent geodatabase.
-3.	Input `🗺️ Cross Sections`.
-4.	Input `🗺️ dem_hydro`.
+3.	Input `🗺️ XS` line  feature class.
+4.	Input `🗺️ dem_hydro` raster.
 5.	Change `📊 dem_units` to `🧮 ft`.
-6.	Input `🗺️ REM for the `📊 detrend_dem`.
+6.	Input `🗺️ REM` raster for the `📊 detrend_dem`.
 7.	`📊 Station Distance` is `🧮 1`.
-8.	Hit Run. Complete for both the `🗺️ channel_XS` and `🗺️ floodplain_XS`.
+8.	Hit Run. Complete for both the `🗺️ channel_XS` and `🗺️ floodplain_XS` feature classes.
 9.	Points have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.
 10.	Repeat these steps for the older gdb.
 
 ### 	XS Point Classify 
 1.	In the FluvialGeomorph toolbox, select `🛠️ XS Point Classify`.
 2.	Enter feature dataset for the most recent year.
-3.	Input `🗺️ XS points`.
-4.	Input `🗺️ channel polygon`.
-5.	Input `🗺️ floodplain polygon`.
+3.	Input `🗺️ XSpoints` feature class.
+4.	Input `🗺️ channel polygon`  feature class.
+5.	Input `🗺️ floodplain polygon`  feature class.
 7.	Leave `📊 buffer distance` as `🧮 default`.
-8.	Repeat for earlier event `🗺️ XS Points`.
+8.	Repeat for earlier event `🗺️ XSpoints`  feature class.
 
 ## Run Report
 
@@ -123,7 +123,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 ### 	XS Dimensions Level 1
 
 1.	In the FluvialGeomorph toolbox, open `🛠️ XS Dimensions, Level 1`.
-2.	`🗺️ XS’s` for the newest event are added into `📊 xs_line fc`.
+2.	`🗺️ XS` line  feature class for the newest event are added into `📊 xs_line fc`.
 3.	Enter `🧮 4` for the `📊 lead_n`.
     i.	This sets the moving window to average 4 XS’s above and below the XS being calculated.
 4.	Leave the `📊 use_smoothing` box `🧮 unchecked` and `📊 loess_span` as `🧮 0.1`.
@@ -132,7 +132,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 
 ### 	Join from CSV (Data Management toolbox)
 1.	In the FluvialGeomorph toolbox, open `🛠️ Join From CSV` located in the `🧰 Data Management toolset`.
-2.	`🗺️ Features` dataset will be the feature dataset of the most recent gdb.
+2.	`🗺️ features` point  feature class will be the feature dataset of the most recent gdb.
 3.	Fc will be the `🗺️ XS` line feature class.
 4.	Choose `🧮 Seq` in the dropdown for the `📊 fc_field`.
 5.	The csv_file will be the .csv file created from the `🛠️ XS Dimensions Level 1 Tool`.
@@ -180,10 +180,10 @@ The data from level 1 will be needed to start this estimate bankfull process.
 
 
 ###	L2 XS Dimensions 
-1.	In the FluvialGeomorph toolbox, open XS Dimensions, Level 2.
-2.	`🗺️ XS’s dimension level 1 for the riffles` into the `📊 xs_line fc`. Ex. xs_300_150_riffels_ch_103_5_dims_L1
-3.	`🗺️ XS’s_points for the channel riffles` are added to the `📊 XS_point_fc`. Ex. xs_300_150_riffels_ch_103_5.
-4.	`📊 Bankfull_elevation` is from the `📊 channel depth` of the `🗺️ bank_raw channel` layer. Ex. 103.5
+1.	In the FluvialGeomorph toolbox, open `🛠️ XS Dimensions, Level 2`.
+2.	`🗺️ XS` dimension level 1 for the riffles into the `📊 xs_line fc`. Ex. xs_300_150_riffels_ch_103_5_dims_L1
+3.	`🗺️ XS_points_channel_riffles` are added to the `📊 XS_point_fc`. Ex. xs_300_150_riffels_ch_103_5.
+4.	`📊 Bankfull_elevation` is from the `📊 channel depth` of the `🗺️ bank_rawchannel`  feature class. Ex. 103.5
 5.	Enter `🧮 4` for the `📊 lead_n`.
     i.	This sets the moving window to average 4 XS’s above and below the XS being calculated.
 6.	Leave the `📊 use_smoothing` box `🧮 unchecked` and `📊 loess_span` as `🧮 0.1`. Can be adjusted up to 1.
@@ -195,7 +195,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 ###	Join from CSV 
 1.	In the FluvialGeomorph toolbox, open `🛠️ Join From CSV` located in the `🧰 Data Management toolset`.
 2.	`🗺️ Features` dataset will be the feature dataset of the most recent gdb.
-3.	Fc will be the `🗺️ XS channel riffles _dims_L1` line feature class.
+3.	Fc will be the `🗺️ XSchannelriffles _dims_L1` line feature class.
 4.	Choose `🧮 Seq` in the dropdown for the `📊 fc_field`.
 5.	The csv_file will be the `🗺️ .csv` file created from the ``XS Dimensions Level 2 Tool.
 6.	`📊 Csv_field` will match the `📊 fc_field` so it should also be `🧮 Seq`.
@@ -204,18 +204,18 @@ The data from level 1 will be needed to start this estimate bankfull process.
 
 ###	Generate Level L2 Estimate Bankfull Report
 1.	In the FluvialGeomorph toolbox, open the `🛠️ Report – L2 Estimate Bankfull` located in the `🧰 Reports toolset`.
-2.	`📊 Stream` will be the`🧮 ReachName` which was created when making the flowline. Copy and paste the `🧮 ReachName` from `🗺️ XS’s` attribute table.
+2.	`📊 Stream` will be the`🧮 ReachName` which was created when making the flowline. Copy and paste the `🧮 ReachName` from `🗺️ XS` feature class attribute table.
 3.	`📊 Flowline_fc` will be the `🗺️ flowline` feature class from the recent survey event.
-4.	`📊 Xs_dimensions_fc` will be the `🗺️ XS's` line feature class created during the `🛠️ Join From CSV tool`.
-5.	`📊 Xs_point_ch_1` will be the `🗺️ flowline points` from the most recent survey event.
-    i.	`📊 Xs_point_ch_2` will be the `🗺️ flowline points` from the older survey event.
-6.	`📊 Xs_points_fp_1` will be the `🗺️ XS points` point feature class created from the `🛠️ XS Points tool`. Use the data from the most recent survey event.
-    i.	`📊 Xs_points_fp_2` will be the `🗺️ XS points` point feature class for the older survey event.
-7.	`📊 Survey_name_1` will be the `🗺️ survey event` of the most recent data (ex: 2022).
-    i.	`📊 Survey_name_2` will be the `🗺️ survey event` of the older data (ex: 2012).
-8.	`📊 Features_fc` will need the `🗺️ features point` feature class that was created to indicate roadways, site improvements, or other bodies of water.
-    i.	`📊 Channel_fc` will be the lower number ` 🗺️ bank_raw layer` that represents the channel.
-9.	`📊 Floodplain_fc` will be the higher number ` 🗺️ bank_raw layer` that represents the floodplain,
+4.	`📊 Xs_dimensions_fc` will be the `🗺️ XS` line feature class created during the `🛠️ Join From CSV tool`.
+5.	`📊 Xs_point_ch_1` will be the `🗺️ flowlinepoints` feature class from the most recent survey event.
+    i.	`📊 Xs_point_ch_2` will be the `🗺️ flowlinepoints` feature class from the older survey event.
+6.	`📊 Xs_points_fp_1` will be the `🗺️ XSpoints` feature class created from the `🛠️ XS Points tool`. Use the data from the most recent survey event.
+    i.	`📊 Xs_points_fp_2` will be the `🗺️ XSpoints` feature class for the older survey event.
+7.	`📊 Survey_name_1` will be the `🗺️ survey event` feature class of the most recent data (ex: 2022).
+    i.	`📊 Survey_name_2` will be the `🗺️ survey event` feature class of the older data (ex: 2012).
+8.	`📊 Features_fc` will need the `🗺️ features` point feature class that was created to indicate roadways, site improvements, or other bodies of water.
+    i.	`📊 Channel_fc` will be the lower number ` 🗺️ bank_raw layer` feature class that represents the channel.
+9.	`📊 Floodplain_fc` will be the higher number ` 🗺️ bank_raw layer` feature class that represents the floodplain,
 10.	`📊 Dem` will need the `🗺️ dem_hydro`.
 11.	Regions will be selected based on needs for the site. They calculate an estimate of specific hydraulic dimension for a given drainage area. One to four curves can be selected for a report.  Ex. IL sites normally use Southern Driftless, Lower Southern Driftless, and Eastern United States. 
 12.	`📊 From_elevation` is the `🧮 low end number` from a range built around the `📊 channel bf_estimate number`. 
@@ -230,7 +230,7 @@ The data from level 1 will be needed to start this estimate bankfull process.
 20.	`📊 Output_dir` is where the `📑 report` will be stored. Each project has a `📁 Reports folder`. 
 21.	`📊 Output_format` is `🧮 word_document`.
 22.	Hit Run.
-23.	Review `📑 report` for errors and anomalies in the data. 
+23.	Review `📑 Report` for errors and anomalies in the data. 
 
 ## Next Steps
 {{< badge evaluate >}}
@@ -238,5 +238,5 @@ The data from level 1 will be needed to start this estimate bankfull process.
 ### Review the report. 
 
 1. Go to chapter Level 2 Bankfull Report under Report Reviews.
-2. Refer to the FG technical manual as need for more detailed information.
+2. Refer to the FG Technical Manual as need for more detailed information.
 3. Revise and/or rerun as needed.

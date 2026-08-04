@@ -539,7 +539,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="create-riffle-cross-section-layers-for-channel" class="level3">
 <h3 class="anchored" data-anchor-id="create-riffle-cross-section-layers-for-channel">Create Riffle Cross Section Layers– for Channel</h3>
 <ol type="1">
-<li>Copy the <code>🗺️ XS_section</code> line layer in the most recent database and rename one <code>🗺️ XS_Layout_riffles_ch</code> (Ex. xs_300_150_riffels_ch).</li>
+<li>Copy the <code>🗺️ XS</code> line feature class in the most recent database and rename one <code>🗺️ XS_Layout_riffles_ch</code> feature class (Ex. xs_300_150_riffels_ch).</li>
 </ol>
 </section>
 <section id="select-the-xs_section-that-represent-best-represent-rock-riffle-areas-in-the-reach." class="level3">
@@ -569,7 +569,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>In the catalog pane, go to the <code>🧰 FluvialGeomorph toolbox</code>. Expand tools and select <code>🛠️ XS Resequence</code>.</li>
 <li>Feature_dataset for the most recent year.</li>
-<li>Xs_fc for the <code>🗺️ XS_Layout_riffles_ch</code>.</li>
+<li>Xs_fc for the <code>🗺️ XS_Layout_riffles_ch</code> feature class.</li>
 </ol>
 </section>
 <section id="resize-the-xs_layout_riffles_ch" class="level3">
@@ -582,20 +582,20 @@ ul.task-list li input[type="checkbox"] {
 <section id="create-floodplain-riffle-layer" class="level3">
 <h3 class="anchored" data-anchor-id="create-floodplain-riffle-layer">Create Floodplain riffle layer</h3>
 <ol type="1">
-<li>Copy the <code>🗺️ XS_Layout_riffles_ch</code> to the current year feature dataset and rename it <code>🗺️ XS_Layout_riffles_fp</code>.</li>
-<li>Edit the <code>🗺️ XS_Layout_riffles_fp</code> lines to the full width of the floodplain polygon. The <code>🗺️ XS_Layout_riffles_fp</code> must line up with the <code>🗺️ XS_Layout_riffles_ch</code> lines.</li>
+<li>Copy the <code>🗺️ XS_Layout_riffles_ch</code> line feature class to the current year feature dataset and rename it <code>🗺️ XS_Layout_riffles_fp</code>.</li>
+<li>Edit the <code>🗺️ XS_Layout_riffles_fp</code> line feature class to the full width of the floodplain polygon. The <code>🗺️ XS_Layout_riffles_fp</code> line feature class must line up with the <code>🗺️ XS_Layout_riffles_ch</code> line feature class.</li>
 <li>Save edits.</li>
 </ol>
 </section>
 <section id="calculate-cross-section-watershed-area-for-the-channel-and-floodplain-riffles" class="level3">
 <h3 class="anchored" data-anchor-id="calculate-cross-section-watershed-area-for-the-channel-and-floodplain-riffles">Calculate Cross Section Watershed Area – for the channel and floodplain riffles</h3>
 <ol type="1">
-<li>In the fluvialgeomorph folder, expand layers and add <code>🗺️ NHDPlusFac_National.tif</code></li>
+<li>In the fluvialgeomorph folder, expand layers and add <code>🗺️ NHDPlusFac_National.tif</code> raster.</li>
 <li>Right click the layer, go to data, then export raster</li>
 <li>Add the output to the event folder.</li>
 <li>Clipping geometry is displaying current extent. Make sure you are zoomed out to the whole county, so each site is located within extent.
 <ol type="i">
-<li>Optional: Create a clip for each project site of the <code>🗺️ NHDPlusFac_National.tif</code> with the extent zoomed out 1:50000 centered on the site.</li>
+<li>Optional: Create a clip for each project site of the <code>🗺️ NHDPlusFac_National.tif</code> raster with the extent zoomed out 1:50000 centered on the site.</li>
 </ol></li>
 <li>Go to FluvialGeomorph toolbox open <code>🛠️ XS Water Area tool</code>.</li>
 <li><code>📊 Snap distance</code> is <code>🧮 100</code>.</li>
@@ -603,7 +603,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Hit Run.
 <ol type="i">
 <li>If it doesn’t work zoom into the mile radius of site and clip FAC. Having a smaller clip will also reduce the tool runtime.</li>
-<li>The result is a new attribute field in the <code>🗺️ XS</code> feature class that has a calculated watershed area for each regularly spaced cross section.</li>
+<li>The result is a new attribute field in the <code>🗺️ XS</code> line feature class that has a calculated watershed area for each regularly spaced cross section.</li>
 </ol></li>
 <li>Once it is done running, open attribute table and see if anything in the <code>📊 watershedareaSqMile</code> is off.
 <ol type="i">
@@ -615,7 +615,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="import-riffle-cross-sections-into-gdb-feature-dataset." class="level3">
 <h3 class="anchored" data-anchor-id="import-riffle-cross-sections-into-gdb-feature-dataset.">Import riffle cross sections into GDB feature dataset.</h3>
 <ol type="1">
-<li>Import the finished <code>🗺️ XS_Layout_riffles_ch</code> and <code>🗺️ XS_Layout_riffles_fp</code> to the earlier year feature dataset.</li>
+<li>Import the finished <code>🗺️ XS_Layout_riffles_ch</code> and <code>🗺️ XS_Layout_riffles_fp</code> feature classes to the earlier year feature dataset.</li>
 </ol>
 </section>
 <section id="xs-river-position" class="level3">
@@ -623,11 +623,11 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, select <code>🛠️ XS River Position</code>.</li>
 <li>Enter feature dataset for more recent geodatabase.</li>
-<li>Input <code>🗺️ Riffle Cross Sections</code>.</li>
-<li>Input <code>🗺️ Flowline Points</code>.</li>
-<li>Hit Run. Complete for both the <code>🗺️ channel_XS</code> and <code>🗺️floodplain_XS</code></li>
-<li>The result adds new fields in the attribute table of the <code>🗺️ XS</code> feature class.</li>
-<li>Two temporary charts will populate the Contents tab under the <code>🗺️ Cross Section</code> Line Feature Class (XS <code>📊 Seq by 📊 km_to_mouth, 📊 XS Seq by Watershed Area sq mile</code>). If the charts are removed from the contents pane, you will need to run the <code>🛠️ XS River Position Tool</code> to view them again.
+<li>Input <code>🗺️ Riffle_XS</code> line feature class.</li>
+<li>Input <code>🗺️ Flowlinepoints</code> feature class.</li>
+<li>Hit Run. Complete for both the <code>🗺️ channel_XS</code> and <code>🗺️floodplain_XS</code> feature classes.</li>
+<li>The result adds new fields in the attribute table of the <code>🗺️ XS</code> line feature class.</li>
+<li>Two temporary charts will populate the Contents tab under the <code>🗺️ XS</code> line feature class (XS <code>📊 Seq by 📊 km_to_mouth, 📊 XS Seq by Watershed Area sq mile</code>). If the charts are removed from the contents pane, you will need to run the <code>🛠️ XS River Position Tool</code> to view them again.
 <ol type="i">
 <li>Open both Charts and inspect for any issues in the data.</li>
 <li>Note: This step provides charts which help see if there are gaps in the data.</li>
@@ -640,12 +640,12 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, select <code>🛠️ XS Points</code>.</li>
 <li>Enter feature dataset for more recent geodatabase.</li>
-<li>Input <code>🗺️ Cross Sections</code>.</li>
-<li>Input <code>🗺️ dem_hydro</code>.</li>
+<li>Input <code>🗺️ XS</code> line feature class.</li>
+<li>Input <code>🗺️ dem_hydro</code> raster.</li>
 <li>Change <code>📊 dem_units</code> to <code>🧮 ft</code>.</li>
-<li>Input <code>🗺️ REM for the</code>📊 detrend_dem`.</li>
+<li>Input <code>🗺️ REM</code> raster for the <code>📊 detrend_dem</code>.</li>
 <li><code>📊 Station Distance</code> is <code>🧮 1</code>.</li>
-<li>Hit Run. Complete for both the <code>🗺️ channel_XS</code> and <code>🗺️ floodplain_XS</code>.</li>
+<li>Hit Run. Complete for both the <code>🗺️ channel_XS</code> and <code>🗺️ floodplain_XS</code> feature classes.</li>
 <li>Points have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.</li>
 <li>Repeat these steps for the older gdb.</li>
 </ol>
@@ -655,11 +655,11 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, select <code>🛠️ XS Point Classify</code>.</li>
 <li>Enter feature dataset for the most recent year.</li>
-<li>Input <code>🗺️ XS points</code>.</li>
-<li>Input <code>🗺️ channel polygon</code>.</li>
-<li>Input <code>🗺️ floodplain polygon</code>.</li>
+<li>Input <code>🗺️ XSpoints</code> feature class.</li>
+<li>Input <code>🗺️ channel polygon</code> feature class.</li>
+<li>Input <code>🗺️ floodplain polygon</code> feature class.</li>
 <li>Leave <code>📊 buffer distance</code> as <code>🧮 default</code>.</li>
-<li>Repeat for earlier event <code>🗺️ XS Points</code>.</li>
+<li>Repeat for earlier event <code>🗺️ XSpoints</code> feature class.</li>
 </ol>
 </section>
 </section>
@@ -670,7 +670,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="xs-dimensions-level-1">XS Dimensions Level 1</h3>
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, open <code>🛠️ XS Dimensions, Level 1</code>.</li>
-<li><code>🗺️ XS’s</code> for the newest event are added into <code>📊 xs_line fc</code>.</li>
+<li><code>🗺️ XS</code> line feature class for the newest event are added into <code>📊 xs_line fc</code>.</li>
 <li>Enter <code>🧮 4</code> for the <code>📊 lead_n</code>.
 <ol type="i">
 <li>This sets the moving window to average 4 XS’s above and below the XS being calculated.</li>
@@ -684,7 +684,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="join-from-csv-data-management-toolbox">Join from CSV (Data Management toolbox)</h3>
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, open <code>🛠️ Join From CSV</code> located in the <code>🧰 Data Management toolset</code>.</li>
-<li><code>🗺️ Features</code> dataset will be the feature dataset of the most recent gdb.</li>
+<li><code>🗺️ features</code> point feature class will be the feature dataset of the most recent gdb.</li>
 <li>Fc will be the <code>🗺️ XS</code> line feature class.</li>
 <li>Choose <code>🧮 Seq</code> in the dropdown for the <code>📊 fc_field</code>.</li>
 <li>The csv_file will be the .csv file created from the <code>🛠️ XS Dimensions Level 1 Tool</code>.</li>
@@ -734,10 +734,10 @@ Check with hydrologist requesting the analysis for additional sources.*</code></
 <section id="l2-xs-dimensions" class="level3">
 <h3 class="anchored" data-anchor-id="l2-xs-dimensions">L2 XS Dimensions</h3>
 <ol type="1">
-<li>In the FluvialGeomorph toolbox, open XS Dimensions, Level 2.</li>
-<li><code>🗺️ XS’s dimension level 1 for the riffles</code> into the <code>📊 xs_line fc</code>. Ex. xs_300_150_riffels_ch_103_5_dims_L1</li>
-<li><code>🗺️ XS’s_points for the channel riffles</code> are added to the <code>📊 XS_point_fc</code>. Ex. xs_300_150_riffels_ch_103_5.</li>
-<li><code>📊 Bankfull_elevation</code> is from the <code>📊 channel depth</code> of the <code>🗺️ bank_raw channel</code> layer. Ex. 103.5</li>
+<li>In the FluvialGeomorph toolbox, open <code>🛠️ XS Dimensions, Level 2</code>.</li>
+<li><code>🗺️ XS</code> dimension level 1 for the riffles into the <code>📊 xs_line fc</code>. Ex. xs_300_150_riffels_ch_103_5_dims_L1</li>
+<li><code>🗺️ XS_points_channel_riffles</code> are added to the <code>📊 XS_point_fc</code>. Ex. xs_300_150_riffels_ch_103_5.</li>
+<li><code>📊 Bankfull_elevation</code> is from the <code>📊 channel depth</code> of the <code>🗺️ bank_rawchannel</code> feature class. Ex. 103.5</li>
 <li>Enter <code>🧮 4</code> for the <code>📊 lead_n</code>.
 <ol type="i">
 <li>This sets the moving window to average 4 XS’s above and below the XS being calculated.</li>
@@ -754,7 +754,7 @@ Check with hydrologist requesting the analysis for additional sources.*</code></
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, open <code>🛠️ Join From CSV</code> located in the <code>🧰 Data Management toolset</code>.</li>
 <li><code>🗺️ Features</code> dataset will be the feature dataset of the most recent gdb.</li>
-<li>Fc will be the <code>🗺️ XS channel riffles _dims_L1</code> line feature class.</li>
+<li>Fc will be the <code>🗺️ XSchannelriffles _dims_L1</code> line feature class.</li>
 <li>Choose <code>🧮 Seq</code> in the dropdown for the <code>📊 fc_field</code>.</li>
 <li>The csv_file will be the <code>🗺️ .csv</code> file created from the ``XS Dimensions Level 2 Tool.</li>
 <li><code>📊 Csv_field</code> will match the <code>📊 fc_field</code> so it should also be <code>🧮 Seq</code>.</li>
@@ -766,26 +766,26 @@ Check with hydrologist requesting the analysis for additional sources.*</code></
 <h3 class="anchored" data-anchor-id="generate-level-l2-estimate-bankfull-report">Generate Level L2 Estimate Bankfull Report</h3>
 <ol type="1">
 <li>In the FluvialGeomorph toolbox, open the <code>🛠️ Report – L2 Estimate Bankfull</code> located in the <code>🧰 Reports toolset</code>.</li>
-<li><code>📊 Stream</code> will be the<code>🧮 ReachName</code> which was created when making the flowline. Copy and paste the <code>🧮 ReachName</code> from <code>🗺️ XS’s</code> attribute table.</li>
+<li><code>📊 Stream</code> will be the<code>🧮 ReachName</code> which was created when making the flowline. Copy and paste the <code>🧮 ReachName</code> from <code>🗺️ XS</code> feature class attribute table.</li>
 <li><code>📊 Flowline_fc</code> will be the <code>🗺️ flowline</code> feature class from the recent survey event.</li>
-<li><code>📊 Xs_dimensions_fc</code> will be the <code>🗺️ XS's</code> line feature class created during the <code>🛠️ Join From CSV tool</code>.</li>
-<li><code>📊 Xs_point_ch_1</code> will be the <code>🗺️ flowline points</code> from the most recent survey event.
+<li><code>📊 Xs_dimensions_fc</code> will be the <code>🗺️ XS</code> line feature class created during the <code>🛠️ Join From CSV tool</code>.</li>
+<li><code>📊 Xs_point_ch_1</code> will be the <code>🗺️ flowlinepoints</code> feature class from the most recent survey event.
 <ol type="i">
-<li><code>📊 Xs_point_ch_2</code> will be the <code>🗺️ flowline points</code> from the older survey event.</li>
+<li><code>📊 Xs_point_ch_2</code> will be the <code>🗺️ flowlinepoints</code> feature class from the older survey event.</li>
 </ol></li>
-<li><code>📊 Xs_points_fp_1</code> will be the <code>🗺️ XS points</code> point feature class created from the <code>🛠️ XS Points tool</code>. Use the data from the most recent survey event.
+<li><code>📊 Xs_points_fp_1</code> will be the <code>🗺️ XSpoints</code> feature class created from the <code>🛠️ XS Points tool</code>. Use the data from the most recent survey event.
 <ol type="i">
-<li><code>📊 Xs_points_fp_2</code> will be the <code>🗺️ XS points</code> point feature class for the older survey event.</li>
+<li><code>📊 Xs_points_fp_2</code> will be the <code>🗺️ XSpoints</code> feature class for the older survey event.</li>
 </ol></li>
-<li><code>📊 Survey_name_1</code> will be the <code>🗺️ survey event</code> of the most recent data (ex: 2022).
+<li><code>📊 Survey_name_1</code> will be the <code>🗺️ survey event</code> feature class of the most recent data (ex: 2022).
 <ol type="i">
-<li><code>📊 Survey_name_2</code> will be the <code>🗺️ survey event</code> of the older data (ex: 2012).</li>
+<li><code>📊 Survey_name_2</code> will be the <code>🗺️ survey event</code> feature class of the older data (ex: 2012).</li>
 </ol></li>
-<li><code>📊 Features_fc</code> will need the <code>🗺️ features point</code> feature class that was created to indicate roadways, site improvements, or other bodies of water.
+<li><code>📊 Features_fc</code> will need the <code>🗺️ features</code> point feature class that was created to indicate roadways, site improvements, or other bodies of water.
 <ol type="i">
-<li><code>📊 Channel_fc</code> will be the lower number <code>🗺️ bank_raw layer</code> that represents the channel.</li>
+<li><code>📊 Channel_fc</code> will be the lower number <code>🗺️ bank_raw layer</code> feature class that represents the channel.</li>
 </ol></li>
-<li><code>📊 Floodplain_fc</code> will be the higher number <code>🗺️ bank_raw layer</code> that represents the floodplain,</li>
+<li><code>📊 Floodplain_fc</code> will be the higher number <code>🗺️ bank_raw layer</code> feature class that represents the floodplain,</li>
 <li><code>📊 Dem</code> will need the <code>🗺️ dem_hydro</code>.</li>
 <li>Regions will be selected based on needs for the site. They calculate an estimate of specific hydraulic dimension for a given drainage area. One to four curves can be selected for a report. Ex. IL sites normally use Southern Driftless, Lower Southern Driftless, and Eastern United States.</li>
 <li><code>📊 From_elevation</code> is the <code>🧮 low end number</code> from a range built around the <code>📊 channel bf_estimate number</code>.
@@ -802,7 +802,7 @@ Check with hydrologist requesting the analysis for additional sources.*</code></
 <li><code>📊 Output_dir</code> is where the <code>📑 report</code> will be stored. Each project has a <code>📁 Reports folder</code>.</li>
 <li><code>📊 Output_format</code> is <code>🧮 word_document</code>.</li>
 <li>Hit Run.</li>
-<li>Review <code>📑 report</code> for errors and anomalies in the data.</li>
+<li>Review <code>📑 Report</code> for errors and anomalies in the data.</li>
 </ol>
 </section>
 </section>
@@ -813,7 +813,7 @@ Check with hydrologist requesting the analysis for additional sources.*</code></
 <h3 class="anchored" data-anchor-id="review-the-report.">Review the report.</h3>
 <ol type="1">
 <li>Go to chapter Level 2 Bankfull Report under Report Reviews.</li>
-<li>Refer to the FG technical manual as need for more detailed information.</li>
+<li>Refer to the FG Technical Manual as need for more detailed information.</li>
 <li>Revise and/or rerun as needed.</li>
 </ol>
 
