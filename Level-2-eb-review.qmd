@@ -17,8 +17,8 @@ Region correction is a critical step in the Bankfull Elevation Sensitivity Analy
 ### Adequate range of bankfull elevations
 Evaluate the range of bankfull elevations used in the sensitivity analysis. The range should be sufficient to capture the variability in bankfull conditions across the study area. If the range is too narrow, it may not provide a comprehensive understanding of the stream's behavior.
 
-### Detrended bankfull elevation set to a reasonable value
-Reasonable detrending of bankfull elevation is essential for accurate analysis. Check that the detrended bankfull elevation values are set appropriately, reflecting the natural variability of the stream's morphology.
+### REMed bankfull elevation set to a reasonable value
+Reasonable REMing of bankfull elevation is essential for accurate analysis. Check that the REMed bankfull elevation values are set appropriately, reflecting the natural variability of the stream's morphology.
 
 ### Drainage Area values are reasonable
 Values for drainage area should be consistent with the physical characteristics of the watershed. Ensure that the drainage area values used in the analysis are reasonable and align with the expected hydrological conditions of the study area.

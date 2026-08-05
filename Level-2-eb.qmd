@@ -8,7 +8,7 @@ format: html
 {{< badge intermediate >}}
 
 The purpose of this SOP is to demonstrate the workflow of fluvial geomorphology (fluvgeo) rapid watershed assessment in ArcGIS Pro. This approach uses a suite of planning analysis tools to rapidly assess and identify sediment sources, pathways, and sinks for watershed analysis.
-Level 2 is to estimate the detrended bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping of all cross sections and roughly estimate channel bankfull dimensions and profile for each reach.
+Level 2 is to estimate the REMed bankfull elevation for the base year for each reach. This is accomplished by identifying and mapping of all cross sections and roughly estimate channel bankfull dimensions and profile for each reach.
 The data from level 1 will be needed to start the level 2 process. This analysis begins with modifications to the cross sections.
 
 
@@ -103,7 +103,7 @@ For a site with multiple reaches, riffle cross sections must be uniquely numbere
 3.	Input extended `🗺️ XS` line feature class.
 4.	Input `🗺️ dem_hydro` raster.
 5.	Change `📊 dem_units` to `🧮 ft`.
-6.	Input `🗺️ REM` raster for the detrend_dem.
+6.	Input `🗺️ REM` raster for the REM_dem.
 7.	`📊 Station Distance` is `🧮 1`.
 8.	Hit Run. Complete for both the `🗺️ channel_XS` and `🗺️ floodplain_XS` point feature classes.
 9.	Points have been created every foot along the Cross Section with an Elevation. This will provide a visual elevation profile for each cross section.

@@ -17,8 +17,8 @@ Regions included in the analysis must be appropriate for the study area. Ensure 
 ### Adequate range of bankfull elevations
 Ranges of bankfull elevations used in the sensitivity analysis should be sufficient to capture the variability in bankfull conditions across the study area. If the range is too narrow, it may not provide a comprehensive understanding of the stream's behavior.
 
-### Detrended bankfull elevation set to a reasonable value
-Detrended bankfull elevation values should be set appropriately, reflecting the natural variability of the stream's morphology.
+### REMed bankfull elevation set to a reasonable value
+REMed bankfull elevation values should be set appropriately, reflecting the natural variability of the stream's morphology.
 
 ### Drainage Area values are reasonable
 Values for drainage area should be consistent with the physical characteristics of the watershed. Ensure that the drainage area values used in the analysis are reasonable and align with the expected hydrological conditions of the study area.

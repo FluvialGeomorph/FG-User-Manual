@@ -55,7 +55,7 @@
 
 **Deposition**: The settlement or accumulation of material out of the water column and onto the stream bed or floodplain.  Occurs when the energy of flowing water is unable to transport sediment load. 
 
-**Detrend**: 
+**REM**: 
 
 **Digital Elevation Models (DEMs)**: 
 

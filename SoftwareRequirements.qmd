@@ -6,11 +6,13 @@ format: html
 
 ## Software
 {{< badge intermediate >}} {{< badge practical >}} {{< badge reference >}}
+
 Here is a summary of the software that must be installed to use the FluvialGeomorph toolbox. 
 
-* Windows OS (10+ recommended, Server 2019). ArcGIS desktop GIS applications are only provided by ESRI for the Windows platform.
+* Windows OS (10+ recommended, Server 2019). ArcGIS Desktop GIS applications are only provided by ESRI for the Windows platform.
 * R Statistical Computing Language (4.x+ recommended)
-* RStudio Desktop (2024.12.1+ recommended)
+* RStudio or Positron Desktop (2024.12.1+ recommended)
 * ArcGIS Pro (3.2+ recommended) 
-* FluvialGeomorph toolbox, latest version
+* FluvialGeomorph Toolbox, latest version
+* LAS Tools for ArcGIS Pro (optional, but recommended for working with LiDAR data)
 
