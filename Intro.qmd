@@ -1,5 +1,9 @@
 # Introduction
 
+ FluvialGeomorph Framework (FGF) is a remote-sensing approach based on lidar data, designed to measure channel, floodplain, valley, and watershed metrics necessary for watershed assessments. Watershed studies provide a comprehensive approach to identifying and treating areas of concern. Practical applications of this framework provide a developed approach to studies involving flood-risk management issues, critical habitat protection or enhancement opportunities, water-quality issues, excessive sediment delivery from erosion of streambanks, gullies and concentrated overland flow areas, land-use change, and protection for critical public infrastructure.  
+
+ The FGF is designed around ESRI and open source software to combine several platforms which structure the FG-toolbox workflow process. Using a mesh of application to build this process introduces restrictions and defines specified structures to how the workflow can be implemented. Data management is impacted by this factor requiring the use of geodatabases for data storage for all spatial data other than the lidar files. Further detailed information on data management for this workflow can be found in the Technical and User manual.  
+
 ## Background
 The background section defines the problem addressed by the research
 and its impact on the U.S. Army. It cites related previous studies and explains
@@ -28,5 +32,33 @@ The approach section explains the research methodology. If the methodology
 is complex or otherwise warrants a chapter of its own, the approach
 section may simply cross-reference the reader to the appropriate chapter.
 
+## Contributing and Support
 
+### Open Source Development
+
+FluvialGeomorph is open source software. We welcome contributions including:
+
+- Bug reports and feature requests
+- Code contributions and method improvements
+- Documentation enhancements
+- Validation studies and case studies
+- Application examples from different regions
+
+Visit the [GitHub repository](https://github.com/FluvialGeomorph/FluvialGeomorph-toolbox) to contribute.
+
+### Getting Help
+
+Support resources include:
+
+- **Technical Manual**: Detailed method documentation (this document)
+- **GitHub Issues**: Bug reports and technical questions
+- **Community**: Share experiences and solutions with other users
+
+### Acknowledgement
+
+Sections of this manual were generated with the assistance of artificial intelligence (AI) tools, using existing content from other sections of the FG User Manual as input. Large Language Models were employed to reorganize, summarize, and visually structure the material to improve usability and navigation. No new scientific results or methods were created by AI; rather, AI was used to transform and clarify pre existing documentation. All AI-assisted outputs have been reviewed, edited, and approved by the authors, who remain responsible for the accuracy and interpretation of the information presented. This acknowledgement is provided to maintain transparency about the role of AI in the preparation of these materials.
+
+### Citing FluvialGeomorph
+
+If you use FluvialGeomorph in research or publications, please cite appropriately and acknowledge the U.S. Army Corps of Engineers as the developer.
 ***

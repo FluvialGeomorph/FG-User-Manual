@@ -125,6 +125,7 @@ Icon Types:
   - 📑 **Reports** – Generated report products (tables, summaries, documents) used to review results.
   - 📄 **File** – Individual data or project files (e.g., `.gdb`, `.tif`, `.shp`, `.csv`).
   - 📜 **Script** – Code or scripts (e.g., Python) used to automate or extend workflows.
+  - 📈 **Spreadsheet** – Data tables or worksheets (e.g., Excel) used for analysis or reporting.
 :::
 
 :::::
