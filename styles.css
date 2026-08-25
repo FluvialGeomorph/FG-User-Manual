@@ -110,3 +110,16 @@ figcaption {
   background-color: #C4D6F5;
   color: #000;
 }
+/* Reduce space between image and caption inside columns. */
+.quarto-layout-cell figcaption {
+  margin-top: 2px !important;
+}
+
+.quarto-layout-cell img {
+  margin-bottom: 2px !important;
+}
+
+/* Mermaid source is retained beside the format-aware shortcode for maintenance. */
+.mermaid-source {
+  display: none !important;
+}

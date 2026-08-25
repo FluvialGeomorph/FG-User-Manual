@@ -1,0 +1,51 @@
+graph LR
+    subgraph TM["Technical Manual"]
+        TM1[1. Introduction & Overview]
+        TM2[2. Stream Classification]
+        TM3[3. Hydraulic Geometry]
+        TM4[4. Bankfull Identification]
+        TM5[5. Cross-Section Analysis]
+        TM6[6. Longitudinal Profile]
+        TM7[7. Sediment Transport]
+        TM8[8. Channel Stability]
+        TM9[9. Validation & QC]
+        TM10[10. Regional Curves]
+    end
+    subgraph UM["User Manual"]
+        UM1[1. Getting Started]
+        UM2[2. Data Requirements]
+        UM3[3. Field Data Collection]
+        UM4[4. Data Processing]
+        UM5[5. Terrain Development]
+        UM6[6. Reach Delineation]
+        UM7[7. Cross-Section Tools]
+        UM8[8. Bankfull Analysis]
+        UM9[9. Classification Workflow]
+        UM10[10. Hydraulic Geometry]
+        UM11[11. Sediment Analysis]
+        UM12[12. Report Generation]
+        UM13[13. Quality Control]
+        UM14[14. Troubleshooting]
+    end
+    TM1 -.->|Context| UM1
+    TM1 -.->|Overview| UM2
+    TM2 -->|Methods| UM9
+    TM2 -.->|Field ID| UM3
+    TM3 -->|Equations| UM10
+    TM3 -.->|Theory| UM7
+    TM4 -->|Criteria| UM8
+    TM4 -->|Indicators| UM3
+    TM5 -->|Analysis Methods| UM7
+    TM5 -.->|Processing| UM4
+    TM6 -->|Profile Analysis| UM6
+    TM6 -.->|Slope Calc| UM5
+    TM7 -->|Transport Equations| UM11
+    TM7 -.->|Substrate| UM3
+    TM8 -.->|Assessment| UM9
+    TM8 -.->|Indicators| UM3
+    TM9 -->|Validation| UM13
+    TM9 -->|Expected Ranges| UM12
+    TM10 -.->|Regional Data| UM10
+    TM10 -.->|Comparison| UM13
+    style TM fill:#e8f4f8
+    style UM fill:#fff4e6

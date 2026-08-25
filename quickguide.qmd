@@ -1,6 +1,5 @@
 ---
 title: "Quick Guide"
-format: html
 ---
 
 {{< badge reference >}}
@@ -92,6 +91,7 @@ Topic Classifications:
 
 ---
 
+::: {.content-visible when-format="html"}
 ```{=html}
 <div style="text-align: center; max-width: 1200px; margin: 40px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   
@@ -249,6 +249,18 @@ Topic Classifications:
 </div>
 
 ```
+:::
+
+::: {.content-visible unless-format="html"}
+### How the Manuals Work Together
+
+| Technical Manual | User Manual |
+|---|---|
+| Explains the scientific foundation, equations, methods, and validation. | Provides step-by-step workflows, software instructions, examples, and troubleshooting. |
+| Use it to understand why a method is appropriate and how to interpret results. | Use it to run an analysis, follow a workflow, and resolve implementation problems. |
+
+Recommended sequence: understand the method in the Technical Manual, apply it with the User Manual, and consult both while interpreting and documenting results.
+:::
 
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: "Manual Flowchart"
-format: html
 ---
 
 {{< badge resource >}}
@@ -10,7 +9,10 @@ The FluvialGeomorph
 
 ## Quick Decision Flowchart
 
-```{mermaid}
+::: {.content-visible when-format="html"}
+{{< formatdiagram diagrams/manual-flowchart.mmd >}}
+
+```{.text .mermaid-source}
 flowchart LR
     Start([I need to work with<br/>fluvial geomorphology]) --> Question1{What do I<br/>need to do?}
     
@@ -39,6 +41,15 @@ flowchart LR
     style User fill:#fff4e6
     style Both fill:#f0e6ff
 ```
+:::
+
+::: {.content-visible unless-format="html"}
+- Use the **Technical Manual** to learn scientific methods, equations, validation, and reporting references.
+- Use the **User Manual** for installation, data processing, analysis workflows, and troubleshooting.
+- For a new project, begin with User Manual setup and consult Technical Manual methods.
+- When learning, begin with Technical Manual concepts and practice with User Manual tutorials.
+- For quality control, execute with the User Manual and validate with the Technical Manual.
+:::
 
 ---
 

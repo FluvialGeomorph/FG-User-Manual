@@ -4,3 +4,6 @@
 .Ruserdata
 
 /.quarto/
+/_pdf/
+
+**/*.quarto_ipynb

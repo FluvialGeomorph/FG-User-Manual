@@ -1,0 +1,22 @@
+flowchart LR
+    Start([I need to work with<br/>fluvial geomorphology]) --> Question1{What do I<br/>need to do?}
+    Question1 -->|Learn the science| Tech[Technical Manual]
+    Question1 -->|Do the work| User[User Manual]
+    Question1 -->|Both| Both[Use Both Manuals]
+    Tech --> TechQ{What specifically?}
+    TechQ -->|Understand methods| TechMethods[Technical Manual:<br/>Methods & Theory]
+    TechQ -->|Learn equations| TechEq[Technical Manual:<br/>Calculations]
+    TechQ -->|Validate approach| TechVal[Technical Manual:<br/>Quality Control]
+    TechQ -->|Write report| TechReport[Technical Manual:<br/>References & Citations]
+    User --> UserQ{What specifically?}
+    UserQ -->|Install software| UserSetup[User Manual:<br/>Setup & Installation]
+    UserQ -->|Process data| UserData[User Manual:<br/>Data Processing]
+    UserQ -->|Run analysis| UserAnalysis[User Manual:<br/>Workflows]
+    UserQ -->|Fix errors| UserTrouble[User Manual:<br/>Troubleshooting]
+    Both --> BothQ{Starting point?}
+    BothQ -->|New project| BothNew[Start: User Manual Setup<br/>Reference: Technical Manual Methods]
+    BothQ -->|Learning| BothLearn[Start: Technical Manual Concepts<br/>Practice: User Manual Tutorials]
+    BothQ -->|Quality check| BothQC[Execute: User Manual<br/>Validate: Technical Manual]
+    style Tech fill:#e8f4f8
+    style User fill:#fff4e6
+    style Both fill:#f0e6ff

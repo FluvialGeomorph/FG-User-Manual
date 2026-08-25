@@ -1,6 +1,5 @@
 ---
 title: "Manual Crosswalk"
-format: html
 ---
 
 {{< badge resource >}}
@@ -9,7 +8,10 @@ format: html
 
 ## Visual Concept Map
 
-```{mermaid}
+::: {.content-visible when-format="html"}
+{{< formatdiagram diagrams/manual-concept-map.mmd >}}
+
+```{.text .mermaid-source}
 graph LR
     subgraph TM["📐 Technical Manual"]
         TM1[1. Introduction & Overview]
@@ -74,6 +76,14 @@ graph LR
     style TM fill:#e8f4f8
     style UM fill:#fff4e6
 ```
+:::
+
+::: {.content-visible unless-format="html"}
+The Technical Manual supplies the scientific context, equations, methods, and
+validation criteria used by the corresponding practical workflows in the User
+Manual. The detailed correspondence tables below provide the print-friendly
+crosswalk.
+:::
 
 **Legend:**
 - **Solid arrows (→)**: Primary/direct correspondence

@@ -23,13 +23,17 @@ Further information can be added.
   
   local badge_info = badges[level]
   if badge_info then
-    local html = string.format(
-      '<span class="badge %s">%s %s</span>',
-      badge_info.class,
-      badge_info.icon,
-      badge_info.text
-    )
-    return pandoc.RawInline('html', html)
+    if quarto.doc.is_format("html:js") then
+      local html = string.format(
+        '<span class="badge %s">%s %s</span>',
+        badge_info.class,
+        badge_info.icon,
+        badge_info.text
+      )
+      return pandoc.RawInline('html', html)
+    end
+
+    return pandoc.Strong({pandoc.Str("[" .. badge_info.text .. "]")})
   end
   
   return pandoc.Null()

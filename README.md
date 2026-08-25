@@ -52,3 +52,21 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 ## Read the Report
 Read the report here: [FG-User-Manual](https://fluvialgeomorph.github.io/FG-User-Manual/)
+
+## Render the Book
+
+HTML is the primary publication format. Render it into the tracked `docs/`
+directory with:
+
+``` powershell
+quarto render --to html
+```
+
+Create an occasional, basic PDF without changing the GitHub Pages output with:
+
+``` powershell
+quarto render --to pdf --output-dir _pdf
+```
+
+The generated `_pdf/FG-User-Manual.pdf` is a local artifact and is ignored by
+Git. See `dev/workflows/render-book.md` for workstation setup and verification.

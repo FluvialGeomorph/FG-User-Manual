@@ -1,6 +1,5 @@
 ---
 title: "Level-2 Bankfull Report"
-format: html
 ---
 
 {{< badge intermediate >}} {{< badge evaluate >}}

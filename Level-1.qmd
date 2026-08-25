@@ -1,12 +1,5 @@
 ---
 title: "Level-1 Initial Channel Analysis"
-format: 
-  html:
-    lightbox:
-      match: auto
-      desc-position: bottom
-      loop: true
-    css: styles.css  
 ---
 {{< badge beginner >}}
 
@@ -164,29 +157,11 @@ Data will need to be gathered from the most appropriate source for each reach lo
     ii.	Zoom to the start of the water system and change the extent to around 1:1000. 
     iii.	Follow along the water system and look for roads or major crossings that cut off the water system. Draw a line from one end of the waterway to the other side that is cut off. Below are a few examples. 
     
-    ```{css}
-    /*| echo: false */
+    ::: {layout-ncol=2}
+    ![Cutline example 1](images/cutline1.jpg){width=3in}
 
-    /* Reduce space between image and caption inside columns */
-    .quarto-layout-cell figcaption {
-      margin-top: 2px !important;
-    }
-    .quarto-layout-cell img {
-      margin-bottom: 2px !important;
-    }
-    ```
-
-    ```{r}
-    #| echo: false
-    #| layout-ncol: 2
-    #| out-width: "3in"
-    #| fig-cap: 
-    #|   - Cutline example 1
-    #|   - Cutline example 2
-    #| fig-align: left
-    knitr::include_graphics("images/cutline1.jpg")
-    knitr::include_graphics("images/cutline2.jpg")
-    ```
+    ![Cutline example 2](images/cutline2.jpg){width=3in}
+    :::
 9.	If there are no blockages create a cutline at each end of the stream.
 10.	When done, make sure to save edits before doing the next step.
 

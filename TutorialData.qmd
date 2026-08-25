@@ -1,6 +1,5 @@
 ---
 title: "Tutorial Data"
-format: html
 ---
 {{< badge beginner >}} {{< badge practical >}} {{< badge reference >}}
 
@@ -14,7 +13,9 @@ In this section we will assemble the tutorial data for the Cole Creek Site in th
 
 * Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
 
-``` {fig.cap="Papillion Creek Folder Structure."}
+**Papillion Creek Folder Structure**
+
+```text
 Papillion_Creek
 └─── Sites
 │    └─── 01_Cole_Creek
@@ -39,7 +40,9 @@ In this section we will assemble the tutorial data for the Big Blue Dam sites in
 
 * Start preparing your project working directory by creating the following folder structure. See the [project folder structure](#folder_structure) section for a detailed description of the functional role of each folder.  
 
-``` {fig.cap="Big Blue Dam Folder Structure."}
+**Big Blue Dam Folder Structure**
+
+```text
 Big_Blue_Dam
 └─── Sites
 │    └─── 01_Horseshoe_Creek

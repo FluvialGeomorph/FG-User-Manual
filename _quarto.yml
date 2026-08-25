@@ -5,13 +5,14 @@ project:
   
 book:
   title: "FluvialGeomorph User Manual" 
+  output-file: "FG-User-Manual"
  
  # author:
  #    - Christopher Haring, Geomorphologist/Research Physical Scientist, Coastal Hydraulics Laboratory, U.S. Army Corps of Engineers
  #    - Michael Dougherty, Geographer, US Army Corps of Engineers, Rock Island District
  #   - Bobby Oliver, Geographer, US Army Corps of Engineers, Rock Island District
   
-  date: "20256-06-10" 
+  date: "2026-06-10"
   repo-url: https://github.com/FluvialGeomorph/FG-User-Manual
 
 
@@ -24,7 +25,7 @@ book:
     - part: "Foundations"
       chapters:
         - quickguide.qmd
-        - concepts.qmd
+        - Concepts.qmd
         - flowchart.qmd
         - concept_map.qmd
 
@@ -76,7 +77,10 @@ format:
       - fontawesome
     respect-user-color-scheme: true
     css: styles.css
-    lightbox: true
+    lightbox:
+      match: auto
+      desc-position: bottom
+      loop: true
     number-depth: 0
    
 editor: source
